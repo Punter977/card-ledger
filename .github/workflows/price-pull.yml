@@ -1,0 +1,43 @@
+name: Card Price Pull
+
+on:
+  schedule:
+    # Daily at 09:00 UTC. At up to 200 cards (200 x 25 records/card =
+    # 5,000/day, the free tier's daily cap), a single run covers the whole
+    # collection - no queuing needed. Running daily rather than just every
+    # 3 days (the lookback window) means each card's window overlaps the
+    # prior TWO days' pulls, not just one - so a single missed/failed run
+    # still gets fully caught up by the next day's pull.
+    - cron: "0 9 * * *"
+  workflow_dispatch: {}   # lets you trigger it manually from the Actions tab
+
+permissions:
+  contents: write
+
+jobs:
+  fetch-prices:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Fetch prices
+        env:
+          CARD_API_KEY: ${{ secrets.CARD_API_KEY }}
+        run: python scripts/fetch_prices.py --cards ./data/cards.csv --history ./data/price_history.json --limit 25
+
+      - name: Commit updated history
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/price_history.json
+          git diff --staged --quiet || git commit -m "Price snapshot $(date -u +%Y-%m-%d)"
+          git push
