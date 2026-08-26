@@ -32,12 +32,12 @@ jobs:
       - name: Fetch prices
         env:
           CARD_API_KEY: ${{ secrets.CARD_API_KEY }}
-        run: python scripts/fetch_prices.py --cards ./data/cards.csv --history ./data/price_history.json --limit 25
+        run: python scripts/fetch_prices.py  --cards ./docs/data/cards.csv --history ./docs/data/price_history.json --limit 25
 
       - name: Commit updated history
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/price_history.json
+          git add docs/data/price_history.json
           git diff --staged --quiet || git commit -m "Price snapshot $(date -u +%Y-%m-%d)"
           git push
