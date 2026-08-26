@@ -315,6 +315,7 @@ def main():
             "grade": card.get("grade", ""),
             "photo_filename": card.get("photo_filename", ""),
             "back_photo_filename": card.get("back_photo_filename", ""),
+            "added_at": card.get("added_at", ""),
         }
         entry["snapshots"].append({
             "date": snapshot_date,
