@@ -110,6 +110,21 @@
     position: relative;
   }
 
+  .edit-link {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px;
+    color: var(--text-muted);
+    text-decoration: none;
+    border: 1px solid var(--line);
+    padding: 3px 8px;
+    border-radius: 12px;
+    z-index: 1;
+  }
+  .edit-link:hover { color: var(--accent); border-color: var(--accent-dim); }
+
   .tile-top {
     display: flex;
     gap: 14px;
@@ -536,8 +551,19 @@ function cardTile(card) {
       `).join('')}</div>`
     : '';
 
+  const editParams = new URLSearchParams({
+    edit: '1',
+    player: m.player || '',
+    year: m.year || '',
+    set: m.set || '',
+    card_number: m.card_number || '',
+    grade: m.grade || '',
+  });
+  const editUrl = `add.html?${editParams.toString()}`;
+
   return `
     <div class="tile" data-search="${(title + ' ' + metaLine).toLowerCase()}">
+      <a href="${editUrl}" class="edit-link" title="Edit this card">✎ Edit</a>
       <div class="tile-top">
         <div class="photo-wrap ${hasPhoto ? 'clickable' : ''}">${photoHtml}</div>
         <div class="id-block">

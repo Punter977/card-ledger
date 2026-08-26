@@ -432,12 +432,12 @@ function setStatus(kind, html) {
 // ---------- tabs ----------
 document.getElementById('tab-add').addEventListener('click', () => switchTab('add'));
 document.getElementById('tab-edit').addEventListener('click', () => switchTab('edit'));
-function switchTab(which) {
+function switchTab(which, autoLoad = true) {
   document.getElementById('tab-add').classList.toggle('active', which === 'add');
   document.getElementById('tab-edit').classList.toggle('active', which === 'edit');
   document.getElementById('add-section').style.display = which === 'add' ? 'block' : 'none';
   document.getElementById('edit-section').style.display = which === 'edit' ? 'block' : 'none';
-  if (which === 'edit' && !editState.rows) loadCardsForEdit();
+  if (which === 'edit' && autoLoad && !editState.rows) loadCardsForEdit();
 }
 
 // ---------- CSV parsing/serializing (handles quoted fields with commas/newlines) ----------
@@ -834,6 +834,48 @@ document.getElementById('btn-edit-submit').addEventListener('click', async () =>
     btn.disabled = false;
   }
 });
+
+// ---------- deep-link from a dashboard tile's "Edit" button ----------
+// The dashboard links here as add.html?edit=1&player=...&year=...&set=...
+// &card_number=...&grade=... - on load, jump straight to the Edit tab,
+// load the card list, and pre-select the matching row so the person never
+// has to hunt for it in the dropdown themselves.
+async function tryAutoSelectFromURL() {
+  const params = new URLSearchParams(window.location.search);
+  if (params.get('edit') !== '1') return;
+
+  const s = getSettings();
+  if (!s.owner || !s.repo || !s.token) return; // nothing to load yet - user needs to connect first anyway
+
+  switchTab('edit', /* autoLoad */ false);
+  await loadCardsForEdit();
+  if (!editState.rows) return;
+
+  const wantPlayer = (params.get('player') || '').trim();
+  const wantYear = (params.get('year') || '').trim();
+  const wantSet = (params.get('set') || '').trim();
+  const wantNumber = (params.get('card_number') || '').trim();
+  const wantGrade = (params.get('grade') || '').trim();
+
+  const idx = editState.rows.findIndex(r =>
+    (r.player || '').trim() === wantPlayer &&
+    (r.year || '').trim() === wantYear &&
+    (r.set || '').trim() === wantSet &&
+    (r.card_number || '').trim() === wantNumber &&
+    (r.grade || '').trim() === wantGrade
+  );
+
+  if (idx === -1) {
+    setStatus('error', 'Couldn\'t automatically match that card — please select it manually from the dropdown below.');
+    return;
+  }
+
+  const select = document.getElementById('e-select');
+  select.value = String(idx);
+  select.dispatchEvent(new Event('change'));
+}
+tryAutoSelectFromURL();
+
 </script>
 </body>
 </html>
