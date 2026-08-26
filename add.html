@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Add Card — Card Ledger</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0D1321;
+    --surface: #161D30;
+    --surface-raised: #1F2A46;
+    --line: #2C3A5C;
+    --text: #EBEEF8;
+    --text-muted: #8B96BB;
+    --accent: #A78BFA;
+    --accent-dim: #4A3B78;
+    --teal: #2DD4BF;
+    --up: #34D399;
+    --down: #FB7185;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; min-height: 100vh; }
+
+  header {
+    padding: 32px 24px 20px;
+    border-bottom: 1px solid var(--line);
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .brand { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 28px; letter-spacing: 0.5px; text-transform: uppercase; }
+  .brand span { color: var(--accent); }
+  header a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    border: 1px solid var(--line);
+    padding: 6px 12px;
+    border-radius: 6px;
+  }
+  header a:hover { border-color: var(--accent); color: var(--accent); }
+
+  main { max-width: 640px; margin: 0 auto; padding: 28px 24px 80px; }
+
+  h2 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    margin: 28px 0 12px;
+    color: var(--text);
+  }
+  h2:first-child { margin-top: 0; }
+
+  .card-box {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 16px;
+  }
+
+  label {
+    display: block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    color: var(--text-muted);
+    margin-bottom: 5px;
+  }
+  .field { margin-bottom: 14px; }
+  .field-row { display: flex; gap: 12px; }
+  .field-row .field { flex: 1; }
+
+  input[type="text"], input[type="password"] {
+    width: 100%;
+    background: var(--surface-raised);
+    border: 1px solid var(--line);
+    color: var(--text);
+    padding: 10px 12px;
+    border-radius: 6px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+  }
+  input:focus { outline: 1px solid var(--accent); border-color: var(--accent); }
+  input[type="file"] {
+    width: 100%;
+    color: var(--text-muted);
+    font-size: 13px;
+    padding: 8px 0;
+  }
+
+  .hint { font-size: 12px; color: var(--text-muted); margin-top: 4px; }
+
+  button {
+    background: var(--accent);
+    color: #0D1321;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 6px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    width: 100%;
+  }
+  button:hover { opacity: 0.9; }
+  button:disabled { opacity: 0.5; cursor: not-allowed; }
+  button.secondary {
+    background: transparent;
+    border: 1px solid var(--line);
+    color: var(--text);
+  }
+  button.secondary:hover { border-color: var(--accent); color: var(--accent); }
+
+  details.settings summary {
+    cursor: pointer;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    list-style: none;
+    margin-bottom: 12px;
+  }
+  details.settings summary::-webkit-details-marker { display: none; }
+  details.settings summary:before { content: "▸ "; }
+  details.settings[open] summary:before { content: "▾ "; }
+
+  .status {
+    margin-top: 16px;
+    padding: 12px 14px;
+    border-radius: 6px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12.5px;
+    display: none;
+    line-height: 1.6;
+  }
+  .status.visible { display: block; }
+  .status.info { background: var(--surface-raised); border: 1px solid var(--line); color: var(--text-muted); }
+  .status.success { background: rgba(45,212,191,0.08); border: 1px solid var(--teal); color: var(--teal); }
+  .status.error { background: rgba(251,113,133,0.08); border: 1px solid var(--down); color: var(--down); }
+
+  .status a { color: inherit; text-decoration: underline; }
+
+  .note {
+    font-size: 12.5px;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-bottom: 16px;
+  }
+  .note a { color: var(--accent); }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">CARD <span>LEDGER</span></div>
+  <a href="index.html">← Back to dashboard</a>
+</header>
+
+<main>
+  <h2>Card details</h2>
+  <div class="card-box">
+    <div class="field">
+      <label>Player *</label>
+      <input type="text" id="f-player" placeholder="Michael Jordan">
+    </div>
+    <div class="field-row">
+      <div class="field">
+        <label>Year *</label>
+        <input type="text" id="f-year" placeholder="1993-94">
+      </div>
+      <div class="field">
+        <label>Card number</label>
+        <input type="text" id="f-number" placeholder="5">
+      </div>
+    </div>
+    <div class="field">
+      <label>Set *</label>
+      <input type="text" id="f-set" placeholder="Fleer Ultra Scoring Kings">
+    </div>
+    <div class="field-row">
+      <div class="field">
+        <label>Variant</label>
+        <input type="text" id="f-variant" placeholder="Refractor, /99, etc (optional)">
+      </div>
+      <div class="field">
+        <label>Grade</label>
+        <input type="text" id="f-grade" placeholder="BGS 8.5 (leave blank if raw)">
+      </div>
+    </div>
+    <div class="field">
+      <label>Notes</label>
+      <input type="text" id="f-notes" placeholder="Optional">
+    </div>
+  </div>
+
+  <h2>Photos</h2>
+  <div class="card-box">
+    <div class="field">
+      <label>Front photo *</label>
+      <input type="file" id="f-front" accept="image/*" capture="environment">
+    </div>
+    <div class="field">
+      <label>Back photo (recommended for numbered/parallel cards)</label>
+      <input type="file" id="f-back" accept="image/*" capture="environment">
+    </div>
+  </div>
+
+  <details class="settings" id="settings-panel">
+    <summary>GitHub connection settings</summary>
+    <div class="card-box">
+      <p class="note">
+        This page writes directly to your GitHub repo using a personal
+        access token — no server involved, it all happens in your browser.
+        Create a <strong>fine-grained token</strong> scoped to just this
+        one repo at
+        <a href="https://github.com/settings/tokens?type=beta" target="_blank" rel="noopener">github.com/settings/tokens</a>,
+        with <strong>Contents: Read and write</strong> and
+        <strong>Actions: Read and write</strong> permissions (the second
+        one lets this page trigger a price pull for you after adding a
+        card). The token is stored only in this browser's local storage —
+        it's never sent anywhere except directly to GitHub's API.
+      </p>
+      <div class="field">
+        <label>GitHub username</label>
+        <input type="text" id="s-owner" placeholder="e.g. Punter977">
+      </div>
+      <div class="field">
+        <label>Repository name</label>
+        <input type="text" id="s-repo" placeholder="e.g. card-ledger">
+      </div>
+      <div class="field">
+        <label>Branch</label>
+        <input type="text" id="s-branch" placeholder="main" value="main">
+      </div>
+      <div class="field">
+        <label>Personal access token</label>
+        <input type="password" id="s-token" placeholder="github_pat_...">
+      </div>
+      <button class="secondary" id="btn-save-settings" type="button">Save connection settings</button>
+    </div>
+  </details>
+
+  <button id="btn-submit" type="button">Add card to collection</button>
+
+  <div class="status" id="status"></div>
+</main>
+
+<script>
+const SETTINGS_KEY = 'card_ledger_settings_v1';
+
+function getSettings() {
+  try {
+    return JSON.parse(localStorage.getItem(SETTINGS_KEY) || '{}');
+  } catch { return {}; }
+}
+function saveSettings(s) {
+  localStorage.setItem(SETTINGS_KEY, JSON.stringify(s));
+}
+function loadSettingsIntoForm() {
+  const s = getSettings();
+  document.getElementById('s-owner').value = s.owner || '';
+  document.getElementById('s-repo').value = s.repo || '';
+  document.getElementById('s-branch').value = s.branch || 'main';
+  document.getElementById('s-token').value = s.token || '';
+  // Auto-expand the settings panel if nothing's configured yet, so
+  // first-time use isn't a confusing dead end.
+  if (!s.owner || !s.repo || !s.token) {
+    document.getElementById('settings-panel').open = true;
+  }
+}
+loadSettingsIntoForm();
+
+document.getElementById('btn-save-settings').addEventListener('click', () => {
+  saveSettings({
+    owner: document.getElementById('s-owner').value.trim(),
+    repo: document.getElementById('s-repo').value.trim(),
+    branch: document.getElementById('s-branch').value.trim() || 'main',
+    token: document.getElementById('s-token').value.trim(),
+  });
+  setStatus('info', 'Connection settings saved in this browser.');
+});
+
+function setStatus(kind, html) {
+  const el = document.getElementById('status');
+  el.className = `status visible ${kind}`;
+  el.innerHTML = html;
+}
+
+function sanitize(s) {
+  return (s || '').toString().trim().toLowerCase().replace(/[^a-z0-9]+/g, '_').replace(/^_+|_+$/g, '');
+}
+
+function fileToBase64(file) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => resolve(reader.result.split(',')[1]);
+    reader.onerror = reject;
+    reader.readAsDataURL(file);
+  });
+}
+
+function utf8ToBase64(str) {
+  const bytes = new TextEncoder().encode(str);
+  let binary = '';
+  bytes.forEach(b => binary += String.fromCharCode(b));
+  return btoa(binary);
+}
+function base64ToUtf8(b64) {
+  const binary = atob(b64);
+  const bytes = new Uint8Array(binary.length);
+  for (let i = 0; i < binary.length; i++) bytes[i] = binary.charCodeAt(i);
+  return new TextDecoder().decode(bytes);
+}
+
+function csvEscape(v) {
+  v = (v ?? '').toString();
+  if (/[",\n]/.test(v)) return '"' + v.replace(/"/g, '""') + '"';
+  return v;
+}
+
+async function ghFetch(path, options = {}) {
+  const s = getSettings();
+  const url = `https://api.github.com/repos/${s.owner}/${s.repo}/contents/${path}`;
+  return fetch(url, {
+    ...options,
+    headers: {
+      'Authorization': `Bearer ${s.token}`,
+      'Accept': 'application/vnd.github+json',
+      ...(options.headers || {}),
+    },
+  });
+}
+
+async function getExistingFile(path) {
+  const res = await ghFetch(path);
+  if (res.status === 404) return null;
+  if (!res.ok) throw new Error(`Couldn't read ${path} (${res.status}). Check your token's permissions.`);
+  return res.json();
+}
+
+async function putFile(path, base64Content, message, sha) {
+  const s = getSettings();
+  const body = { message, content: base64Content, branch: s.branch || 'main' };
+  if (sha) body.sha = sha;
+  const res = await ghFetch(path, {
+    method: 'PUT',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(body),
+  });
+  if (!res.ok) {
+    const err = await res.json().catch(() => ({}));
+    throw new Error(`Failed to write ${path} (${res.status}): ${err.message || 'unknown error'}`);
+  }
+  return res.json();
+}
+
+async function triggerPricePull() {
+  const s = getSettings();
+  const url = `https://api.github.com/repos/${s.owner}/${s.repo}/actions/workflows/price-pull.yml/dispatches`;
+  const res = await fetch(url, {
+    method: 'POST',
+    headers: {
+      'Authorization': `Bearer ${s.token}`,
+      'Accept': 'application/vnd.github+json',
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ ref: s.branch || 'main' }),
+  });
+  return res.ok;
+}
+
+document.getElementById('btn-submit').addEventListener('click', async () => {
+  const s = getSettings();
+  if (!s.owner || !s.repo || !s.token) {
+    setStatus('error', 'Fill in your GitHub connection settings first (below).');
+    document.getElementById('settings-panel').open = true;
+    return;
+  }
+
+  const player = document.getElementById('f-player').value.trim();
+  const year = document.getElementById('f-year').value.trim();
+  const set = document.getElementById('f-set').value.trim();
+  const cardNumber = document.getElementById('f-number').value.trim();
+  const variant = document.getElementById('f-variant').value.trim();
+  const grade = document.getElementById('f-grade').value.trim();
+  const notes = document.getElementById('f-notes').value.trim();
+  const frontFile = document.getElementById('f-front').files[0];
+  const backFile = document.getElementById('f-back').files[0];
+
+  if (!player || !year || !set) {
+    setStatus('error', 'Player, year, and set are required.');
+    return;
+  }
+  if (!frontFile) {
+    setStatus('error', 'A front photo is required.');
+    return;
+  }
+
+  const btn = document.getElementById('btn-submit');
+  btn.disabled = true;
+
+  try {
+    const base = sanitize(`${player}_${year}_${set}`) || 'card';
+    const ts = Date.now();
+    const frontExt = (frontFile.name.split('.').pop() || 'jpg').toLowerCase();
+    const frontFilename = `${base}_${ts}.${frontExt}`;
+
+    setStatus('info', 'Uploading front photo…');
+    const frontB64 = await fileToBase64(frontFile);
+    await putFile(`docs/photos/${frontFilename}`, frontB64, `Add photo: ${player} ${set}`);
+
+    let backFilename = '';
+    if (backFile) {
+      setStatus('info', 'Uploading back photo…');
+      const backExt = (backFile.name.split('.').pop() || 'jpg').toLowerCase();
+      backFilename = `${base}_${ts}_back.${backExt}`;
+      const backB64 = await fileToBase64(backFile);
+      await putFile(`docs/photos/${backFilename}`, backB64, `Add back photo: ${player} ${set}`);
+    }
+
+    setStatus('info', 'Updating cards.csv…');
+    const csvPath = 'docs/data/cards.csv';
+    const existing = await getExistingFile(csvPath);
+
+    let header, existingText;
+    if (existing) {
+      existingText = base64ToUtf8(existing.content);
+    } else {
+      existingText = 'photo_filename,back_photo_filename,player,year,set,card_number,variant,grade,notes\n';
+    }
+    const lines = existingText.replace(/\r\n/g, '\n').split('\n');
+    header = lines[0].split(',');
+
+    const rowValues = {
+      photo_filename: frontFilename,
+      back_photo_filename: backFilename,
+      player, year, set,
+      card_number: cardNumber,
+      variant, grade, notes,
+    };
+    const newRow = header.map(col => csvEscape(rowValues[col.trim()] ?? '')).join(',');
+
+    let updatedText = existingText;
+    if (!updatedText.endsWith('\n')) updatedText += '\n';
+    updatedText += newRow + '\n';
+
+    await putFile(
+      csvPath,
+      utf8ToBase64(updatedText),
+      `Add card: ${player} - ${set}`,
+      existing ? existing.sha : undefined,
+    );
+
+    setStatus('info', 'Card added. Triggering a price pull…');
+    const dispatched = await triggerPricePull().catch(() => false);
+
+    setStatus('success', `
+      <strong>${player} — ${set}</strong> added to your collection.<br>
+      ${dispatched
+        ? 'A price pull has been triggered — check the <a href="https://github.com/' + s.owner + '/' + s.repo + '/actions" target="_blank" rel="noopener">Actions tab</a> in a minute, then refresh the dashboard.'
+        : 'Couldn\'t auto-trigger a price pull (check your token has Actions permission) — you can run it manually from the <a href="https://github.com/' + s.owner + '/' + s.repo + '/actions" target="_blank" rel="noopener">Actions tab</a>.'}
+      <br><a href="index.html">← Back to dashboard</a>
+    `);
+
+    document.getElementById('f-player').value = '';
+    document.getElementById('f-year').value = '';
+    document.getElementById('f-set').value = '';
+    document.getElementById('f-number').value = '';
+    document.getElementById('f-variant').value = '';
+    document.getElementById('f-grade').value = '';
+    document.getElementById('f-notes').value = '';
+    document.getElementById('f-front').value = '';
+    document.getElementById('f-back').value = '';
+
+  } catch (err) {
+    setStatus('error', err.message || 'Something went wrong.');
+    console.error(err);
+  } finally {
+    btn.disabled = false;
+  }
+});
+</script>
+</body>
+</html>
