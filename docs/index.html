@@ -9,16 +9,18 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
 <style>
   :root {
-    --bg: #0B0E14;
-    --surface: #131722;
-    --surface-raised: #1A2030;
-    --line: #262D3F;
-    --text: #E7EAF2;
-    --text-muted: #8B93A6;
-    --gold: #E8A33D;
-    --gold-dim: #6B5426;
-    --up: #4ADE80;
-    --down: #F87171;
+    --bg: #0D1321;
+    --surface: #161D30;
+    --surface-raised: #1F2A46;
+    --line: #2C3A5C;
+    --text: #EBEEF8;
+    --text-muted: #8B96BB;
+    --accent: #A78BFA;
+    --accent-dim: #4A3B78;
+    --teal: #2DD4BF;
+    --teal-dim: #1B5A52;
+    --up: #34D399;
+    --down: #FB7185;
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -47,7 +49,7 @@
     letter-spacing: 0.5px;
     text-transform: uppercase;
   }
-  .brand span { color: var(--gold); }
+  .brand span { color: var(--accent); }
 
   .summary {
     display: flex;
@@ -81,7 +83,7 @@
     flex: 1;
     min-width: 200px;
   }
-  .toolbar input:focus { outline: 1px solid var(--gold); border-color: var(--gold); }
+  .toolbar input:focus { outline: 1px solid var(--accent); border-color: var(--accent); }
   .toolbar select {
     background: var(--surface);
     border: 1px solid var(--line);
@@ -125,14 +127,18 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
   }
-  .photo-wrap img { width: 100%; height: 100%; object-fit: cover; }
+  .photo-wrap a { display: block; width: 100%; height: 100%; }
+  .photo-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; }
   .photo-wrap .placeholder {
     font-family: 'Barlow Condensed', sans-serif;
     font-size: 11px;
     color: var(--text-muted);
     text-align: center;
   }
+  .photo-wrap.clickable { cursor: pointer; }
+  .photo-wrap.clickable:hover { outline: 1px solid var(--accent); }
 
   .id-block { flex: 1; min-width: 0; }
 
@@ -153,8 +159,8 @@
     display: inline-block;
     margin-top: 6px;
     padding: 2px 7px;
-    border: 1px solid var(--gold-dim);
-    color: var(--gold);
+    border: 1px solid var(--accent-dim);
+    color: var(--accent);
     font-family: 'JetBrains Mono', monospace;
     font-size: 10.5px;
     border-radius: 3px;
@@ -176,8 +182,30 @@
   .delta.up { color: var(--up); }
   .delta.down { color: var(--down); }
   .delta.flat { color: var(--text-muted); }
+  .delta-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: var(--text-muted);
+    align-self: flex-end;
+    margin-bottom: 1px;
+  }
 
-  .chart-wrap { padding: 4px 12px 8px; height: 80px; }
+  .chart-wrap { padding: 4px 12px 8px; height: 96px; position: relative; }
+  .chart-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9.5px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    padding: 0 4px 2px;
+  }
+  .chart-empty {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--text-muted);
+    text-align: center;
+    padding: 20px 4px;
+  }
 
   .comps {
     border-top: 1px solid var(--line);
@@ -212,25 +240,58 @@
     flex: 1;
   }
   .comp-price { font-family: 'JetBrains Mono', monospace; color: var(--text); flex-shrink: 0; }
+  .comp-title a, .comp-price a { color: inherit; text-decoration: none; }
+  .comp-title a:hover, .comp-price a:hover { text-decoration: underline; }
 
-  .context-row {
-    display: flex;
-    gap: 6px;
-    flex-wrap: wrap;
-    padding: 0 16px 12px;
-  }
-  .context-chip {
+  .tree {
+    padding: 2px 16px 14px;
     font-family: 'JetBrains Mono', monospace;
-    font-size: 10.5px;
-    padding: 3px 8px;
-    border-radius: 12px;
-    border: 1px solid var(--line);
-    color: var(--text-muted);
-    white-space: nowrap;
+    font-size: 11.5px;
   }
-  .context-chip.has-sale {
-    border-color: var(--gold-dim);
-    color: var(--gold);
+  .tree-group {
+    margin-top: 8px;
+  }
+  .tree-group-label {
+    color: var(--text-muted);
+    font-size: 10.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 3px;
+  }
+  .tree-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 2px 0 2px 14px;
+    position: relative;
+    color: var(--text-muted);
+  }
+  .tree-item::before {
+    content: "";
+    position: absolute;
+    left: 2px;
+    top: 0;
+    bottom: 50%;
+    width: 8px;
+    border-left: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .tree-item.has-sale { color: var(--text); }
+  .tree-item.has-sale .tree-price { color: var(--accent); font-weight: 600; }
+  .tree-item.is-own {
+    color: var(--teal);
+    font-weight: 600;
+  }
+  .tree-item.is-own::before { border-color: var(--teal-dim); }
+  .tree-label { min-width: 26px; }
+  .tree-price { margin-left: auto; }
+  .tree-own-tag {
+    font-size: 9px;
+    border: 1px solid var(--teal-dim);
+    color: var(--teal);
+    padding: 0 4px;
+    border-radius: 3px;
+    text-transform: uppercase;
   }
 
   .empty-state {
@@ -280,6 +341,50 @@ function fmtMoney(n) {
   return '$' + Number(n).toFixed(2);
 }
 
+function fmtMoneyShort(n) {
+  if (n === null || n === undefined || isNaN(n)) return '—';
+  return '$' + Math.round(Number(n)).toLocaleString();
+}
+
+// Labels the highest and lowest points directly on each sparkline, since
+// the axes themselves are hidden (too small a chart to spare the space)
+// and a legend would be overkill for a single line.
+const highLowLabelPlugin = {
+  id: 'highLowLabel',
+  afterDatasetsDraw(chart) {
+    const data = chart.data.datasets[0]?.data;
+    if (!data) return;
+    const meta = chart.getDatasetMeta(0);
+
+    let maxIdx = -1, minIdx = -1, maxVal = -Infinity, minVal = Infinity;
+    data.forEach((v, i) => {
+      if (v === null || v === undefined) return;
+      if (v > maxVal) { maxVal = v; maxIdx = i; }
+      if (v < minVal) { minVal = v; minIdx = i; }
+    });
+    if (maxIdx === -1) return; // no data at all
+
+    const { ctx } = chart;
+    ctx.save();
+    ctx.font = "9px 'JetBrains Mono', monospace";
+    ctx.textAlign = 'center';
+
+    const drawLabel = (idx, val, color, above) => {
+      const point = meta.data[idx];
+      if (!point) return;
+      ctx.fillStyle = color;
+      ctx.textBaseline = above ? 'bottom' : 'top';
+      ctx.fillText(fmtMoneyShort(val), point.x, point.y + (above ? -5 : 6));
+    };
+
+    drawLabel(maxIdx, maxVal, '#34D399', true);
+    if (minIdx !== maxIdx) drawLabel(minIdx, minVal, '#FB7185', false);
+
+    ctx.restore();
+  }
+};
+Chart.register(highLowLabelPlugin);
+
 function pctChange(first, last) {
   if (!first || !last || first === 0) return null;
   return ((last - first) / first) * 100;
@@ -289,8 +394,31 @@ function buildCardObjects(history) {
   return Object.entries(history).map(([id, entry]) => {
     const snaps = (entry.snapshots || []).slice().sort((a, b) => a.date.localeCompare(b.date));
     const latest = snaps[snaps.length - 1];
-    const first = snaps[0];
-    const change = latest && first ? pctChange(first.value, latest.value) : null;
+    const allSales = poolDedupedSales(snaps);
+    const rollingAvg = computeRollingAverage(snaps, allSales);
+
+    // Count of distinct confirmed sales (any grade, deduped) in the 30
+    // days trailing the most recent snapshot - a quick liquidity signal
+    // alongside the trend line itself.
+    let salesLast30 = 0;
+    if (latest) {
+      const asOf = new Date(latest.date);
+      const windowStart = new Date(asOf);
+      windowStart.setDate(windowStart.getDate() - 30);
+      salesLast30 = allSales.filter(s => {
+        const d = new Date(s.date);
+        return d >= windowStart && d <= asOf;
+      }).length;
+    }
+
+    // % change is derived from the same pooled 30-day trend as the chart
+    // (not the sparse exact-grade value) so the badge and the line always
+    // agree - and so vintage cards with no exact-grade sale this window
+    // still get a real change figure once any pooled sales exist.
+    const firstAvg = rollingAvg.find(v => v !== null);
+    const lastAvg = [...rollingAvg].reverse().find(v => v !== null);
+    const change = (firstAvg !== undefined && lastAvg !== undefined) ? pctChange(firstAvg, lastAvg) : null;
+
     return {
       id,
       meta: entry.meta || {},
@@ -298,8 +426,52 @@ function buildCardObjects(history) {
       latestValue: latest ? latest.value : null,
       change,
       comps: latest ? (latest.comps || []) : [],
-      references: latest ? (latest.references || []) : [],
+      tree: latest ? (latest.tree || []) : [],
+      rollingAvg,
+      salesLast30,
     };
+  });
+}
+
+// Pools every confirmed sale collected across all stored snapshots (raw +
+// every grade queried, from every day fetch_prices.py has run), dedupes
+// by listing URL - since the free tier's 3-day lookback means the same
+// sale can legitimately show up in several consecutive days' pulls.
+// Shared by the rolling-average calculation and the "N sales" count.
+function poolDedupedSales(snapshots) {
+  const seenUrls = new Set();
+  const allSales = [];
+  for (const snap of snapshots) {
+    for (const sale of (snap.pooled_sales || [])) {
+      const key = sale.url || `${sale.date}-${sale.price}-${sale.label}`;
+      if (seenUrls.has(key)) continue;
+      seenUrls.add(key);
+      if (sale.price !== null && sale.price !== undefined && sale.date) {
+        allSales.push({ price: sale.price, date: sale.date });
+      }
+    }
+  }
+  allSales.sort((a, b) => a.date.localeCompare(b.date));
+  return allSales;
+}
+
+// Computes a 30-day trailing average as of each snapshot date, from the
+// deduped sale pool above. This gives vintage/thinly-traded cards a
+// usable trend line even when their exact grade rarely has a sale in any
+// single 3-day window.
+function computeRollingAverage(snapshots, allSales) {
+  const WINDOW_DAYS = 30;
+  return snapshots.map(snap => {
+    const asOf = new Date(snap.date);
+    const windowStart = new Date(asOf);
+    windowStart.setDate(windowStart.getDate() - WINDOW_DAYS);
+    const inWindow = allSales.filter(s => {
+      const d = new Date(s.date);
+      return d >= windowStart && d <= asOf;
+    });
+    if (!inWindow.length) return null;
+    const avg = inWindow.reduce((sum, s) => sum + s.price, 0) / inWindow.length;
+    return Math.round(avg * 100) / 100;
   });
 }
 
@@ -321,29 +493,51 @@ function cardTile(card) {
   const changeSign = card.change > 0 ? '+' : '';
   const changeText = card.change === null ? '—' : `${changeSign}${card.change.toFixed(1)}%`;
 
-  const photoTag = m.photo_filename
-    ? `<img src="${PHOTOS_PATH}${m.photo_filename}" alt="${title}" loading="lazy" onerror="this.parentElement.innerHTML='<div class=placeholder>No<br>photo</div>'">`
+  const hasPhoto = !!m.photo_filename;
+  const photoInner = hasPhoto
+    ? `<img src="${PHOTOS_PATH}${m.photo_filename}" alt="${title}" loading="lazy" onerror="this.closest('.photo-wrap').innerHTML='<div class=placeholder>No<br>photo</div>'">`
     : `<div class="placeholder">No<br>photo</div>`;
+  // Clicking the photo opens the full-size front image in a new tab. If a
+  // back photo was captured too, it's still just a click away from the
+  // front (most browsers let you flip tabs) - kept simple rather than
+  // building a two-image viewer for this.
+  const photoHtml = hasPhoto
+    ? `<a href="${PHOTOS_PATH}${m.photo_filename}" target="_blank" rel="noopener">${photoInner}</a>`
+    : photoInner;
 
   const compsHtml = card.comps.length
     ? card.comps.map(c => `
         <div class="comp-row">
-          <span class="comp-title" title="${c.title || ''}">${c.title || 'Sale'}${c.listing_type === 'fixed_price' ? ' (ask)' : ''}</span>
+          <span class="comp-title" title="${c.title || ''}">${c.url ? `<a href="${c.url}" target="_blank" rel="noopener">${c.title || 'Sale'}</a>` : (c.title || 'Sale')}${c.listing_type === 'fixed_price' ? ' (ask)' : ''}</span>
           <span class="comp-price">${fmtMoney(c.price)}</span>
         </div>`).join('')
     : `<div class="comp-row"><span class="comp-title">No recent comps</span></div>`;
 
-  const contextHtml = card.references.length
-    ? `<div class="context-row">${card.references.map(r => `
-        <span class="context-chip ${r.value !== null ? 'has-sale' : ''}" title="${r.label}${r.value !== null ? '' : ': no sale this window'}">
-          ${r.label}: ${r.value !== null ? fmtMoney(r.value) : 'no sale'}
-        </span>`).join('')}</div>`
+  // Market-context tree: Raw / PSA / BGS groups, each with a couple of
+  // common grades. The cell matching the card's own exact grade (or Raw,
+  // if ungraded) is marked "is_own" by fetch_prices.py and highlighted in
+  // teal here so it reads as "this is your card's row", distinct from the
+  // violet "has a sale" styling used for everything else.
+  const treeHtml = card.tree.length
+    ? `<div class="tree">${card.tree.map(group => `
+        <div class="tree-group">
+          <div class="tree-group-label">${group.group}</div>
+          ${group.items.map(item => `
+            <div class="tree-item ${item.value !== null ? 'has-sale' : ''} ${item.is_own ? 'is-own' : ''}"
+                 title="${item.is_own ? 'This is your card' : ''}${item.value !== null ? '' : ': no sale this window'}">
+              <span class="tree-label">${item.label}</span>
+              ${item.is_own ? '<span class="tree-own-tag">yours</span>' : ''}
+              <span class="tree-price">${item.value !== null ? fmtMoney(item.value) : 'no sale'}</span>
+            </div>
+          `).join('')}
+        </div>
+      `).join('')}</div>`
     : '';
 
   return `
     <div class="tile" data-search="${(title + ' ' + metaLine).toLowerCase()}">
       <div class="tile-top">
-        <div class="photo-wrap">${photoTag}</div>
+        <div class="photo-wrap ${hasPhoto ? 'clickable' : ''}">${photoHtml}</div>
         <div class="id-block">
           <div class="player">${title}</div>
           <div class="card-meta">${metaLine || '—'}</div>
@@ -352,10 +546,15 @@ function cardTile(card) {
       </div>
       <div class="value-row">
         <div class="value">${fmtMoney(card.latestValue)}</div>
-        <div class="delta ${changeClass}">${changeText}</div>
+        <div class="delta ${changeClass}" title="Change in the 30-day pooled average (raw + graded) between its earliest and most recent point">${changeText}</div>
+        ${card.change !== null ? '<div class="delta-label">30d</div>' : ''}
       </div>
-      ${contextHtml}
-      <div class="chart-wrap"><canvas id="chart-${card.id}"></canvas></div>
+      ${treeHtml}
+      <div class="chart-label">30-day avg trend · ${card.salesLast30} sale${card.salesLast30 === 1 ? '' : 's'} · raw + graded</div>
+      <div class="chart-wrap">
+        <canvas id="chart-${card.id}" style="${card.rollingAvg.some(v => v !== null) ? '' : 'display:none;'}"></canvas>
+        ${card.rollingAvg.some(v => v !== null) ? '' : '<div class="chart-empty">No pooled sales yet to trend</div>'}
+      </div>
       <details class="comps">
         <summary>Recent comps</summary>
         ${compsHtml}
@@ -369,8 +568,13 @@ function drawSparkline(card) {
   if (!canvas || card.snapshots.length < 1) return;
 
   const labels = card.snapshots.map(s => s.date);
-  const values = card.snapshots.map(s => s.value);
-  const isUp = card.change === null || card.change >= 0;
+  const values = card.rollingAvg;
+  const hasAnyData = values.some(v => v !== null);
+  if (!hasAnyData) return;
+
+  const firstVal = values.find(v => v !== null);
+  const lastVal = [...values].reverse().find(v => v !== null);
+  const isUp = lastVal === undefined || firstVal === undefined || lastVal >= firstVal;
 
   new Chart(canvas, {
     type: 'line',
@@ -378,19 +582,21 @@ function drawSparkline(card) {
       labels,
       datasets: [{
         data: values,
-        borderColor: isUp ? '#4ADE80' : '#F87171',
-        backgroundColor: isUp ? 'rgba(74,222,128,0.08)' : 'rgba(248,113,113,0.08)',
+        borderColor: isUp ? '#34D399' : '#FB7185',
+        backgroundColor: isUp ? 'rgba(52,211,153,0.08)' : 'rgba(251,113,133,0.08)',
         borderWidth: 1.75,
         pointRadius: 0,
         tension: 0.3,
         fill: true,
+        spanGaps: true,
       }]
     },
     options: {
       responsive: true,
       maintainAspectRatio: false,
+      layout: { padding: { top: 12, bottom: 12 } },
       plugins: { legend: { display: false }, tooltip: {
-        callbacks: { label: (ctx) => fmtMoney(ctx.parsed.y) }
+        callbacks: { label: (ctx) => ctx.parsed.y === null ? 'no sales in window' : fmtMoney(ctx.parsed.y) }
       }},
       scales: {
         x: { display: false },
