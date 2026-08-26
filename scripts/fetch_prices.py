@@ -3,21 +3,30 @@
 fetch_prices.py
 
 Reads cards.csv (player/year/set/card_number/variant/grade, filled in
-manually or by identifying photos), searches TheCardAPI's sales endpoint
-for each card by title text, and appends a dated snapshot (a computed
-value + recent comps) to data/price_history.json.
+manually or by identifying photos), makes ONE broad TheCardAPI search per
+card (raw + every grade mixed together, no grade filter), and appends a
+dated snapshot (a computed value + a dynamic grade-breakdown tree + recent
+comps) to data/price_history.json.
+
+Why one broad query instead of several targeted ones: earlier versions of
+this script queried a fixed set of cells (Raw, PSA 10, PSA 9, BGS 10,
+BGS 9.5) regardless of what actually sells for a given card - so a real
+PSA 8 or SGC 9 sale was invisible even though it happened. Querying
+broadly and then parsing each sale's *title* for grading info (most eBay
+listings put it right in the title, e.g. "... PSA 9 ...") builds the tree
+from whatever genuinely sold, and only shows grades that actually had
+activity. It's also far cheaper: 1 API call per card instead of up to 5.
 
 No separate "identify" or "catalog lookup" step needed - TheCardAPI
 searches directly against real sold listings by title text, so a good
 player+set+year query is all that's required.
 
-Designed to be run on a schedule (e.g. weekly via GitHub Actions) so
+Designed to be run on a schedule (e.g. daily via GitHub Actions) so
 price_history.json accumulates a time series per card.
 
-Free tier note: lookback is 3 days. Each weekly run naturally captures
-that week's sales, which is exactly what a weekly snapshot needs. If you
-later want deeper backfills, TheCardAPI's Starter tier ($9/mo) extends
-lookback to 14 days.
+Free tier note: lookback is 3 days. Running this daily means each card's
+window overlaps the prior TWO days' pulls, so a single missed run still
+gets fully caught up automatically.
 
 Usage:
     export CARD_API_KEY="your_key_here"
@@ -28,9 +37,9 @@ import argparse
 import csv
 import json
 import os
+import re
 import statistics
 import sys
-import time
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
@@ -38,6 +47,11 @@ import requests
 
 API_BASE = "https://thecardapi.com/api/v1/market"
 SALES_ENDPOINT = f"{API_BASE}/sales"
+
+# Matches common grading company names + a grade value inside a listing
+# title, e.g. "PSA 9", "BGS 9.5", "SGC 10". Deliberately conservative
+# (whole-word company match) to avoid false positives on unrelated text.
+GRADE_PATTERN = re.compile(r"\b(PSA|BGS|SGC|CGC|HGA|GMA|ISA)\s*(\d{1,2}(?:\.5)?)\b", re.IGNORECASE)
 
 
 def get_api_key() -> str:
@@ -89,119 +103,95 @@ def parse_grade_string(grade_str: str):
     return parts[0].upper(), parts[1].split()[0]  # drop trailing condition text
 
 
-def search_sales(query: str, api_key: str, limit: int, grader: str = None, grade: str = None) -> list:
+def search_sales_broad(query: str, api_key: str, limit: int) -> list:
+    """
+    One unfiltered search: no grader/grade/graded params at all, so
+    whatever mix of raw and graded listings TheCardAPI has shows up
+    together, sorted most-recent-first. This is what makes the dynamic
+    tree possible - we see everything that actually sold, not just a
+    handful of grades we guessed to ask about.
+    """
     headers = {"x-market-api-key": api_key}
-    # Pin date_from explicitly to the free tier's 3-day lookback rather than
-    # relying on undocumented default behavior. Running this script daily
-    # means each card's window overlaps the prior TWO days' pulls, not just
-    # one - so a single missed/failed run still gets fully caught up by the
-    # next day's pull. price_history.json is the real long-term archive;
-    # the API itself only ever needs to answer "what sold in the last few
-    # days."
+    # Pin date_from explicitly to the free tier's 3-day lookback rather
+    # than relying on undocumented default behavior.
     date_from = (datetime.now(timezone.utc) - timedelta(days=3)).strftime("%Y-%m-%d")
     params = {"q": query, "limit": limit, "sort": "date_desc", "date_from": date_from}
-    if grader:
-        params["grader"] = grader
-    if grade:
-        params["grade"] = grade
-    else:
-        # No grade filled in -> assume raw/ungraded card
-        params["graded"] = "false"
 
     resp = requests.get(SALES_ENDPOINT, headers=headers, params=params, timeout=30)
     resp.raise_for_status()
     return resp.json().get("data", [])
 
 
-def get_reference_tree_configs() -> list:
-    """
-    Fixed grade-tree shape shown as market context alongside a card's own
-    value: Raw as its own group, then PSA and BGS each with a couple of
-    common near-mint+ grades. Same shape for every card (raw or graded) so
-    the tree is easy to scan across your whole collection - the card's own
-    exact grade doesn't have to be one of these rows, it's just always the
-    headline value up top.
-    """
-    return [
-        {"group": "Raw", "items": [(None, None, "Raw")]},
-        {"group": "PSA", "items": [("PSA", "10", "10"), ("PSA", "9", "9")]},
-        {"group": "BGS", "items": [("BGS", "10", "10"), ("BGS", "9.5", "9.5")]},
-    ]
-
-
-def fetch_reference_tree(
-    query: str, api_key: str, ref_limit: int,
-    card_grader: str, card_grade: str,
-    primary_records: list, primary_value, primary_sample_size: int, primary_comps: list,
-):
-    """
-    Builds the grouped Raw/PSA/BGS tree, and alongside it a flat "pool" of
-    every confirmed sale found across all of today's queries (primary +
-    every tree cell) - raw and every grade combined. That pool is what the
-    dashboard uses to compute a 30-day rolling average trend line: a
-    single specific grade rarely has enough sales in any 3-day window
-    (especially for vintage cards) to plot a meaningful trend on its own,
-    but pooling everything gives far more data points to average over.
-
-    If a tree cell matches the card's own exact (grader, grade) - or "Raw"
-    matches an ungraded card - reuse the already-fetched primary query's
-    result instead of re-querying, to save an API call.
-    """
-    tree = []
-    pool = []
-
-    def add_to_pool(records: list, label: str):
-        for r in records:
-            if r.get("price_confirmed") and r.get("price") is not None:
-                pool.append({
-                    "price": r["price"], "date": r.get("sale_date"),
-                    "url": r.get("listing_url"), "label": label,
-                })
-
-    for group in get_reference_tree_configs():
-        items = []
-        for ref_grader, ref_grade, label in group["items"]:
-            is_own = (ref_grader == card_grader and ref_grade == card_grade)
-
-            if is_own:
-                value = primary_value
-                sample_size = primary_sample_size
-                comps = primary_comps[:2]
-                add_to_pool(primary_records, label)
-            else:
-                try:
-                    records = search_sales(query, api_key, ref_limit, grader=ref_grader, grade=ref_grade)
-                except requests.exceptions.RequestException:
-                    records = []
-                value = median_confirmed_price(records)
-                sample_size = len(records)
-                comps = [
-                    {
-                        "price": c.get("price"),
-                        "date": c.get("sale_date"),
-                        "title": c.get("title"),
-                        "url": c.get("listing_url"),
-                    }
-                    for c in records[:2]
-                ]
-                add_to_pool(records, label)
-                time.sleep(0.15)  # be polite between the extra lookups
-
-            items.append({
-                "label": label, "value": value, "sample_size": sample_size,
-                "comps": comps, "is_own": is_own,
-            })
-        tree.append({"group": group["group"], "items": items})
-
-    return tree, pool
+def parse_grade_from_title(title: str):
+    """Returns (company, grade_value) if the title mentions a grade, else (None, None) meaning raw."""
+    match = GRADE_PATTERN.search(title or "")
+    if match:
+        return match.group(1).upper(), match.group(2)
+    return None, None
 
 
 def median_confirmed_price(records: list):
-    """Median price across price_confirmed=true records. None if none exist."""
     prices = [r["price"] for r in records if r.get("price_confirmed") and r.get("price") is not None]
     if not prices:
         return None
     return round(statistics.median(prices), 2)
+
+
+def build_dynamic_tree(records: list, card_grader: str, card_grade: str):
+    """
+    Groups confirmed sales by whatever grade their title actually shows
+    (or "Raw" if none), computes a median per group, and returns a tree
+    sorted Raw-first then by company/grade descending. Only groups with
+    at least one real sale appear - except the card's own exact
+    configuration, which always gets a row (even a "no sale" one) so you
+    can always see where your specific card stands.
+
+    Returns (tree, value, sample_size, comps) - value/sample_size/comps
+    are for the card's own row specifically, used as the headline figures.
+    """
+    groups = {}  # "Raw" or company -> { grade_value_or_None: [records] }
+    confirmed = [r for r in records if r.get("price_confirmed") and r.get("price") is not None]
+
+    for r in confirmed:
+        company, grade_val = parse_grade_from_title(r.get("title", ""))
+        key = company or "Raw"
+        groups.setdefault(key, {}).setdefault(grade_val, []).append(r)
+
+    own_key = card_grader or "Raw"
+    own_subkey = card_grade if card_grader else None
+    groups.setdefault(own_key, {}).setdefault(own_subkey, [])  # always ensure a "yours" row
+
+    def group_sort(k):
+        return (0, "") if k == "Raw" else (1, k)
+
+    def grade_sort(v):
+        if v is None:
+            return 0
+        try:
+            return -float(v)
+        except ValueError:
+            return 0
+
+    tree = []
+    own_value, own_sample_size, own_comps = None, 0, []
+
+    for company in sorted(groups.keys(), key=group_sort):
+        items = []
+        for grade_val in sorted(groups[company].keys(), key=grade_sort):
+            recs = groups[company][grade_val]
+            value = median_confirmed_price(recs)
+            label = grade_val if grade_val else "Raw"
+            is_own = (company == own_key and grade_val == own_subkey)
+            comps = [
+                {"price": c.get("price"), "date": c.get("sale_date"), "title": c.get("title"), "url": c.get("listing_url")}
+                for c in recs[:2]
+            ]
+            items.append({"label": label, "value": value, "sample_size": len(recs), "comps": comps, "is_own": is_own})
+            if is_own:
+                own_value, own_sample_size, own_comps = value, len(recs), recs
+        tree.append({"group": company, "items": items})
+
+    return tree, own_value, own_sample_size, own_comps
 
 
 def load_history(history_path: Path) -> dict:
@@ -225,22 +215,12 @@ def main():
     parser.add_argument("--cards", default="./data/cards.csv", help="Cards CSV path")
     parser.add_argument("--history", default="./data/price_history.json", help="History JSON path")
     parser.add_argument(
-        "--limit", type=int, default=25,
-        help="Max records to request per card (default 25). Lower this if your "
-             "collection grows large enough to approach the free tier's 5,000 "
-             "records/day cap - actual usage per card is usually well below this "
-             "max, since most cards won't have this many sales in a 3-day window.",
-    )
-    parser.add_argument(
-        "--no-references", action="store_true",
-        help="Skip the market-context reference lookups (raw/other-grader comps) "
-             "and only fetch each card's own exact configuration. Cuts API usage "
-             "roughly in half if you want to conserve daily quota.",
-    )
-    parser.add_argument(
-        "--ref-limit", type=int, default=10,
-        help="Max records per reference lookup (default 10) - kept lower than "
-             "--limit since references are just context, not the card's own value.",
+        "--limit", type=int, default=40,
+        help="Max records to request per card (default 40). Since this script now "
+             "makes only one query per card (not up to 5), there's more daily "
+             "quota headroom than before - raised the default accordingly. Lower "
+             "this if your collection grows large enough to approach the free "
+             "tier's 5,000 records/day cap.",
     )
     args = parser.parse_args()
 
@@ -260,49 +240,37 @@ def main():
         grader, grade = parse_grade_string(card.get("grade", ""))
 
         print(f"--- {card.get('player')} ({card.get('set', '?')}) ---")
-        print(f"  Query: \"{query}\"" + (f" | grader={grader} grade={grade}" if grader else " | raw/ungraded"))
+        print(f"  Query: \"{query}\"" + (f" | your copy: {grader} {grade}" if grader else " | your copy: raw"))
 
         try:
-            records = search_sales(query, api_key, args.limit, grader=grader, grade=grade)
+            records = search_sales_broad(query, api_key, args.limit)
         except requests.exceptions.RequestException as e:
             print(f"  ERROR: {e}\n")
             continue
 
         total_records_used += len(records)
 
-        value = median_confirmed_price(records)
-        comps_full = [
+        tree, value, sample_size, own_records = build_dynamic_tree(records, grader, grade)
+
+        comps = [
             {
-                "price": c.get("price"),
-                "date": c.get("sale_date"),
-                "title": c.get("title"),
-                "listing_type": c.get("listing_type"),
-                "price_confirmed": c.get("price_confirmed"),
+                "price": c.get("price"), "date": c.get("sale_date"), "title": c.get("title"),
+                "listing_type": c.get("listing_type"), "price_confirmed": c.get("price_confirmed"),
                 "url": c.get("listing_url"),
             }
-            for c in records
+            for c in own_records[:5]
         ]
-        comps = comps_full[:5]
 
-        tree = []
-        pool = []
-        if not args.no_references:
-            tree, pool = fetch_reference_tree(
-                query, api_key, args.ref_limit, grader, grade,
-                primary_records=records, primary_value=value,
-                primary_sample_size=len(records), primary_comps=comps_full,
-            )
-            total_records_used += sum(
-                item["sample_size"] for group in tree for item in group["items"] if not item["is_own"]
-            )
-        elif value is not None:
-            # No tree fetched, but still pool the primary card's own confirmed
-            # sales so the 30-day average has at least this card's own data.
-            pool = [
-                {"price": r["price"], "date": r.get("date"), "url": r.get("url"),
-                 "label": card.get("grade") or "Raw"}
-                for r in comps_full if r.get("price_confirmed") and r.get("price") is not None
-            ]
+        # Pool every confirmed sale (any grade, deduped by URL happens
+        # client-side in the dashboard) for the 30-day rolling average -
+        # this is now just every confirmed record from the one broad query.
+        pool = [
+            {
+                "price": r["price"], "date": r.get("sale_date"), "url": r.get("listing_url"),
+                "label": (lambda c, g: f"{c} {g}" if c else "Raw")(*parse_grade_from_title(r.get("title", ""))),
+            }
+            for r in records if r.get("price_confirmed") and r.get("price") is not None
+        ]
 
         key = card_key(card)
         entry = history.setdefault(key, {"meta": {}, "snapshots": []})
@@ -320,23 +288,22 @@ def main():
         entry["snapshots"].append({
             "date": snapshot_date,
             "value": value,
-            "sample_size": len(records),
+            "sample_size": sample_size,
             "comps": comps,
             "tree": tree,
             "pooled_sales": pool,
         })
 
         value_str = f"${value}" if value is not None else "no confirmed sales this window"
-        print(f"  ✓ {value_str} ({len(records)} matching records found)")
-        if tree:
-            tree_summary = " | ".join(
-                f"{group['group']}: " + ", ".join(
-                    f"{item['label']}={'$' + str(item['value']) if item['value'] is not None else 'no sale'}"
-                    for item in group["items"]
-                )
-                for group in tree
+        print(f"  ✓ {value_str} ({sample_size} matching records for your exact config, {len(records)} total returned)")
+        tree_summary = " | ".join(
+            f"{group['group']}: " + ", ".join(
+                f"{item['label']}={'$' + str(item['value']) if item['value'] is not None else 'no sale'}"
+                for item in group["items"]
             )
-            print(f"    context — {tree_summary}")
+            for group in tree
+        )
+        print(f"    breakdown — {tree_summary}")
         print()
 
     history_path.parent.mkdir(parents=True, exist_ok=True)
