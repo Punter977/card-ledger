@@ -880,6 +880,90 @@
             "label": "Raw"
           }
         ]
+      },
+      {
+        "date": "2026-08-26",
+        "value": 1400.0,
+        "sample_size": 1,
+        "comps": [
+          {
+            "price": 1400.0,
+            "date": "2026-08-23",
+            "title": "1993-94 Fleer Ultra - Scoring Kings Michael Jordan #5",
+            "listing_type": "best_offer",
+            "price_confirmed": true,
+            "url": "https://ebay.com/itm/206510982428?nordt=true"
+          }
+        ],
+        "tree": [
+          {
+            "group": "Raw",
+            "items": [
+              {
+                "label": "Raw",
+                "value": 1400.0,
+                "sample_size": 1,
+                "comps": [
+                  {
+                    "price": 1400.0,
+                    "date": "2026-08-23",
+                    "title": "1993-94 Fleer Ultra - Scoring Kings Michael Jordan #5",
+                    "listing_type": "best_offer",
+                    "price_confirmed": true,
+                    "url": "https://ebay.com/itm/206510982428?nordt=true"
+                  }
+                ],
+                "is_own": true
+              }
+            ]
+          },
+          {
+            "group": "PSA",
+            "items": [
+              {
+                "label": "10",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": false
+              },
+              {
+                "label": "9",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": false
+              }
+            ]
+          },
+          {
+            "group": "BGS",
+            "items": [
+              {
+                "label": "10",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": false
+              },
+              {
+                "label": "9.5",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": false
+              }
+            ]
+          }
+        ],
+        "pooled_sales": [
+          {
+            "price": 1400.0,
+            "date": "2026-08-23",
+            "url": "https://ebay.com/itm/206510982428?nordt=true",
+            "label": "Raw"
+          }
+        ]
       }
     ]
   },
@@ -932,6 +1016,110 @@
             "value": null,
             "sample_size": 0,
             "comps": []
+          }
+        ]
+      },
+      {
+        "date": "2026-08-26",
+        "value": null,
+        "sample_size": 0,
+        "comps": [],
+        "tree": [
+          {
+            "group": "Raw",
+            "items": [
+              {
+                "label": "Raw",
+                "value": 1475.0,
+                "sample_size": 3,
+                "comps": [
+                  {
+                    "price": 1475.0,
+                    "date": "2026-08-23",
+                    "title": "1992-93 Topps Stadium Club Michael Jordan Beam Team #1 Bulls",
+                    "url": "https://ebay.com/itm/128031714129?nordt=true"
+                  },
+                  {
+                    "price": 2056.9,
+                    "date": "2026-08-23",
+                    "title": "1992-93 Topps Stadium Club Michael Jordan Beam Team #1 Bulls",
+                    "url": "https://www.ebay.com.au/itm/128031714129?hash=item1dcf48eb51%3Ag%3AnDEAAeSwoxhqg3Sx&mkevt=1&mkcid=1&mkrid=705-53470-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true"
+                  }
+                ],
+                "is_own": false
+              }
+            ]
+          },
+          {
+            "group": "PSA",
+            "items": [
+              {
+                "label": "10",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": false
+              },
+              {
+                "label": "9",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": false
+              }
+            ]
+          },
+          {
+            "group": "BGS",
+            "items": [
+              {
+                "label": "10",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": false
+              },
+              {
+                "label": "9.5",
+                "value": 15000.0,
+                "sample_size": 1,
+                "comps": [
+                  {
+                    "price": 15000.0,
+                    "date": "2026-08-24",
+                    "title": "1992-93 Stadium Club Beam Team #1 Michael Jordan BGS 9.5 Gem Mint",
+                    "url": "https://www.ebay.co.uk/itm/278087329250?hash=item40bf4be5e2%3Ag%3AQvAAAeSwuMZqLnTk&mkevt=1&mkcid=1&mkrid=710-53481-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true"
+                  }
+                ],
+                "is_own": false
+              }
+            ]
+          }
+        ],
+        "pooled_sales": [
+          {
+            "price": 1475.0,
+            "date": "2026-08-23",
+            "url": "https://ebay.com/itm/128031714129?nordt=true",
+            "label": "Raw"
+          },
+          {
+            "price": 2056.9,
+            "date": "2026-08-23",
+            "url": "https://www.ebay.com.au/itm/128031714129?hash=item1dcf48eb51%3Ag%3AnDEAAeSwoxhqg3Sx&mkevt=1&mkcid=1&mkrid=705-53470-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true",
+            "label": "Raw"
+          },
+          {
+            "price": 850.0,
+            "date": "2026-08-23",
+            "url": "https://ebay.com/itm/366622284182?nordt=true",
+            "label": "Raw"
+          },
+          {
+            "price": 15000.0,
+            "date": "2026-08-24",
+            "url": "https://www.ebay.co.uk/itm/278087329250?hash=item40bf4be5e2%3Ag%3AQvAAAeSwuMZqLnTk&mkevt=1&mkcid=1&mkrid=710-53481-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true",
+            "label": "9.5"
           }
         ]
       },
@@ -4181,6 +4369,65 @@
           }
         ],
         "pooled_sales": []
+      },
+      {
+        "date": "2026-08-26",
+        "value": null,
+        "sample_size": 0,
+        "comps": [],
+        "tree": [
+          {
+            "group": "Raw",
+            "items": [
+              {
+                "label": "Raw",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": false
+              }
+            ]
+          },
+          {
+            "group": "PSA",
+            "items": [
+              {
+                "label": "10",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": false
+              },
+              {
+                "label": "9",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": false
+              }
+            ]
+          },
+          {
+            "group": "BGS",
+            "items": [
+              {
+                "label": "10",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": false
+              },
+              {
+                "label": "9.5",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": false
+              }
+            ]
+          }
+        ],
+        "pooled_sales": []
       }
     ]
   },
@@ -4233,6 +4480,91 @@
             "value": null,
             "sample_size": 0,
             "comps": []
+          }
+        ]
+      },
+      {
+        "date": "2026-08-26",
+        "value": null,
+        "sample_size": 0,
+        "comps": [],
+        "tree": [
+          {
+            "group": "Raw",
+            "items": [
+              {
+                "label": "Raw",
+                "value": 152.65,
+                "sample_size": 2,
+                "comps": [
+                  {
+                    "price": 127.5,
+                    "date": "2026-08-23",
+                    "title": "1995-96 Skybox Premium Michael Jordan Standouts Hobby #SH1 Bulls",
+                    "url": "https://ebay.com/itm/377427044760?nordt=true"
+                  },
+                  {
+                    "price": 177.8,
+                    "date": "2026-08-23",
+                    "title": "1995-96 Skybox Premium Michael Jordan Standouts Hobby #SH1 Bulls",
+                    "url": "https://www.ebay.com.au/itm/377427044760?hash=item57e067a998%3Ag%3AhcAAAeSw9KNqg3LL&mkevt=1&mkcid=1&mkrid=705-53470-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true"
+                  }
+                ],
+                "is_own": false
+              }
+            ]
+          },
+          {
+            "group": "PSA",
+            "items": [
+              {
+                "label": "10",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": false
+              },
+              {
+                "label": "9",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": false
+              }
+            ]
+          },
+          {
+            "group": "BGS",
+            "items": [
+              {
+                "label": "10",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": false
+              },
+              {
+                "label": "9.5",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": false
+              }
+            ]
+          }
+        ],
+        "pooled_sales": [
+          {
+            "price": 127.5,
+            "date": "2026-08-23",
+            "url": "https://ebay.com/itm/377427044760?nordt=true",
+            "label": "Raw"
+          },
+          {
+            "price": 177.8,
+            "date": "2026-08-23",
+            "url": "https://www.ebay.com.au/itm/377427044760?hash=item57e067a998%3Ag%3AhcAAAeSw9KNqg3LL&mkevt=1&mkcid=1&mkrid=705-53470-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true",
+            "label": "Raw"
           }
         ]
       },
@@ -5716,6 +6048,65 @@
           }
         ],
         "pooled_sales": []
+      },
+      {
+        "date": "2026-08-26",
+        "value": null,
+        "sample_size": 0,
+        "comps": [],
+        "tree": [
+          {
+            "group": "Raw",
+            "items": [
+              {
+                "label": "Raw",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": false
+              }
+            ]
+          },
+          {
+            "group": "PSA",
+            "items": [
+              {
+                "label": "10",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": false
+              },
+              {
+                "label": "9",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": false
+              }
+            ]
+          },
+          {
+            "group": "BGS",
+            "items": [
+              {
+                "label": "10",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": false
+              },
+              {
+                "label": "9.5",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": false
+              }
+            ]
+          }
+        ],
+        "pooled_sales": []
       }
     ]
   },
@@ -5803,6 +6194,305 @@
                 "url": "https://ebay.com/itm/278286220196?nordt=true"
               }
             ]
+          }
+        ]
+      },
+      {
+        "date": "2026-08-26",
+        "value": 179.0,
+        "sample_size": 25,
+        "comps": [
+          {
+            "price": 200.0,
+            "date": "2026-08-24",
+            "title": "SkyBox 1995-96 SkyBox Premium Michael Jordan Chicago Bulls Electrified #278",
+            "listing_type": "best_offer",
+            "price_confirmed": true,
+            "url": "https://ebay.com/itm/298605660038?nordt=true"
+          },
+          {
+            "price": 159.99,
+            "date": "2026-08-24",
+            "title": "1995-96 Skybox Premium - Electrified Michael Jordan #278",
+            "listing_type": "fixed_price",
+            "price_confirmed": true,
+            "url": "https://ebay.com/itm/137650734476?nordt=true"
+          },
+          {
+            "price": 163.49,
+            "date": "2026-08-24",
+            "title": "1995-96 Skybox Premium Electrified Michael Jordan #278 Chicago Bulls HOF",
+            "listing_type": "auction",
+            "price_confirmed": true,
+            "url": "https://ebay.com/itm/287529488899?nordt=true"
+          },
+          {
+            "price": 155.0,
+            "date": "2026-08-24",
+            "title": "Michael Jordan 1995-96 Skybox Premium Electrified #278",
+            "listing_type": "auction",
+            "price_confirmed": true,
+            "url": "https://ebay.com/itm/278287757383?nordt=true"
+          },
+          {
+            "price": 157.5,
+            "date": "2026-08-24",
+            "title": "1995-96 Skybox Premium - Electrified Michael Jordan #278",
+            "listing_type": "auction",
+            "price_confirmed": true,
+            "url": "https://ebay.com/itm/377420694754?nordt=true"
+          }
+        ],
+        "tree": [
+          {
+            "group": "Raw",
+            "items": [
+              {
+                "label": "Raw",
+                "value": 179.0,
+                "sample_size": 25,
+                "comps": [
+                  {
+                    "price": 200.0,
+                    "date": "2026-08-24",
+                    "title": "SkyBox 1995-96 SkyBox Premium Michael Jordan Chicago Bulls Electrified #278",
+                    "listing_type": "best_offer",
+                    "price_confirmed": true,
+                    "url": "https://ebay.com/itm/298605660038?nordt=true"
+                  },
+                  {
+                    "price": 159.99,
+                    "date": "2026-08-24",
+                    "title": "1995-96 Skybox Premium - Electrified Michael Jordan #278",
+                    "listing_type": "fixed_price",
+                    "price_confirmed": true,
+                    "url": "https://ebay.com/itm/137650734476?nordt=true"
+                  }
+                ],
+                "is_own": true
+              }
+            ]
+          },
+          {
+            "group": "PSA",
+            "items": [
+              {
+                "label": "10",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": false
+              },
+              {
+                "label": "9",
+                "value": 1800.0,
+                "sample_size": 3,
+                "comps": [
+                  {
+                    "price": 2000.0,
+                    "date": "2026-08-23",
+                    "title": "1995-96 SkyBox Premium MICHAEL JORDAN Electrified Insert #278 Bulls PSA 9",
+                    "url": "https://ebay.com/itm/188829558179?nordt=true"
+                  },
+                  {
+                    "price": 1800.0,
+                    "date": "2026-08-23",
+                    "title": "SkyBox 1995-96 Premium Electrified Michael Jordan #278 Bulls PSA 9",
+                    "url": "https://ebay.com/itm/278286220196?nordt=true"
+                  }
+                ],
+                "is_own": false
+              }
+            ]
+          },
+          {
+            "group": "BGS",
+            "items": [
+              {
+                "label": "10",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": false
+              },
+              {
+                "label": "9.5",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": false
+              }
+            ]
+          }
+        ],
+        "pooled_sales": [
+          {
+            "price": 200.0,
+            "date": "2026-08-24",
+            "url": "https://ebay.com/itm/298605660038?nordt=true",
+            "label": "Raw"
+          },
+          {
+            "price": 159.99,
+            "date": "2026-08-24",
+            "url": "https://ebay.com/itm/137650734476?nordt=true",
+            "label": "Raw"
+          },
+          {
+            "price": 163.49,
+            "date": "2026-08-24",
+            "url": "https://ebay.com/itm/287529488899?nordt=true",
+            "label": "Raw"
+          },
+          {
+            "price": 155.0,
+            "date": "2026-08-24",
+            "url": "https://ebay.com/itm/278287757383?nordt=true",
+            "label": "Raw"
+          },
+          {
+            "price": 157.5,
+            "date": "2026-08-24",
+            "url": "https://ebay.com/itm/377420694754?nordt=true",
+            "label": "Raw"
+          },
+          {
+            "price": 184.49,
+            "date": "2026-08-24",
+            "url": "https://ebay.com/itm/287537207979?nordt=true",
+            "label": "Raw"
+          },
+          {
+            "price": 180.0,
+            "date": "2026-08-24",
+            "url": "https://ebay.com/itm/398293276872?nordt=true",
+            "label": "Raw"
+          },
+          {
+            "price": 179.0,
+            "date": "2026-08-24",
+            "url": "https://ebay.com/itm/407149946753?nordt=true",
+            "label": "Raw"
+          },
+          {
+            "price": 158.5,
+            "date": "2026-08-24",
+            "url": "https://ebay.com/itm/366614275186?nordt=true",
+            "label": "Raw"
+          },
+          {
+            "price": 187.49,
+            "date": "2026-08-24",
+            "url": "https://ebay.com/itm/178421482493?nordt=true",
+            "label": "Raw"
+          },
+          {
+            "price": 148.5,
+            "date": "2026-08-24",
+            "url": "https://ebay.com/itm/117363551211?nordt=true",
+            "label": "Raw"
+          },
+          {
+            "price": 203.0,
+            "date": "2026-08-24",
+            "url": "https://ebay.com/itm/336755177238?nordt=true",
+            "label": "Raw"
+          },
+          {
+            "price": 197.5,
+            "date": "2026-08-24",
+            "url": "https://ebay.com/itm/307130678545?nordt=true",
+            "label": "Raw"
+          },
+          {
+            "price": 224.99,
+            "date": "2026-08-24",
+            "url": "https://ebay.com/itm/820029558080?nordt=true",
+            "label": "Raw"
+          },
+          {
+            "price": 305.26,
+            "date": "2026-08-24",
+            "url": "https://www.ebay.com.au/itm/407161756067?hash=item5eccbb59a3%3Ag%3AzdoAAeSw6o5qiM6i&mkevt=1&mkcid=1&mkrid=705-53470-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true",
+            "label": "Raw"
+          },
+          {
+            "price": 550.0,
+            "date": "2026-08-24",
+            "url": "https://www.ebay.com/itm/137651363835?hash=item200ca91ffb%3Ag%3Ay8MAAeSwxFVqiPZO&mkevt=1&mkcid=1&mkrid=711-53200-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true",
+            "label": "Raw"
+          },
+          {
+            "price": 150.0,
+            "date": "2026-08-24",
+            "url": "https://www.ebay.com/itm/147521953505?hash=item2258fe5ee1%3Ag%3A1E0AAeSwrj5qiqq5&mkevt=1&mkcid=1&mkrid=711-53200-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true",
+            "label": "Raw"
+          },
+          {
+            "price": 160.0,
+            "date": "2026-08-24",
+            "url": "https://www.ebay.com/itm/147521954684?hash=item2258fe637c%3Ag%3Aj50AAeSwkhFqiqtm&mkevt=1&mkcid=1&mkrid=711-53200-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true",
+            "label": "Raw"
+          },
+          {
+            "price": 215.1,
+            "date": "2026-08-24",
+            "url": "https://www.ebay.com.au/itm/147520643280?hash=item2258ea60d0%3Ag%3Ay%7EEAAeSwrWpqiPkV&mkevt=1&mkcid=1&mkrid=705-53470-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true",
+            "label": "Raw"
+          },
+          {
+            "price": 159.0,
+            "date": "2026-08-24",
+            "url": "https://www.ebay.com/itm/327322331263?hash=item4c35ee687f%3Ag%3AYwgAAeSwnsNqilfV&mkevt=1&mkcid=1&mkrid=711-53200-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true",
+            "label": "Raw"
+          },
+          {
+            "price": 688.0,
+            "date": "2026-08-24",
+            "url": "https://www.ebay.ca/itm/128039714944?hash=item1dcfc30080%3Ag%3APR0AAeSw1Pxqih30&mkevt=1&mkcid=1&mkrid=706-53473-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true",
+            "label": "Raw"
+          },
+          {
+            "price": 137.59,
+            "date": "2026-08-24",
+            "url": "https://www.ebay.ca/itm/158215070754?hash=item24d65a6422%3Ag%3AzHwAAeSwR8Jqiemk&mkevt=1&mkcid=1&mkrid=706-53473-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true",
+            "label": "Raw"
+          },
+          {
+            "price": 155.0,
+            "date": "2026-08-24",
+            "url": "https://www.ebay.com/itm/366621123502?hash=item555c5263ae%3Ag%3AIOsAAeSw7DBqiKYf&mkevt=1&mkcid=1&mkrid=711-53200-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true",
+            "label": "Raw"
+          },
+          {
+            "price": 178.0,
+            "date": "2026-08-24",
+            "url": "https://www.ebay.com/itm/257696999411?hash=item3bfff027f3%3Ag%3AylAAAeSwW6dqikue&mkevt=1&mkcid=1&mkrid=711-53200-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true",
+            "label": "Raw"
+          },
+          {
+            "price": 390.46,
+            "date": "2026-08-24",
+            "url": "https://www.ebay.com.au/itm/188807061163?hash=item2bf5c71eab%3Ag%3AdtIAAeSw2o5qgyKY&mkevt=1&mkcid=1&mkrid=705-53470-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true",
+            "label": "Raw"
+          },
+          {
+            "price": 2000.0,
+            "date": "2026-08-23",
+            "url": "https://ebay.com/itm/188829558179?nordt=true",
+            "label": "9"
+          },
+          {
+            "price": 1800.0,
+            "date": "2026-08-23",
+            "url": "https://ebay.com/itm/278286220196?nordt=true",
+            "label": "9"
+          },
+          {
+            "price": 1750.0,
+            "date": "2026-08-23",
+            "url": "https://ebay.com/itm/147521879797?nordt=true",
+            "label": "9"
           }
         ]
       },
@@ -10943,6 +11633,243 @@
             "label": "9.5"
           }
         ]
+      },
+      {
+        "date": "2026-08-26",
+        "value": 216.4,
+        "sample_size": 7,
+        "comps": [
+          {
+            "price": 216.4,
+            "date": "2026-08-24",
+            "title": "1993-94 Fleer Ultra Michael Jordan Famous Nicknames #7 Bulls PSA 8",
+            "listing_type": "auction",
+            "price_confirmed": true,
+            "url": "https://ebay.com/itm/377430005670?nordt=true"
+          },
+          {
+            "price": 1462.0,
+            "date": "2026-08-24",
+            "title": "1993-94 Fleer Ultra Michael Jordan Power in the Key #2 Bulls PSA 8",
+            "listing_type": "auction",
+            "price_confirmed": true,
+            "url": "https://ebay.com/itm/128033262324?nordt=true"
+          },
+          {
+            "price": 2038.77,
+            "date": "2026-08-24",
+            "title": "1993-94 Fleer Ultra Michael Jordan Power in the Key #2 Bulls PSA 8",
+            "listing_type": "auction",
+            "price_confirmed": true,
+            "url": "https://www.ebay.com.au/itm/128033262324?hash=item1dcf608af4%3Ag%3AmxQAAeSwJfhqhLzs&mkevt=1&mkcid=1&mkrid=705-53470-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true"
+          },
+          {
+            "price": 243.5,
+            "date": "2026-08-24",
+            "title": "1993-94 Fleer Ultra - Inside Outside Michael Jordan #4 PSA 8",
+            "listing_type": "auction",
+            "price_confirmed": true,
+            "url": "https://ebay.com/itm/117363515762?nordt=true"
+          },
+          {
+            "price": 39.99,
+            "date": "2026-08-24",
+            "title": "1993-94 Fleer Ultra - Michael Jordan #30 HOF Chicago Bulls PSA 8",
+            "listing_type": "auction",
+            "price_confirmed": true,
+            "url": "https://ebay.com/itm/188804222517?nordt=true"
+          }
+        ],
+        "tree": [
+          {
+            "group": "Raw",
+            "items": [
+              {
+                "label": "Raw",
+                "value": 53.33,
+                "sample_size": 10,
+                "comps": [
+                  {
+                    "price": 81.0,
+                    "date": "2026-08-24",
+                    "title": "1993-94 Fleer Ultra - Famous Nicknames Michael Jordan #7",
+                    "url": "https://ebay.com/itm/178410514618?nordt=true"
+                  },
+                  {
+                    "price": 112.95,
+                    "date": "2026-08-24",
+                    "title": "1993-94 Fleer Ultra - Famous Nicknames Michael Jordan #7",
+                    "url": "https://www.ebay.com.au/itm/178410514618?hash=item298a1868ba%3Ag%3A9FgAAeSwDRtqgL5q&mkevt=1&mkcid=1&mkrid=705-53470-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true"
+                  }
+                ],
+                "is_own": false
+              }
+            ]
+          },
+          {
+            "group": "PSA",
+            "items": [
+              {
+                "label": "10",
+                "value": 539.0,
+                "sample_size": 2,
+                "comps": [
+                  {
+                    "price": 525.0,
+                    "date": "2026-08-24",
+                    "title": "1993-94 Fleer Ultra #30 Michael Jordan PSA 10",
+                    "url": "https://ebay.com/itm/298610447592?nordt=true"
+                  },
+                  {
+                    "price": 553.0,
+                    "date": "2026-08-23",
+                    "title": "1993-94 Fleer Ultra Michael Jordan #30 Bulls PSA 10 GEM MINT",
+                    "url": "https://ebay.com/itm/377426125164?nordt=true"
+                  }
+                ],
+                "is_own": false
+              },
+              {
+                "label": "9",
+                "value": 691.48,
+                "sample_size": 2,
+                "comps": [
+                  {
+                    "price": 683.0,
+                    "date": "2026-08-23",
+                    "title": "Fleer Ultra 1993-94 Michael Jordan Famous Nicknames #7 Bulls PSA 9 Insert",
+                    "url": "https://ebay.com/itm/188799497241?nordt=true"
+                  },
+                  {
+                    "price": 699.95,
+                    "date": "2026-08-23",
+                    "title": "1993-94 Fleer Ultra Michael Jordan Famous Nicknames #7 PSA 9 Bulls NBA Card",
+                    "url": "https://ebay.com/itm/407161586355?nordt=true"
+                  }
+                ],
+                "is_own": false
+              }
+            ]
+          },
+          {
+            "group": "BGS",
+            "items": [
+              {
+                "label": "10",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": false
+              },
+              {
+                "label": "9.5",
+                "value": 711.2,
+                "sample_size": 1,
+                "comps": [
+                  {
+                    "price": 711.2,
+                    "date": "2026-08-24",
+                    "title": "1993-94 Fleer Ultra - All-Nba Team Michael Jordan #2 BGS 9.5",
+                    "url": "https://www.ebay.com.au/itm/267760072018?hash=item3e57be7552%3Ag%3A4XQAAeSwvr5qgy8B&mkevt=1&mkcid=1&mkrid=705-53470-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true"
+                  }
+                ],
+                "is_own": false
+              }
+            ]
+          }
+        ],
+        "pooled_sales": [
+          {
+            "price": 81.0,
+            "date": "2026-08-24",
+            "url": "https://ebay.com/itm/178410514618?nordt=true",
+            "label": "Raw"
+          },
+          {
+            "price": 112.95,
+            "date": "2026-08-24",
+            "url": "https://www.ebay.com.au/itm/178410514618?hash=item298a1868ba%3Ag%3A9FgAAeSwDRtqgL5q&mkevt=1&mkcid=1&mkrid=705-53470-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true",
+            "label": "Raw"
+          },
+          {
+            "price": 42.53,
+            "date": "2026-08-24",
+            "url": "https://ebay.com/itm/178410525979?nordt=true",
+            "label": "Raw"
+          },
+          {
+            "price": 6.5,
+            "date": "2026-08-24",
+            "url": "https://www.ebay.com/itm/800523177526?hash=itemba62e64e36%3Ag%3AhmIAAeSwZuRqguwm&mkevt=1&mkcid=1&mkrid=711-53200-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true",
+            "label": "Raw"
+          },
+          {
+            "price": 38.51,
+            "date": "2026-08-24",
+            "url": "https://www.ebay.ca/itm/287541515771?hash=item42f2cf55fb%3Ag%3ApC0AAeSwau1qiwgl&mkevt=1&mkcid=1&mkrid=706-53473-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true",
+            "label": "Raw"
+          },
+          {
+            "price": 60.66,
+            "date": "2026-08-24",
+            "url": "https://www.ebay.com.au/itm/267761596062?hash=item3e57d5b69e%3Ag%3Ax5QAAeSwuQVqhaH6&mkevt=1&mkcid=1&mkrid=705-53470-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true",
+            "label": "Raw"
+          },
+          {
+            "price": 758.94,
+            "date": "2026-08-24",
+            "url": "https://www.ebay.com.au/itm/800545723489?hash=itemba643e5461%3Ag%3APxcAAeSwF5BqiGPx&mkevt=1&mkcid=1&mkrid=705-53470-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true",
+            "label": "Raw"
+          },
+          {
+            "price": 38.35,
+            "date": "2026-08-24",
+            "url": "https://www.ebay.com.au/itm/407142254646?hash=item5ecb91c836%3Ag%3ABcwAAeSwfoNqfhBe&mkevt=1&mkcid=1&mkrid=705-53470-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true",
+            "label": "Raw"
+          },
+          {
+            "price": 46.0,
+            "date": "2026-08-23",
+            "url": "https://ebay.com/itm/158173707528?nordt=true",
+            "label": "Raw"
+          },
+          {
+            "price": 64.15,
+            "date": "2026-08-23",
+            "url": "https://www.ebay.com.au/itm/158173707528?hash=item24d3e33d08%3Ag%3AB6sAAeSwxMpqX-KZ&mkevt=1&mkcid=1&mkrid=705-53470-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true",
+            "label": "Raw"
+          },
+          {
+            "price": 525.0,
+            "date": "2026-08-24",
+            "url": "https://ebay.com/itm/298610447592?nordt=true",
+            "label": "10"
+          },
+          {
+            "price": 553.0,
+            "date": "2026-08-23",
+            "url": "https://ebay.com/itm/377426125164?nordt=true",
+            "label": "10"
+          },
+          {
+            "price": 683.0,
+            "date": "2026-08-23",
+            "url": "https://ebay.com/itm/188799497241?nordt=true",
+            "label": "9"
+          },
+          {
+            "price": 699.95,
+            "date": "2026-08-23",
+            "url": "https://ebay.com/itm/407161586355?nordt=true",
+            "label": "9"
+          },
+          {
+            "price": 711.2,
+            "date": "2026-08-24",
+            "url": "https://www.ebay.com.au/itm/267760072018?hash=item3e57be7552%3Ag%3A4XQAAeSwvr5qgy8B&mkevt=1&mkcid=1&mkrid=705-53470-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true",
+            "label": "9.5"
+          }
+        ]
       }
     ]
   },
@@ -10959,6 +11886,97 @@
       "added_at": ""
     },
     "snapshots": [
+      {
+        "date": "2026-08-26",
+        "value": null,
+        "sample_size": 0,
+        "comps": [],
+        "tree": [
+          {
+            "group": "Raw",
+            "items": [
+              {
+                "label": "Raw",
+                "value": 8.37,
+                "sample_size": 3,
+                "comps": [
+                  {
+                    "price": 6.0,
+                    "date": "2026-08-24",
+                    "title": "1998-99 Fleer Ultra World Premiere Holo #14WP  Vince Carter Rookie RC Embossed",
+                    "url": "https://ebay.com/itm/318740849716?nordt=true"
+                  },
+                  {
+                    "price": 8.37,
+                    "date": "2026-08-24",
+                    "title": "1998-99 Fleer Ultra World Premiere Holo #14WP  Vince Carter Rookie RC Embossed",
+                    "url": "https://www.ebay.com.au/itm/318740849716?hash=item4a366f6434%3Ag%3AHuIAAeSwsJVqgk78&mkevt=1&mkcid=1&mkrid=705-53470-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true"
+                  }
+                ],
+                "is_own": false
+              }
+            ]
+          },
+          {
+            "group": "PSA",
+            "items": [
+              {
+                "label": "10",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": false
+              },
+              {
+                "label": "9",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": false
+              }
+            ]
+          },
+          {
+            "group": "BGS",
+            "items": [
+              {
+                "label": "10",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": false
+              },
+              {
+                "label": "9.5",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": false
+              }
+            ]
+          }
+        ],
+        "pooled_sales": [
+          {
+            "price": 6.0,
+            "date": "2026-08-24",
+            "url": "https://ebay.com/itm/318740849716?nordt=true",
+            "label": "Raw"
+          },
+          {
+            "price": 8.37,
+            "date": "2026-08-24",
+            "url": "https://www.ebay.com.au/itm/318740849716?hash=item4a366f6434%3Ag%3AHuIAAeSwsJVqgk78&mkevt=1&mkcid=1&mkrid=705-53470-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true",
+            "label": "Raw"
+          },
+          {
+            "price": 57.0,
+            "date": "2026-08-24",
+            "url": "https://ebay.com/itm/800519257778?nordt=true",
+            "label": "Raw"
+          }
+        ]
+      },
       {
         "date": "2026-08-26",
         "value": null,
@@ -12557,6 +13575,91 @@
             "label": "9"
           }
         ]
+      },
+      {
+        "date": "2026-08-26",
+        "value": null,
+        "sample_size": 0,
+        "comps": [],
+        "tree": [
+          {
+            "group": "Raw",
+            "items": [
+              {
+                "label": "Raw",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": false
+              }
+            ]
+          },
+          {
+            "group": "PSA",
+            "items": [
+              {
+                "label": "10",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": true
+              },
+              {
+                "label": "9",
+                "value": 89.82,
+                "sample_size": 2,
+                "comps": [
+                  {
+                    "price": 114.99,
+                    "date": "2026-08-23",
+                    "title": "VINCE CARTER  1998-99 TOPPS CHROME #I8 ROOKIE INSTANT IMPACT REFRACTOR PSA 9",
+                    "url": "https://ebay.com/itm/318735503579?nordt=true"
+                  },
+                  {
+                    "price": 64.65,
+                    "date": "2026-08-23",
+                    "title": "1998-99 Topps Chrome Vince Carter #199 PSA 9 MINT Rookie RC HOF h8b",
+                    "url": "https://ebay.com/itm/336721680910?nordt=true"
+                  }
+                ],
+                "is_own": false
+              }
+            ]
+          },
+          {
+            "group": "BGS",
+            "items": [
+              {
+                "label": "10",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": false
+              },
+              {
+                "label": "9.5",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": false
+              }
+            ]
+          }
+        ],
+        "pooled_sales": [
+          {
+            "price": 114.99,
+            "date": "2026-08-23",
+            "url": "https://ebay.com/itm/318735503579?nordt=true",
+            "label": "9"
+          },
+          {
+            "price": 64.65,
+            "date": "2026-08-23",
+            "url": "https://ebay.com/itm/336721680910?nordt=true",
+            "label": "9"
+          }
+        ]
       }
     ]
   },
@@ -12573,6 +13676,79 @@
       "added_at": ""
     },
     "snapshots": [
+      {
+        "date": "2026-08-26",
+        "value": null,
+        "sample_size": 0,
+        "comps": [],
+        "tree": [
+          {
+            "group": "Raw",
+            "items": [
+              {
+                "label": "Raw",
+                "value": 15.33,
+                "sample_size": 1,
+                "comps": [
+                  {
+                    "price": 15.33,
+                    "date": "2026-08-24",
+                    "title": "Vince Carter 1998-99 Flair Showcase Row 3 Power Rookie Card #25 RC Raptors",
+                    "url": "https://www.ebay.com.au/itm/168316861563?hash=item2730777c7b%3Ag%3A4FIAAeSwjGFp4qTB&mkevt=1&mkcid=1&mkrid=705-53470-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true"
+                  }
+                ],
+                "is_own": false
+              }
+            ]
+          },
+          {
+            "group": "PSA",
+            "items": [
+              {
+                "label": "10",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": false
+              },
+              {
+                "label": "9",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": true
+              }
+            ]
+          },
+          {
+            "group": "BGS",
+            "items": [
+              {
+                "label": "10",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": false
+              },
+              {
+                "label": "9.5",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": false
+              }
+            ]
+          }
+        ],
+        "pooled_sales": [
+          {
+            "price": 15.33,
+            "date": "2026-08-24",
+            "url": "https://www.ebay.com.au/itm/168316861563?hash=item2730777c7b%3Ag%3A4FIAAeSwjGFp4qTB&mkevt=1&mkcid=1&mkrid=705-53470-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true",
+            "label": "Raw"
+          }
+        ]
+      },
       {
         "date": "2026-08-26",
         "value": null,
@@ -14009,6 +15185,91 @@
             "label": "Raw"
           }
         ]
+      },
+      {
+        "date": "2026-08-26",
+        "value": null,
+        "sample_size": 0,
+        "comps": [],
+        "tree": [
+          {
+            "group": "Raw",
+            "items": [
+              {
+                "label": "Raw",
+                "value": 5.75,
+                "sample_size": 2,
+                "comps": [
+                  {
+                    "price": 5.5,
+                    "date": "2026-08-24",
+                    "title": "1994-95 Topps Finest - Jason Kidd #286 (RC)",
+                    "url": "https://ebay.com/itm/398294120730?nordt=true"
+                  },
+                  {
+                    "price": 5.99,
+                    "date": "2026-08-23",
+                    "title": "JASON KIDD 1994-95 Topps Finest #286 Rookie RC w/ Coating Dallas Mavericks (P4)",
+                    "url": "https://ebay.com/itm/377433310097?nordt=true"
+                  }
+                ],
+                "is_own": false
+              }
+            ]
+          },
+          {
+            "group": "PSA",
+            "items": [
+              {
+                "label": "10",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": false
+              },
+              {
+                "label": "9",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": true
+              }
+            ]
+          },
+          {
+            "group": "BGS",
+            "items": [
+              {
+                "label": "10",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": false
+              },
+              {
+                "label": "9.5",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": false
+              }
+            ]
+          }
+        ],
+        "pooled_sales": [
+          {
+            "price": 5.5,
+            "date": "2026-08-24",
+            "url": "https://ebay.com/itm/398294120730?nordt=true",
+            "label": "Raw"
+          },
+          {
+            "price": 5.99,
+            "date": "2026-08-23",
+            "url": "https://ebay.com/itm/377433310097?nordt=true",
+            "label": "Raw"
+          }
+        ]
       }
     ]
   },
@@ -14025,6 +15286,116 @@
       "added_at": ""
     },
     "snapshots": [
+      {
+        "date": "2026-08-26",
+        "value": null,
+        "sample_size": 0,
+        "comps": [],
+        "tree": [
+          {
+            "group": "Raw",
+            "items": [
+              {
+                "label": "Raw",
+                "value": 20.08,
+                "sample_size": 4,
+                "comps": [
+                  {
+                    "price": 12.27,
+                    "date": "2026-08-24",
+                    "title": "1992-93 Upper Deck - Shaquille O'Neal #1B (RC) Trade Card",
+                    "url": "https://www.ebay.com.au/itm/206510936045?hash=item301502cfed%3Ag%3AyHQAAeSw04tqiwSq&mkevt=1&mkcid=1&mkrid=705-53470-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true"
+                  },
+                  {
+                    "price": 3.35,
+                    "date": "2026-08-24",
+                    "title": "1992-93 Upper Deck #1a Trade Redemption Shaquille O'Neal Shaq Draft Rookie card ",
+                    "url": "https://www.ebay.com.au/itm/257684960441?hash=item3bff3874b9%3Ag%3ABoQAAeSwhyNqglO9&mkevt=1&mkcid=1&mkrid=705-53470-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true"
+                  }
+                ],
+                "is_own": false
+              }
+            ]
+          },
+          {
+            "group": "PSA",
+            "items": [
+              {
+                "label": "10",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": false
+              },
+              {
+                "label": "9",
+                "value": 613.57,
+                "sample_size": 1,
+                "comps": [
+                  {
+                    "price": 613.57,
+                    "date": "2026-08-24",
+                    "title": "1992-93 Upper Deck Shaquille O'Neal Trade Rookie Card #1b Magic PSA 9 MINT  HOT!",
+                    "url": "https://www.ebay.com.au/itm/298609970197?hash=item45868a8c15%3Ag%3AEKQAAeSwi55qintx&mkevt=1&mkcid=1&mkrid=705-53470-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true"
+                  }
+                ],
+                "is_own": false
+              }
+            ]
+          },
+          {
+            "group": "BGS",
+            "items": [
+              {
+                "label": "10",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": false
+              },
+              {
+                "label": "9.5",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": false
+              }
+            ]
+          }
+        ],
+        "pooled_sales": [
+          {
+            "price": 12.27,
+            "date": "2026-08-24",
+            "url": "https://www.ebay.com.au/itm/206510936045?hash=item301502cfed%3Ag%3AyHQAAeSw04tqiwSq&mkevt=1&mkcid=1&mkrid=705-53470-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true",
+            "label": "Raw"
+          },
+          {
+            "price": 3.35,
+            "date": "2026-08-24",
+            "url": "https://www.ebay.com.au/itm/257684960441?hash=item3bff3874b9%3Ag%3ABoQAAeSwhyNqglO9&mkevt=1&mkcid=1&mkrid=705-53470-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true",
+            "label": "Raw"
+          },
+          {
+            "price": 27.89,
+            "date": "2026-08-24",
+            "url": "https://www.ebay.com.au/itm/147522883657?hash=item22590c9049%3Ag%3APIgAAeSw92lqi4tp&mkevt=1&mkcid=1&mkrid=705-53470-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true",
+            "label": "Raw"
+          },
+          {
+            "price": 30.68,
+            "date": "2026-08-24",
+            "url": "https://www.ebay.com.au/itm/197560489372?hash=item2dff85d59c%3Ag%3ApBgAAeSwQ3VogntD&mkevt=1&mkcid=1&mkrid=705-53470-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true",
+            "label": "Raw"
+          },
+          {
+            "price": 613.57,
+            "date": "2026-08-24",
+            "url": "https://www.ebay.com.au/itm/298609970197?hash=item45868a8c15%3Ag%3AEKQAAeSwi55qintx&mkevt=1&mkcid=1&mkrid=705-53470-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true",
+            "label": "9"
+          }
+        ]
+      },
       {
         "date": "2026-08-26",
         "value": null,
@@ -16343,6 +17714,152 @@
             "label": "10"
           }
         ]
+      },
+      {
+        "date": "2026-08-26",
+        "value": null,
+        "sample_size": 0,
+        "comps": [],
+        "tree": [
+          {
+            "group": "Raw",
+            "items": [
+              {
+                "label": "Raw",
+                "value": 11.7,
+                "sample_size": 10,
+                "comps": [
+                  {
+                    "price": 12.55,
+                    "date": "2026-08-24",
+                    "title": "1999-00 Upper Deck MVP MJ Exclusives Michael Jordan #187 HOF",
+                    "url": "https://www.ebay.com.au/itm/257686577349?hash=item3bff5120c5%3Ag%3Ai0EAAeSwEjtqg1b3&mkevt=1&mkcid=1&mkrid=705-53470-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true"
+                  },
+                  {
+                    "price": 9.0,
+                    "date": "2026-08-24",
+                    "title": "1999-00 Upper Deck MVP MJ Exclusives Michael Jordan #187 HOF",
+                    "url": "https://ebay.com/itm/257686577349?nordt=true"
+                  }
+                ],
+                "is_own": false
+              }
+            ]
+          },
+          {
+            "group": "PSA",
+            "items": [
+              {
+                "label": "10",
+                "value": 210.0,
+                "sample_size": 1,
+                "comps": [
+                  {
+                    "price": 210.0,
+                    "date": "2026-08-24",
+                    "title": "Upper Deck 1999-00 MVP MJ Exclusives Michael Jordan #191 PSA 10 GEM MINT Bulls",
+                    "url": "https://ebay.com/itm/820038693819?nordt=true"
+                  }
+                ],
+                "is_own": false
+              },
+              {
+                "label": "9",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": false
+              }
+            ]
+          },
+          {
+            "group": "BGS",
+            "items": [
+              {
+                "label": "10",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": false
+              },
+              {
+                "label": "9.5",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": false
+              }
+            ]
+          }
+        ],
+        "pooled_sales": [
+          {
+            "price": 12.55,
+            "date": "2026-08-24",
+            "url": "https://www.ebay.com.au/itm/257686577349?hash=item3bff5120c5%3Ag%3Ai0EAAeSwEjtqg1b3&mkevt=1&mkcid=1&mkrid=705-53470-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true",
+            "label": "Raw"
+          },
+          {
+            "price": 9.0,
+            "date": "2026-08-24",
+            "url": "https://ebay.com/itm/257686577349?nordt=true",
+            "label": "Raw"
+          },
+          {
+            "price": 11.5,
+            "date": "2026-08-24",
+            "url": "https://ebay.com/itm/198579463189?nordt=true",
+            "label": "Raw"
+          },
+          {
+            "price": 19.99,
+            "date": "2026-08-24",
+            "url": "https://ebay.com/itm/178414886523?nordt=true",
+            "label": "Raw"
+          },
+          {
+            "price": 8.75,
+            "date": "2026-08-24",
+            "url": "https://ebay.com/itm/407100246640?nordt=true",
+            "label": "Raw"
+          },
+          {
+            "price": 8.99,
+            "date": "2026-08-24",
+            "url": "https://ebay.com/itm/147461266683?nordt=true",
+            "label": "Raw"
+          },
+          {
+            "price": 5.28,
+            "date": "2026-08-24",
+            "url": "https://ebay.com/itm/377440434167?nordt=true",
+            "label": "Raw"
+          },
+          {
+            "price": 12.0,
+            "date": "2026-08-24",
+            "url": "https://ebay.com/itm/178023188348?nordt=true",
+            "label": "Raw"
+          },
+          {
+            "price": 12.0,
+            "date": "2026-08-24",
+            "url": "https://ebay.com/itm/188820102659?nordt=true",
+            "label": "Raw"
+          },
+          {
+            "price": 11.89,
+            "date": "2026-08-24",
+            "url": "https://ebay.com/itm/318767041159?nordt=true",
+            "label": "Raw"
+          },
+          {
+            "price": 210.0,
+            "date": "2026-08-24",
+            "url": "https://ebay.com/itm/820038693819?nordt=true",
+            "label": "10"
+          }
+        ]
       }
     ]
   },
@@ -16359,6 +17876,65 @@
       "added_at": ""
     },
     "snapshots": [
+      {
+        "date": "2026-08-26",
+        "value": null,
+        "sample_size": 0,
+        "comps": [],
+        "tree": [
+          {
+            "group": "Raw",
+            "items": [
+              {
+                "label": "Raw",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": false
+              }
+            ]
+          },
+          {
+            "group": "PSA",
+            "items": [
+              {
+                "label": "10",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": false
+              },
+              {
+                "label": "9",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": true
+              }
+            ]
+          },
+          {
+            "group": "BGS",
+            "items": [
+              {
+                "label": "10",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": false
+              },
+              {
+                "label": "9.5",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": false
+              }
+            ]
+          }
+        ],
+        "pooled_sales": []
+      },
       {
         "date": "2026-08-26",
         "value": null,
@@ -17435,6 +19011,65 @@
           }
         ],
         "pooled_sales": []
+      },
+      {
+        "date": "2026-08-26",
+        "value": null,
+        "sample_size": 0,
+        "comps": [],
+        "tree": [
+          {
+            "group": "Raw",
+            "items": [
+              {
+                "label": "Raw",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": false
+              }
+            ]
+          },
+          {
+            "group": "PSA",
+            "items": [
+              {
+                "label": "10",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": false
+              },
+              {
+                "label": "9",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": false
+              }
+            ]
+          },
+          {
+            "group": "BGS",
+            "items": [
+              {
+                "label": "10",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": false
+              },
+              {
+                "label": "9.5",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": false
+              }
+            ]
+          }
+        ],
+        "pooled_sales": []
       }
     ]
   },
@@ -17451,6 +19086,65 @@
       "added_at": ""
     },
     "snapshots": [
+      {
+        "date": "2026-08-26",
+        "value": null,
+        "sample_size": 0,
+        "comps": [],
+        "tree": [
+          {
+            "group": "Raw",
+            "items": [
+              {
+                "label": "Raw",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": false
+              }
+            ]
+          },
+          {
+            "group": "PSA",
+            "items": [
+              {
+                "label": "10",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": false
+              },
+              {
+                "label": "9",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": false
+              }
+            ]
+          },
+          {
+            "group": "BGS",
+            "items": [
+              {
+                "label": "10",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": false
+              },
+              {
+                "label": "9.5",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": true
+              }
+            ]
+          }
+        ],
+        "pooled_sales": []
+      },
       {
         "date": "2026-08-26",
         "value": null,
@@ -19202,6 +20896,140 @@
             "label": "Raw"
           }
         ]
+      },
+      {
+        "date": "2026-08-26",
+        "value": 524.5,
+        "sample_size": 4,
+        "comps": [
+          {
+            "price": 758.94,
+            "date": "2026-08-24",
+            "title": "1993-94 Fleer Ultra #2 Power In The Key Michael Jordan Excellent Centering  ",
+            "listing_type": "fixed_price",
+            "price_confirmed": true,
+            "url": "https://www.ebay.com.au/itm/800545723489?hash=itemba643e5461%3Ag%3APxcAAeSwF5BqiGPx&mkevt=1&mkcid=1&mkrid=705-53470-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true"
+          },
+          {
+            "price": 499.0,
+            "date": "2026-08-23",
+            "title": "1993-94 Fleer Ultra - Power in the Key Michael Jordan #2",
+            "listing_type": "best_offer",
+            "price_confirmed": true,
+            "url": "https://ebay.com/itm/336755198795?nordt=true"
+          },
+          {
+            "price": 550.0,
+            "date": "2026-08-23",
+            "title": "1993-94 Fleer Ultra - Power in the Key Michael Jordan #2",
+            "listing_type": "best_offer",
+            "price_confirmed": true,
+            "url": "https://ebay.com/itm/257686334434?nordt=true"
+          },
+          {
+            "price": 450.0,
+            "date": "2026-08-23",
+            "title": "Fleer Ultra 1993-94 Power in the Key Michael Jordan 2 of 9 kept in top loader",
+            "listing_type": "auction",
+            "price_confirmed": true,
+            "url": "https://ebay.com/itm/147513786183?nordt=true"
+          }
+        ],
+        "tree": [
+          {
+            "group": "Raw",
+            "items": [
+              {
+                "label": "Raw",
+                "value": 524.5,
+                "sample_size": 4,
+                "comps": [
+                  {
+                    "price": 758.94,
+                    "date": "2026-08-24",
+                    "title": "1993-94 Fleer Ultra #2 Power In The Key Michael Jordan Excellent Centering  ",
+                    "listing_type": "fixed_price",
+                    "price_confirmed": true,
+                    "url": "https://www.ebay.com.au/itm/800545723489?hash=itemba643e5461%3Ag%3APxcAAeSwF5BqiGPx&mkevt=1&mkcid=1&mkrid=705-53470-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true"
+                  },
+                  {
+                    "price": 499.0,
+                    "date": "2026-08-23",
+                    "title": "1993-94 Fleer Ultra - Power in the Key Michael Jordan #2",
+                    "listing_type": "best_offer",
+                    "price_confirmed": true,
+                    "url": "https://ebay.com/itm/336755198795?nordt=true"
+                  }
+                ],
+                "is_own": true
+              }
+            ]
+          },
+          {
+            "group": "PSA",
+            "items": [
+              {
+                "label": "10",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": false
+              },
+              {
+                "label": "9",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": false
+              }
+            ]
+          },
+          {
+            "group": "BGS",
+            "items": [
+              {
+                "label": "10",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": false
+              },
+              {
+                "label": "9.5",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": false
+              }
+            ]
+          }
+        ],
+        "pooled_sales": [
+          {
+            "price": 758.94,
+            "date": "2026-08-24",
+            "url": "https://www.ebay.com.au/itm/800545723489?hash=itemba643e5461%3Ag%3APxcAAeSwF5BqiGPx&mkevt=1&mkcid=1&mkrid=705-53470-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true",
+            "label": "Raw"
+          },
+          {
+            "price": 499.0,
+            "date": "2026-08-23",
+            "url": "https://ebay.com/itm/336755198795?nordt=true",
+            "label": "Raw"
+          },
+          {
+            "price": 550.0,
+            "date": "2026-08-23",
+            "url": "https://ebay.com/itm/257686334434?nordt=true",
+            "label": "Raw"
+          },
+          {
+            "price": 450.0,
+            "date": "2026-08-23",
+            "url": "https://ebay.com/itm/147513786183?nordt=true",
+            "label": "Raw"
+          }
+        ]
       }
     ]
   },
@@ -19748,6 +21576,65 @@
           }
         ],
         "pooled_sales": []
+      },
+      {
+        "date": "2026-08-26",
+        "value": null,
+        "sample_size": 0,
+        "comps": [],
+        "tree": [
+          {
+            "group": "Raw",
+            "items": [
+              {
+                "label": "Raw",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": false
+              }
+            ]
+          },
+          {
+            "group": "PSA",
+            "items": [
+              {
+                "label": "10",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": false
+              },
+              {
+                "label": "9",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": true
+              }
+            ]
+          },
+          {
+            "group": "BGS",
+            "items": [
+              {
+                "label": "10",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": false
+              },
+              {
+                "label": "9.5",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": false
+              }
+            ]
+          }
+        ],
+        "pooled_sales": []
       }
     ]
   },
@@ -19764,6 +21651,79 @@
       "added_at": ""
     },
     "snapshots": [
+      {
+        "date": "2026-08-26",
+        "value": null,
+        "sample_size": 0,
+        "comps": [],
+        "tree": [
+          {
+            "group": "Raw",
+            "items": [
+              {
+                "label": "Raw",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": true
+              }
+            ]
+          },
+          {
+            "group": "PSA",
+            "items": [
+              {
+                "label": "10",
+                "value": 10.0,
+                "sample_size": 1,
+                "comps": [
+                  {
+                    "price": 10.0,
+                    "date": "2026-08-23",
+                    "title": "Rui Hachimura 2019-20 NBA Hoops Premium Stock Silver Prizm! RC! #206 - PSA 10",
+                    "url": "https://ebay.com/itm/375513928151?nordt=true"
+                  }
+                ],
+                "is_own": false
+              },
+              {
+                "label": "9",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": false
+              }
+            ]
+          },
+          {
+            "group": "BGS",
+            "items": [
+              {
+                "label": "10",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": false
+              },
+              {
+                "label": "9.5",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": false
+              }
+            ]
+          }
+        ],
+        "pooled_sales": [
+          {
+            "price": 10.0,
+            "date": "2026-08-23",
+            "url": "https://ebay.com/itm/375513928151?nordt=true",
+            "label": "10"
+          }
+        ]
+      },
       {
         "date": "2026-08-26",
         "value": null,
@@ -20856,6 +22816,166 @@
             "label": "Raw"
           }
         ]
+      },
+      {
+        "date": "2026-08-26",
+        "value": 93.0,
+        "sample_size": 7,
+        "comps": [
+          {
+            "price": 76.0,
+            "date": "2026-08-24",
+            "title": "1997-98 Skybox Z-Force - Boss Kobe Bryant #3 B",
+            "listing_type": "fixed_price",
+            "price_confirmed": true,
+            "url": "https://www.ebay.com/itm/278304850223?hash=item40cc43012f%3Ag%3ABR0AAeSw4C1qi1Rz&mkevt=1&mkcid=1&mkrid=711-53200-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true"
+          },
+          {
+            "price": 549.13,
+            "date": "2026-08-23",
+            "title": "SkyBox 1997-98 Z-Force Super Boss Kobe  Bryant Lakers #3 of 20/SB",
+            "listing_type": "auction",
+            "price_confirmed": true,
+            "url": "https://www.ebay.com.au/itm/336744608053?hash=item4e678af135%3Ag%3AP-QAAeSwBclqgQe4&mkevt=1&mkcid=1&mkrid=705-53470-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true"
+          },
+          {
+            "price": 393.78,
+            "date": "2026-08-23",
+            "title": "SkyBox 1997-98 Z-Force Super Boss Kobe  Bryant Lakers #3 of 20/SB",
+            "listing_type": "auction",
+            "price_confirmed": true,
+            "url": "https://ebay.com/itm/336744608053?nordt=true"
+          },
+          {
+            "price": 86.0,
+            "date": "2026-08-23",
+            "title": "1997-98 Skybox Z-Force Kobe Bryant Boss #3/B Lakers",
+            "listing_type": "auction",
+            "price_confirmed": true,
+            "url": "https://ebay.com/itm/128031468300?nordt=true"
+          },
+          {
+            "price": 93.0,
+            "date": "2026-08-23",
+            "title": "1997-98 Skybox Z-Force Kobe Bryant Boss #3/B Lakers",
+            "listing_type": "auction",
+            "price_confirmed": true,
+            "url": "https://ebay.com/itm/128031469966?nordt=true"
+          }
+        ],
+        "tree": [
+          {
+            "group": "Raw",
+            "items": [
+              {
+                "label": "Raw",
+                "value": 93.0,
+                "sample_size": 7,
+                "comps": [
+                  {
+                    "price": 76.0,
+                    "date": "2026-08-24",
+                    "title": "1997-98 Skybox Z-Force - Boss Kobe Bryant #3 B",
+                    "listing_type": "fixed_price",
+                    "price_confirmed": true,
+                    "url": "https://www.ebay.com/itm/278304850223?hash=item40cc43012f%3Ag%3ABR0AAeSw4C1qi1Rz&mkevt=1&mkcid=1&mkrid=711-53200-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true"
+                  },
+                  {
+                    "price": 549.13,
+                    "date": "2026-08-23",
+                    "title": "SkyBox 1997-98 Z-Force Super Boss Kobe  Bryant Lakers #3 of 20/SB",
+                    "listing_type": "auction",
+                    "price_confirmed": true,
+                    "url": "https://www.ebay.com.au/itm/336744608053?hash=item4e678af135%3Ag%3AP-QAAeSwBclqgQe4&mkevt=1&mkcid=1&mkrid=705-53470-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true"
+                  }
+                ],
+                "is_own": true
+              }
+            ]
+          },
+          {
+            "group": "PSA",
+            "items": [
+              {
+                "label": "10",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": false
+              },
+              {
+                "label": "9",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": false
+              }
+            ]
+          },
+          {
+            "group": "BGS",
+            "items": [
+              {
+                "label": "10",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": false
+              },
+              {
+                "label": "9.5",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": false
+              }
+            ]
+          }
+        ],
+        "pooled_sales": [
+          {
+            "price": 76.0,
+            "date": "2026-08-24",
+            "url": "https://www.ebay.com/itm/278304850223?hash=item40cc43012f%3Ag%3ABR0AAeSw4C1qi1Rz&mkevt=1&mkcid=1&mkrid=711-53200-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true",
+            "label": "Raw"
+          },
+          {
+            "price": 549.13,
+            "date": "2026-08-23",
+            "url": "https://www.ebay.com.au/itm/336744608053?hash=item4e678af135%3Ag%3AP-QAAeSwBclqgQe4&mkevt=1&mkcid=1&mkrid=705-53470-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true",
+            "label": "Raw"
+          },
+          {
+            "price": 393.78,
+            "date": "2026-08-23",
+            "url": "https://ebay.com/itm/336744608053?nordt=true",
+            "label": "Raw"
+          },
+          {
+            "price": 86.0,
+            "date": "2026-08-23",
+            "url": "https://ebay.com/itm/128031468300?nordt=true",
+            "label": "Raw"
+          },
+          {
+            "price": 93.0,
+            "date": "2026-08-23",
+            "url": "https://ebay.com/itm/128031469966?nordt=true",
+            "label": "Raw"
+          },
+          {
+            "price": 90.0,
+            "date": "2026-08-23",
+            "url": "https://ebay.com/itm/398277333224?nordt=true",
+            "label": "Raw"
+          },
+          {
+            "price": 139.99,
+            "date": "2026-08-23",
+            "url": "https://ebay.com/itm/800547831509?nordt=true",
+            "label": "Raw"
+          }
+        ]
       }
     ]
   },
@@ -20872,6 +22992,140 @@
       "added_at": "2026-08-26T11:06:34.122Z"
     },
     "snapshots": [
+      {
+        "date": "2026-08-26",
+        "value": 17.27,
+        "sample_size": 4,
+        "comps": [
+          {
+            "price": 16.99,
+            "date": "2026-08-24",
+            "title": "1998-99 NBA Hoops - Pump Up the Jam Kobe Bryant #4 PJ",
+            "listing_type": "fixed_price",
+            "price_confirmed": true,
+            "url": "https://www.ebay.com/itm/188778281633?hash=item2bf40ffaa1%3Ag%3AgSIAAeSwW4tqe5FZ&mkevt=1&mkcid=1&mkrid=711-53200-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true"
+          },
+          {
+            "price": 17.55,
+            "date": "2026-08-23",
+            "title": "1998-99 Hoops Kobe Bryant Pump Up the Jam #4 PJ Lakers",
+            "listing_type": "auction",
+            "price_confirmed": true,
+            "url": "https://ebay.com/itm/128031468453?nordt=true"
+          },
+          {
+            "price": 18.0,
+            "date": "2026-08-23",
+            "title": "1998-99 NBA Hoops - Pump Up the Jam Kobe Bryant #4 PJ - A",
+            "listing_type": "fixed_price",
+            "price_confirmed": true,
+            "url": "https://ebay.com/itm/206496312117?nordt=true"
+          },
+          {
+            "price": 10.0,
+            "date": "2026-08-23",
+            "title": "1998-99 NBA Hoops - Pump Up the Jam Kobe Bryant #4 PJ",
+            "listing_type": "fixed_price",
+            "price_confirmed": true,
+            "url": "https://ebay.com/itm/198588926587?nordt=true"
+          }
+        ],
+        "tree": [
+          {
+            "group": "Raw",
+            "items": [
+              {
+                "label": "Raw",
+                "value": 17.27,
+                "sample_size": 4,
+                "comps": [
+                  {
+                    "price": 16.99,
+                    "date": "2026-08-24",
+                    "title": "1998-99 NBA Hoops - Pump Up the Jam Kobe Bryant #4 PJ",
+                    "listing_type": "fixed_price",
+                    "price_confirmed": true,
+                    "url": "https://www.ebay.com/itm/188778281633?hash=item2bf40ffaa1%3Ag%3AgSIAAeSwW4tqe5FZ&mkevt=1&mkcid=1&mkrid=711-53200-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true"
+                  },
+                  {
+                    "price": 17.55,
+                    "date": "2026-08-23",
+                    "title": "1998-99 Hoops Kobe Bryant Pump Up the Jam #4 PJ Lakers",
+                    "listing_type": "auction",
+                    "price_confirmed": true,
+                    "url": "https://ebay.com/itm/128031468453?nordt=true"
+                  }
+                ],
+                "is_own": true
+              }
+            ]
+          },
+          {
+            "group": "PSA",
+            "items": [
+              {
+                "label": "10",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": false
+              },
+              {
+                "label": "9",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": false
+              }
+            ]
+          },
+          {
+            "group": "BGS",
+            "items": [
+              {
+                "label": "10",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": false
+              },
+              {
+                "label": "9.5",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": false
+              }
+            ]
+          }
+        ],
+        "pooled_sales": [
+          {
+            "price": 16.99,
+            "date": "2026-08-24",
+            "url": "https://www.ebay.com/itm/188778281633?hash=item2bf40ffaa1%3Ag%3AgSIAAeSwW4tqe5FZ&mkevt=1&mkcid=1&mkrid=711-53200-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true",
+            "label": "Raw"
+          },
+          {
+            "price": 17.55,
+            "date": "2026-08-23",
+            "url": "https://ebay.com/itm/128031468453?nordt=true",
+            "label": "Raw"
+          },
+          {
+            "price": 18.0,
+            "date": "2026-08-23",
+            "url": "https://ebay.com/itm/206496312117?nordt=true",
+            "label": "Raw"
+          },
+          {
+            "price": 10.0,
+            "date": "2026-08-23",
+            "url": "https://ebay.com/itm/198588926587?nordt=true",
+            "label": "Raw"
+          }
+        ]
+      },
       {
         "date": "2026-08-26",
         "value": 17.27,
@@ -21484,6 +23738,104 @@
             "label": "9"
           }
         ]
+      },
+      {
+        "date": "2026-08-26",
+        "value": null,
+        "sample_size": 0,
+        "comps": [],
+        "tree": [
+          {
+            "group": "Raw",
+            "items": [
+              {
+                "label": "Raw",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": false
+              }
+            ]
+          },
+          {
+            "group": "PSA",
+            "items": [
+              {
+                "label": "10",
+                "value": 35.41,
+                "sample_size": 2,
+                "comps": [
+                  {
+                    "price": 42.88,
+                    "date": "2026-08-23",
+                    "title": "2016-17 Panini Select Ben Simmons RC #141 Tri-Color Prizm PSA 10 76ers",
+                    "url": "https://www.ebay.com.au/itm/307139237433?hash=item4782ecd639%3Ag%3AZWYAAeSwWihqiEaE&mkevt=1&mkcid=1&mkrid=705-53470-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true"
+                  },
+                  {
+                    "price": 27.95,
+                    "date": "2026-08-23",
+                    "title": "2016-17 Panini Select Ben Simmons RC #141 Tri-Color Prizm PSA 10 76ers",
+                    "url": "https://ebay.com/itm/307139237433?nordt=true"
+                  }
+                ],
+                "is_own": false
+              },
+              {
+                "label": "9",
+                "value": 0.99,
+                "sample_size": 1,
+                "comps": [
+                  {
+                    "price": 0.99,
+                    "date": "2026-08-24",
+                    "title": "2016-17 PANINI PRIZM BEN SIMMONS RC PHILADELPHIA 76ERS ROOKIE PSA 9 MINT!",
+                    "url": "https://ebay.com/itm/257609093978?nordt=true"
+                  }
+                ],
+                "is_own": false
+              }
+            ]
+          },
+          {
+            "group": "BGS",
+            "items": [
+              {
+                "label": "10",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": false
+              },
+              {
+                "label": "9.5",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": false
+              }
+            ]
+          }
+        ],
+        "pooled_sales": [
+          {
+            "price": 42.88,
+            "date": "2026-08-23",
+            "url": "https://www.ebay.com.au/itm/307139237433?hash=item4782ecd639%3Ag%3AZWYAAeSwWihqiEaE&mkevt=1&mkcid=1&mkrid=705-53470-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true",
+            "label": "10"
+          },
+          {
+            "price": 27.95,
+            "date": "2026-08-23",
+            "url": "https://ebay.com/itm/307139237433?nordt=true",
+            "label": "10"
+          },
+          {
+            "price": 0.99,
+            "date": "2026-08-24",
+            "url": "https://ebay.com/itm/257609093978?nordt=true",
+            "label": "9"
+          }
+        ]
       }
     ]
   },
@@ -21581,6 +23933,191 @@
             "price": 450.0,
             "date": "2026-08-23",
             "url": "https://ebay.com/itm/398315357312?nordt=true",
+            "label": "Raw"
+          }
+        ]
+      },
+      {
+        "date": "2026-08-26",
+        "value": null,
+        "sample_size": 0,
+        "comps": [],
+        "tree": [
+          {
+            "group": "Raw",
+            "items": [
+              {
+                "label": "Raw",
+                "value": 455.1,
+                "sample_size": 2,
+                "comps": [
+                  {
+                    "price": 460.19,
+                    "date": "2026-08-24",
+                    "title": "1996-97 Rare Fleer Ultra Michael Jordan Full Court Trap #1 Beauty Rare \ud83d\udcc8\ud83d\udcc8\ud83d\udd25",
+                    "url": "https://www.ebay.com.au/itm/128039684180?hash=item1dcfc28854%3Ag%3AX3wAAeSwUcpqe0fB&mkevt=1&mkcid=1&mkrid=705-53470-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true"
+                  },
+                  {
+                    "price": 450.0,
+                    "date": "2026-08-23",
+                    "title": "1996-97 Fleer Ultra - Full Court Trap Michael Jordan #1",
+                    "url": "https://ebay.com/itm/398315357312?nordt=true"
+                  }
+                ],
+                "is_own": false
+              }
+            ]
+          },
+          {
+            "group": "PSA",
+            "items": [
+              {
+                "label": "10",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": false
+              },
+              {
+                "label": "9",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": true
+              }
+            ]
+          },
+          {
+            "group": "BGS",
+            "items": [
+              {
+                "label": "10",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": false
+              },
+              {
+                "label": "9.5",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": false
+              }
+            ]
+          }
+        ],
+        "pooled_sales": [
+          {
+            "price": 460.19,
+            "date": "2026-08-24",
+            "url": "https://www.ebay.com.au/itm/128039684180?hash=item1dcfc28854%3Ag%3AX3wAAeSwUcpqe0fB&mkevt=1&mkcid=1&mkrid=705-53470-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true",
+            "label": "Raw"
+          },
+          {
+            "price": 450.0,
+            "date": "2026-08-23",
+            "url": "https://ebay.com/itm/398315357312?nordt=true",
+            "label": "Raw"
+          }
+        ]
+      }
+    ]
+  },
+  "LeBron James | 2003-04 | Upper Deck Phenomenal Beginnings | 20 |  | BGS 9.5": {
+    "meta": {
+      "player": "LeBron James",
+      "year": "2003-04",
+      "set": "Upper Deck Phenomenal Beginnings",
+      "card_number": "20",
+      "variant": "",
+      "grade": "BGS 9.5",
+      "photo_filename": "lebron_james_2003_04_upper_deck_phenomenal_beginnings_1787744062956.jpg",
+      "back_photo_filename": "",
+      "added_at": "2026-08-26T11:34:26.065Z"
+    },
+    "snapshots": [
+      {
+        "date": "2026-08-26",
+        "value": null,
+        "sample_size": 0,
+        "comps": [],
+        "tree": [
+          {
+            "group": "Raw",
+            "items": [
+              {
+                "label": "Raw",
+                "value": 126.7,
+                "sample_size": 2,
+                "comps": [
+                  {
+                    "price": 100.0,
+                    "date": "2026-08-23",
+                    "title": "LEBRON JAMES 2003-04  Upper deck Phenomenal Beginnings Partial 18/20 Cards",
+                    "url": "https://ebay.com/itm/206510240737?nordt=true"
+                  },
+                  {
+                    "price": 153.4,
+                    "date": "2026-08-23",
+                    "title": "LEBRON JAMES 2003-04  Upper deck Phenomenal Beginnings Partial 18/20 Cards",
+                    "url": "https://www.ebay.com.au/itm/206510240737?hash=item3014f833e1%3Ag%3Ak48AAeSwMtZqih2%7E&mkevt=1&mkcid=1&mkrid=705-53470-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true"
+                  }
+                ],
+                "is_own": false
+              }
+            ]
+          },
+          {
+            "group": "PSA",
+            "items": [
+              {
+                "label": "10",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": false
+              },
+              {
+                "label": "9",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": false
+              }
+            ]
+          },
+          {
+            "group": "BGS",
+            "items": [
+              {
+                "label": "10",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": false
+              },
+              {
+                "label": "9.5",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": true
+              }
+            ]
+          }
+        ],
+        "pooled_sales": [
+          {
+            "price": 100.0,
+            "date": "2026-08-23",
+            "url": "https://ebay.com/itm/206510240737?nordt=true",
+            "label": "Raw"
+          },
+          {
+            "price": 153.4,
+            "date": "2026-08-23",
+            "url": "https://www.ebay.com.au/itm/206510240737?hash=item3014f833e1%3Ag%3Ak48AAeSwMtZqih2%7E&mkevt=1&mkcid=1&mkrid=705-53470-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true",
             "label": "Raw"
           }
         ]
