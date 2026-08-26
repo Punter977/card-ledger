@@ -323,6 +323,7 @@
       <option value="value-asc">Value: Low to High</option>
       <option value="change-desc">Change: Biggest Gain</option>
       <option value="change-asc">Change: Biggest Drop</option>
+      <option value="added-desc">Recently Added</option>
       <option value="name">Name A–Z</option>
     </select>
   </div>
@@ -637,6 +638,7 @@ function applyFiltersAndSort() {
       case 'value-asc': return (a.latestValue || 0) - (b.latestValue || 0);
       case 'change-desc': return (b.change ?? -999) - (a.change ?? -999);
       case 'change-asc': return (a.change ?? 999) - (b.change ?? 999);
+      case 'added-desc': return (b.meta.added_at || '').localeCompare(a.meta.added_at || '');
       case 'name': return (a.meta.player || '').localeCompare(b.meta.player || '');
       default: return 0;
     }

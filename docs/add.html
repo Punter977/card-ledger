@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Add Card — Card Ledger</title>
+<title>Add / Edit Card — Card Ledger</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -47,6 +47,23 @@
 
   main { max-width: 640px; margin: 0 auto; padding: 28px 24px 80px; }
 
+  .tabs { display: flex; gap: 8px; margin-bottom: 24px; }
+  .tab {
+    flex: 1;
+    text-align: center;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid var(--line);
+    background: var(--surface);
+    color: var(--text-muted);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    cursor: pointer;
+  }
+  .tab.active { border-color: var(--accent); color: var(--accent); background: var(--surface-raised); }
+
   h2 {
     font-family: 'Barlow Condensed', sans-serif;
     font-size: 20px;
@@ -77,7 +94,7 @@
   .field-row { display: flex; gap: 12px; }
   .field-row .field { flex: 1; }
 
-  input[type="text"], input[type="password"] {
+  input[type="text"], input[type="password"], select {
     width: 100%;
     background: var(--surface-raised);
     border: 1px solid var(--line);
@@ -87,7 +104,7 @@
     font-family: 'Inter', sans-serif;
     font-size: 14px;
   }
-  input:focus { outline: 1px solid var(--accent); border-color: var(--accent); }
+  input:focus, select:focus { outline: 1px solid var(--accent); border-color: var(--accent); }
   input[type="file"] {
     width: 100%;
     color: var(--text-muted);
@@ -115,6 +132,9 @@
     background: transparent;
     border: 1px solid var(--line);
     color: var(--text);
+    width: auto;
+    padding: 8px 14px;
+    font-size: 12.5px;
   }
   button.secondary:hover { border-color: var(--accent); color: var(--accent); }
 
@@ -145,7 +165,6 @@
   .status.info { background: var(--surface-raised); border: 1px solid var(--line); color: var(--text-muted); }
   .status.success { background: rgba(45,212,191,0.08); border: 1px solid var(--teal); color: var(--teal); }
   .status.error { background: rgba(251,113,133,0.08); border: 1px solid var(--down); color: var(--down); }
-
   .status a { color: inherit; text-decoration: underline; }
 
   .note {
@@ -155,6 +174,32 @@
     margin-bottom: 16px;
   }
   .note a { color: var(--accent); }
+
+  .photo-field { margin-bottom: 14px; }
+  .photo-preview-wrap {
+    display: none;
+    margin-top: 8px;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .photo-preview-wrap.visible { display: flex; }
+  .photo-preview {
+    width: 90px;
+    height: 126px;
+    object-fit: cover;
+    border-radius: 4px;
+    border: 1px solid var(--line);
+    background: var(--surface-raised);
+  }
+  .photo-current {
+    font-size: 11.5px;
+    color: var(--text-muted);
+    font-family: 'JetBrains Mono', monospace;
+    margin-top: 4px;
+  }
+
+  #edit-section { display: none; }
+  #add-section { display: block; }
 </style>
 </head>
 <body>
@@ -165,51 +210,147 @@
 </header>
 
 <main>
-  <h2>Card details</h2>
-  <div class="card-box">
-    <div class="field">
-      <label>Player *</label>
-      <input type="text" id="f-player" placeholder="Michael Jordan">
-    </div>
-    <div class="field-row">
-      <div class="field">
-        <label>Year *</label>
-        <input type="text" id="f-year" placeholder="1993-94">
-      </div>
-      <div class="field">
-        <label>Card number</label>
-        <input type="text" id="f-number" placeholder="5">
-      </div>
-    </div>
-    <div class="field">
-      <label>Set *</label>
-      <input type="text" id="f-set" placeholder="Fleer Ultra Scoring Kings">
-    </div>
-    <div class="field-row">
-      <div class="field">
-        <label>Variant</label>
-        <input type="text" id="f-variant" placeholder="Refractor, /99, etc (optional)">
-      </div>
-      <div class="field">
-        <label>Grade</label>
-        <input type="text" id="f-grade" placeholder="BGS 8.5 (leave blank if raw)">
-      </div>
-    </div>
-    <div class="field">
-      <label>Notes</label>
-      <input type="text" id="f-notes" placeholder="Optional">
-    </div>
+  <div class="tabs">
+    <div class="tab active" id="tab-add">Add New</div>
+    <div class="tab" id="tab-edit">Edit Existing</div>
   </div>
 
-  <h2>Photos</h2>
-  <div class="card-box">
-    <div class="field">
-      <label>Front photo *</label>
-      <input type="file" id="f-front" accept="image/*">
+  <!-- ADD NEW -->
+  <div id="add-section">
+    <h2>Card details</h2>
+    <div class="card-box">
+      <div class="field">
+        <label>Player *</label>
+        <input type="text" id="a-player" placeholder="Michael Jordan">
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label>Year *</label>
+          <input type="text" id="a-year" placeholder="1993-94">
+        </div>
+        <div class="field">
+          <label>Card number</label>
+          <input type="text" id="a-number" placeholder="5">
+        </div>
+      </div>
+      <div class="field">
+        <label>Set *</label>
+        <input type="text" id="a-set" placeholder="Fleer Ultra Scoring Kings">
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label>Variant</label>
+          <input type="text" id="a-variant" placeholder="Refractor, /99, etc (optional)">
+        </div>
+        <div class="field">
+          <label>Grade</label>
+          <input type="text" id="a-grade" placeholder="BGS 8.5 (leave blank if raw)">
+        </div>
+      </div>
+      <div class="field">
+        <label>Notes</label>
+        <input type="text" id="a-notes" placeholder="Optional">
+      </div>
     </div>
-    <div class="field">
-      <label>Back photo (recommended for numbered/parallel cards)</label>
-      <input type="file" id="f-back" accept="image/*">
+
+    <h2>Photos</h2>
+    <div class="card-box">
+      <div class="photo-field" id="a-front-field">
+        <label>Front photo *</label>
+        <input type="file" id="a-front" accept="image/*">
+        <div class="photo-preview-wrap" id="a-front-preview-wrap">
+          <img class="photo-preview" id="a-front-preview">
+          <button class="secondary" type="button" data-rotate-target="a-front">⟳ Rotate</button>
+        </div>
+      </div>
+      <div class="photo-field" id="a-back-field">
+        <label>Back photo (recommended for numbered/parallel cards)</label>
+        <input type="file" id="a-back" accept="image/*">
+        <div class="photo-preview-wrap" id="a-back-preview-wrap">
+          <img class="photo-preview" id="a-back-preview">
+          <button class="secondary" type="button" data-rotate-target="a-back">⟳ Rotate</button>
+        </div>
+      </div>
+    </div>
+
+    <button id="btn-add-submit" type="button">Add card to collection</button>
+  </div>
+
+  <!-- EDIT EXISTING -->
+  <div id="edit-section">
+    <h2>Choose a card</h2>
+    <div class="card-box">
+      <div class="field">
+        <label>Card</label>
+        <select id="e-select">
+          <option value="">Loading…</option>
+        </select>
+      </div>
+      <button class="secondary" id="btn-reload-cards" type="button">↻ Reload list</button>
+    </div>
+
+    <div id="e-form-area" style="display:none;">
+      <h2>Card details</h2>
+      <div class="card-box">
+        <div class="field">
+          <label>Player *</label>
+          <input type="text" id="e-player">
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label>Year *</label>
+            <input type="text" id="e-year">
+          </div>
+          <div class="field">
+            <label>Card number</label>
+            <input type="text" id="e-number">
+          </div>
+        </div>
+        <div class="field">
+          <label>Set *</label>
+          <input type="text" id="e-set">
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label>Variant</label>
+            <input type="text" id="e-variant">
+          </div>
+          <div class="field">
+            <label>Grade</label>
+            <input type="text" id="e-grade">
+          </div>
+        </div>
+        <div class="field">
+          <label>Notes</label>
+          <input type="text" id="e-notes">
+        </div>
+      </div>
+
+      <h2>Photos</h2>
+      <div class="card-box">
+        <div class="photo-field" id="e-front-field">
+          <label>Front photo</label>
+          <div class="photo-current" id="e-front-current"></div>
+          <input type="file" id="e-front" accept="image/*">
+          <div class="hint">Leave blank to keep the current photo</div>
+          <div class="photo-preview-wrap" id="e-front-preview-wrap">
+            <img class="photo-preview" id="e-front-preview">
+            <button class="secondary" type="button" data-rotate-target="e-front">⟳ Rotate</button>
+          </div>
+        </div>
+        <div class="photo-field" id="e-back-field">
+          <label>Back photo</label>
+          <div class="photo-current" id="e-back-current"></div>
+          <input type="file" id="e-back" accept="image/*">
+          <div class="hint">Leave blank to keep the current photo</div>
+          <div class="photo-preview-wrap" id="e-back-preview-wrap">
+            <img class="photo-preview" id="e-back-preview">
+            <button class="secondary" type="button" data-rotate-target="e-back">⟳ Rotate</button>
+          </div>
+        </div>
+      </div>
+
+      <button id="btn-edit-submit" type="button">Save changes</button>
     </div>
   </div>
 
@@ -223,10 +364,9 @@
         one repo at
         <a href="https://github.com/settings/tokens?type=beta" target="_blank" rel="noopener">github.com/settings/tokens</a>,
         with <strong>Contents: Read and write</strong> and
-        <strong>Actions: Read and write</strong> permissions (the second
-        one lets this page trigger a price pull for you after adding a
-        card). The token is stored only in this browser's local storage —
-        it's never sent anywhere except directly to GitHub's API.
+        <strong>Actions: Read and write</strong> permissions. The token is
+        stored only in this browser's local storage — it's never sent
+        anywhere except directly to GitHub's API.
       </p>
       <div class="field">
         <label>GitHub username</label>
@@ -248,36 +388,31 @@
     </div>
   </details>
 
-  <button id="btn-submit" type="button">Add card to collection</button>
-
   <div class="status" id="status"></div>
 </main>
 
 <script>
 const SETTINGS_KEY = 'card_ledger_settings_v1';
+const CSV_PATH = 'docs/data/cards.csv';
+const REQUIRED_COLUMNS = [
+  'photo_filename', 'back_photo_filename', 'player', 'year', 'set',
+  'card_number', 'variant', 'grade', 'notes', 'added_at',
+];
 
+// ---------- settings ----------
 function getSettings() {
-  try {
-    return JSON.parse(localStorage.getItem(SETTINGS_KEY) || '{}');
-  } catch { return {}; }
+  try { return JSON.parse(localStorage.getItem(SETTINGS_KEY) || '{}'); } catch { return {}; }
 }
-function saveSettings(s) {
-  localStorage.setItem(SETTINGS_KEY, JSON.stringify(s));
-}
+function saveSettings(s) { localStorage.setItem(SETTINGS_KEY, JSON.stringify(s)); }
 function loadSettingsIntoForm() {
   const s = getSettings();
   document.getElementById('s-owner').value = s.owner || '';
   document.getElementById('s-repo').value = s.repo || '';
   document.getElementById('s-branch').value = s.branch || 'main';
   document.getElementById('s-token').value = s.token || '';
-  // Auto-expand the settings panel if nothing's configured yet, so
-  // first-time use isn't a confusing dead end.
-  if (!s.owner || !s.repo || !s.token) {
-    document.getElementById('settings-panel').open = true;
-  }
+  if (!s.owner || !s.repo || !s.token) document.getElementById('settings-panel').open = true;
 }
 loadSettingsIntoForm();
-
 document.getElementById('btn-save-settings').addEventListener('click', () => {
   saveSettings({
     owner: document.getElementById('s-owner').value.trim(),
@@ -294,19 +429,64 @@ function setStatus(kind, html) {
   el.innerHTML = html;
 }
 
-function sanitize(s) {
-  return (s || '').toString().trim().toLowerCase().replace(/[^a-z0-9]+/g, '_').replace(/^_+|_+$/g, '');
+// ---------- tabs ----------
+document.getElementById('tab-add').addEventListener('click', () => switchTab('add'));
+document.getElementById('tab-edit').addEventListener('click', () => switchTab('edit'));
+function switchTab(which) {
+  document.getElementById('tab-add').classList.toggle('active', which === 'add');
+  document.getElementById('tab-edit').classList.toggle('active', which === 'edit');
+  document.getElementById('add-section').style.display = which === 'add' ? 'block' : 'none';
+  document.getElementById('edit-section').style.display = which === 'edit' ? 'block' : 'none';
+  if (which === 'edit' && !editState.rows) loadCardsForEdit();
 }
 
-function fileToBase64(file) {
-  return new Promise((resolve, reject) => {
-    const reader = new FileReader();
-    reader.onload = () => resolve(reader.result.split(',')[1]);
-    reader.onerror = reject;
-    reader.readAsDataURL(file);
+// ---------- CSV parsing/serializing (handles quoted fields with commas/newlines) ----------
+function parseCSV(text) {
+  const rows = [];
+  let row = [], field = '', inQuotes = false;
+  for (let i = 0; i < text.length; i++) {
+    const c = text[i];
+    if (inQuotes) {
+      if (c === '"') {
+        if (text[i + 1] === '"') { field += '"'; i++; }
+        else { inQuotes = false; }
+      } else field += c;
+    } else {
+      if (c === '"') inQuotes = true;
+      else if (c === ',') { row.push(field); field = ''; }
+      else if (c === '\n') { row.push(field); rows.push(row); row = []; field = ''; }
+      else if (c === '\r') { /* skip */ }
+      else field += c;
+    }
+  }
+  if (field.length || row.length) { row.push(field); rows.push(row); }
+  // drop trailing fully-empty row (common with a trailing newline)
+  if (rows.length && rows[rows.length - 1].length === 1 && rows[rows.length - 1][0] === '') rows.pop();
+
+  const header = rows.length ? rows[0] : [];
+  const dataRows = rows.slice(1).map(r => {
+    const obj = {};
+    header.forEach((col, i) => { obj[col.trim()] = r[i] ?? ''; });
+    return obj;
   });
+  return { header: header.map(h => h.trim()), rows: dataRows };
 }
 
+function csvEscape(v) {
+  v = (v ?? '').toString();
+  if (/[",\n]/.test(v)) return '"' + v.replace(/"/g, '""') + '"';
+  return v;
+}
+
+function serializeCSV(header, rows) {
+  const lines = [header.join(',')];
+  for (const row of rows) {
+    lines.push(header.map(col => csvEscape(row[col] ?? '')).join(','));
+  }
+  return lines.join('\n') + '\n';
+}
+
+// ---------- GitHub API helpers ----------
 function utf8ToBase64(str) {
   const bytes = new TextEncoder().encode(str);
   let binary = '';
@@ -319,13 +499,9 @@ function base64ToUtf8(b64) {
   for (let i = 0; i < binary.length; i++) bytes[i] = binary.charCodeAt(i);
   return new TextDecoder().decode(bytes);
 }
-
-function csvEscape(v) {
-  v = (v ?? '').toString();
-  if (/[",\n]/.test(v)) return '"' + v.replace(/"/g, '""') + '"';
-  return v;
+function sanitize(s) {
+  return (s || '').toString().trim().toLowerCase().replace(/[^a-z0-9]+/g, '_').replace(/^_+|_+$/g, '');
 }
-
 async function ghFetch(path, options = {}) {
   const s = getSettings();
   const url = `https://api.github.com/repos/${s.owner}/${s.repo}/contents/${path}`;
@@ -338,22 +514,18 @@ async function ghFetch(path, options = {}) {
     },
   });
 }
-
 async function getExistingFile(path) {
   const res = await ghFetch(path);
   if (res.status === 404) return null;
   if (!res.ok) throw new Error(`Couldn't read ${path} (${res.status}). Check your token's permissions.`);
   return res.json();
 }
-
 async function putFile(path, base64Content, message, sha) {
   const s = getSettings();
   const body = { message, content: base64Content, branch: s.branch || 'main' };
   if (sha) body.sha = sha;
   const res = await ghFetch(path, {
-    method: 'PUT',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(body),
+    method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body),
   });
   if (!res.ok) {
     const err = await res.json().catch(() => ({}));
@@ -361,23 +533,127 @@ async function putFile(path, base64Content, message, sha) {
   }
   return res.json();
 }
-
 async function triggerPricePull() {
   const s = getSettings();
   const url = `https://api.github.com/repos/${s.owner}/${s.repo}/actions/workflows/price-pull.yml/dispatches`;
   const res = await fetch(url, {
     method: 'POST',
-    headers: {
-      'Authorization': `Bearer ${s.token}`,
-      'Accept': 'application/vnd.github+json',
-      'Content-Type': 'application/json',
-    },
+    headers: { 'Authorization': `Bearer ${s.token}`, 'Accept': 'application/vnd.github+json', 'Content-Type': 'application/json' },
     body: JSON.stringify({ ref: s.branch || 'main' }),
   });
   return res.ok;
 }
 
-document.getElementById('btn-submit').addEventListener('click', async () => {
+// Loads cards.csv, migrating in any missing required columns (e.g.
+// added_at, for a CSV created before that column existed) so every read
+// gives back a consistent, fully-populated set of rows.
+async function loadCardsCSV() {
+  const existing = await getExistingFile(CSV_PATH);
+  if (!existing) {
+    return { header: [...REQUIRED_COLUMNS], rows: [], sha: null };
+  }
+  const text = base64ToUtf8(existing.content);
+  const parsed = parseCSV(text);
+  let header = parsed.header.length ? parsed.header : [...REQUIRED_COLUMNS];
+  for (const col of REQUIRED_COLUMNS) {
+    if (!header.includes(col)) header.push(col);
+  }
+  return { header, rows: parsed.rows, sha: existing.sha };
+}
+
+// ---------- photo rotation ----------
+// Each photo field (front/back, in either Add or Edit mode) gets its own
+// PhotoField instance managing: the chosen file, a live rotation angle,
+// and a canvas used both for the preview and for producing the final
+// (possibly rotated) image bytes at submit time.
+const photoFields = {};
+class PhotoField {
+  constructor(inputId) {
+    this.inputId = inputId;
+    this.input = document.getElementById(inputId);
+    this.previewWrap = document.getElementById(`${inputId}-preview-wrap`);
+    this.previewImg = document.getElementById(`${inputId}-preview`);
+    this.rotation = 0;
+    this.img = null;
+    this.canvas = document.createElement('canvas');
+    this.hasFile = false;
+
+    this.input.addEventListener('change', () => this.onFileChange());
+    photoFields[inputId] = this;
+  }
+
+  onFileChange() {
+    const file = this.input.files[0];
+    if (!file) { this.hasFile = false; this.previewWrap.classList.remove('visible'); return; }
+    this.rotation = 0;
+    const url = URL.createObjectURL(file);
+    const img = new Image();
+    img.onload = () => {
+      this.img = img;
+      this.hasFile = true;
+      this.redraw();
+      this.previewWrap.classList.add('visible');
+      URL.revokeObjectURL(url);
+    };
+    img.src = url;
+  }
+
+  rotate() {
+    if (!this.img) return;
+    this.rotation = (this.rotation + 90) % 360;
+    this.redraw();
+  }
+
+  redraw() {
+    const { img, rotation, canvas } = this;
+    const rad = rotation * Math.PI / 180;
+    if (rotation % 180 === 0) { canvas.width = img.width; canvas.height = img.height; }
+    else { canvas.width = img.height; canvas.height = img.width; }
+    const ctx = canvas.getContext('2d');
+    ctx.save();
+    ctx.translate(canvas.width / 2, canvas.height / 2);
+    ctx.rotate(rad);
+    ctx.drawImage(img, -img.width / 2, -img.height / 2);
+    ctx.restore();
+    this.previewImg.src = canvas.toDataURL('image/jpeg', 0.9);
+  }
+
+  // Returns {base64, ext} for the current (possibly rotated) image, or
+  // null if no file was chosen.
+  getOutput() {
+    if (!this.hasFile) return null;
+    const dataUrl = this.canvas.toDataURL('image/jpeg', 0.9);
+    return { base64: dataUrl.split(',')[1], ext: 'jpg' };
+  }
+}
+
+document.querySelectorAll('[data-rotate-target]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const target = btn.getAttribute('data-rotate-target');
+    photoFields[target]?.rotate();
+  });
+});
+
+new PhotoField('a-front');
+new PhotoField('a-back');
+new PhotoField('e-front');
+new PhotoField('e-back');
+
+// Uploads a photo field's current image (rotated if applicable) under a
+// generated filename. Returns the new filename, or the fallback if no
+// new file was chosen.
+async function uploadPhotoIfPresent(field, base, suffix, fallbackFilename, label) {
+  const output = field.getOutput();
+  if (!output) return fallbackFilename;
+  const ts = Date.now();
+  const filename = `${base}_${ts}${suffix}.${output.ext}`;
+  setStatus('info', `Uploading ${label} photo…`);
+  await putFile(`docs/photos/${filename}`, output.base64, `${fallbackFilename ? 'Replace' : 'Add'} ${label} photo`);
+  return filename;
+}
+
+// ---------- ADD NEW ----------
+document.getElementById('btn-add-submit').addEventListener('click', async () => {
   const s = getSettings();
   if (!s.owner || !s.repo || !s.token) {
     setStatus('error', 'Fill in your GitHub connection settings first (below).');
@@ -385,101 +661,172 @@ document.getElementById('btn-submit').addEventListener('click', async () => {
     return;
   }
 
-  const player = document.getElementById('f-player').value.trim();
-  const year = document.getElementById('f-year').value.trim();
-  const set = document.getElementById('f-set').value.trim();
-  const cardNumber = document.getElementById('f-number').value.trim();
-  const variant = document.getElementById('f-variant').value.trim();
-  const grade = document.getElementById('f-grade').value.trim();
-  const notes = document.getElementById('f-notes').value.trim();
-  const frontFile = document.getElementById('f-front').files[0];
-  const backFile = document.getElementById('f-back').files[0];
+  const player = document.getElementById('a-player').value.trim();
+  const year = document.getElementById('a-year').value.trim();
+  const set = document.getElementById('a-set').value.trim();
+  const cardNumber = document.getElementById('a-number').value.trim();
+  const variant = document.getElementById('a-variant').value.trim();
+  const grade = document.getElementById('a-grade').value.trim();
+  const notes = document.getElementById('a-notes').value.trim();
 
-  if (!player || !year || !set) {
-    setStatus('error', 'Player, year, and set are required.');
-    return;
-  }
-  if (!frontFile) {
-    setStatus('error', 'A front photo is required.');
-    return;
-  }
+  if (!player || !year || !set) { setStatus('error', 'Player, year, and set are required.'); return; }
+  if (!photoFields['a-front'].hasFile) { setStatus('error', 'A front photo is required.'); return; }
 
-  const btn = document.getElementById('btn-submit');
+  const btn = document.getElementById('btn-add-submit');
   btn.disabled = true;
-
   try {
     const base = sanitize(`${player}_${year}_${set}`) || 'card';
-    const ts = Date.now();
-    const frontExt = (frontFile.name.split('.').pop() || 'jpg').toLowerCase();
-    const frontFilename = `${base}_${ts}.${frontExt}`;
-
-    setStatus('info', 'Uploading front photo…');
-    const frontB64 = await fileToBase64(frontFile);
-    await putFile(`docs/photos/${frontFilename}`, frontB64, `Add photo: ${player} ${set}`);
-
-    let backFilename = '';
-    if (backFile) {
-      setStatus('info', 'Uploading back photo…');
-      const backExt = (backFile.name.split('.').pop() || 'jpg').toLowerCase();
-      backFilename = `${base}_${ts}_back.${backExt}`;
-      const backB64 = await fileToBase64(backFile);
-      await putFile(`docs/photos/${backFilename}`, backB64, `Add back photo: ${player} ${set}`);
-    }
+    const frontFilename = await uploadPhotoIfPresent(photoFields['a-front'], base, '', '', 'front');
+    const backFilename = await uploadPhotoIfPresent(photoFields['a-back'], base, '_back', '', 'back');
 
     setStatus('info', 'Updating cards.csv…');
-    const csvPath = 'docs/data/cards.csv';
-    const existing = await getExistingFile(csvPath);
-
-    let header, existingText;
-    if (existing) {
-      existingText = base64ToUtf8(existing.content);
-    } else {
-      existingText = 'photo_filename,back_photo_filename,player,year,set,card_number,variant,grade,notes\n';
-    }
-    const lines = existingText.replace(/\r\n/g, '\n').split('\n');
-    header = lines[0].split(',');
-
-    const rowValues = {
-      photo_filename: frontFilename,
-      back_photo_filename: backFilename,
-      player, year, set,
-      card_number: cardNumber,
-      variant, grade, notes,
-    };
-    const newRow = header.map(col => csvEscape(rowValues[col.trim()] ?? '')).join(',');
-
-    let updatedText = existingText;
-    if (!updatedText.endsWith('\n')) updatedText += '\n';
-    updatedText += newRow + '\n';
-
-    await putFile(
-      csvPath,
-      utf8ToBase64(updatedText),
-      `Add card: ${player} - ${set}`,
-      existing ? existing.sha : undefined,
-    );
+    const { header, rows, sha } = await loadCardsCSV();
+    rows.push({
+      photo_filename: frontFilename, back_photo_filename: backFilename,
+      player, year, set, card_number: cardNumber, variant, grade, notes,
+      added_at: new Date().toISOString(),
+    });
+    await putFile(CSV_PATH, utf8ToBase64(serializeCSV(header, rows)), `Add card: ${player} - ${set}`, sha);
 
     setStatus('info', 'Card added. Triggering a price pull…');
     const dispatched = await triggerPricePull().catch(() => false);
+    setStatus('success', successMessage(player, set, dispatched, s));
 
-    setStatus('success', `
-      <strong>${player} — ${set}</strong> added to your collection.<br>
-      ${dispatched
-        ? 'A price pull has been triggered — check the <a href="https://github.com/' + s.owner + '/' + s.repo + '/actions" target="_blank" rel="noopener">Actions tab</a> in a minute, then refresh the dashboard.'
-        : 'Couldn\'t auto-trigger a price pull (check your token has Actions permission) — you can run it manually from the <a href="https://github.com/' + s.owner + '/' + s.repo + '/actions" target="_blank" rel="noopener">Actions tab</a>.'}
-      <br><a href="index.html">← Back to dashboard</a>
-    `);
+    ['a-player','a-year','a-set','a-number','a-variant','a-grade','a-notes'].forEach(id => document.getElementById(id).value = '');
+    ['a-front','a-back'].forEach(id => {
+      document.getElementById(id).value = '';
+      photoFields[id].hasFile = false;
+      document.getElementById(`${id}-preview-wrap`).classList.remove('visible');
+    });
+  } catch (err) {
+    setStatus('error', err.message || 'Something went wrong.');
+    console.error(err);
+  } finally {
+    btn.disabled = false;
+  }
+});
 
-    document.getElementById('f-player').value = '';
-    document.getElementById('f-year').value = '';
-    document.getElementById('f-set').value = '';
-    document.getElementById('f-number').value = '';
-    document.getElementById('f-variant').value = '';
-    document.getElementById('f-grade').value = '';
-    document.getElementById('f-notes').value = '';
-    document.getElementById('f-front').value = '';
-    document.getElementById('f-back').value = '';
+function successMessage(player, set, dispatched, s) {
+  const actionsUrl = `https://github.com/${s.owner}/${s.repo}/actions`;
+  return `
+    <strong>${player} — ${set}</strong> saved.<br>
+    ${dispatched
+      ? `A price pull has been triggered — check the <a href="${actionsUrl}" target="_blank" rel="noopener">Actions tab</a> in a minute, then refresh the dashboard.`
+      : `Couldn't auto-trigger a price pull (check your token has Actions permission) — you can run it manually from the <a href="${actionsUrl}" target="_blank" rel="noopener">Actions tab</a>.`}
+    <br><a href="index.html">← Back to dashboard</a>
+  `;
+}
 
+// ---------- EDIT EXISTING ----------
+const editState = { header: null, rows: null, sha: null, selectedIndex: null };
+
+async function loadCardsForEdit() {
+  const select = document.getElementById('e-select');
+  select.innerHTML = '<option value="">Loading…</option>';
+  document.getElementById('e-form-area').style.display = 'none';
+  const s = getSettings();
+  if (!s.owner || !s.repo || !s.token) {
+    setStatus('error', 'Fill in your GitHub connection settings first (below).');
+    document.getElementById('settings-panel').open = true;
+    select.innerHTML = '<option value="">— connect GitHub first —</option>';
+    return;
+  }
+  try {
+    const { header, rows, sha } = await loadCardsCSV();
+    editState.header = header; editState.rows = rows; editState.sha = sha;
+
+    if (!rows.length) {
+      select.innerHTML = '<option value="">No cards yet</option>';
+      return;
+    }
+    select.innerHTML = '<option value="">— choose a card —</option>' + rows.map((r, i) => {
+      const label = [r.player, r.year, r.set, r.card_number ? `#${r.card_number}` : '', r.grade].filter(Boolean).join(' · ');
+      return `<option value="${i}">${label}</option>`;
+    }).join('');
+  } catch (err) {
+    setStatus('error', err.message || 'Could not load cards.csv.');
+    select.innerHTML = '<option value="">— failed to load —</option>';
+  }
+}
+document.getElementById('btn-reload-cards').addEventListener('click', loadCardsForEdit);
+
+document.getElementById('e-select').addEventListener('change', (e) => {
+  const idx = e.target.value;
+  const formArea = document.getElementById('e-form-area');
+  if (idx === '') { formArea.style.display = 'none'; return; }
+  editState.selectedIndex = parseInt(idx, 10);
+  const row = editState.rows[editState.selectedIndex];
+
+  document.getElementById('e-player').value = row.player || '';
+  document.getElementById('e-year').value = row.year || '';
+  document.getElementById('e-set').value = row.set || '';
+  document.getElementById('e-number').value = row.card_number || '';
+  document.getElementById('e-variant').value = row.variant || '';
+  document.getElementById('e-grade').value = row.grade || '';
+  document.getElementById('e-notes').value = row.notes || '';
+
+  document.getElementById('e-front-current').textContent = row.photo_filename ? `Current: ${row.photo_filename}` : 'No photo set';
+  document.getElementById('e-back-current').textContent = row.back_photo_filename ? `Current: ${row.back_photo_filename}` : 'No back photo set';
+
+  ['e-front', 'e-back'].forEach(id => {
+    document.getElementById(id).value = '';
+    photoFields[id].hasFile = false;
+    document.getElementById(`${id}-preview-wrap`).classList.remove('visible');
+  });
+
+  formArea.style.display = 'block';
+});
+
+document.getElementById('btn-edit-submit').addEventListener('click', async () => {
+  if (editState.selectedIndex === null) { setStatus('error', 'Choose a card to edit first.'); return; }
+  const s = getSettings();
+  if (!s.owner || !s.repo || !s.token) {
+    setStatus('error', 'Fill in your GitHub connection settings first (below).');
+    document.getElementById('settings-panel').open = true;
+    return;
+  }
+
+  const player = document.getElementById('e-player').value.trim();
+  const year = document.getElementById('e-year').value.trim();
+  const set = document.getElementById('e-set').value.trim();
+  if (!player || !year || !set) { setStatus('error', 'Player, year, and set are required.'); return; }
+
+  const btn = document.getElementById('btn-edit-submit');
+  btn.disabled = true;
+  try {
+    const row = editState.rows[editState.selectedIndex];
+    const base = sanitize(`${player}_${year}_${set}`) || 'card';
+
+    const frontFilename = await uploadPhotoIfPresent(photoFields['e-front'], base, '', row.photo_filename || '', 'front');
+    const backFilename = await uploadPhotoIfPresent(photoFields['e-back'], base, '_back', row.back_photo_filename || '', 'back');
+
+    row.player = player;
+    row.year = year;
+    row.set = set;
+    row.card_number = document.getElementById('e-number').value.trim();
+    row.variant = document.getElementById('e-variant').value.trim();
+    row.grade = document.getElementById('e-grade').value.trim();
+    row.notes = document.getElementById('e-notes').value.trim();
+    row.photo_filename = frontFilename;
+    row.back_photo_filename = backFilename;
+    // added_at is intentionally left untouched - editing a card doesn't
+    // change when it was originally added, so "Recently Added" sort
+    // on the dashboard stays accurate.
+
+    setStatus('info', 'Saving changes to cards.csv…');
+    await putFile(
+      CSV_PATH,
+      utf8ToBase64(serializeCSV(editState.header, editState.rows)),
+      `Edit card: ${player} - ${set}`,
+      editState.sha,
+    );
+
+    setStatus('info', 'Saved. Triggering a price pull…');
+    const dispatched = await triggerPricePull().catch(() => false);
+    setStatus('success', successMessage(player, set, dispatched, s));
+
+    await loadCardsForEdit();
+    document.getElementById('e-form-area').style.display = 'none';
   } catch (err) {
     setStatus('error', err.message || 'Something went wrong.');
     console.error(err);
