@@ -544,6 +544,55 @@ async function triggerPricePull() {
   return res.ok;
 }
 
+// Mirrors fetch_prices.py's card_key(): a stable identifier built from
+// the six identifying fields, joined the same way, so this matches
+// exactly what the Python script uses as a price_history.json key.
+function cardKey(row) {
+  return [row.player, row.year, row.set, row.card_number, row.variant, row.grade]
+    .map(v => (v || '').trim())
+    .join(' | ');
+}
+
+const HISTORY_PATH = 'docs/data/price_history.json';
+
+// After an edit, updates price_history.json directly so the dashboard
+// reflects the change immediately rather than waiting on the next
+// scheduled price pull. If any of the six key fields changed, the
+// existing entry (snapshots, manual comps, everything) is moved from its
+// old key to the new one rather than losing history or duplicating it.
+async function syncHistoryMetaAfterEdit(oldKey, row) {
+  const newKey = cardKey(row);
+  const existing = await getExistingFile(HISTORY_PATH);
+  if (!existing) return; // no price history yet at all - nothing to sync
+
+  const history = JSON.parse(base64ToUtf8(existing.content));
+  let entry = history[oldKey];
+
+  if (!entry && !history[newKey]) {
+    // This card has never been priced yet - nothing to sync, the next
+    // price pull will create it fresh under the new key.
+    return;
+  }
+  if (!entry) entry = history[newKey] || { meta: {}, snapshots: [] };
+
+  entry.meta = {
+    player: row.player || '', year: row.year || '', set: row.set || '',
+    card_number: row.card_number || '', variant: row.variant || '', grade: row.grade || '',
+    photo_filename: row.photo_filename || '', back_photo_filename: row.back_photo_filename || '',
+    added_at: row.added_at || '',
+  };
+
+  if (oldKey !== newKey) delete history[oldKey];
+  history[newKey] = entry;
+
+  await putFile(
+    HISTORY_PATH,
+    utf8ToBase64(JSON.stringify(history, null, 2)),
+    `Sync price history after edit: ${row.player} - ${row.set}`,
+    existing.sha,
+  );
+}
+
 // Loads cards.csv, migrating in any missing required columns (e.g.
 // added_at, for a CSV created before that column existed) so every read
 // gives back a consistent, fully-populated set of rows.
@@ -795,6 +844,7 @@ document.getElementById('btn-edit-submit').addEventListener('click', async () =>
   btn.disabled = true;
   try {
     const row = editState.rows[editState.selectedIndex];
+    const oldKey = cardKey(row); // captured BEFORE any fields change
     const base = sanitize(`${player}_${year}_${set}`) || 'card';
 
     const frontFilename = await uploadPhotoIfPresent(photoFields['e-front'], base, '', row.photo_filename || '', 'front');
@@ -820,6 +870,15 @@ document.getElementById('btn-edit-submit').addEventListener('click', async () =>
       `Edit card: ${player} - ${set}`,
       editState.sha,
     );
+
+    // Sync price_history.json's metadata immediately too - not just
+    // cards.csv. Without this, the dashboard (which only ever reads
+    // price_history.json) keeps showing pre-edit values until the next
+    // scheduled price pull runs, and the "Edit" button's auto-match
+    // breaks in the meantime since it's matching stale dashboard values
+    // against the already-updated CSV row.
+    setStatus('info', 'Syncing dashboard data…');
+    await syncHistoryMetaAfterEdit(oldKey, row);
 
     setStatus('info', 'Saved. Triggering a price pull…');
     const dispatched = await triggerPricePull().catch(() => false);
