@@ -262,11 +262,14 @@ def main():
         ]
 
         # Pool every confirmed sale (any grade, deduped by URL happens
-        # client-side in the dashboard) for the 30-day rolling average -
-        # this is now just every confirmed record from the one broad query.
+        # client-side in the dashboard) for the 30-day rolling average and
+        # the "Recent comps" list - this is now just every confirmed
+        # record from the one broad query, title included so it displays
+        # nicely alongside manually-added comps.
         pool = [
             {
                 "price": r["price"], "date": r.get("sale_date"), "url": r.get("listing_url"),
+                "title": r.get("title", ""),
                 "label": (lambda c, g: f"{c} {g}" if c else "Raw")(*parse_grade_from_title(r.get("title", ""))),
             }
             for r in records if r.get("price_confirmed") and r.get("price") is not None
