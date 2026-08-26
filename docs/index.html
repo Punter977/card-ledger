@@ -54,6 +54,7 @@
   .summary {
     display: flex;
     gap: 28px;
+    align-items: center;
     font-family: 'JetBrains Mono', monospace;
     font-size: 13px;
     color: var(--text-muted);
@@ -110,10 +111,15 @@
     position: relative;
   }
 
-  .edit-link {
+  .tile-actions {
     position: absolute;
     top: 12px;
     right: 12px;
+    display: flex;
+    gap: 6px;
+    z-index: 1;
+  }
+  .edit-link, .delete-btn {
     font-family: 'JetBrains Mono', monospace;
     font-size: 10.5px;
     color: var(--text-muted);
@@ -121,9 +127,12 @@
     border: 1px solid var(--line);
     padding: 3px 8px;
     border-radius: 12px;
-    z-index: 1;
+    background: transparent;
+    cursor: pointer;
   }
   .edit-link:hover { color: var(--accent); border-color: var(--accent-dim); }
+  .delete-btn:hover { color: var(--down); border-color: var(--down); }
+  .delete-btn:disabled { opacity: 0.5; cursor: not-allowed; }
 
   .tile-top {
     display: flex;
@@ -257,6 +266,49 @@
   .comp-price { font-family: 'JetBrains Mono', monospace; color: var(--text); flex-shrink: 0; }
   .comp-title a, .comp-price a { color: inherit; text-decoration: none; }
   .comp-title a:hover, .comp-price a:hover { text-decoration: underline; }
+  .manual-tag {
+    color: var(--teal);
+    font-size: 9.5px;
+    border: 1px solid var(--teal-dim);
+    padding: 0 4px;
+    border-radius: 3px;
+    margin-left: 5px;
+  }
+
+  .add-comp-row { margin-top: 10px; }
+  button.secondary {
+    background: transparent;
+    border: 1px solid var(--line);
+    color: var(--text-muted);
+    border-radius: 6px;
+    font-family: 'Inter', sans-serif;
+    cursor: pointer;
+  }
+  button.secondary:hover { border-color: var(--accent); color: var(--accent); }
+  button.secondary.small { width: auto; padding: 6px 10px; font-size: 11.5px; }
+  button.secondary:disabled { opacity: 0.5; cursor: not-allowed; }
+
+  .add-comp-form {
+    margin-top: 10px;
+    display: none;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .add-comp-form.visible { display: flex; }
+  .add-comp-form input {
+    background: var(--surface-raised);
+    border: 1px solid var(--line);
+    color: var(--text);
+    padding: 7px 9px;
+    border-radius: 5px;
+    font-family: 'Inter', sans-serif;
+    font-size: 12.5px;
+    width: 100%;
+  }
+  .add-comp-form input:focus { outline: 1px solid var(--accent); border-color: var(--accent); }
+  .field-row-inline { display: flex; gap: 6px; }
+  .field-row-inline input { flex: 1; }
+  .add-comp-hint { font-size: 11px; color: var(--text-muted); }
 
   .tree {
     padding: 2px 16px 14px;
@@ -316,6 +368,25 @@
     font-family: 'Barlow Condensed', sans-serif;
     font-size: 20px;
   }
+
+  .toast {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--surface-raised);
+    border: 1px solid var(--line);
+    color: var(--text);
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12.5px;
+    z-index: 10;
+    display: none;
+  }
+  .toast.visible { display: block; }
+  .toast.error { border-color: var(--down); color: var(--down); }
+  .toast.success { border-color: var(--teal); color: var(--teal); }
 </style>
 </head>
 <body>
@@ -338,6 +409,7 @@
       <option value="value-asc">Value: Low to High</option>
       <option value="change-desc">Change: Biggest Gain</option>
       <option value="change-asc">Change: Biggest Drop</option>
+      <option value="last-sale-desc">Recent Sale</option>
       <option value="added-desc">Recently Added</option>
       <option value="name">Name A–Z</option>
     </select>
@@ -347,20 +419,125 @@
   <div class="empty-state" id="empty" style="display:none;">No cards match your search.</div>
 </main>
 
+<div class="toast" id="toast"></div>
+
 <script>
 const PHOTOS_PATH = 'photos/';
 const DATA_PATH = 'data/price_history.json';
+// Repo-relative paths (from the root, not from docs/) for GitHub API writes.
+const DATA_PATH_REPO = 'docs/data/price_history.json';
+const CSV_PATH_REPO = 'docs/data/cards.csv';
+const SETTINGS_KEY = 'card_ledger_settings_v1'; // shared with add.html
 
 let cardsData = [];
+let rawHistory = {};
 
 function fmtMoney(n) {
   if (n === null || n === undefined || isNaN(n)) return '—';
   return '$' + Number(n).toFixed(2);
 }
-
 function fmtMoneyShort(n) {
   if (n === null || n === undefined || isNaN(n)) return '—';
   return '$' + Math.round(Number(n)).toLocaleString();
+}
+
+function showToast(kind, msg) {
+  const el = document.getElementById('toast');
+  el.className = `toast visible ${kind}`;
+  el.textContent = msg;
+  clearTimeout(showToast._t);
+  showToast._t = setTimeout(() => el.classList.remove('visible'), 4000);
+}
+
+// ---------- GitHub write helpers (shared settings with add.html) ----------
+function getSettings() {
+  try { return JSON.parse(localStorage.getItem(SETTINGS_KEY) || '{}'); } catch { return {}; }
+}
+function hasGithubConnection() {
+  const s = getSettings();
+  return !!(s.owner && s.repo && s.token);
+}
+function utf8ToBase64(str) {
+  const bytes = new TextEncoder().encode(str);
+  let binary = '';
+  bytes.forEach(b => binary += String.fromCharCode(b));
+  return btoa(binary);
+}
+function base64ToUtf8(b64) {
+  const binary = atob(b64);
+  const bytes = new Uint8Array(binary.length);
+  for (let i = 0; i < binary.length; i++) bytes[i] = binary.charCodeAt(i);
+  return new TextDecoder().decode(bytes);
+}
+async function ghFetch(path, options = {}) {
+  const s = getSettings();
+  const url = `https://api.github.com/repos/${s.owner}/${s.repo}/contents/${path}`;
+  return fetch(url, {
+    ...options,
+    headers: {
+      'Authorization': `Bearer ${s.token}`,
+      'Accept': 'application/vnd.github+json',
+      ...(options.headers || {}),
+    },
+  });
+}
+async function getExistingFile(path) {
+  const res = await ghFetch(path);
+  if (res.status === 404) return null;
+  if (!res.ok) throw new Error(`Couldn't read ${path} (${res.status}). Check your token's permissions.`);
+  return res.json();
+}
+async function putFile(path, base64Content, message, sha) {
+  const s = getSettings();
+  const body = { message, content: base64Content, branch: s.branch || 'main' };
+  if (sha) body.sha = sha;
+  const res = await ghFetch(path, {
+    method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body),
+  });
+  if (!res.ok) {
+    const err = await res.json().catch(() => ({}));
+    throw new Error(`Failed to write ${path} (${res.status}): ${err.message || 'unknown error'}`);
+  }
+  return res.json();
+}
+
+// Minimal CSV parse/serialize (handles quoted fields) - needed here only
+// for deleting a row out of cards.csv when a card is deleted.
+function parseCSV(text) {
+  const rows = [];
+  let row = [], field = '', inQuotes = false;
+  for (let i = 0; i < text.length; i++) {
+    const c = text[i];
+    if (inQuotes) {
+      if (c === '"') { if (text[i + 1] === '"') { field += '"'; i++; } else inQuotes = false; }
+      else field += c;
+    } else {
+      if (c === '"') inQuotes = true;
+      else if (c === ',') { row.push(field); field = ''; }
+      else if (c === '\n') { row.push(field); rows.push(row); row = []; field = ''; }
+      else if (c === '\r') { /* skip */ }
+      else field += c;
+    }
+  }
+  if (field.length || row.length) { row.push(field); rows.push(row); }
+  if (rows.length && rows[rows.length - 1].length === 1 && rows[rows.length - 1][0] === '') rows.pop();
+  const header = rows.length ? rows[0] : [];
+  const dataRows = rows.slice(1).map(r => {
+    const obj = {};
+    header.forEach((col, i) => { obj[col.trim()] = r[i] ?? ''; });
+    return obj;
+  });
+  return { header: header.map(h => h.trim()), rows: dataRows };
+}
+function csvEscape(v) {
+  v = (v ?? '').toString();
+  if (/[",\n]/.test(v)) return '"' + v.replace(/"/g, '""') + '"';
+  return v;
+}
+function serializeCSV(header, rows) {
+  const lines = [header.join(',')];
+  for (const row of rows) lines.push(header.map(col => csvEscape(row[col] ?? '')).join(','));
+  return lines.join('\n') + '\n';
 }
 
 // Labels the highest and lowest points directly on each sparkline, since
@@ -379,7 +556,7 @@ const highLowLabelPlugin = {
       if (v > maxVal) { maxVal = v; maxIdx = i; }
       if (v < minVal) { minVal = v; minIdx = i; }
     });
-    if (maxIdx === -1) return; // no data at all
+    if (maxIdx === -1) return;
 
     const { ctx } = chart;
     ctx.save();
@@ -407,69 +584,57 @@ function pctChange(first, last) {
   return ((last - first) / first) * 100;
 }
 
-function buildCardObjects(history) {
-  return Object.entries(history).map(([id, entry]) => {
-    const snaps = (entry.snapshots || []).slice().sort((a, b) => a.date.localeCompare(b.date));
-    const latest = snaps[snaps.length - 1];
-    const allSales = poolDedupedSales(snaps);
-    const rollingAvg = computeRollingAverage(snaps, allSales);
+function median(nums) {
+  const sorted = [...nums].sort((a, b) => a - b);
+  const mid = Math.floor(sorted.length / 2);
+  return sorted.length % 2 ? sorted[mid] : (sorted[mid - 1] + sorted[mid]) / 2;
+}
 
-    // Count of distinct confirmed sales (any grade, deduped) in the 30
-    // days trailing the most recent snapshot - a quick liquidity signal
-    // alongside the trend line itself.
-    let salesLast30 = 0;
-    if (latest) {
-      const asOf = new Date(latest.date);
-      const windowStart = new Date(asOf);
-      windowStart.setDate(windowStart.getDate() - 30);
-      salesLast30 = allSales.filter(s => {
-        const d = new Date(s.date);
-        return d >= windowStart && d <= asOf;
-      }).length;
-    }
+// Splits a grade string like "BGS 8.5" into ["BGS", "8.5"], or [null, null]
+// if blank (raw card) - mirrors fetch_prices.py's parse_grade_string.
+function parseGradeString(gradeStr) {
+  const s = (gradeStr || '').trim();
+  if (!s) return [null, null];
+  const parts = s.split(/\s+/);
+  if (parts.length < 2) return [null, null];
+  return [parts[0].toUpperCase(), parts[1]];
+}
 
-    // % change is derived from the same pooled 30-day trend as the chart
-    // (not the sparse exact-grade value) so the badge and the line always
-    // agree - and so vintage cards with no exact-grade sale this window
-    // still get a real change figure once any pooled sales exist.
-    const firstAvg = rollingAvg.find(v => v !== null);
-    const lastAvg = [...rollingAvg].reverse().find(v => v !== null);
-    const change = (firstAvg !== undefined && lastAvg !== undefined) ? pctChange(firstAvg, lastAvg) : null;
-
-    return {
-      id,
-      meta: entry.meta || {},
-      snapshots: snaps,
-      latestValue: latest ? latest.value : null,
-      change,
-      comps: latest ? (latest.comps || []) : [],
-      tree: latest ? (latest.tree || []) : [],
-      rollingAvg,
-      salesLast30,
-    };
-  });
+// Splits a pooled-sale "label" (e.g. "Raw", "PSA 9") into a company key
+// and a grade value (null for Raw) for tree grouping.
+function parseLabel(label) {
+  const s = (label || 'Raw').trim();
+  if (/^raw$/i.test(s)) return { company: 'Raw', grade: null };
+  const parts = s.split(/\s+/);
+  if (parts.length >= 2) return { company: parts[0].toUpperCase(), grade: parts.slice(1).join(' ') };
+  return { company: s.toUpperCase(), grade: null };
 }
 
 // Pools every confirmed sale collected across all stored snapshots (raw +
-// every grade queried, from every day fetch_prices.py has run), dedupes
-// by listing URL - since the free tier's 3-day lookback means the same
-// sale can legitimately show up in several consecutive days' pulls.
-// Shared by the rolling-average calculation and the "N sales" count.
-function poolDedupedSales(snapshots) {
-  const seenUrls = new Set();
-  const allSales = [];
+// every grade queried, from every day fetch_prices.py has run) PLUS any
+// manually-added comps, dedupes by listing URL - since the free tier's
+// 3-day lookback means the same sale can legitimately show up in several
+// consecutive days' pulls. This is the single source of truth for the
+// trend line, the grade-breakdown tree, and the "Recent comps" list.
+function poolDedupedSales(snapshots, manualComps) {
+  const seen = new Set();
+  const all = [];
+  const addSale = (sale, source) => {
+    if (sale.price === null || sale.price === undefined || !sale.date) return;
+    const key = sale.url || `${sale.date}-${sale.price}-${sale.label}-${source}`;
+    if (seen.has(key)) return;
+    seen.add(key);
+    all.push({
+      price: sale.price, date: sale.date, url: sale.url || '',
+      title: sale.title || '', label: sale.label || 'Raw', source,
+    });
+  };
   for (const snap of snapshots) {
-    for (const sale of (snap.pooled_sales || [])) {
-      const key = sale.url || `${sale.date}-${sale.price}-${sale.label}`;
-      if (seenUrls.has(key)) continue;
-      seenUrls.add(key);
-      if (sale.price !== null && sale.price !== undefined && sale.date) {
-        allSales.push({ price: sale.price, date: sale.date });
-      }
-    }
+    for (const sale of (snap.pooled_sales || [])) addSale(sale, 'api');
   }
-  allSales.sort((a, b) => a.date.localeCompare(b.date));
-  return allSales;
+  for (const mc of (manualComps || [])) addSale(mc, 'manual');
+  all.sort((a, b) => a.date.localeCompare(b.date));
+  return all;
 }
 
 // Computes a 30-day trailing average as of each snapshot date, from the
@@ -489,6 +654,97 @@ function computeRollingAverage(snapshots, allSales) {
     if (!inWindow.length) return null;
     const avg = inWindow.reduce((sum, s) => sum + s.price, 0) / inWindow.length;
     return Math.round(avg * 100) / 100;
+  });
+}
+
+// Rebuilds the Raw/company/grade breakdown entirely from the accumulated,
+// deduped sale pool (API history + manual comps combined) rather than
+// relying on a single day's server-computed tree. This means the tree
+// reflects your FULL accumulated history, not just the latest 3-day pull -
+// and it updates the moment you add a manual comp, with no need to wait
+// for the next scheduled run.
+function buildLiveTree(allSales, grader, grade) {
+  const groups = {}; // company -> { gradeKey: sales[] }  (gradeKey '__raw__' for Raw)
+  for (const sale of allSales) {
+    const { company, grade: gVal } = parseLabel(sale.label);
+    const gradeKey = gVal === null ? '__raw__' : gVal;
+    groups[company] = groups[company] || {};
+    groups[company][gradeKey] = groups[company][gradeKey] || [];
+    groups[company][gradeKey].push(sale);
+  }
+
+  const ownCompany = grader || 'Raw';
+  const ownGradeKey = grader ? grade : '__raw__';
+  groups[ownCompany] = groups[ownCompany] || {};
+  groups[ownCompany][ownGradeKey] = groups[ownCompany][ownGradeKey] || [];
+
+  const companies = Object.keys(groups).sort((a, b) => {
+    if (a === 'Raw') return -1;
+    if (b === 'Raw') return 1;
+    return a.localeCompare(b);
+  });
+
+  const tree = [];
+  let ownValue = null, ownSampleSize = 0;
+
+  for (const company of companies) {
+    const gradeKeys = Object.keys(groups[company]).sort((a, b) => {
+      if (a === '__raw__') return -1;
+      if (b === '__raw__') return 1;
+      return parseFloat(b) - parseFloat(a);
+    });
+    const items = [];
+    for (const gk of gradeKeys) {
+      const sales = groups[company][gk];
+      const prices = sales.map(s => s.price);
+      const value = prices.length ? Math.round(median(prices) * 100) / 100 : null;
+      const label = gk === '__raw__' ? 'Raw' : gk;
+      const isOwn = (company === ownCompany && gk === ownGradeKey);
+      const comps = sales.slice(-2).reverse().map(s => ({ price: s.price, date: s.date, title: s.title, url: s.url }));
+      items.push({ label, value, sample_size: sales.length, comps, is_own: isOwn });
+      if (isOwn) { ownValue = value; ownSampleSize = sales.length; }
+    }
+    tree.push({ group: company, items });
+  }
+
+  return { tree, ownValue, ownSampleSize };
+}
+
+function buildCardObjects(history) {
+  return Object.entries(history).map(([id, entry]) => {
+    const snaps = (entry.snapshots || []).slice().sort((a, b) => a.date.localeCompare(b.date));
+    const manualComps = entry.manual_comps || [];
+    const meta = entry.meta || {};
+    const allSales = poolDedupedSales(snaps, manualComps);
+    const rollingAvg = computeRollingAverage(snaps, allSales);
+
+    const [grader, grade] = parseGradeString(meta.grade);
+    const { tree, ownValue, ownSampleSize } = buildLiveTree(allSales, grader, grade);
+
+    const asOfLatest = snaps.length ? new Date(snaps[snaps.length - 1].date)
+      : (allSales.length ? new Date(allSales[allSales.length - 1].date) : null);
+    let salesLast30 = 0;
+    if (asOfLatest) {
+      const windowStart = new Date(asOfLatest);
+      windowStart.setDate(windowStart.getDate() - 30);
+      salesLast30 = allSales.filter(s => {
+        const d = new Date(s.date);
+        return d >= windowStart && d <= asOfLatest;
+      }).length;
+    }
+
+    const firstAvg = rollingAvg.find(v => v !== null);
+    const lastAvg = [...rollingAvg].reverse().find(v => v !== null);
+    const change = (firstAvg !== undefined && lastAvg !== undefined) ? pctChange(firstAvg, lastAvg) : null;
+
+    const recentComps = allSales.slice(-8).reverse();
+    const lastSaleDate = allSales.length ? allSales[allSales.length - 1].date : null;
+
+    return {
+      id, meta, snapshots: snaps, manualComps,
+      latestValue: ownValue,
+      change, comps: recentComps, tree, rollingAvg, salesLast30, lastSaleDate,
+    };
   });
 }
 
@@ -514,10 +770,6 @@ function cardTile(card) {
   const photoInner = hasPhoto
     ? `<img src="${PHOTOS_PATH}${m.photo_filename}" alt="${title}" loading="lazy" onerror="this.closest('.photo-wrap').innerHTML='<div class=placeholder>No<br>photo</div>'">`
     : `<div class="placeholder">No<br>photo</div>`;
-  // Clicking the photo opens the full-size front image in a new tab. If a
-  // back photo was captured too, it's still just a click away from the
-  // front (most browsers let you flip tabs) - kept simple rather than
-  // building a two-image viewer for this.
   const photoHtml = hasPhoto
     ? `<a href="${PHOTOS_PATH}${m.photo_filename}" target="_blank" rel="noopener">${photoInner}</a>`
     : photoInner;
@@ -525,23 +777,18 @@ function cardTile(card) {
   const compsHtml = card.comps.length
     ? card.comps.map(c => `
         <div class="comp-row">
-          <span class="comp-title" title="${c.title || ''}">${c.url ? `<a href="${c.url}" target="_blank" rel="noopener">${c.title || 'Sale'}</a>` : (c.title || 'Sale')}${c.listing_type === 'fixed_price' ? ' (ask)' : ''}</span>
+          <span class="comp-title" title="${c.title || ''}">${c.url ? `<a href="${c.url}" target="_blank" rel="noopener">${c.title || 'Sale'}</a>` : (c.title || 'Sale')}${c.source === 'manual' ? '<span class="manual-tag">manual</span>' : ''}</span>
           <span class="comp-price">${fmtMoney(c.price)}</span>
         </div>`).join('')
     : `<div class="comp-row"><span class="comp-title">No recent comps</span></div>`;
 
-  // Market-context tree: Raw / PSA / BGS groups, each with a couple of
-  // common grades. The cell matching the card's own exact grade (or Raw,
-  // if ungraded) is marked "is_own" by fetch_prices.py and highlighted in
-  // teal here so it reads as "this is your card's row", distinct from the
-  // violet "has a sale" styling used for everything else.
   const treeHtml = card.tree.length
     ? `<div class="tree">${card.tree.map(group => `
         <div class="tree-group">
           <div class="tree-group-label">${group.group}</div>
           ${group.items.map(item => `
             <div class="tree-item ${item.value !== null ? 'has-sale' : ''} ${item.is_own ? 'is-own' : ''}"
-                 title="${item.is_own ? 'This is your card' : ''}${item.value !== null ? '' : ': no sale this window'}">
+                 title="${item.is_own ? 'This is your card' : ''}${item.value !== null ? '' : ': no sale recorded'}">
               <span class="tree-label">${item.label}</span>
               ${item.is_own ? '<span class="tree-own-tag">yours</span>' : ''}
               <span class="tree-price">${item.value !== null ? fmtMoney(item.value) : 'no sale'}</span>
@@ -552,18 +799,18 @@ function cardTile(card) {
     : '';
 
   const editParams = new URLSearchParams({
-    edit: '1',
-    player: m.player || '',
-    year: m.year || '',
-    set: m.set || '',
-    card_number: m.card_number || '',
-    grade: m.grade || '',
+    edit: '1', player: m.player || '', year: m.year || '', set: m.set || '',
+    card_number: m.card_number || '', grade: m.grade || '',
   });
   const editUrl = `add.html?${editParams.toString()}`;
+  const deleteLabel = `${title} — ${m.set || ''}`.trim();
 
   return `
-    <div class="tile" data-search="${(title + ' ' + metaLine).toLowerCase()}">
-      <a href="${editUrl}" class="edit-link" title="Edit this card">✎ Edit</a>
+    <div class="tile" data-search="${(title + ' ' + metaLine).toLowerCase()}" data-card-id="${card.id}">
+      <div class="tile-actions">
+        <a href="${editUrl}" class="edit-link" title="Edit this card">✎ Edit</a>
+        <button class="delete-btn" data-action="delete-card" data-card-id="${card.id}" data-label="${deleteLabel}" title="Delete this card">🗑</button>
+      </div>
       <div class="tile-top">
         <div class="photo-wrap ${hasPhoto ? 'clickable' : ''}">${photoHtml}</div>
         <div class="id-block">
@@ -586,6 +833,23 @@ function cardTile(card) {
       <details class="comps">
         <summary>Recent comps</summary>
         ${compsHtml}
+        <div class="add-comp-row">
+          <button class="secondary small" data-action="show-add-comp">+ Add comp</button>
+        </div>
+        <div class="add-comp-form">
+          <div class="add-comp-hint">From eBay's sold listings — goes further back than the automated 3-day pull.</div>
+          <div class="field-row-inline">
+            <input type="text" class="mc-price" placeholder="Price, e.g. 45.00">
+            <input type="text" class="mc-date" placeholder="YYYY-MM-DD">
+          </div>
+          <input type="text" class="mc-label" placeholder="Grade, e.g. Raw or PSA 9">
+          <input type="text" class="mc-title" placeholder="Listing title (optional)">
+          <input type="text" class="mc-url" placeholder="eBay link (optional)">
+          <div class="field-row-inline">
+            <button class="secondary small" data-action="save-comp">Save</button>
+            <button class="secondary small" data-action="cancel-comp">Cancel</button>
+          </div>
+        </div>
       </details>
     </div>
   `;
@@ -626,10 +890,7 @@ function drawSparkline(card) {
       plugins: { legend: { display: false }, tooltip: {
         callbacks: { label: (ctx) => ctx.parsed.y === null ? 'no sales in window' : fmtMoney(ctx.parsed.y) }
       }},
-      scales: {
-        x: { display: false },
-        y: { display: false },
-      },
+      scales: { x: { display: false }, y: { display: false } },
       elements: { line: { capBezierPoints: true } },
     }
   });
@@ -664,6 +925,7 @@ function applyFiltersAndSort() {
       case 'value-asc': return (a.latestValue || 0) - (b.latestValue || 0);
       case 'change-desc': return (b.change ?? -999) - (a.change ?? -999);
       case 'change-asc': return (a.change ?? 999) - (b.change ?? 999);
+      case 'last-sale-desc': return (b.lastSaleDate || '').localeCompare(a.lastSaleDate || '');
       case 'added-desc': return (b.meta.added_at || '').localeCompare(a.meta.added_at || '');
       case 'name': return (a.meta.player || '').localeCompare(b.meta.player || '');
       default: return 0;
@@ -677,8 +939,8 @@ async function init() {
   try {
     const res = await fetch(DATA_PATH);
     if (!res.ok) throw new Error('history file not found');
-    const history = await res.json();
-    cardsData = buildCardObjects(history);
+    rawHistory = await res.json();
+    cardsData = buildCardObjects(rawHistory);
     renderSummary(cardsData);
     applyFiltersAndSort();
   } catch (err) {
@@ -687,6 +949,125 @@ async function init() {
     document.getElementById('empty').textContent =
       'No price data yet. Run fetch_prices.py to generate data/price_history.json.';
     console.error(err);
+  }
+}
+
+// ---------- manual comp + delete actions (event delegation, since tiles
+// get replaced wholesale on every render) ----------
+document.getElementById('grid').addEventListener('click', async (e) => {
+  const btn = e.target.closest('[data-action]');
+  if (!btn) return;
+  const tile = btn.closest('.tile');
+  const cardId = tile?.dataset.cardId;
+  const action = btn.dataset.action;
+
+  if (action === 'show-add-comp') {
+    tile.querySelector('.add-comp-form').classList.add('visible');
+    btn.style.display = 'none';
+  } else if (action === 'cancel-comp') {
+    tile.querySelector('.add-comp-form').classList.remove('visible');
+    tile.querySelector('[data-action="show-add-comp"]').style.display = '';
+  } else if (action === 'save-comp') {
+    await handleSaveComp(btn, tile, cardId);
+  } else if (action === 'delete-card') {
+    await handleDeleteCard(btn, cardId);
+  }
+});
+
+async function handleSaveComp(btn, tile, cardId) {
+  if (!hasGithubConnection()) {
+    showToast('error', 'Connect GitHub first — open the Add Card page and fill in the connection settings.');
+    return;
+  }
+  const price = parseFloat(tile.querySelector('.mc-price').value);
+  const date = tile.querySelector('.mc-date').value.trim();
+  const label = tile.querySelector('.mc-label').value.trim() || 'Raw';
+  const compTitle = tile.querySelector('.mc-title').value.trim();
+  const url = tile.querySelector('.mc-url').value.trim();
+
+  if (!price || isNaN(price)) { showToast('error', 'Enter a valid price.'); return; }
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(date)) { showToast('error', 'Date must be in YYYY-MM-DD format.'); return; }
+
+  btn.disabled = true;
+  try {
+    const existing = await getExistingFile(DATA_PATH_REPO);
+    const freshHistory = existing ? JSON.parse(base64ToUtf8(existing.content)) : {};
+    const entry = freshHistory[cardId] || { meta: {}, snapshots: [] };
+    entry.manual_comps = entry.manual_comps || [];
+    entry.manual_comps.push({
+      price, date, label, title: compTitle, url,
+      source: 'manual', added_at: new Date().toISOString(),
+    });
+    freshHistory[cardId] = entry;
+
+    await putFile(DATA_PATH_REPO, utf8ToBase64(JSON.stringify(freshHistory, null, 2)),
+      `Add manual comp: ${cardId}`, existing ? existing.sha : undefined);
+
+    rawHistory = freshHistory;
+    cardsData = buildCardObjects(rawHistory);
+    renderSummary(cardsData);
+    applyFiltersAndSort();
+    showToast('success', 'Comp added.');
+  } catch (err) {
+    showToast('error', err.message || 'Failed to save comp.');
+    console.error(err);
+  } finally {
+    btn.disabled = false;
+  }
+}
+
+async function handleDeleteCard(btn, cardId) {
+  const label = btn.dataset.label || 'this card';
+  if (!confirm(`Delete ${label}? This removes it from your CSV and price history. Photos are left in place.`)) return;
+
+  if (!hasGithubConnection()) {
+    showToast('error', 'Connect GitHub first — open the Add Card page and fill in the connection settings.');
+    return;
+  }
+
+  btn.disabled = true;
+  try {
+    const card = cardsData.find(c => c.id === cardId);
+    const m = card ? card.meta : {};
+
+    // Remove the matching row from cards.csv
+    const csvExisting = await getExistingFile(CSV_PATH_REPO);
+    if (csvExisting) {
+      const text = base64ToUtf8(csvExisting.content);
+      const { header, rows } = parseCSV(text);
+      const idx = rows.findIndex(r =>
+        (r.player || '').trim() === (m.player || '').trim() &&
+        (r.year || '').trim() === (m.year || '').trim() &&
+        (r.set || '').trim() === (m.set || '').trim() &&
+        (r.card_number || '').trim() === (m.card_number || '').trim() &&
+        (r.grade || '').trim() === (m.grade || '').trim()
+      );
+      if (idx !== -1) {
+        rows.splice(idx, 1);
+        await putFile(CSV_PATH_REPO, utf8ToBase64(serializeCSV(header, rows)), `Delete card: ${label}`, csvExisting.sha);
+      }
+    }
+
+    // Remove its entry from price_history.json
+    const histExisting = await getExistingFile(DATA_PATH_REPO);
+    if (histExisting) {
+      const freshHistory = JSON.parse(base64ToUtf8(histExisting.content));
+      delete freshHistory[cardId];
+      await putFile(DATA_PATH_REPO, utf8ToBase64(JSON.stringify(freshHistory, null, 2)), `Delete card history: ${label}`, histExisting.sha);
+      rawHistory = freshHistory;
+    } else {
+      delete rawHistory[cardId];
+    }
+
+    cardsData = buildCardObjects(rawHistory);
+    renderSummary(cardsData);
+    applyFiltersAndSort();
+    showToast('success', `${label} deleted.`);
+  } catch (err) {
+    showToast('error', err.message || 'Failed to delete card.');
+    console.error(err);
+  } finally {
+    btn.disabled = false;
   }
 }
 
