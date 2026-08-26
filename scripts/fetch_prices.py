@@ -79,11 +79,19 @@ def load_cards(cards_csv: Path) -> list:
 
 
 def build_query(card: dict) -> str:
-    """Build a title-search query from the card's identifying fields."""
+    """Build a title-search query from the card's identifying fields.
+
+    Card number is included deliberately: without it, a query like
+    "Michael Jordan 1993-94 Fleer Ultra Scoring Kings" can match ANY card
+    number within a multi-player insert subset (Scoring Kings spans many
+    players/numbers), or a full boxed-set listing, pulling unrelated sales
+    into this card's pool and skewing its 30-day average.
+    """
     parts = [
         card.get("player", "").strip(),
         card.get("year", "").strip(),
         card.get("set", "").strip(),
+        f"#{card['card_number'].strip()}" if card.get("card_number", "").strip() else "",
         card.get("variant", "").strip(),
     ]
     return " ".join(p for p in parts if p)
