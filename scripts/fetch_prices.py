@@ -138,6 +138,36 @@ def parse_grade_from_title(title: str):
     return None, None
 
 
+def title_matches_card_number(title: str, card_number: str) -> bool:
+    """
+    Checks whether a sale's title actually mentions this card's number,
+    as a real safeguard against fuzzy full-text search matching a
+    DIFFERENT card that just shares most of the same words. This matters
+    a lot for products with several insert subsets under one umbrella
+    name (e.g. "1993-94 Fleer Ultra" covers the base set AND separate
+    inserts like "Inside Outside" or "Scoring Kings", each with their own
+    independent numbering) - without this check, a search for "Michael
+    Jordan 1993-94 Fleer Ultra #30" can still return a completely
+    different card (e.g. "Inside Outside #4") if enough of the other
+    words overlap, since the underlying search is fuzzy, not an exact
+    field match.
+
+    If card_number is blank, no filtering is applied (nothing to check
+    against). Numeric card numbers are matched as a whole word (so "30"
+    doesn't accidentally match inside "130"); alphanumeric codes (e.g.
+    "BL-MJ") are matched as a case-insensitive substring with boundaries.
+    """
+    cn = (card_number or "").strip()
+    if not cn:
+        return True
+    title = title or ""
+    if re.match(r"^\d+$", cn):
+        pattern = rf"(?<!\d)#?{re.escape(cn)}(?!\d)"
+        return re.search(pattern, title) is not None
+    pattern = rf"(?<![A-Za-z0-9]){re.escape(cn)}(?![A-Za-z0-9])"
+    return re.search(pattern, title, re.IGNORECASE) is not None
+
+
 def median_confirmed_price(records: list):
     prices = [r["price"] for r in records if r.get("price_confirmed") and r.get("price") is not None]
     if not prices:
@@ -256,7 +286,15 @@ def main():
             print(f"  ERROR: {e}\n")
             continue
 
-        total_records_used += len(records)
+        raw_count = len(records)
+        card_number = card.get("card_number", "").strip()
+        if card_number:
+            records = [r for r in records if title_matches_card_number(r.get("title", ""), card_number)]
+            filtered_out = raw_count - len(records)
+            if filtered_out:
+                print(f"  (filtered out {filtered_out} result(s) whose title didn't mention #{card_number} - likely a different card in the same product line)")
+
+        total_records_used += raw_count
 
         tree, value, sample_size, own_records = build_dynamic_tree(records, grader, grade)
 
