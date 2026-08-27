@@ -251,19 +251,32 @@
   .comp-row {
     display: flex;
     justify-content: space-between;
+    align-items: flex-start;
     gap: 10px;
-    padding: 6px 0;
+    padding: 7px 0;
     border-top: 1px solid var(--line);
   }
   .comp-row:first-of-type { margin-top: 8px; }
+  .comp-main {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+  }
   .comp-title {
     color: var(--text-muted);
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    flex: 1;
   }
-  .comp-price { font-family: 'JetBrains Mono', monospace; color: var(--text); flex-shrink: 0; }
+  .comp-date {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px;
+    color: var(--text-muted);
+    opacity: 0.7;
+  }
+  .comp-price { font-family: 'JetBrains Mono', monospace; color: var(--text); flex-shrink: 0; padding-top: 1px; }
   .comp-title a, .comp-price a { color: inherit; text-decoration: none; }
   .comp-title a:hover, .comp-price a:hover { text-decoration: underline; }
   .manual-tag {
@@ -777,7 +790,10 @@ function cardTile(card) {
   const compsHtml = card.comps.length
     ? card.comps.map(c => `
         <div class="comp-row">
-          <span class="comp-title" title="${c.title || ''}">${c.url ? `<a href="${c.url}" target="_blank" rel="noopener">${c.title || 'Sale'}</a>` : (c.title || 'Sale')}${c.source === 'manual' ? '<span class="manual-tag">manual</span>' : ''}</span>
+          <div class="comp-main">
+            <span class="comp-title" title="${c.title || ''}">${c.url ? `<a href="${c.url}" target="_blank" rel="noopener">${c.title || 'Sale'}</a>` : (c.title || 'Sale')}${c.source === 'manual' ? '<span class="manual-tag">manual</span>' : ''}</span>
+            <span class="comp-date">${c.date || ''}</span>
+          </div>
           <span class="comp-price">${fmtMoney(c.price)}</span>
         </div>`).join('')
     : `<div class="comp-row"><span class="comp-title">No recent comps</span></div>`;
