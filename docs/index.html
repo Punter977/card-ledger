@@ -620,6 +620,13 @@ function parseLabel(label) {
   if (/^raw$/i.test(s)) return { company: 'Raw', grade: null };
   const parts = s.split(/\s+/);
   if (parts.length >= 2) return { company: parts[0].toUpperCase(), grade: parts.slice(1).join(' ') };
+  // A single bare token: if it's purely numeric (e.g. someone typed just
+  // "10" into a manual comp's grade field instead of "PSA 10"), it IS a
+  // real grade value - we just don't know which company gave it. Group
+  // these under an honest "Graded" bucket rather than treating the
+  // number itself as a company name (which would otherwise create a
+  // nonsense top-level group literally called "10").
+  if (/^\d+(\.\d)?$/.test(s)) return { company: 'Graded (unspecified)', grade: s };
   return { company: s.toUpperCase(), grade: null };
 }
 
@@ -859,6 +866,7 @@ function cardTile(card) {
             <input type="text" class="mc-date" placeholder="YYYY-MM-DD">
           </div>
           <input type="text" class="mc-label" placeholder="Grade, e.g. Raw or PSA 9">
+          <div class="add-comp-hint" style="margin-top:-4px;">Include the grading company — "PSA 9", not just "9" — or it won't group correctly.</div>
           <input type="text" class="mc-title" placeholder="Listing title (optional)">
           <input type="text" class="mc-url" placeholder="eBay link (optional)">
           <div class="field-row-inline">
@@ -1003,6 +1011,10 @@ async function handleSaveComp(btn, tile, cardId) {
 
   if (!price || isNaN(price)) { showToast('error', 'Enter a valid price.'); return; }
   if (!/^\d{4}-\d{2}-\d{2}$/.test(date)) { showToast('error', 'Date must be in YYYY-MM-DD format.'); return; }
+  if (!/^raw$/i.test(label) && /^\d+(\.\d)?$/.test(label)) {
+    showToast('error', `"${label}" needs a grading company — try "PSA ${label}" or "BGS ${label}".`);
+    return;
+  }
 
   btn.disabled = true;
   try {
