@@ -1386,6 +1386,77 @@
             "label": "PSA 8"
           }
         ]
+      },
+      {
+        "date": "2026-08-31",
+        "value": 3999.99,
+        "sample_size": 1,
+        "comps": [
+          {
+            "price": 3999.99,
+            "date": "2026-08-28",
+            "title": "1993-94 Fleer Ultra Scoring Kings Michael Jordan #5 Great Condition \ud83d\udd25\ud83d\udd25 RARE !!",
+            "listing_type": "fixed_price",
+            "price_confirmed": true,
+            "url": "https://www.ebay.com/itm/178439665799?hash=item298bd53887%3Ag%3A-ugAAeSwwTlqja5W&mkevt=1&mkcid=1&mkrid=711-53200-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true"
+          }
+        ],
+        "tree": [
+          {
+            "group": "Raw",
+            "items": [
+              {
+                "label": "Raw",
+                "value": 3999.99,
+                "sample_size": 1,
+                "comps": [
+                  {
+                    "price": 3999.99,
+                    "date": "2026-08-28",
+                    "title": "1993-94 Fleer Ultra Scoring Kings Michael Jordan #5 Great Condition \ud83d\udd25\ud83d\udd25 RARE !!",
+                    "url": "https://www.ebay.com/itm/178439665799?hash=item298bd53887%3Ag%3A-ugAAeSwwTlqja5W&mkevt=1&mkcid=1&mkrid=711-53200-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true"
+                  }
+                ],
+                "is_own": true
+              }
+            ]
+          },
+          {
+            "group": "BGS",
+            "items": [
+              {
+                "label": "9",
+                "value": 10995.95,
+                "sample_size": 1,
+                "comps": [
+                  {
+                    "price": 10995.95,
+                    "date": "2026-08-28",
+                    "title": "1993-94 Fleer Ultra Scoring Kings Michael Jordan #5 BGS 9",
+                    "url": "https://www.ebay.com/itm/366537153932?hash=item5557511d8c%3Ag%3AInIAAeSwvn5qUqaR&mkevt=1&mkcid=1&mkrid=711-53200-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true"
+                  }
+                ],
+                "is_own": false
+              }
+            ]
+          }
+        ],
+        "pooled_sales": [
+          {
+            "price": 3999.99,
+            "date": "2026-08-28",
+            "url": "https://www.ebay.com/itm/178439665799?hash=item298bd53887%3Ag%3A-ugAAeSwwTlqja5W&mkevt=1&mkcid=1&mkrid=711-53200-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true",
+            "title": "1993-94 Fleer Ultra Scoring Kings Michael Jordan #5 Great Condition \ud83d\udd25\ud83d\udd25 RARE !!",
+            "label": "Raw"
+          },
+          {
+            "price": 10995.95,
+            "date": "2026-08-28",
+            "url": "https://www.ebay.com/itm/366537153932?hash=item5557511d8c%3Ag%3AInIAAeSwvn5qUqaR&mkevt=1&mkcid=1&mkrid=711-53200-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true",
+            "title": "1993-94 Fleer Ultra Scoring Kings Michael Jordan #5 BGS 9",
+            "label": "BGS 9"
+          }
+        ]
       }
     ],
     "manual_comps": [
@@ -3190,6 +3261,27 @@
             "label": "Raw"
           }
         ]
+      },
+      {
+        "date": "2026-08-31",
+        "value": null,
+        "sample_size": 0,
+        "comps": [],
+        "tree": [
+          {
+            "group": "BGS",
+            "items": [
+              {
+                "label": "8.5",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": true
+              }
+            ]
+          }
+        ],
+        "pooled_sales": []
       }
     ]
   },
@@ -5662,6 +5754,27 @@
           }
         ],
         "pooled_sales": []
+      },
+      {
+        "date": "2026-08-31",
+        "value": null,
+        "sample_size": 0,
+        "comps": [],
+        "tree": [
+          {
+            "group": "BGS",
+            "items": [
+              {
+                "label": "9",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": true
+              }
+            ]
+          }
+        ],
+        "pooled_sales": []
       }
     ]
   },
@@ -7077,6 +7190,27 @@
             "label": "BGS 8"
           }
         ]
+      },
+      {
+        "date": "2026-08-31",
+        "value": null,
+        "sample_size": 0,
+        "comps": [],
+        "tree": [
+          {
+            "group": "BGS",
+            "items": [
+              {
+                "label": "9",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": true
+              }
+            ]
+          }
+        ],
+        "pooled_sales": []
       }
     ]
   },
@@ -7955,6 +8089,27 @@
       },
       {
         "date": "2026-08-30",
+        "value": null,
+        "sample_size": 0,
+        "comps": [],
+        "tree": [
+          {
+            "group": "BGS",
+            "items": [
+              {
+                "label": "9",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": true
+              }
+            ]
+          }
+        ],
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-08-31",
         "value": null,
         "sample_size": 0,
         "comps": [],
@@ -13211,6 +13366,192 @@
             "label": "PSA 6"
           }
         ]
+      },
+      {
+        "date": "2026-08-31",
+        "value": 182.0,
+        "sample_size": 12,
+        "comps": [
+          {
+            "price": 401.8,
+            "date": "2026-08-28",
+            "title": "1995-96 Skybox Premium Electrified Michael Jordan #278",
+            "listing_type": "auction",
+            "price_confirmed": true,
+            "url": "https://www.ebay.ca/itm/168631096376?hash=item2743325438%3Ag%3AuSgAAeSwNXNqiIXJ&mkevt=1&mkcid=1&mkrid=706-53473-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true"
+          },
+          {
+            "price": 110.0,
+            "date": "2026-08-28",
+            "title": "Michael Jordan 1995-96 Skybox Premium - Electrified Michael Jordan #278",
+            "listing_type": "fixed_price",
+            "price_confirmed": true,
+            "url": "https://www.ebay.com/itm/318787368125?hash=item4a393534bd%3Ag%3AUskAAeSwwTlqkHt1&mkevt=1&mkcid=1&mkrid=711-53200-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true"
+          },
+          {
+            "price": 152.5,
+            "date": "2026-08-28",
+            "title": "SkyBox 1995-96 SkyBox Premium Electrified #278 Michael Jordan Bulls Card",
+            "listing_type": "auction",
+            "price_confirmed": true,
+            "url": "https://www.ebay.com/itm/206508992684?hash=item3014e528ac%3Ag%3AksEAAeSwPgVqiIzU&mkevt=1&mkcid=1&mkrid=711-53200-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true"
+          },
+          {
+            "price": 219.88,
+            "date": "2026-08-28",
+            "title": "SkyBox 1995-96 Skybox Premium Electrified Michael Jordan #278 Bulls",
+            "listing_type": "fixed_price",
+            "price_confirmed": true,
+            "url": "https://www.ebay.com/itm/206511099151?hash=item3015054d0f%3Ag%3AzdwAAeSwSGdqizgC&mkevt=1&mkcid=1&mkrid=711-53200-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true"
+          },
+          {
+            "price": 91.0,
+            "date": "2026-08-28",
+            "title": "Michael Jordan 1995-96 Skybox Premium ELECTRIFIED  #278",
+            "listing_type": "auction",
+            "price_confirmed": true,
+            "url": "https://www.ebay.com/itm/298610131665?hash=item45868d02d1%3Ag%3AGCEAAeSwva1qi0tG&mkevt=1&mkcid=1&mkrid=711-53200-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true"
+          }
+        ],
+        "tree": [
+          {
+            "group": "Raw",
+            "items": [
+              {
+                "label": "Raw",
+                "value": 182.0,
+                "sample_size": 12,
+                "comps": [
+                  {
+                    "price": 401.8,
+                    "date": "2026-08-28",
+                    "title": "1995-96 Skybox Premium Electrified Michael Jordan #278",
+                    "url": "https://www.ebay.ca/itm/168631096376?hash=item2743325438%3Ag%3AuSgAAeSwNXNqiIXJ&mkevt=1&mkcid=1&mkrid=706-53473-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true"
+                  },
+                  {
+                    "price": 110.0,
+                    "date": "2026-08-28",
+                    "title": "Michael Jordan 1995-96 Skybox Premium - Electrified Michael Jordan #278",
+                    "url": "https://www.ebay.com/itm/318787368125?hash=item4a393534bd%3Ag%3AUskAAeSwwTlqkHt1&mkevt=1&mkcid=1&mkrid=711-53200-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true"
+                  }
+                ],
+                "is_own": true
+              }
+            ]
+          },
+          {
+            "group": "PSA",
+            "items": [
+              {
+                "label": "8",
+                "value": 649.0,
+                "sample_size": 1,
+                "comps": [
+                  {
+                    "price": 649.0,
+                    "date": "2026-08-28",
+                    "title": "1995-96 Skybox Premium - Electrified Michael Jordan #278 PSA 8",
+                    "url": "https://www.ebay.com/itm/257707224013?hash=item3c008c2bcd%3Ag%3Ar20AAeSwUXpqkOgq&mkevt=1&mkcid=1&mkrid=711-53200-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true"
+                  }
+                ],
+                "is_own": false
+              }
+            ]
+          }
+        ],
+        "pooled_sales": [
+          {
+            "price": 401.8,
+            "date": "2026-08-28",
+            "url": "https://www.ebay.ca/itm/168631096376?hash=item2743325438%3Ag%3AuSgAAeSwNXNqiIXJ&mkevt=1&mkcid=1&mkrid=706-53473-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true",
+            "title": "1995-96 Skybox Premium Electrified Michael Jordan #278",
+            "label": "Raw"
+          },
+          {
+            "price": 110.0,
+            "date": "2026-08-28",
+            "url": "https://www.ebay.com/itm/318787368125?hash=item4a393534bd%3Ag%3AUskAAeSwwTlqkHt1&mkevt=1&mkcid=1&mkrid=711-53200-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true",
+            "title": "Michael Jordan 1995-96 Skybox Premium - Electrified Michael Jordan #278",
+            "label": "Raw"
+          },
+          {
+            "price": 152.5,
+            "date": "2026-08-28",
+            "url": "https://www.ebay.com/itm/206508992684?hash=item3014e528ac%3Ag%3AksEAAeSwPgVqiIzU&mkevt=1&mkcid=1&mkrid=711-53200-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true",
+            "title": "SkyBox 1995-96 SkyBox Premium Electrified #278 Michael Jordan Bulls Card",
+            "label": "Raw"
+          },
+          {
+            "price": 219.88,
+            "date": "2026-08-28",
+            "url": "https://www.ebay.com/itm/206511099151?hash=item3015054d0f%3Ag%3AzdwAAeSwSGdqizgC&mkevt=1&mkcid=1&mkrid=711-53200-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true",
+            "title": "SkyBox 1995-96 Skybox Premium Electrified Michael Jordan #278 Bulls",
+            "label": "Raw"
+          },
+          {
+            "price": 91.0,
+            "date": "2026-08-28",
+            "url": "https://www.ebay.com/itm/298610131665?hash=item45868d02d1%3Ag%3AGCEAAeSwva1qi0tG&mkevt=1&mkcid=1&mkrid=711-53200-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true",
+            "title": "Michael Jordan 1995-96 Skybox Premium ELECTRIFIED  #278",
+            "label": "Raw"
+          },
+          {
+            "price": 200.0,
+            "date": "2026-08-28",
+            "url": "https://www.ebay.com/itm/198587235899?hash=item2e3cb8be3b%3Ag%3APX8AAeSwj8NqiKq%7E&mkevt=1&mkcid=1&mkrid=711-53200-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true",
+            "title": "1995-96 Skybox Premium - Electrified Michael Jordan #278",
+            "label": "Raw"
+          },
+          {
+            "price": 649.0,
+            "date": "2026-08-28",
+            "url": "https://www.ebay.com/itm/257707224013?hash=item3c008c2bcd%3Ag%3Ar20AAeSwUXpqkOgq&mkevt=1&mkcid=1&mkrid=711-53200-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true",
+            "title": "1995-96 Skybox Premium - Electrified Michael Jordan #278 PSA 8",
+            "label": "PSA 8"
+          },
+          {
+            "price": 190.5,
+            "date": "2026-08-28",
+            "url": "https://www.ebay.com/itm/336757765660?hash=item4e6853b61c%3Ag%3ATpUAAeSwrd5qi2eL&mkevt=1&mkcid=1&mkrid=711-53200-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true",
+            "title": "1995-96 Skybox Premium Electrified Michael Jordan #278 Rare HOT",
+            "label": "Raw"
+          },
+          {
+            "price": 129.0,
+            "date": "2026-08-28",
+            "url": "https://www.ebay.com/itm/178445280659?hash=item298c2ae593%3Ag%3Av2QAAeSwt3xqkFqM&mkevt=1&mkcid=1&mkrid=711-53200-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true",
+            "title": "1995-96 Skybox Premium - Electrified Michael Jordan #278",
+            "label": "Raw"
+          },
+          {
+            "price": 173.5,
+            "date": "2026-08-28",
+            "url": "https://www.ebay.com/itm/198587447771?hash=item2e3cbbf9db%3Ag%3AmvYAAeSwddFqiNL-&mkevt=1&mkcid=1&mkrid=711-53200-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true",
+            "title": "SkyBox 1995-96 SkyBox Premium Electrified Insert Michael Jordan #278 Bulls",
+            "label": "Raw"
+          },
+          {
+            "price": 194.5,
+            "date": "2026-08-28",
+            "url": "https://www.ebay.com/itm/198587450369?hash=item2e3cbc0401%3Ag%3AtwoAAeSw3vtqiNQP&mkevt=1&mkcid=1&mkrid=711-53200-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true",
+            "title": "1995-96 Skybox Premium - Electrified Michael Jordan #278",
+            "label": "Raw"
+          },
+          {
+            "price": 145.0,
+            "date": "2026-08-28",
+            "url": "https://www.ebay.com/itm/407164648937?hash=item5ecce77de9%3Ag%3ArvMAAeSwi0pqiwHS&mkevt=1&mkcid=1&mkrid=711-53200-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true",
+            "title": "1995-96 Skybox Premium - Electrified Michael Jordan #278",
+            "label": "Raw"
+          },
+          {
+            "price": 250.0,
+            "date": "2026-08-28",
+            "url": "https://www.ebay.com/itm/188802751891?hash=item2bf5855d93%3Ag%3AKn4AAeSwoTxqgf6r&mkevt=1&mkcid=1&mkrid=711-53200-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true",
+            "title": "1995-96 Skybox Premium Michael Jordan Electrified #278 Chicago Bulls \ud83d\udd25\ud83d\udd25",
+            "label": "Raw"
+          }
+        ]
       }
     ]
   },
@@ -16964,6 +17305,67 @@
             "label": "Raw"
           }
         ]
+      },
+      {
+        "date": "2026-08-31",
+        "value": null,
+        "sample_size": 0,
+        "comps": [],
+        "tree": [
+          {
+            "group": "Raw",
+            "items": [
+              {
+                "label": "Raw",
+                "value": 30.89,
+                "sample_size": 2,
+                "comps": [
+                  {
+                    "price": 4.0,
+                    "date": "2026-08-28",
+                    "title": "Fleer 1993-94 Ultra Michael Jordan Base Set #30 Chicago Bulls Basketball Card",
+                    "url": "https://www.ebay.com/itm/820050035597?hash=itembeeeca838d%3Ag%3Av2EAAeSwRjVqjuSh&mkevt=1&mkcid=1&mkrid=711-53200-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true"
+                  },
+                  {
+                    "price": 57.77,
+                    "date": "2026-08-28",
+                    "title": "1993-94 Fleer Ultra - Michael Jordan #30",
+                    "url": "https://www.ebay.com/itm/147292764157?hash=item224b5537fd%3Ag%3AgloAAeSw5spp-CIr&mkevt=1&mkcid=1&mkrid=711-53200-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true"
+                  }
+                ],
+                "is_own": false
+              }
+            ]
+          },
+          {
+            "group": "PSA",
+            "items": [
+              {
+                "label": "8",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": true
+              }
+            ]
+          }
+        ],
+        "pooled_sales": [
+          {
+            "price": 4.0,
+            "date": "2026-08-28",
+            "url": "https://www.ebay.com/itm/820050035597?hash=itembeeeca838d%3Ag%3Av2EAAeSwRjVqjuSh&mkevt=1&mkcid=1&mkrid=711-53200-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true",
+            "title": "Fleer 1993-94 Ultra Michael Jordan Base Set #30 Chicago Bulls Basketball Card",
+            "label": "Raw"
+          },
+          {
+            "price": 57.77,
+            "date": "2026-08-28",
+            "url": "https://www.ebay.com/itm/147292764157?hash=item224b5537fd%3Ag%3AgloAAeSw5spp-CIr&mkevt=1&mkcid=1&mkrid=711-53200-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true",
+            "title": "1993-94 Fleer Ultra - Michael Jordan #30",
+            "label": "Raw"
+          }
+        ]
       }
     ]
   },
@@ -18295,6 +18697,27 @@
             "label": "Raw"
           }
         ]
+      },
+      {
+        "date": "2026-08-31",
+        "value": null,
+        "sample_size": 0,
+        "comps": [],
+        "tree": [
+          {
+            "group": "PSA",
+            "items": [
+              {
+                "label": "8.5",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": true
+              }
+            ]
+          }
+        ],
+        "pooled_sales": []
       }
     ]
   },
@@ -19458,6 +19881,27 @@
           }
         ],
         "pooled_sales": []
+      },
+      {
+        "date": "2026-08-31",
+        "value": null,
+        "sample_size": 0,
+        "comps": [],
+        "tree": [
+          {
+            "group": "PSA",
+            "items": [
+              {
+                "label": "10",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": true
+              }
+            ]
+          }
+        ],
+        "pooled_sales": []
       }
     ]
   },
@@ -20583,6 +21027,27 @@
             "label": "Raw"
           }
         ]
+      },
+      {
+        "date": "2026-08-31",
+        "value": null,
+        "sample_size": 0,
+        "comps": [],
+        "tree": [
+          {
+            "group": "PSA",
+            "items": [
+              {
+                "label": "9",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": true
+              }
+            ]
+          }
+        ],
+        "pooled_sales": []
       }
     ]
   },
@@ -21874,6 +22339,54 @@
             "date": "2026-08-27",
             "url": "https://www.ebay.com/itm/318751884797?hash=item4a3717c5fd%3Ag%3AVCYAAeSwUXpqhSl6&mkevt=1&mkcid=1&mkrid=711-53200-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true",
             "title": "Topps 1994-95 Finest Jason Kidd Dallas Mavericks Rookie #286",
+            "label": "Raw"
+          }
+        ]
+      },
+      {
+        "date": "2026-08-31",
+        "value": null,
+        "sample_size": 0,
+        "comps": [],
+        "tree": [
+          {
+            "group": "Raw",
+            "items": [
+              {
+                "label": "Raw",
+                "value": 7.0,
+                "sample_size": 1,
+                "comps": [
+                  {
+                    "price": 7.0,
+                    "date": "2026-08-28",
+                    "title": "JASON KIDD 1994-95 Topps Finest #286 Rookie RC w/ Coating Dallas Mavericks",
+                    "url": "https://www.ebay.com/itm/267769364422?hash=item3e584c3fc6%3Ag%3AD9MAAeSwSHBqkO5I&mkevt=1&mkcid=1&mkrid=711-53200-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true"
+                  }
+                ],
+                "is_own": false
+              }
+            ]
+          },
+          {
+            "group": "PSA",
+            "items": [
+              {
+                "label": "9",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": true
+              }
+            ]
+          }
+        ],
+        "pooled_sales": [
+          {
+            "price": 7.0,
+            "date": "2026-08-28",
+            "url": "https://www.ebay.com/itm/267769364422?hash=item3e584c3fc6%3Ag%3AD9MAAeSwSHBqkO5I&mkevt=1&mkcid=1&mkrid=711-53200-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true",
+            "title": "JASON KIDD 1994-95 Topps Finest #286 Rookie RC w/ Coating Dallas Mavericks",
             "label": "Raw"
           }
         ]
@@ -23722,6 +24235,93 @@
             "url": "https://www.ebay.com/itm/206519787703?hash=item301589e0b7%3Ag%3A-i0AAeSwM6BqkK9b&mkevt=1&mkcid=1&mkrid=711-53200-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true",
             "title": "1992-93 UPPER DECK Shaquille O'Neal Shaq Rookie Trade Card 1b #1 Draft Pick RC",
             "label": "Raw"
+          }
+        ]
+      },
+      {
+        "date": "2026-08-31",
+        "value": null,
+        "sample_size": 0,
+        "comps": [],
+        "tree": [
+          {
+            "group": "Raw",
+            "items": [
+              {
+                "label": "Raw",
+                "value": 52.97,
+                "sample_size": 2,
+                "comps": [
+                  {
+                    "price": 90.0,
+                    "date": "2026-08-28",
+                    "title": "Shaquille O'Neal 1992-93 Upper Deck #1B Trade Card SGC Graded!",
+                    "url": "https://www.ebay.com/itm/147523010742?hash=item22590e80b6%3Ag%3As7EAAeSwNuRqi54y&mkevt=1&mkcid=1&mkrid=711-53200-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true"
+                  },
+                  {
+                    "price": 15.93,
+                    "date": "2026-08-28",
+                    "title": "1992-93 Upper Deck - Shaquille O'Neal #1b Trade Card (RC)",
+                    "url": "https://www.ebay.ca/itm/198587100802?hash=item2e3cb6ae82%3Ag%3AnkUAAeSwicVqiJV8&mkevt=1&mkcid=1&mkrid=706-53473-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true"
+                  }
+                ],
+                "is_own": false
+              }
+            ]
+          },
+          {
+            "group": "BGS",
+            "items": [
+              {
+                "label": "9",
+                "value": 149.99,
+                "sample_size": 1,
+                "comps": [
+                  {
+                    "price": 149.99,
+                    "date": "2026-08-28",
+                    "title": "1992-93 Upper Deck Shaquille O'Neal Trade Rookie Card #1b Magic BGS 9 MINT  HOT!",
+                    "url": "https://www.ebay.com/itm/298614628823?hash=item4586d1a1d7%3Ag%3A2e4AAeSwiTNqjY3j&mkevt=1&mkcid=1&mkrid=711-53200-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true"
+                  }
+                ],
+                "is_own": false
+              }
+            ]
+          },
+          {
+            "group": "PSA",
+            "items": [
+              {
+                "label": "7",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": true
+              }
+            ]
+          }
+        ],
+        "pooled_sales": [
+          {
+            "price": 90.0,
+            "date": "2026-08-28",
+            "url": "https://www.ebay.com/itm/147523010742?hash=item22590e80b6%3Ag%3As7EAAeSwNuRqi54y&mkevt=1&mkcid=1&mkrid=711-53200-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true",
+            "title": "Shaquille O'Neal 1992-93 Upper Deck #1B Trade Card SGC Graded!",
+            "label": "Raw"
+          },
+          {
+            "price": 15.93,
+            "date": "2026-08-28",
+            "url": "https://www.ebay.ca/itm/198587100802?hash=item2e3cb6ae82%3Ag%3AnkUAAeSwicVqiJV8&mkevt=1&mkcid=1&mkrid=706-53473-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true",
+            "title": "1992-93 Upper Deck - Shaquille O'Neal #1b Trade Card (RC)",
+            "label": "Raw"
+          },
+          {
+            "price": 149.99,
+            "date": "2026-08-28",
+            "url": "https://www.ebay.com/itm/298614628823?hash=item4586d1a1d7%3Ag%3A2e4AAeSwiTNqjY3j&mkevt=1&mkcid=1&mkrid=711-53200-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true",
+            "title": "1992-93 Upper Deck Shaquille O'Neal Trade Rookie Card #1b Magic BGS 9 MINT  HOT!",
+            "label": "BGS 9"
           }
         ]
       }
@@ -25990,6 +26590,27 @@
             "label": "Raw"
           }
         ]
+      },
+      {
+        "date": "2026-08-31",
+        "value": null,
+        "sample_size": 0,
+        "comps": [],
+        "tree": [
+          {
+            "group": "BGS",
+            "items": [
+              {
+                "label": "9",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": true
+              }
+            ]
+          }
+        ],
+        "pooled_sales": []
       }
     ]
   },
@@ -26783,6 +27404,27 @@
       },
       {
         "date": "2026-08-30",
+        "value": null,
+        "sample_size": 0,
+        "comps": [],
+        "tree": [
+          {
+            "group": "PSA",
+            "items": [
+              {
+                "label": "9",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": true
+              }
+            ]
+          }
+        ],
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-08-31",
         "value": null,
         "sample_size": 0,
         "comps": [],
@@ -27612,6 +28254,27 @@
           }
         ],
         "pooled_sales": []
+      },
+      {
+        "date": "2026-08-31",
+        "value": null,
+        "sample_size": 0,
+        "comps": [],
+        "tree": [
+          {
+            "group": "BGS",
+            "items": [
+              {
+                "label": "8.5",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": true
+              }
+            ]
+          }
+        ],
+        "pooled_sales": []
       }
     ]
   },
@@ -28405,6 +29068,27 @@
       },
       {
         "date": "2026-08-30",
+        "value": null,
+        "sample_size": 0,
+        "comps": [],
+        "tree": [
+          {
+            "group": "BGS",
+            "items": [
+              {
+                "label": "9.5",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": true
+              }
+            ]
+          }
+        ],
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-08-31",
         "value": null,
         "sample_size": 0,
         "comps": [],
@@ -30589,6 +31273,27 @@
           }
         ],
         "pooled_sales": []
+      },
+      {
+        "date": "2026-08-31",
+        "value": null,
+        "sample_size": 0,
+        "comps": [],
+        "tree": [
+          {
+            "group": "PSA",
+            "items": [
+              {
+                "label": "9",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": true
+              }
+            ]
+          }
+        ],
+        "pooled_sales": []
       }
     ]
   },
@@ -31905,6 +32610,27 @@
           }
         ],
         "pooled_sales": []
+      },
+      {
+        "date": "2026-08-31",
+        "value": null,
+        "sample_size": 0,
+        "comps": [],
+        "tree": [
+          {
+            "group": "Raw",
+            "items": [
+              {
+                "label": "Raw",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": true
+              }
+            ]
+          }
+        ],
+        "pooled_sales": []
       }
     ]
   },
@@ -32975,6 +33701,27 @@
             "label": "Raw"
           }
         ]
+      },
+      {
+        "date": "2026-08-31",
+        "value": null,
+        "sample_size": 0,
+        "comps": [],
+        "tree": [
+          {
+            "group": "Raw",
+            "items": [
+              {
+                "label": "Raw",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": true
+              }
+            ]
+          }
+        ],
+        "pooled_sales": []
       }
     ]
   },
@@ -33672,6 +34419,54 @@
             "label": "Raw"
           }
         ]
+      },
+      {
+        "date": "2026-08-31",
+        "value": null,
+        "sample_size": 0,
+        "comps": [],
+        "tree": [
+          {
+            "group": "Raw",
+            "items": [
+              {
+                "label": "Raw",
+                "value": 12.0,
+                "sample_size": 1,
+                "comps": [
+                  {
+                    "price": 12.0,
+                    "date": "2026-08-28",
+                    "title": "Panini 2016-17 Prizm Ben Simmons Rookie RC #1 Philadelphia 76ers",
+                    "url": "https://www.ebay.com/itm/377370250576?hash=item57dd050d50%3Ag%3AnTIAAeSwpfRqZWOz&mkevt=1&mkcid=1&mkrid=711-53200-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true"
+                  }
+                ],
+                "is_own": false
+              }
+            ]
+          },
+          {
+            "group": "BGS",
+            "items": [
+              {
+                "label": "8.5",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": true
+              }
+            ]
+          }
+        ],
+        "pooled_sales": [
+          {
+            "price": 12.0,
+            "date": "2026-08-28",
+            "url": "https://www.ebay.com/itm/377370250576?hash=item57dd050d50%3Ag%3AnTIAAeSwpfRqZWOz&mkevt=1&mkcid=1&mkrid=711-53200-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true",
+            "title": "Panini 2016-17 Prizm Ben Simmons Rookie RC #1 Philadelphia 76ers",
+            "label": "Raw"
+          }
+        ]
       }
     ]
   },
@@ -34301,6 +35096,27 @@
           }
         ],
         "pooled_sales": []
+      },
+      {
+        "date": "2026-08-31",
+        "value": null,
+        "sample_size": 0,
+        "comps": [],
+        "tree": [
+          {
+            "group": "PSA",
+            "items": [
+              {
+                "label": "9",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": true
+              }
+            ]
+          }
+        ],
+        "pooled_sales": []
       }
     ]
   },
@@ -34709,6 +35525,27 @@
           }
         ],
         "pooled_sales": []
+      },
+      {
+        "date": "2026-08-31",
+        "value": null,
+        "sample_size": 0,
+        "comps": [],
+        "tree": [
+          {
+            "group": "BGS",
+            "items": [
+              {
+                "label": "9.5",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": true
+              }
+            ]
+          }
+        ],
+        "pooled_sales": []
       }
     ]
   },
@@ -34903,6 +35740,54 @@
       },
       {
         "date": "2026-08-30",
+        "value": null,
+        "sample_size": 0,
+        "comps": [],
+        "tree": [
+          {
+            "group": "Raw",
+            "items": [
+              {
+                "label": "Raw",
+                "value": 3.0,
+                "sample_size": 1,
+                "comps": [
+                  {
+                    "price": 3.0,
+                    "date": "2026-08-28",
+                    "title": "2019-20 Panini Prizm #255 Rui Hachimura Prizms Silver",
+                    "url": "https://www.ebay.com/itm/287059668137?hash=item42d616eca9%3Ag%3AeZoAAeSwlxdpXuIG&mkevt=1&mkcid=1&mkrid=711-53200-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true"
+                  }
+                ],
+                "is_own": false
+              }
+            ]
+          },
+          {
+            "group": "BGS",
+            "items": [
+              {
+                "label": "9.5",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": true
+              }
+            ]
+          }
+        ],
+        "pooled_sales": [
+          {
+            "price": 3.0,
+            "date": "2026-08-28",
+            "url": "https://www.ebay.com/itm/287059668137?hash=item42d616eca9%3Ag%3AeZoAAeSwlxdpXuIG&mkevt=1&mkcid=1&mkrid=711-53200-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true",
+            "title": "2019-20 Panini Prizm #255 Rui Hachimura Prizms Silver",
+            "label": "Raw"
+          }
+        ]
+      },
+      {
+        "date": "2026-08-31",
         "value": null,
         "sample_size": 0,
         "comps": [],
