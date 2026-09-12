@@ -60,9 +60,16 @@
     color: var(--text-muted);
   }
   .summary strong { color: var(--text); font-weight: 500; }
+  .summary a {
+    color: var(--accent);
+    text-decoration: none;
+    border: 1px solid var(--accent-dim);
+    padding: 4px 10px;
+    border-radius: 6px;
+  }
 
   main {
-    max-width: 1400px;
+    max-width: 820px;
     margin: 0 auto;
     padding: 28px 24px 60px;
   }
@@ -70,7 +77,7 @@
   .toolbar {
     display: flex;
     gap: 10px;
-    margin-bottom: 24px;
+    margin-bottom: 20px;
     flex-wrap: wrap;
   }
   .toolbar input {
@@ -95,26 +102,193 @@
     font-size: 14px;
   }
 
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 18px;
-  }
-
-  .tile {
+  /* ---------- compact list ---------- */
+  .list {
     background: var(--surface);
     border: 1px solid var(--line);
-    border-radius: 10px;
+    border-radius: 12px;
     overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    position: relative;
   }
 
-  .tile-actions {
+  .card-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 14px;
+    border-bottom: 1px solid var(--line);
+    cursor: pointer;
+  }
+  .card-row:last-child { border-bottom: none; }
+  .card-row:hover, .card-row:active { background: var(--surface-raised); }
+
+  .row-accent {
+    width: 3px;
+    align-self: stretch;
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
+  .row-accent.up { background: var(--up); }
+  .row-accent.down { background: var(--down); }
+  .row-accent.flat { background: var(--line); }
+
+  .row-thumb {
+    width: 42px;
+    height: 58px;
+    flex-shrink: 0;
+    border-radius: 4px;
+    overflow: hidden;
+    background: var(--surface-raised);
+    border: 1px solid var(--line);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .row-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .row-thumb .placeholder {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 8px;
+    color: var(--text-muted);
+    text-align: center;
+    line-height: 1.2;
+  }
+
+  .row-main { flex: 1; min-width: 0; }
+  .row-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 1.2;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .row-sub {
+    font-size: 11.5px;
+    color: var(--text-muted);
+    margin-top: 2px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .row-sub .row-grade {
+    color: var(--accent);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px;
+  }
+
+  .row-figures {
+    text-align: right;
+    flex-shrink: 0;
+    padding-left: 6px;
+  }
+  .row-value {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 600;
+    font-size: 15px;
+  }
+  .row-change {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    margin-top: 2px;
+  }
+  .row-change.up { color: var(--up); }
+  .row-change.down { color: var(--down); }
+  .row-change.flat { color: var(--text-muted); }
+
+  .row-chevron {
+    color: var(--text-muted);
+    font-size: 14px;
+    flex-shrink: 0;
+    opacity: 0.6;
+  }
+
+  .empty-state {
+    text-align: center;
+    padding: 80px 20px;
+    color: var(--text-muted);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 20px;
+  }
+
+  .toast {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--surface-raised);
+    border: 1px solid var(--line);
+    color: var(--text);
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12.5px;
+    z-index: 30;
+    display: none;
+  }
+  .toast.visible { display: block; }
+  .toast.error { border-color: var(--down); color: var(--down); }
+  .toast.success { border-color: var(--teal); color: var(--teal); }
+
+  /* ---------- detail modal ---------- */
+  .modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(5, 7, 14, 0.7);
+    z-index: 20;
+    align-items: flex-end;
+    justify-content: center;
+  }
+  .modal-overlay.visible { display: flex; }
+  @media (min-width: 640px) {
+    .modal-overlay { align-items: center; }
+  }
+
+  .modal-panel {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 16px 16px 0 0;
+    width: 100%;
+    max-width: 480px;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    padding-bottom: 20px;
+  }
+  @media (min-width: 640px) {
+    .modal-panel { border-radius: 16px; }
+  }
+
+  .modal-drag-handle {
+    width: 36px;
+    height: 4px;
+    background: var(--line);
+    border-radius: 2px;
+    margin: 10px auto 0;
+  }
+  @media (min-width: 640px) { .modal-drag-handle { display: none; } }
+
+  .modal-close {
     position: absolute;
-    top: 12px;
-    right: 12px;
+    top: 14px;
+    right: 14px;
+    background: var(--surface-raised);
+    border: 1px solid var(--line);
+    color: var(--text-muted);
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 15px;
+    line-height: 1;
+    z-index: 1;
+  }
+  .modal-close:hover { color: var(--text); border-color: var(--accent-dim); }
+
+  .modal-actions {
+    position: absolute;
+    top: 14px;
+    left: 14px;
     display: flex;
     gap: 6px;
     z-index: 1;
@@ -127,7 +301,7 @@
     border: 1px solid var(--line);
     padding: 3px 8px;
     border-radius: 12px;
-    background: transparent;
+    background: var(--surface-raised);
     cursor: pointer;
   }
   .edit-link:hover { color: var(--accent); border-color: var(--accent-dim); }
@@ -137,12 +311,12 @@
   .tile-top {
     display: flex;
     gap: 14px;
-    padding: 16px 16px 0;
+    padding: 40px 20px 0;
   }
 
   .photo-wrap {
-    width: 64px;
-    height: 90px;
+    width: 72px;
+    height: 100px;
     flex-shrink: 0;
     border-radius: 4px;
     overflow: hidden;
@@ -169,7 +343,7 @@
   .player {
     font-family: 'Barlow Condensed', sans-serif;
     font-weight: 600;
-    font-size: 19px;
+    font-size: 20px;
     line-height: 1.15;
     overflow-wrap: break-word;
   }
@@ -195,11 +369,11 @@
     display: flex;
     align-items: baseline;
     gap: 8px;
-    padding: 14px 16px 4px;
+    padding: 16px 20px 4px;
   }
   .value {
     font-family: 'JetBrains Mono', monospace;
-    font-size: 24px;
+    font-size: 26px;
     font-weight: 600;
   }
   .delta { font-family: 'JetBrains Mono', monospace; font-size: 12.5px; }
@@ -214,14 +388,14 @@
     margin-bottom: 1px;
   }
 
-  .chart-wrap { padding: 4px 12px 8px; height: 96px; position: relative; }
+  .chart-wrap { padding: 4px 16px 8px; height: 96px; position: relative; }
   .chart-label {
     font-family: 'JetBrains Mono', monospace;
     font-size: 9.5px;
     color: var(--text-muted);
     text-transform: uppercase;
     letter-spacing: 0.4px;
-    padding: 0 4px 2px;
+    padding: 0 20px 2px;
   }
   .chart-empty {
     font-family: 'JetBrains Mono', monospace;
@@ -233,7 +407,7 @@
 
   .comps {
     border-top: 1px solid var(--line);
-    padding: 10px 16px 14px;
+    padding: 10px 20px 4px;
     font-size: 12.5px;
   }
   .comps summary {
@@ -324,7 +498,7 @@
   .add-comp-hint { font-size: 11px; color: var(--text-muted); }
 
   .tree {
-    padding: 2px 16px 14px;
+    padding: 2px 20px 14px;
     font-family: 'JetBrains Mono', monospace;
     font-size: 11.5px;
   }
@@ -373,33 +547,6 @@
     border-radius: 3px;
     text-transform: uppercase;
   }
-
-  .empty-state {
-    text-align: center;
-    padding: 80px 20px;
-    color: var(--text-muted);
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 20px;
-  }
-
-  .toast {
-    position: fixed;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: var(--surface-raised);
-    border: 1px solid var(--line);
-    color: var(--text);
-    padding: 10px 18px;
-    border-radius: 8px;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 12.5px;
-    z-index: 10;
-    display: none;
-  }
-  .toast.visible { display: block; }
-  .toast.error { border-color: var(--down); color: var(--down); }
-  .toast.success { border-color: var(--teal); color: var(--teal); }
 </style>
 </head>
 <body>
@@ -410,7 +557,7 @@
     <div>TOTAL <strong id="stat-total">—</strong></div>
     <div>CARDS <strong id="stat-count">—</strong></div>
     <div>UPDATED <strong id="stat-updated">—</strong></div>
-    <a href="add.html" style="color:var(--accent);text-decoration:none;border:1px solid var(--accent-dim);padding:4px 10px;border-radius:6px;">+ ADD CARD</a>
+    <a href="add.html">+ ADD CARD</a>
   </div>
 </header>
 
@@ -428,9 +575,13 @@
     </select>
   </div>
 
-  <div class="grid" id="grid"></div>
+  <div class="list" id="grid"></div>
   <div class="empty-state" id="empty" style="display:none;">No cards match your search.</div>
 </main>
+
+<div class="modal-overlay" id="modal-overlay">
+  <div class="modal-panel" id="modal-panel"></div>
+</div>
 
 <div class="toast" id="toast"></div>
 
@@ -444,6 +595,7 @@ const SETTINGS_KEY = 'card_ledger_settings_v1'; // shared with add.html
 
 let cardsData = [];
 let rawHistory = {};
+let activeChart = null; // the one Chart.js instance backing whichever modal is open
 
 function fmtMoney(n) {
   if (n === null || n === undefined || isNaN(n)) return '—';
@@ -553,9 +705,9 @@ function serializeCSV(header, rows) {
   return lines.join('\n') + '\n';
 }
 
-// Labels the highest and lowest points directly on each sparkline, since
-// the axes themselves are hidden (too small a chart to spare the space)
-// and a legend would be overkill for a single line.
+// Labels the highest and lowest points directly on the modal's sparkline,
+// since the axes themselves are hidden (too small a chart to spare the
+// space) and a legend would be overkill for a single line.
 const highLowLabelPlugin = {
   id: 'highLowLabel',
   afterDatasetsDraw(chart) {
@@ -620,12 +772,6 @@ function parseLabel(label) {
   if (/^raw$/i.test(s)) return { company: 'Raw', grade: null };
   const parts = s.split(/\s+/);
   if (parts.length >= 2) return { company: parts[0].toUpperCase(), grade: parts.slice(1).join(' ') };
-  // A single bare token: if it's purely numeric (e.g. someone typed just
-  // "10" into a manual comp's grade field instead of "PSA 10"), it IS a
-  // real grade value - we just don't know which company gave it. Group
-  // these under an honest "Graded" bucket rather than treating the
-  // number itself as a company name (which would otherwise create a
-  // nonsense top-level group literally called "10").
   if (/^\d+(\.\d)?$/.test(s)) return { company: 'Graded (unspecified)', grade: s };
   return { company: s.toUpperCase(), grade: null };
 }
@@ -776,7 +922,59 @@ function renderSummary(cards) {
   document.getElementById('stat-updated').textContent = dates.length ? dates.sort().pop() : '—';
 }
 
-function cardTile(card) {
+// ---------- compact list row ----------
+function cardRow(card) {
+  const m = card.meta;
+  const title = m.player || 'Unknown Player';
+  const metaLine = [m.year, m.set, m.variant].filter(Boolean).join(' · ') +
+    (m.card_number ? ` #${m.card_number}` : '');
+
+  const changeClass = card.change === null ? 'flat' : card.change > 0 ? 'up' : card.change < 0 ? 'down' : 'flat';
+  const changeSign = card.change > 0 ? '+' : '';
+  const changeText = card.change === null ? '—' : `${changeSign}${card.change.toFixed(1)}%`;
+
+  const hasPhoto = !!m.photo_filename;
+  const thumbInner = hasPhoto
+    ? `<img src="${PHOTOS_PATH}${m.photo_filename}" alt="${title}" loading="lazy" onerror="this.closest('.row-thumb').innerHTML='<div class=placeholder>No<br>photo</div>'">`
+    : `<div class="placeholder">No<br>photo</div>`;
+
+  const subParts = [];
+  if (m.grade) subParts.push(`<span class="row-grade">${m.grade}</span>`);
+  subParts.push(metaLine || '—');
+  if (card.lastSaleDate) subParts.push(`last sale ${card.lastSaleDate}`);
+
+  return `
+    <div class="card-row" data-card-id="${card.id}" data-search="${(title + ' ' + metaLine).toLowerCase()}">
+      <div class="row-accent ${changeClass}"></div>
+      <div class="row-thumb">${thumbInner}</div>
+      <div class="row-main">
+        <div class="row-title">${title}</div>
+        <div class="row-sub">${subParts.join(' · ')}</div>
+      </div>
+      <div class="row-figures">
+        <div class="row-value">${fmtMoney(card.latestValue)}</div>
+        <div class="row-change ${changeClass}">${changeText}</div>
+      </div>
+      <div class="row-chevron">›</div>
+    </div>
+  `;
+}
+
+function renderList(cards) {
+  const grid = document.getElementById('grid');
+  const empty = document.getElementById('empty');
+
+  if (!cards.length) {
+    grid.innerHTML = '';
+    empty.style.display = 'block';
+    return;
+  }
+  empty.style.display = 'none';
+  grid.innerHTML = cards.map(cardRow).join('');
+}
+
+// ---------- detail modal ----------
+function modalContent(card) {
   const m = card.meta;
   const title = m.player || 'Unknown Player';
   const metaLine = [m.year, m.set, m.variant].filter(Boolean).join(' · ') +
@@ -829,70 +1027,70 @@ function cardTile(card) {
   const deleteLabel = `${title} — ${m.set || ''}`.trim();
 
   return `
-    <div class="tile" data-search="${(title + ' ' + metaLine).toLowerCase()}" data-card-id="${card.id}">
-      <div class="tile-actions">
-        <a href="${editUrl}" class="edit-link" title="Edit this card">✎ Edit</a>
-        <button class="delete-btn" data-action="delete-card" data-card-id="${card.id}" data-label="${deleteLabel}" title="Delete this card">🗑</button>
-      </div>
-      <div class="tile-top">
-        <div class="photo-wrap ${hasPhoto ? 'clickable' : ''}">${photoHtml}</div>
-        <div class="id-block">
-          <div class="player">${title}</div>
-          <div class="card-meta">${metaLine || '—'}</div>
-          ${m.grade ? `<div class="grade-tag">${m.grade}</div>` : ''}
-        </div>
-      </div>
-      <div class="value-row">
-        <div class="value">${fmtMoney(card.latestValue)}</div>
-        <div class="delta ${changeClass}" title="Change in the 30-day pooled average (raw + graded) between its earliest and most recent point">${changeText}</div>
-        ${card.change !== null ? '<div class="delta-label">30d</div>' : ''}
-      </div>
-      ${treeHtml}
-      <div class="chart-label">30-day avg trend · ${card.salesLast30} sale${card.salesLast30 === 1 ? '' : 's'} · raw + graded</div>
-      <div class="chart-wrap">
-        <canvas id="chart-${card.id}" style="${card.rollingAvg.some(v => v !== null) ? '' : 'display:none;'}"></canvas>
-        ${card.rollingAvg.some(v => v !== null) ? '' : '<div class="chart-empty">No pooled sales yet to trend</div>'}
-      </div>
-      <details class="comps">
-        <summary>Recent comps</summary>
-        ${compsHtml}
-        <div class="add-comp-row">
-          <button class="secondary small" data-action="show-add-comp">+ Add comp</button>
-        </div>
-        <div class="add-comp-form">
-          <div class="add-comp-hint">From eBay's sold listings — goes further back than the automated 3-day pull.</div>
-          <div class="field-row-inline">
-            <input type="text" class="mc-price" placeholder="Price, e.g. 45.00">
-            <input type="text" class="mc-date" placeholder="YYYY-MM-DD">
-          </div>
-          <input type="text" class="mc-label" placeholder="Grade, e.g. Raw or PSA 9">
-          <div class="add-comp-hint" style="margin-top:-4px;">Include the grading company — "PSA 9", not just "9" — or it won't group correctly.</div>
-          <input type="text" class="mc-title" placeholder="Listing title (optional)">
-          <input type="text" class="mc-url" placeholder="eBay link (optional)">
-          <div class="field-row-inline">
-            <button class="secondary small" data-action="save-comp">Save</button>
-            <button class="secondary small" data-action="cancel-comp">Cancel</button>
-          </div>
-        </div>
-      </details>
+    <div class="modal-drag-handle"></div>
+    <button class="modal-close" data-action="close-modal" title="Close">✕</button>
+    <div class="modal-actions">
+      <a href="${editUrl}" class="edit-link" title="Edit this card">✎ Edit</a>
+      <button class="delete-btn" data-action="delete-card" data-card-id="${card.id}" data-label="${deleteLabel}" title="Delete this card">🗑</button>
     </div>
+    <div class="tile-top">
+      <div class="photo-wrap ${hasPhoto ? 'clickable' : ''}">${photoHtml}</div>
+      <div class="id-block">
+        <div class="player">${title}</div>
+        <div class="card-meta">${metaLine || '—'}</div>
+        ${m.grade ? `<div class="grade-tag">${m.grade}</div>` : ''}
+      </div>
+    </div>
+    <div class="value-row">
+      <div class="value">${fmtMoney(card.latestValue)}</div>
+      <div class="delta ${changeClass}" title="Change in the 30-day pooled average (raw + graded) between its earliest and most recent point">${changeText}</div>
+      ${card.change !== null ? '<div class="delta-label">30d</div>' : ''}
+    </div>
+    ${treeHtml}
+    <div class="chart-label">30-day avg trend · ${card.salesLast30} sale${card.salesLast30 === 1 ? '' : 's'} · raw + graded</div>
+    <div class="chart-wrap">
+      <canvas id="modal-chart" style="${card.rollingAvg.some(v => v !== null) ? '' : 'display:none;'}"></canvas>
+      ${card.rollingAvg.some(v => v !== null) ? '' : '<div class="chart-empty">No pooled sales yet to trend</div>'}
+    </div>
+    <details class="comps" open>
+      <summary>Recent comps</summary>
+      ${compsHtml}
+      <div class="add-comp-row">
+        <button class="secondary small" data-action="show-add-comp">+ Add comp</button>
+      </div>
+      <div class="add-comp-form">
+        <div class="add-comp-hint">From eBay's sold listings — goes further back than the automated 3-day pull.</div>
+        <div class="field-row-inline">
+          <input type="text" class="mc-price" placeholder="Price, e.g. 45.00">
+          <input type="text" class="mc-date" placeholder="YYYY-MM-DD">
+        </div>
+        <input type="text" class="mc-label" placeholder="Grade, e.g. Raw or PSA 9">
+        <div class="add-comp-hint" style="margin-top:-4px;">Include the grading company — "PSA 9", not just "9" — or it won't group correctly.</div>
+        <input type="text" class="mc-title" placeholder="Listing title (optional)">
+        <input type="text" class="mc-url" placeholder="eBay link (optional)">
+        <div class="field-row-inline">
+          <button class="secondary small" data-action="save-comp">Save</button>
+          <button class="secondary small" data-action="cancel-comp">Cancel</button>
+        </div>
+      </div>
+    </details>
   `;
 }
 
-function drawSparkline(card) {
-  const canvas = document.getElementById(`chart-${card.id}`);
+function drawModalChart(card) {
+  if (activeChart) { activeChart.destroy(); activeChart = null; }
+  const canvas = document.getElementById('modal-chart');
   if (!canvas || card.snapshots.length < 1) return;
 
   const labels = card.snapshots.map(s => s.date);
   const values = card.rollingAvg;
-  const hasAnyData = values.some(v => v !== null);
-  if (!hasAnyData) return;
+  if (!values.some(v => v !== null)) return;
 
   const firstVal = values.find(v => v !== null);
   const lastVal = [...values].reverse().find(v => v !== null);
   const isUp = lastVal === undefined || firstVal === undefined || lastVal >= firstVal;
 
-  new Chart(canvas, {
+  activeChart = new Chart(canvas, {
     type: 'line',
     data: {
       labels,
@@ -920,19 +1118,33 @@ function drawSparkline(card) {
   });
 }
 
-function render(cards) {
-  const grid = document.getElementById('grid');
-  const empty = document.getElementById('empty');
+let openCardId = null;
 
-  if (!cards.length) {
-    grid.innerHTML = '';
-    empty.style.display = 'block';
-    return;
-  }
-  empty.style.display = 'none';
-  grid.innerHTML = cards.map(cardTile).join('');
-  cards.forEach(drawSparkline);
+function openModal(cardId) {
+  const card = cardsData.find(c => c.id === cardId);
+  if (!card) return;
+  openCardId = cardId;
+  document.getElementById('modal-panel').innerHTML = modalContent(card);
+  document.getElementById('modal-overlay').classList.add('visible');
+  drawModalChart(card);
 }
+
+function closeModal() {
+  document.getElementById('modal-overlay').classList.remove('visible');
+  document.getElementById('modal-panel').innerHTML = '';
+  if (activeChart) { activeChart.destroy(); activeChart = null; }
+  openCardId = null;
+}
+
+// Refreshes the open modal in place after a data change (comp added,
+// etc.) without closing and reopening it.
+function refreshModalIfOpen() {
+  if (openCardId) openModal(openCardId);
+}
+
+document.getElementById('modal-overlay').addEventListener('click', (e) => {
+  if (e.target.id === 'modal-overlay') closeModal();
+});
 
 function applyFiltersAndSort() {
   const q = document.getElementById('search').value.trim().toLowerCase();
@@ -956,7 +1168,7 @@ function applyFiltersAndSort() {
     }
   });
 
-  render(filtered);
+  renderList(filtered);
 }
 
 async function init() {
@@ -976,38 +1188,46 @@ async function init() {
   }
 }
 
-// ---------- manual comp + delete actions (event delegation, since tiles
-// get replaced wholesale on every render) ----------
-document.getElementById('grid').addEventListener('click', async (e) => {
+// ---------- list click: open a card's detail modal ----------
+document.getElementById('grid').addEventListener('click', (e) => {
+  const row = e.target.closest('.card-row');
+  if (!row) return;
+  openModal(row.dataset.cardId);
+});
+
+// ---------- modal click: close / add-comp / delete (event delegation,
+// since the modal's innerHTML gets replaced wholesale on every open) ----------
+document.getElementById('modal-panel').addEventListener('click', async (e) => {
   const btn = e.target.closest('[data-action]');
   if (!btn) return;
-  const tile = btn.closest('.tile');
-  const cardId = tile?.dataset.cardId;
   const action = btn.dataset.action;
 
-  if (action === 'show-add-comp') {
-    tile.querySelector('.add-comp-form').classList.add('visible');
+  if (action === 'close-modal') {
+    closeModal();
+  } else if (action === 'show-add-comp') {
+    document.querySelector('#modal-panel .add-comp-form').classList.add('visible');
     btn.style.display = 'none';
   } else if (action === 'cancel-comp') {
-    tile.querySelector('.add-comp-form').classList.remove('visible');
-    tile.querySelector('[data-action="show-add-comp"]').style.display = '';
+    document.querySelector('#modal-panel .add-comp-form').classList.remove('visible');
+    document.querySelector('#modal-panel [data-action="show-add-comp"]').style.display = '';
   } else if (action === 'save-comp') {
-    await handleSaveComp(btn, tile, cardId);
+    await handleSaveComp(btn, openCardId);
   } else if (action === 'delete-card') {
-    await handleDeleteCard(btn, cardId);
+    await handleDeleteCard(btn, btn.dataset.cardId);
   }
 });
 
-async function handleSaveComp(btn, tile, cardId) {
+async function handleSaveComp(btn, cardId) {
   if (!hasGithubConnection()) {
     showToast('error', 'Connect GitHub first — open the Add Card page and fill in the connection settings.');
     return;
   }
-  const price = parseFloat(tile.querySelector('.mc-price').value);
-  const date = tile.querySelector('.mc-date').value.trim();
-  const label = tile.querySelector('.mc-label').value.trim() || 'Raw';
-  const compTitle = tile.querySelector('.mc-title').value.trim();
-  const url = tile.querySelector('.mc-url').value.trim();
+  const panel = document.getElementById('modal-panel');
+  const price = parseFloat(panel.querySelector('.mc-price').value);
+  const date = panel.querySelector('.mc-date').value.trim();
+  const label = panel.querySelector('.mc-label').value.trim() || 'Raw';
+  const compTitle = panel.querySelector('.mc-title').value.trim();
+  const url = panel.querySelector('.mc-url').value.trim();
 
   if (!price || isNaN(price)) { showToast('error', 'Enter a valid price.'); return; }
   if (!/^\d{4}-\d{2}-\d{2}$/.test(date)) { showToast('error', 'Date must be in YYYY-MM-DD format.'); return; }
@@ -1035,6 +1255,7 @@ async function handleSaveComp(btn, tile, cardId) {
     cardsData = buildCardObjects(rawHistory);
     renderSummary(cardsData);
     applyFiltersAndSort();
+    refreshModalIfOpen();
     showToast('success', 'Comp added.');
   } catch (err) {
     showToast('error', err.message || 'Failed to save comp.');
@@ -1058,7 +1279,6 @@ async function handleDeleteCard(btn, cardId) {
     const card = cardsData.find(c => c.id === cardId);
     const m = card ? card.meta : {};
 
-    // Remove the matching row from cards.csv
     const csvExisting = await getExistingFile(CSV_PATH_REPO);
     if (csvExisting) {
       const text = base64ToUtf8(csvExisting.content);
@@ -1076,7 +1296,6 @@ async function handleDeleteCard(btn, cardId) {
       }
     }
 
-    // Remove its entry from price_history.json
     const histExisting = await getExistingFile(DATA_PATH_REPO);
     if (histExisting) {
       const freshHistory = JSON.parse(base64ToUtf8(histExisting.content));
@@ -1090,6 +1309,7 @@ async function handleDeleteCard(btn, cardId) {
     cardsData = buildCardObjects(rawHistory);
     renderSummary(cardsData);
     applyFiltersAndSort();
+    closeModal();
     showToast('success', `${label} deleted.`);
   } catch (err) {
     showToast('error', err.message || 'Failed to delete card.');
