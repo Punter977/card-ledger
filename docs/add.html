@@ -579,10 +579,34 @@ const HISTORY_PATH = 'docs/data/price_history.json';
 // old key to the new one rather than losing history or duplicating it.
 async function syncHistoryMetaAfterEdit(oldKey, row) {
   const newKey = cardKey(row);
-  const existing = await getExistingFile(HISTORY_PATH);
+  let existing;
+  try {
+    existing = await getExistingFile(HISTORY_PATH);
+  } catch (err) {
+    console.error('syncHistoryMetaAfterEdit: could not read price_history.json', err);
+    throw new Error(`Couldn't read price_history.json to sync: ${err.message}`);
+  }
   if (!existing) return; // no price history yet at all - nothing to sync
 
-  const history = JSON.parse(base64ToUtf8(existing.content));
+  let history;
+  try {
+    history = JSON.parse(base64ToUtf8(existing.content));
+  } catch (err) {
+    // Don't let a parse failure block the edit that already succeeded
+    // (cards.csv is already saved by this point) - surface it clearly
+    // instead so it's diagnosable, but let the rest of the save flow
+    // (triggering a price pull) continue.
+    console.error('syncHistoryMetaAfterEdit: JSON.parse failed', {
+      contentLength: existing.content ? existing.content.length : 0,
+      contentPreview: existing.content ? existing.content.slice(0, 80) : '(empty)',
+      error: err,
+    });
+    throw new Error(
+      `cards.csv was saved, but the dashboard's data file couldn't be parsed (${err.message}). ` +
+      `It'll still update itself on the next scheduled price pull.`
+    );
+  }
+
   let entry = history[oldKey];
 
   if (!entry && !history[newKey]) {
