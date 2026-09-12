@@ -36717,1111 +36717,6 @@
       }
     ]
   },
-  "Michael Jordan | 2013-14 | Upper Deck SP By The Letter | BL-MJ |  | PSA 9": {
-    "meta": {
-      "player": "Michael Jordan",
-      "year": "2013-14",
-      "set": "Upper Deck SP By The Letter",
-      "card_number": "BL-MJ",
-      "variant": "",
-      "grade": "PSA 9",
-      "photo_filename": "PXL_20260826_041749906.jpg",
-      "back_photo_filename": "",
-      "added_at": ""
-    },
-    "snapshots": [
-      {
-        "date": "2026-08-26",
-        "value": null,
-        "sample_size": 0,
-        "comps": [],
-        "tree": [
-          {
-            "group": "Raw",
-            "items": [
-              {
-                "label": "Raw",
-                "value": null,
-                "sample_size": 0,
-                "comps": [],
-                "is_own": false
-              }
-            ]
-          },
-          {
-            "group": "PSA",
-            "items": [
-              {
-                "label": "10",
-                "value": null,
-                "sample_size": 0,
-                "comps": [],
-                "is_own": false
-              },
-              {
-                "label": "9",
-                "value": null,
-                "sample_size": 0,
-                "comps": [],
-                "is_own": true
-              }
-            ]
-          },
-          {
-            "group": "BGS",
-            "items": [
-              {
-                "label": "10",
-                "value": null,
-                "sample_size": 0,
-                "comps": [],
-                "is_own": false
-              },
-              {
-                "label": "9.5",
-                "value": null,
-                "sample_size": 0,
-                "comps": [],
-                "is_own": false
-              }
-            ]
-          }
-        ],
-        "pooled_sales": []
-      },
-      {
-        "date": "2026-08-26",
-        "value": null,
-        "sample_size": 0,
-        "comps": [],
-        "tree": [
-          {
-            "group": "Raw",
-            "items": [
-              {
-                "label": "Raw",
-                "value": null,
-                "sample_size": 0,
-                "comps": [],
-                "is_own": false
-              }
-            ]
-          },
-          {
-            "group": "PSA",
-            "items": [
-              {
-                "label": "10",
-                "value": null,
-                "sample_size": 0,
-                "comps": [],
-                "is_own": false
-              },
-              {
-                "label": "9",
-                "value": null,
-                "sample_size": 0,
-                "comps": [],
-                "is_own": true
-              }
-            ]
-          },
-          {
-            "group": "BGS",
-            "items": [
-              {
-                "label": "10",
-                "value": null,
-                "sample_size": 0,
-                "comps": [],
-                "is_own": false
-              },
-              {
-                "label": "9.5",
-                "value": null,
-                "sample_size": 0,
-                "comps": [],
-                "is_own": false
-              }
-            ]
-          }
-        ],
-        "pooled_sales": []
-      },
-      {
-        "date": "2026-08-26",
-        "value": null,
-        "sample_size": 0,
-        "comps": [],
-        "tree": [
-          {
-            "group": "Raw",
-            "items": [
-              {
-                "label": "Raw",
-                "value": null,
-                "sample_size": 0,
-                "comps": [],
-                "is_own": false
-              }
-            ]
-          },
-          {
-            "group": "PSA",
-            "items": [
-              {
-                "label": "10",
-                "value": null,
-                "sample_size": 0,
-                "comps": [],
-                "is_own": false
-              },
-              {
-                "label": "9",
-                "value": null,
-                "sample_size": 0,
-                "comps": [],
-                "is_own": true
-              }
-            ]
-          },
-          {
-            "group": "BGS",
-            "items": [
-              {
-                "label": "10",
-                "value": null,
-                "sample_size": 0,
-                "comps": [],
-                "is_own": false
-              },
-              {
-                "label": "9.5",
-                "value": null,
-                "sample_size": 0,
-                "comps": [],
-                "is_own": false
-              }
-            ]
-          }
-        ],
-        "pooled_sales": []
-      },
-      {
-        "date": "2026-08-26",
-        "value": null,
-        "sample_size": 0,
-        "comps": [],
-        "tree": [
-          {
-            "group": "Raw",
-            "items": [
-              {
-                "label": "Raw",
-                "value": null,
-                "sample_size": 0,
-                "comps": [],
-                "is_own": false
-              }
-            ]
-          },
-          {
-            "group": "PSA",
-            "items": [
-              {
-                "label": "10",
-                "value": null,
-                "sample_size": 0,
-                "comps": [],
-                "is_own": false
-              },
-              {
-                "label": "9",
-                "value": null,
-                "sample_size": 0,
-                "comps": [],
-                "is_own": true
-              }
-            ]
-          },
-          {
-            "group": "BGS",
-            "items": [
-              {
-                "label": "10",
-                "value": null,
-                "sample_size": 0,
-                "comps": [],
-                "is_own": false
-              },
-              {
-                "label": "9.5",
-                "value": null,
-                "sample_size": 0,
-                "comps": [],
-                "is_own": false
-              }
-            ]
-          }
-        ],
-        "pooled_sales": []
-      },
-      {
-        "date": "2026-08-26",
-        "value": null,
-        "sample_size": 0,
-        "comps": [],
-        "tree": [
-          {
-            "group": "Raw",
-            "items": [
-              {
-                "label": "Raw",
-                "value": null,
-                "sample_size": 0,
-                "comps": [],
-                "is_own": false
-              }
-            ]
-          },
-          {
-            "group": "PSA",
-            "items": [
-              {
-                "label": "10",
-                "value": null,
-                "sample_size": 0,
-                "comps": [],
-                "is_own": false
-              },
-              {
-                "label": "9",
-                "value": null,
-                "sample_size": 0,
-                "comps": [],
-                "is_own": true
-              }
-            ]
-          },
-          {
-            "group": "BGS",
-            "items": [
-              {
-                "label": "10",
-                "value": null,
-                "sample_size": 0,
-                "comps": [],
-                "is_own": false
-              },
-              {
-                "label": "9.5",
-                "value": null,
-                "sample_size": 0,
-                "comps": [],
-                "is_own": false
-              }
-            ]
-          }
-        ],
-        "pooled_sales": []
-      },
-      {
-        "date": "2026-08-26",
-        "value": null,
-        "sample_size": 0,
-        "comps": [],
-        "tree": [
-          {
-            "group": "Raw",
-            "items": [
-              {
-                "label": "Raw",
-                "value": null,
-                "sample_size": 0,
-                "comps": [],
-                "is_own": false
-              }
-            ]
-          },
-          {
-            "group": "PSA",
-            "items": [
-              {
-                "label": "10",
-                "value": null,
-                "sample_size": 0,
-                "comps": [],
-                "is_own": false
-              },
-              {
-                "label": "9",
-                "value": null,
-                "sample_size": 0,
-                "comps": [],
-                "is_own": true
-              }
-            ]
-          },
-          {
-            "group": "BGS",
-            "items": [
-              {
-                "label": "10",
-                "value": null,
-                "sample_size": 0,
-                "comps": [],
-                "is_own": false
-              },
-              {
-                "label": "9.5",
-                "value": null,
-                "sample_size": 0,
-                "comps": [],
-                "is_own": false
-              }
-            ]
-          }
-        ],
-        "pooled_sales": []
-      },
-      {
-        "date": "2026-08-26",
-        "value": null,
-        "sample_size": 0,
-        "comps": [],
-        "tree": [
-          {
-            "group": "Raw",
-            "items": [
-              {
-                "label": "Raw",
-                "value": null,
-                "sample_size": 0,
-                "comps": [],
-                "is_own": false
-              }
-            ]
-          },
-          {
-            "group": "PSA",
-            "items": [
-              {
-                "label": "10",
-                "value": null,
-                "sample_size": 0,
-                "comps": [],
-                "is_own": false
-              },
-              {
-                "label": "9",
-                "value": null,
-                "sample_size": 0,
-                "comps": [],
-                "is_own": true
-              }
-            ]
-          },
-          {
-            "group": "BGS",
-            "items": [
-              {
-                "label": "10",
-                "value": null,
-                "sample_size": 0,
-                "comps": [],
-                "is_own": false
-              },
-              {
-                "label": "9.5",
-                "value": null,
-                "sample_size": 0,
-                "comps": [],
-                "is_own": false
-              }
-            ]
-          }
-        ],
-        "pooled_sales": []
-      },
-      {
-        "date": "2026-08-26",
-        "value": null,
-        "sample_size": 0,
-        "comps": [],
-        "tree": [
-          {
-            "group": "Raw",
-            "items": [
-              {
-                "label": "Raw",
-                "value": null,
-                "sample_size": 0,
-                "comps": [],
-                "is_own": false
-              }
-            ]
-          },
-          {
-            "group": "PSA",
-            "items": [
-              {
-                "label": "10",
-                "value": null,
-                "sample_size": 0,
-                "comps": [],
-                "is_own": false
-              },
-              {
-                "label": "9",
-                "value": null,
-                "sample_size": 0,
-                "comps": [],
-                "is_own": true
-              }
-            ]
-          },
-          {
-            "group": "BGS",
-            "items": [
-              {
-                "label": "10",
-                "value": null,
-                "sample_size": 0,
-                "comps": [],
-                "is_own": false
-              },
-              {
-                "label": "9.5",
-                "value": null,
-                "sample_size": 0,
-                "comps": [],
-                "is_own": false
-              }
-            ]
-          }
-        ],
-        "pooled_sales": []
-      },
-      {
-        "date": "2026-08-26",
-        "value": null,
-        "sample_size": 0,
-        "comps": [],
-        "tree": [
-          {
-            "group": "Raw",
-            "items": [
-              {
-                "label": "Raw",
-                "value": null,
-                "sample_size": 0,
-                "comps": [],
-                "is_own": false
-              }
-            ]
-          },
-          {
-            "group": "PSA",
-            "items": [
-              {
-                "label": "10",
-                "value": null,
-                "sample_size": 0,
-                "comps": [],
-                "is_own": false
-              },
-              {
-                "label": "9",
-                "value": null,
-                "sample_size": 0,
-                "comps": [],
-                "is_own": true
-              }
-            ]
-          },
-          {
-            "group": "BGS",
-            "items": [
-              {
-                "label": "10",
-                "value": null,
-                "sample_size": 0,
-                "comps": [],
-                "is_own": false
-              },
-              {
-                "label": "9.5",
-                "value": null,
-                "sample_size": 0,
-                "comps": [],
-                "is_own": false
-              }
-            ]
-          }
-        ],
-        "pooled_sales": []
-      },
-      {
-        "date": "2026-08-26",
-        "value": null,
-        "sample_size": 0,
-        "comps": [],
-        "tree": [
-          {
-            "group": "Raw",
-            "items": [
-              {
-                "label": "Raw",
-                "value": null,
-                "sample_size": 0,
-                "comps": [],
-                "is_own": false
-              }
-            ]
-          },
-          {
-            "group": "PSA",
-            "items": [
-              {
-                "label": "10",
-                "value": null,
-                "sample_size": 0,
-                "comps": [],
-                "is_own": false
-              },
-              {
-                "label": "9",
-                "value": null,
-                "sample_size": 0,
-                "comps": [],
-                "is_own": true
-              }
-            ]
-          },
-          {
-            "group": "BGS",
-            "items": [
-              {
-                "label": "10",
-                "value": null,
-                "sample_size": 0,
-                "comps": [],
-                "is_own": false
-              },
-              {
-                "label": "9.5",
-                "value": null,
-                "sample_size": 0,
-                "comps": [],
-                "is_own": false
-              }
-            ]
-          }
-        ],
-        "pooled_sales": []
-      },
-      {
-        "date": "2026-08-26",
-        "value": null,
-        "sample_size": 0,
-        "comps": [],
-        "tree": [
-          {
-            "group": "Raw",
-            "items": [
-              {
-                "label": "Raw",
-                "value": null,
-                "sample_size": 0,
-                "comps": [],
-                "is_own": false
-              }
-            ]
-          },
-          {
-            "group": "PSA",
-            "items": [
-              {
-                "label": "10",
-                "value": null,
-                "sample_size": 0,
-                "comps": [],
-                "is_own": false
-              },
-              {
-                "label": "9",
-                "value": null,
-                "sample_size": 0,
-                "comps": [],
-                "is_own": true
-              }
-            ]
-          },
-          {
-            "group": "BGS",
-            "items": [
-              {
-                "label": "10",
-                "value": null,
-                "sample_size": 0,
-                "comps": [],
-                "is_own": false
-              },
-              {
-                "label": "9.5",
-                "value": null,
-                "sample_size": 0,
-                "comps": [],
-                "is_own": false
-              }
-            ]
-          }
-        ],
-        "pooled_sales": []
-      },
-      {
-        "date": "2026-08-26",
-        "value": null,
-        "sample_size": 0,
-        "comps": [],
-        "tree": [
-          {
-            "group": "PSA",
-            "items": [
-              {
-                "label": "9",
-                "value": null,
-                "sample_size": 0,
-                "comps": [],
-                "is_own": true
-              }
-            ]
-          }
-        ],
-        "pooled_sales": []
-      },
-      {
-        "date": "2026-08-26",
-        "value": null,
-        "sample_size": 0,
-        "comps": [],
-        "tree": [
-          {
-            "group": "PSA",
-            "items": [
-              {
-                "label": "9",
-                "value": null,
-                "sample_size": 0,
-                "comps": [],
-                "is_own": true
-              }
-            ]
-          }
-        ],
-        "pooled_sales": []
-      },
-      {
-        "date": "2026-08-27",
-        "value": null,
-        "sample_size": 0,
-        "comps": [],
-        "tree": [
-          {
-            "group": "PSA",
-            "items": [
-              {
-                "label": "9",
-                "value": null,
-                "sample_size": 0,
-                "comps": [],
-                "is_own": true
-              }
-            ]
-          }
-        ],
-        "pooled_sales": []
-      },
-      {
-        "date": "2026-08-27",
-        "value": null,
-        "sample_size": 0,
-        "comps": [],
-        "tree": [
-          {
-            "group": "PSA",
-            "items": [
-              {
-                "label": "9",
-                "value": null,
-                "sample_size": 0,
-                "comps": [],
-                "is_own": true
-              }
-            ]
-          }
-        ],
-        "pooled_sales": []
-      },
-      {
-        "date": "2026-08-28",
-        "value": null,
-        "sample_size": 0,
-        "comps": [],
-        "tree": [
-          {
-            "group": "PSA",
-            "items": [
-              {
-                "label": "9",
-                "value": null,
-                "sample_size": 0,
-                "comps": [],
-                "is_own": true
-              }
-            ]
-          }
-        ],
-        "pooled_sales": []
-      },
-      {
-        "date": "2026-08-29",
-        "value": null,
-        "sample_size": 0,
-        "comps": [],
-        "tree": [
-          {
-            "group": "PSA",
-            "items": [
-              {
-                "label": "9",
-                "value": null,
-                "sample_size": 0,
-                "comps": [],
-                "is_own": true
-              }
-            ]
-          }
-        ],
-        "pooled_sales": []
-      },
-      {
-        "date": "2026-08-30",
-        "value": null,
-        "sample_size": 0,
-        "comps": [],
-        "tree": [
-          {
-            "group": "PSA",
-            "items": [
-              {
-                "label": "9",
-                "value": null,
-                "sample_size": 0,
-                "comps": [],
-                "is_own": true
-              }
-            ]
-          }
-        ],
-        "pooled_sales": []
-      },
-      {
-        "date": "2026-08-31",
-        "value": null,
-        "sample_size": 0,
-        "comps": [],
-        "tree": [
-          {
-            "group": "PSA",
-            "items": [
-              {
-                "label": "9",
-                "value": null,
-                "sample_size": 0,
-                "comps": [],
-                "is_own": true
-              }
-            ]
-          }
-        ],
-        "pooled_sales": []
-      },
-      {
-        "date": "2026-09-01",
-        "value": null,
-        "sample_size": 0,
-        "comps": [],
-        "tree": [
-          {
-            "group": "PSA",
-            "items": [
-              {
-                "label": "9",
-                "value": null,
-                "sample_size": 0,
-                "comps": [],
-                "is_own": true
-              }
-            ]
-          }
-        ],
-        "pooled_sales": []
-      },
-      {
-        "date": "2026-09-02",
-        "value": null,
-        "sample_size": 0,
-        "comps": [],
-        "tree": [
-          {
-            "group": "PSA",
-            "items": [
-              {
-                "label": "9",
-                "value": null,
-                "sample_size": 0,
-                "comps": [],
-                "is_own": true
-              }
-            ]
-          }
-        ],
-        "pooled_sales": []
-      },
-      {
-        "date": "2026-09-03",
-        "value": null,
-        "sample_size": 0,
-        "comps": [],
-        "tree": [
-          {
-            "group": "PSA",
-            "items": [
-              {
-                "label": "9",
-                "value": null,
-                "sample_size": 0,
-                "comps": [],
-                "is_own": true
-              }
-            ]
-          }
-        ],
-        "pooled_sales": []
-      },
-      {
-        "date": "2026-09-04",
-        "value": null,
-        "sample_size": 0,
-        "comps": [],
-        "tree": [
-          {
-            "group": "PSA",
-            "items": [
-              {
-                "label": "9",
-                "value": null,
-                "sample_size": 0,
-                "comps": [],
-                "is_own": true
-              }
-            ]
-          }
-        ],
-        "pooled_sales": []
-      },
-      {
-        "date": "2026-09-05",
-        "value": null,
-        "sample_size": 0,
-        "comps": [],
-        "tree": [
-          {
-            "group": "PSA",
-            "items": [
-              {
-                "label": "9",
-                "value": null,
-                "sample_size": 0,
-                "comps": [],
-                "is_own": true
-              }
-            ]
-          }
-        ],
-        "pooled_sales": []
-      },
-      {
-        "date": "2026-09-06",
-        "value": null,
-        "sample_size": 0,
-        "comps": [],
-        "tree": [
-          {
-            "group": "PSA",
-            "items": [
-              {
-                "label": "9",
-                "value": null,
-                "sample_size": 0,
-                "comps": [],
-                "is_own": true
-              }
-            ]
-          }
-        ],
-        "pooled_sales": []
-      },
-      {
-        "date": "2026-09-07",
-        "value": null,
-        "sample_size": 0,
-        "comps": [],
-        "tree": [
-          {
-            "group": "PSA",
-            "items": [
-              {
-                "label": "9",
-                "value": null,
-                "sample_size": 0,
-                "comps": [],
-                "is_own": true
-              }
-            ]
-          }
-        ],
-        "pooled_sales": []
-      },
-      {
-        "date": "2026-09-08",
-        "value": null,
-        "sample_size": 0,
-        "comps": [],
-        "tree": [
-          {
-            "group": "PSA",
-            "items": [
-              {
-                "label": "9",
-                "value": null,
-                "sample_size": 0,
-                "comps": [],
-                "is_own": true
-              }
-            ]
-          }
-        ],
-        "pooled_sales": []
-      },
-      {
-        "date": "2026-09-09",
-        "value": null,
-        "sample_size": 0,
-        "comps": [],
-        "tree": [
-          {
-            "group": "PSA",
-            "items": [
-              {
-                "label": "9",
-                "value": null,
-                "sample_size": 0,
-                "comps": [],
-                "is_own": true
-              }
-            ]
-          }
-        ],
-        "pooled_sales": []
-      },
-      {
-        "date": "2026-09-10",
-        "value": null,
-        "sample_size": 0,
-        "comps": [],
-        "tree": [
-          {
-            "group": "PSA",
-            "items": [
-              {
-                "label": "9",
-                "value": null,
-                "sample_size": 0,
-                "comps": [],
-                "is_own": true
-              }
-            ]
-          }
-        ],
-        "pooled_sales": []
-      },
-      {
-        "date": "2026-09-11",
-        "value": null,
-        "sample_size": 0,
-        "comps": [],
-        "tree": [
-          {
-            "group": "PSA",
-            "items": [
-              {
-                "label": "9",
-                "value": null,
-                "sample_size": 0,
-                "comps": [],
-                "is_own": true
-              }
-            ]
-          }
-        ],
-        "pooled_sales": []
-      },
-      {
-        "date": "2026-09-12",
-        "value": null,
-        "sample_size": 0,
-        "comps": [],
-        "tree": [
-          {
-            "group": "PSA",
-            "items": [
-              {
-                "label": "9",
-                "value": null,
-                "sample_size": 0,
-                "comps": [],
-                "is_own": true
-              }
-            ]
-          }
-        ],
-        "pooled_sales": []
-      },
-      {
-        "date": "2026-09-12",
-        "value": null,
-        "sample_size": 0,
-        "comps": [],
-        "tree": [
-          {
-            "group": "PSA",
-            "items": [
-              {
-                "label": "9",
-                "value": null,
-                "sample_size": 0,
-                "comps": [],
-                "is_own": true
-              }
-            ]
-          }
-        ],
-        "pooled_sales": []
-      }
-    ]
-  },
   "Vince Carter | 1998-99 | SPX Finite | 215 |  | BGS 8.5": {
     "meta": {
       "player": "Vince Carter",
@@ -51129,6 +50024,1111 @@
         "tree": [
           {
             "group": "BGS",
+            "items": [
+              {
+                "label": "9",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": true
+              }
+            ]
+          }
+        ],
+        "pooled_sales": []
+      }
+    ]
+  },
+  "Michael Jordan | 2013-14 | Upper Deck SP | BL-MJ | By The Letter | PSA 9": {
+    "meta": {
+      "player": "Michael Jordan",
+      "year": "2013-14",
+      "set": "Upper Deck SP",
+      "card_number": "BL-MJ",
+      "variant": "By The Letter",
+      "grade": "PSA 9",
+      "photo_filename": "PXL_20260826_041749906.jpg",
+      "back_photo_filename": "",
+      "added_at": ""
+    },
+    "snapshots": [
+      {
+        "date": "2026-08-26",
+        "value": null,
+        "sample_size": 0,
+        "comps": [],
+        "tree": [
+          {
+            "group": "Raw",
+            "items": [
+              {
+                "label": "Raw",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": false
+              }
+            ]
+          },
+          {
+            "group": "PSA",
+            "items": [
+              {
+                "label": "10",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": false
+              },
+              {
+                "label": "9",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": true
+              }
+            ]
+          },
+          {
+            "group": "BGS",
+            "items": [
+              {
+                "label": "10",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": false
+              },
+              {
+                "label": "9.5",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": false
+              }
+            ]
+          }
+        ],
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-08-26",
+        "value": null,
+        "sample_size": 0,
+        "comps": [],
+        "tree": [
+          {
+            "group": "Raw",
+            "items": [
+              {
+                "label": "Raw",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": false
+              }
+            ]
+          },
+          {
+            "group": "PSA",
+            "items": [
+              {
+                "label": "10",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": false
+              },
+              {
+                "label": "9",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": true
+              }
+            ]
+          },
+          {
+            "group": "BGS",
+            "items": [
+              {
+                "label": "10",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": false
+              },
+              {
+                "label": "9.5",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": false
+              }
+            ]
+          }
+        ],
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-08-26",
+        "value": null,
+        "sample_size": 0,
+        "comps": [],
+        "tree": [
+          {
+            "group": "Raw",
+            "items": [
+              {
+                "label": "Raw",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": false
+              }
+            ]
+          },
+          {
+            "group": "PSA",
+            "items": [
+              {
+                "label": "10",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": false
+              },
+              {
+                "label": "9",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": true
+              }
+            ]
+          },
+          {
+            "group": "BGS",
+            "items": [
+              {
+                "label": "10",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": false
+              },
+              {
+                "label": "9.5",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": false
+              }
+            ]
+          }
+        ],
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-08-26",
+        "value": null,
+        "sample_size": 0,
+        "comps": [],
+        "tree": [
+          {
+            "group": "Raw",
+            "items": [
+              {
+                "label": "Raw",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": false
+              }
+            ]
+          },
+          {
+            "group": "PSA",
+            "items": [
+              {
+                "label": "10",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": false
+              },
+              {
+                "label": "9",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": true
+              }
+            ]
+          },
+          {
+            "group": "BGS",
+            "items": [
+              {
+                "label": "10",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": false
+              },
+              {
+                "label": "9.5",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": false
+              }
+            ]
+          }
+        ],
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-08-26",
+        "value": null,
+        "sample_size": 0,
+        "comps": [],
+        "tree": [
+          {
+            "group": "Raw",
+            "items": [
+              {
+                "label": "Raw",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": false
+              }
+            ]
+          },
+          {
+            "group": "PSA",
+            "items": [
+              {
+                "label": "10",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": false
+              },
+              {
+                "label": "9",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": true
+              }
+            ]
+          },
+          {
+            "group": "BGS",
+            "items": [
+              {
+                "label": "10",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": false
+              },
+              {
+                "label": "9.5",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": false
+              }
+            ]
+          }
+        ],
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-08-26",
+        "value": null,
+        "sample_size": 0,
+        "comps": [],
+        "tree": [
+          {
+            "group": "Raw",
+            "items": [
+              {
+                "label": "Raw",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": false
+              }
+            ]
+          },
+          {
+            "group": "PSA",
+            "items": [
+              {
+                "label": "10",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": false
+              },
+              {
+                "label": "9",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": true
+              }
+            ]
+          },
+          {
+            "group": "BGS",
+            "items": [
+              {
+                "label": "10",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": false
+              },
+              {
+                "label": "9.5",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": false
+              }
+            ]
+          }
+        ],
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-08-26",
+        "value": null,
+        "sample_size": 0,
+        "comps": [],
+        "tree": [
+          {
+            "group": "Raw",
+            "items": [
+              {
+                "label": "Raw",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": false
+              }
+            ]
+          },
+          {
+            "group": "PSA",
+            "items": [
+              {
+                "label": "10",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": false
+              },
+              {
+                "label": "9",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": true
+              }
+            ]
+          },
+          {
+            "group": "BGS",
+            "items": [
+              {
+                "label": "10",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": false
+              },
+              {
+                "label": "9.5",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": false
+              }
+            ]
+          }
+        ],
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-08-26",
+        "value": null,
+        "sample_size": 0,
+        "comps": [],
+        "tree": [
+          {
+            "group": "Raw",
+            "items": [
+              {
+                "label": "Raw",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": false
+              }
+            ]
+          },
+          {
+            "group": "PSA",
+            "items": [
+              {
+                "label": "10",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": false
+              },
+              {
+                "label": "9",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": true
+              }
+            ]
+          },
+          {
+            "group": "BGS",
+            "items": [
+              {
+                "label": "10",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": false
+              },
+              {
+                "label": "9.5",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": false
+              }
+            ]
+          }
+        ],
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-08-26",
+        "value": null,
+        "sample_size": 0,
+        "comps": [],
+        "tree": [
+          {
+            "group": "Raw",
+            "items": [
+              {
+                "label": "Raw",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": false
+              }
+            ]
+          },
+          {
+            "group": "PSA",
+            "items": [
+              {
+                "label": "10",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": false
+              },
+              {
+                "label": "9",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": true
+              }
+            ]
+          },
+          {
+            "group": "BGS",
+            "items": [
+              {
+                "label": "10",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": false
+              },
+              {
+                "label": "9.5",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": false
+              }
+            ]
+          }
+        ],
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-08-26",
+        "value": null,
+        "sample_size": 0,
+        "comps": [],
+        "tree": [
+          {
+            "group": "Raw",
+            "items": [
+              {
+                "label": "Raw",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": false
+              }
+            ]
+          },
+          {
+            "group": "PSA",
+            "items": [
+              {
+                "label": "10",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": false
+              },
+              {
+                "label": "9",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": true
+              }
+            ]
+          },
+          {
+            "group": "BGS",
+            "items": [
+              {
+                "label": "10",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": false
+              },
+              {
+                "label": "9.5",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": false
+              }
+            ]
+          }
+        ],
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-08-26",
+        "value": null,
+        "sample_size": 0,
+        "comps": [],
+        "tree": [
+          {
+            "group": "Raw",
+            "items": [
+              {
+                "label": "Raw",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": false
+              }
+            ]
+          },
+          {
+            "group": "PSA",
+            "items": [
+              {
+                "label": "10",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": false
+              },
+              {
+                "label": "9",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": true
+              }
+            ]
+          },
+          {
+            "group": "BGS",
+            "items": [
+              {
+                "label": "10",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": false
+              },
+              {
+                "label": "9.5",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": false
+              }
+            ]
+          }
+        ],
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-08-26",
+        "value": null,
+        "sample_size": 0,
+        "comps": [],
+        "tree": [
+          {
+            "group": "PSA",
+            "items": [
+              {
+                "label": "9",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": true
+              }
+            ]
+          }
+        ],
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-08-26",
+        "value": null,
+        "sample_size": 0,
+        "comps": [],
+        "tree": [
+          {
+            "group": "PSA",
+            "items": [
+              {
+                "label": "9",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": true
+              }
+            ]
+          }
+        ],
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-08-27",
+        "value": null,
+        "sample_size": 0,
+        "comps": [],
+        "tree": [
+          {
+            "group": "PSA",
+            "items": [
+              {
+                "label": "9",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": true
+              }
+            ]
+          }
+        ],
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-08-27",
+        "value": null,
+        "sample_size": 0,
+        "comps": [],
+        "tree": [
+          {
+            "group": "PSA",
+            "items": [
+              {
+                "label": "9",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": true
+              }
+            ]
+          }
+        ],
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-08-28",
+        "value": null,
+        "sample_size": 0,
+        "comps": [],
+        "tree": [
+          {
+            "group": "PSA",
+            "items": [
+              {
+                "label": "9",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": true
+              }
+            ]
+          }
+        ],
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-08-29",
+        "value": null,
+        "sample_size": 0,
+        "comps": [],
+        "tree": [
+          {
+            "group": "PSA",
+            "items": [
+              {
+                "label": "9",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": true
+              }
+            ]
+          }
+        ],
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-08-30",
+        "value": null,
+        "sample_size": 0,
+        "comps": [],
+        "tree": [
+          {
+            "group": "PSA",
+            "items": [
+              {
+                "label": "9",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": true
+              }
+            ]
+          }
+        ],
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-08-31",
+        "value": null,
+        "sample_size": 0,
+        "comps": [],
+        "tree": [
+          {
+            "group": "PSA",
+            "items": [
+              {
+                "label": "9",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": true
+              }
+            ]
+          }
+        ],
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-09-01",
+        "value": null,
+        "sample_size": 0,
+        "comps": [],
+        "tree": [
+          {
+            "group": "PSA",
+            "items": [
+              {
+                "label": "9",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": true
+              }
+            ]
+          }
+        ],
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-09-02",
+        "value": null,
+        "sample_size": 0,
+        "comps": [],
+        "tree": [
+          {
+            "group": "PSA",
+            "items": [
+              {
+                "label": "9",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": true
+              }
+            ]
+          }
+        ],
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-09-03",
+        "value": null,
+        "sample_size": 0,
+        "comps": [],
+        "tree": [
+          {
+            "group": "PSA",
+            "items": [
+              {
+                "label": "9",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": true
+              }
+            ]
+          }
+        ],
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-09-04",
+        "value": null,
+        "sample_size": 0,
+        "comps": [],
+        "tree": [
+          {
+            "group": "PSA",
+            "items": [
+              {
+                "label": "9",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": true
+              }
+            ]
+          }
+        ],
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-09-05",
+        "value": null,
+        "sample_size": 0,
+        "comps": [],
+        "tree": [
+          {
+            "group": "PSA",
+            "items": [
+              {
+                "label": "9",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": true
+              }
+            ]
+          }
+        ],
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-09-06",
+        "value": null,
+        "sample_size": 0,
+        "comps": [],
+        "tree": [
+          {
+            "group": "PSA",
+            "items": [
+              {
+                "label": "9",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": true
+              }
+            ]
+          }
+        ],
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-09-07",
+        "value": null,
+        "sample_size": 0,
+        "comps": [],
+        "tree": [
+          {
+            "group": "PSA",
+            "items": [
+              {
+                "label": "9",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": true
+              }
+            ]
+          }
+        ],
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-09-08",
+        "value": null,
+        "sample_size": 0,
+        "comps": [],
+        "tree": [
+          {
+            "group": "PSA",
+            "items": [
+              {
+                "label": "9",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": true
+              }
+            ]
+          }
+        ],
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-09-09",
+        "value": null,
+        "sample_size": 0,
+        "comps": [],
+        "tree": [
+          {
+            "group": "PSA",
+            "items": [
+              {
+                "label": "9",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": true
+              }
+            ]
+          }
+        ],
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-09-10",
+        "value": null,
+        "sample_size": 0,
+        "comps": [],
+        "tree": [
+          {
+            "group": "PSA",
+            "items": [
+              {
+                "label": "9",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": true
+              }
+            ]
+          }
+        ],
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-09-11",
+        "value": null,
+        "sample_size": 0,
+        "comps": [],
+        "tree": [
+          {
+            "group": "PSA",
+            "items": [
+              {
+                "label": "9",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": true
+              }
+            ]
+          }
+        ],
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-09-12",
+        "value": null,
+        "sample_size": 0,
+        "comps": [],
+        "tree": [
+          {
+            "group": "PSA",
+            "items": [
+              {
+                "label": "9",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": true
+              }
+            ]
+          }
+        ],
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-09-12",
+        "value": null,
+        "sample_size": 0,
+        "comps": [],
+        "tree": [
+          {
+            "group": "PSA",
             "items": [
               {
                 "label": "9",
