@@ -48243,105 +48243,6 @@
       }
     ]
   },
-  "Michael Jordan / LeBron James | 2009-10 | Upper Deck | DG-ML | Dual Game Materials | ": {
-    "meta": {
-      "player": "Michael Jordan / LeBron James",
-      "year": "2009-10",
-      "set": "Upper Deck",
-      "card_number": "DG-ML",
-      "variant": "Dual Game Materials",
-      "grade": "",
-      "photo_filename": "PXL_20260912_124854043.jpg",
-      "back_photo_filename": "",
-      "added_at": ""
-    },
-    "snapshots": [
-      {
-        "date": "2026-09-12",
-        "value": null,
-        "sample_size": 0,
-        "comps": [],
-        "tree": [
-          {
-            "group": "Raw",
-            "items": [
-              {
-                "label": "Raw",
-                "value": null,
-                "sample_size": 0,
-                "comps": [],
-                "is_own": true
-              }
-            ]
-          }
-        ],
-        "pooled_sales": []
-      },
-      {
-        "date": "2026-09-12",
-        "value": null,
-        "sample_size": 0,
-        "comps": [],
-        "tree": [
-          {
-            "group": "Raw",
-            "items": [
-              {
-                "label": "Raw",
-                "value": null,
-                "sample_size": 0,
-                "comps": [],
-                "is_own": true
-              }
-            ]
-          }
-        ],
-        "pooled_sales": []
-      },
-      {
-        "date": "2026-09-12",
-        "value": null,
-        "sample_size": 0,
-        "comps": [],
-        "tree": [
-          {
-            "group": "Raw",
-            "items": [
-              {
-                "label": "Raw",
-                "value": null,
-                "sample_size": 0,
-                "comps": [],
-                "is_own": true
-              }
-            ]
-          }
-        ],
-        "pooled_sales": []
-      },
-      {
-        "date": "2026-09-12",
-        "value": null,
-        "sample_size": 0,
-        "comps": [],
-        "tree": [
-          {
-            "group": "Raw",
-            "items": [
-              {
-                "label": "Raw",
-                "value": null,
-                "sample_size": 0,
-                "comps": [],
-                "is_own": true
-              }
-            ]
-          }
-        ],
-        "pooled_sales": []
-      }
-    ]
-  },
   "Vince Carter | 2012-13 | Panini National Treasures | 25 | Springfield Bound Autographs | ": {
     "meta": {
       "player": "Vince Carter",
@@ -55667,6 +55568,105 @@
       "variant": "",
       "grade": "",
       "photo_filename": "PXL_20260912_124932046.jpg",
+      "back_photo_filename": "",
+      "added_at": ""
+    },
+    "snapshots": [
+      {
+        "date": "2026-09-12",
+        "value": null,
+        "sample_size": 0,
+        "comps": [],
+        "tree": [
+          {
+            "group": "Raw",
+            "items": [
+              {
+                "label": "Raw",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": true
+              }
+            ]
+          }
+        ],
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-09-12",
+        "value": null,
+        "sample_size": 0,
+        "comps": [],
+        "tree": [
+          {
+            "group": "Raw",
+            "items": [
+              {
+                "label": "Raw",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": true
+              }
+            ]
+          }
+        ],
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-09-12",
+        "value": null,
+        "sample_size": 0,
+        "comps": [],
+        "tree": [
+          {
+            "group": "Raw",
+            "items": [
+              {
+                "label": "Raw",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": true
+              }
+            ]
+          }
+        ],
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-09-12",
+        "value": null,
+        "sample_size": 0,
+        "comps": [],
+        "tree": [
+          {
+            "group": "Raw",
+            "items": [
+              {
+                "label": "Raw",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": true
+              }
+            ]
+          }
+        ],
+        "pooled_sales": []
+      }
+    ]
+  },
+  "Michael Jordan LeBron James | 2009-10 | Upper Deck | DG-ML | Dual Game Materials | ": {
+    "meta": {
+      "player": "Michael Jordan LeBron James",
+      "year": "2009-10",
+      "set": "Upper Deck",
+      "card_number": "DG-ML",
+      "variant": "Dual Game Materials",
+      "grade": "",
+      "photo_filename": "PXL_20260912_124854043.jpg",
       "back_photo_filename": "",
       "added_at": ""
     },
