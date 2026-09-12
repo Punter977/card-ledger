@@ -651,11 +651,28 @@ async function ghFetch(path, options = {}) {
     },
   });
 }
+async function ghApiFetch(apiPath) {
+  const s = getSettings();
+  const url = `https://api.github.com/repos/${s.owner}/${s.repo}/${apiPath}`;
+  return fetch(url, {
+    headers: { 'Authorization': `Bearer ${s.token}`, 'Accept': 'application/vnd.github+json' },
+  });
+}
 async function getExistingFile(path) {
   const res = await ghFetch(path);
   if (res.status === 404) return null;
   if (!res.ok) throw new Error(`Couldn't read ${path} (${res.status}). Check your token's permissions.`);
-  return res.json();
+  const data = await res.json();
+  if (data.content) return data; // small file - Contents API included it inline
+
+  // GitHub's Contents API omits `content` for files over 1MB. As
+  // price_history.json accumulates daily snapshots across many cards, it
+  // can grow past that threshold - fall back to the Git Blobs API, which
+  // handles files up to 100MB, using the sha we already have.
+  const blobRes = await ghApiFetch(`git/blobs/${data.sha}`);
+  if (!blobRes.ok) throw new Error(`Couldn't read ${path} via the blobs API (${blobRes.status}) - it may have grown too large.`);
+  const blob = await blobRes.json();
+  return { ...data, content: blob.content };
 }
 async function putFile(path, base64Content, message, sha) {
   const s = getSettings();
