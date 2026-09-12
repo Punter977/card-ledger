@@ -47333,84 +47333,6 @@
       }
     ]
   },
-  "Kobe Bryant | 2000-01 | Bowman's Best | 74 |  | ": {
-    "meta": {
-      "player": "Kobe Bryant",
-      "year": "2000-01",
-      "set": "Bowman's Best",
-      "card_number": "74",
-      "variant": "",
-      "grade": "",
-      "photo_filename": "PXL_20260912_124932046.jpg",
-      "back_photo_filename": "",
-      "added_at": ""
-    },
-    "snapshots": [
-      {
-        "date": "2026-09-12",
-        "value": null,
-        "sample_size": 0,
-        "comps": [],
-        "tree": [
-          {
-            "group": "Raw",
-            "items": [
-              {
-                "label": "Raw",
-                "value": null,
-                "sample_size": 0,
-                "comps": [],
-                "is_own": true
-              }
-            ]
-          }
-        ],
-        "pooled_sales": []
-      },
-      {
-        "date": "2026-09-12",
-        "value": null,
-        "sample_size": 0,
-        "comps": [],
-        "tree": [
-          {
-            "group": "Raw",
-            "items": [
-              {
-                "label": "Raw",
-                "value": null,
-                "sample_size": 0,
-                "comps": [],
-                "is_own": true
-              }
-            ]
-          }
-        ],
-        "pooled_sales": []
-      },
-      {
-        "date": "2026-09-12",
-        "value": null,
-        "sample_size": 0,
-        "comps": [],
-        "tree": [
-          {
-            "group": "Raw",
-            "items": [
-              {
-                "label": "Raw",
-                "value": null,
-                "sample_size": 0,
-                "comps": [],
-                "is_own": true
-              }
-            ]
-          }
-        ],
-        "pooled_sales": []
-      }
-    ]
-  },
   "Kobe Bryant | 2008-09 | Fleer Hot Prospects |  | NBA Game Issue | ": {
     "meta": {
       "player": "Kobe Bryant",
@@ -53957,6 +53879,84 @@
             "items": [
               {
                 "label": "12/25",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": true
+              }
+            ]
+          }
+        ],
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-09-12",
+        "value": null,
+        "sample_size": 0,
+        "comps": [],
+        "tree": [
+          {
+            "group": "Raw",
+            "items": [
+              {
+                "label": "Raw",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": true
+              }
+            ]
+          }
+        ],
+        "pooled_sales": []
+      }
+    ]
+  },
+  "Kobe Bryant | 2000-01 | Bowmans Best | 74 |  | ": {
+    "meta": {
+      "player": "Kobe Bryant",
+      "year": "2000-01",
+      "set": "Bowmans Best",
+      "card_number": "74",
+      "variant": "",
+      "grade": "",
+      "photo_filename": "PXL_20260912_124932046.jpg",
+      "back_photo_filename": "",
+      "added_at": ""
+    },
+    "snapshots": [
+      {
+        "date": "2026-09-12",
+        "value": null,
+        "sample_size": 0,
+        "comps": [],
+        "tree": [
+          {
+            "group": "Raw",
+            "items": [
+              {
+                "label": "Raw",
+                "value": null,
+                "sample_size": 0,
+                "comps": [],
+                "is_own": true
+              }
+            ]
+          }
+        ],
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-09-12",
+        "value": null,
+        "sample_size": 0,
+        "comps": [],
+        "tree": [
+          {
+            "group": "Raw",
+            "items": [
+              {
+                "label": "Raw",
                 "value": null,
                 "sample_size": 0,
                 "comps": [],
