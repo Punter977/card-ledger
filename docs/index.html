@@ -463,9 +463,8 @@
   }
   .comp-title {
     color: var(--text-muted);
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+    overflow-wrap: break-word;
+    white-space: normal;
   }
   .comp-date {
     font-family: 'JetBrains Mono', monospace;
@@ -570,6 +569,38 @@
     border-radius: 3px;
     text-transform: uppercase;
   }
+  .tree-item.clickable { cursor: pointer; }
+  .tree-item.clickable:hover { color: var(--accent); }
+  .tree-item.active-filter {
+    background: rgba(167, 139, 250, 0.1);
+    border-radius: 4px;
+    color: var(--accent);
+  }
+  .tree-item.active-filter .tree-price { color: var(--accent); }
+
+  .comps-filter-bar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11.5px;
+    color: var(--text-muted);
+    background: var(--surface-raised);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 6px 10px;
+    margin: 8px 0;
+  }
+  .comps-filter-bar strong { color: var(--accent); }
+  .clear-filter-btn {
+    margin-left: auto;
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    cursor: pointer;
+  }
+  .clear-filter-btn:hover { color: var(--down); }
 </style>
 </head>
 <body>
@@ -919,7 +950,8 @@ function buildLiveTree(allSales, grader, grade) {
       const label = gk === '__raw__' ? 'Raw' : gk;
       const isOwn = (company === ownCompany && gk === ownGradeKey);
       const comps = sales.slice(-2).reverse().map(s => ({ price: s.price, date: s.date, title: s.title, url: s.url }));
-      items.push({ label, value, sample_size: sales.length, comps, is_own: isOwn });
+      const fullSales = sales.slice().reverse().map(s => ({ price: s.price, date: s.date, title: s.title, url: s.url, source: s.source }));
+      items.push({ label, value, sample_size: sales.length, comps, allSales: fullSales, is_own: isOwn });
       if (isOwn) { ownValue = value; ownSampleSize = sales.length; }
     }
     tree.push({ group: company, items });
@@ -1027,6 +1059,7 @@ function renderList(cards) {
 
 // ---------- detail modal ----------
 function modalContent(card) {
+  modalTreeSalesIndex = {}; // rebuilt fresh on every render (tree-item clicks reference this by key)
   const m = card.meta;
   const title = m.player || 'Unknown Player';
   const metaLine = [m.year, m.set, m.variant].filter(Boolean).join(' · ') +
@@ -1044,29 +1077,24 @@ function modalContent(card) {
     ? `<a href="${PHOTOS_PATH}${m.photo_filename}" target="_blank" rel="noopener">${photoInner}</a>`
     : photoInner;
 
-  const compsHtml = card.comps.length
-    ? card.comps.map(c => `
-        <div class="comp-row">
-          <div class="comp-main">
-            <span class="comp-title" title="${c.title || ''}">${c.url ? `<a href="${c.url}" target="_blank" rel="noopener">${c.title || 'Sale'}</a>` : (c.title || 'Sale')}${c.source === 'manual' ? '<span class="manual-tag">manual</span>' : ''}</span>
-            <span class="comp-date">${c.date ? fmtDateDMY(c.date) : ''}</span>
-          </div>
-          <span class="comp-price">${fmtMoney(c.price)}</span>
-        </div>`).join('')
-    : `<div class="comp-row"><span class="comp-title">No recent comps</span></div>`;
+  const compsHtml = renderCompRows(card.comps);
 
   const treeHtml = card.tree.length
-    ? `<div class="tree">${card.tree.map(group => `
+    ? `<div class="tree">${card.tree.map((group, gi) => `
         <div class="tree-group">
           <div class="tree-group-label">${group.group}</div>
-          ${group.items.map(item => `
-            <div class="tree-item ${item.value !== null ? 'has-sale' : ''} ${item.is_own ? 'is-own' : ''}"
-                 title="${item.is_own ? 'This is your card' : ''}${item.value !== null ? '' : ': no sale recorded'}">
+          ${group.items.map((item, ii) => {
+            const clickable = item.value !== null && item.allSales && item.allSales.length > 0;
+            if (clickable) modalTreeSalesIndex[`${gi}-${ii}`] = { label: `${group.group} ${item.label}`.replace('Raw Raw', 'Raw'), sales: item.allSales };
+            return `
+            <div class="tree-item ${item.value !== null ? 'has-sale' : ''} ${item.is_own ? 'is-own' : ''} ${clickable ? 'clickable' : ''}"
+                 ${clickable ? `data-action="filter-comps" data-tree-key="${gi}-${ii}"` : ''}
+                 title="${item.is_own ? 'This is your card' : ''}${item.value !== null ? (clickable ? ' — tap to filter comps below' : '') : ': no sale recorded'}">
               <span class="tree-label">${item.label}</span>
               ${item.is_own ? '<span class="tree-own-tag">yours</span>' : ''}
               <span class="tree-price">${item.value !== null ? fmtMoney(item.value) : 'no sale'}</span>
             </div>
-          `).join('')}
+          `; }).join('')}
         </div>
       `).join('')}</div>`
     : '';
@@ -1112,7 +1140,8 @@ function modalContent(card) {
     </div>
     <details class="comps" open>
       <summary>Recent comps</summary>
-      ${compsHtml}
+      <div id="modal-comps-filter"></div>
+      <div id="modal-comps-list">${compsHtml}</div>
       <div class="add-comp-row">
         <button class="secondary small" data-action="search-130point" data-query="${searchQuery.replace(/"/g, '&quot;')}">Search 130point ↗</button>
         <button class="secondary small" data-action="show-add-comp">+ Add comp</button>
@@ -1178,6 +1207,19 @@ function drawModalChart(card) {
 }
 
 let openCardId = null;
+let modalTreeSalesIndex = {}; // reset each time the modal opens - tree-item key -> {label, sales}
+
+function renderCompRows(sales) {
+  if (!sales || !sales.length) return `<div class="comp-row"><span class="comp-title">No recent comps</span></div>`;
+  return sales.map(c => `
+    <div class="comp-row">
+      <div class="comp-main">
+        <span class="comp-title" title="${c.title || ''}">${c.url ? `<a href="${c.url}" target="_blank" rel="noopener">${c.title || 'Sale'}</a>` : (c.title || 'Sale')}${c.source === 'manual' ? '<span class="manual-tag">manual</span>' : ''}</span>
+        <span class="comp-date">${c.date ? fmtDateDMY(c.date) : ''}</span>
+      </div>
+      <span class="comp-price">${fmtMoney(c.price)}</span>
+    </div>`).join('');
+}
 
 function openModal(cardId) {
   const card = cardsData.find(c => c.id === cardId);
@@ -1269,6 +1311,10 @@ document.getElementById('modal-panel').addEventListener('click', async (e) => {
     closeModal();
   } else if (action === 'search-130point') {
     await handleSearch130point(btn);
+  } else if (action === 'filter-comps') {
+    handleFilterComps(btn);
+  } else if (action === 'clear-comps-filter') {
+    handleClearCompsFilter();
   } else if (action === 'show-add-comp') {
     document.querySelector('#modal-panel .add-comp-form').classList.add('visible');
     btn.style.display = 'none';
@@ -1281,6 +1327,34 @@ document.getElementById('modal-panel').addEventListener('click', async (e) => {
     await handleDeleteCard(btn, btn.dataset.cardId);
   }
 });
+
+// Tapping a tree item (e.g. "PSA 9") filters the comps list below to only
+// that grade's sales, reusing the exact same grouped sales the tree cell
+// itself was computed from - so what you see filtered always matches
+// what the tree displayed for that cell.
+function handleFilterComps(btn) {
+  const key = btn.dataset.treeKey;
+  const entry = modalTreeSalesIndex[key];
+  if (!entry) return;
+
+  document.querySelectorAll('#modal-panel .tree-item.active-filter').forEach(el => el.classList.remove('active-filter'));
+  btn.classList.add('active-filter');
+
+  document.getElementById('modal-comps-list').innerHTML = renderCompRows(entry.sales);
+  document.getElementById('modal-comps-filter').innerHTML = `
+    <div class="comps-filter-bar">
+      Showing <strong>${entry.label}</strong> (${entry.sales.length})
+      <button class="clear-filter-btn" data-action="clear-comps-filter">× clear</button>
+    </div>`;
+}
+
+function handleClearCompsFilter() {
+  const card = cardsData.find(c => c.id === openCardId);
+  if (!card) return;
+  document.querySelectorAll('#modal-panel .tree-item.active-filter').forEach(el => el.classList.remove('active-filter'));
+  document.getElementById('modal-comps-list').innerHTML = renderCompRows(card.comps);
+  document.getElementById('modal-comps-filter').innerHTML = '';
+}
 
 // 130point's search box is entirely JavaScript-driven with no shareable
 // URL, so there's no query parameter to pre-fill via a link. The next
