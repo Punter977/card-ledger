@@ -3666,6 +3666,10 @@
       {
         "date": "2026-09-14",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-09-14",
+        "pooled_sales": []
       }
     ],
     "manual_comps": [
@@ -8964,6 +8968,10 @@
       {
         "date": "2026-09-14",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-09-14",
+        "pooled_sales": []
       }
     ],
     "manual_comps": [
@@ -11082,6 +11090,10 @@
             ]
           }
         ],
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-09-14",
         "pooled_sales": []
       },
       {
@@ -20539,6 +20551,10 @@
       {
         "date": "2026-09-14",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-09-14",
+        "pooled_sales": []
       }
     ]
   },
@@ -27507,6 +27523,10 @@
       {
         "date": "2026-09-14",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-09-14",
+        "pooled_sales": []
       }
     ]
   },
@@ -29855,6 +29875,10 @@
             "label": "Raw"
           }
         ]
+      },
+      {
+        "date": "2026-09-14",
+        "pooled_sales": []
       },
       {
         "date": "2026-09-14",
@@ -32749,6 +32773,10 @@
       {
         "date": "2026-09-14",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-09-14",
+        "pooled_sales": []
       }
     ]
   },
@@ -34566,6 +34594,10 @@
             ]
           }
         ],
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-09-14",
         "pooled_sales": []
       },
       {
@@ -37881,6 +37913,10 @@
             "label": "Raw"
           }
         ]
+      },
+      {
+        "date": "2026-09-14",
+        "pooled_sales": []
       },
       {
         "date": "2026-09-14",
@@ -42899,6 +42935,10 @@
       {
         "date": "2026-09-14",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-09-14",
+        "pooled_sales": []
       }
     ]
   },
@@ -46156,6 +46196,10 @@
       {
         "date": "2026-09-14",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-09-14",
+        "pooled_sales": []
       }
     ]
   },
@@ -47672,6 +47716,10 @@
       {
         "date": "2026-09-14",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-09-14",
+        "pooled_sales": []
       }
     ]
   },
@@ -49175,6 +49223,10 @@
             ]
           }
         ],
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-09-14",
         "pooled_sales": []
       },
       {
@@ -53669,6 +53721,10 @@
       {
         "date": "2026-09-14",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-09-14",
+        "pooled_sales": []
       }
     ]
   },
@@ -56344,6 +56400,10 @@
       {
         "date": "2026-09-14",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-09-14",
+        "pooled_sales": []
       }
     ]
   },
@@ -57976,6 +58036,10 @@
       {
         "date": "2026-09-14",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-09-14",
+        "pooled_sales": []
       }
     ]
   },
@@ -58947,6 +59011,10 @@
       {
         "date": "2026-09-14",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-09-14",
+        "pooled_sales": []
       }
     ]
   },
@@ -59381,6 +59449,10 @@
             ]
           }
         ],
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-09-14",
         "pooled_sales": []
       },
       {
@@ -59852,6 +59924,10 @@
       {
         "date": "2026-09-14",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-09-14",
+        "pooled_sales": []
       }
     ]
   },
@@ -60286,6 +60362,10 @@
             ]
           }
         ],
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-09-14",
         "pooled_sales": []
       },
       {
@@ -60746,6 +60826,10 @@
       {
         "date": "2026-09-14",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-09-14",
+        "pooled_sales": []
       }
     ]
   },
@@ -61180,6 +61264,10 @@
             ]
           }
         ],
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-09-14",
         "pooled_sales": []
       },
       {
@@ -61640,6 +61728,10 @@
       {
         "date": "2026-09-14",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-09-14",
+        "pooled_sales": []
       }
     ]
   },
@@ -62074,6 +62166,10 @@
             ]
           }
         ],
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-09-14",
         "pooled_sales": []
       },
       {
@@ -62534,6 +62630,18 @@
       {
         "date": "2026-09-14",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-09-14",
+        "pooled_sales": [
+          {
+            "price": 110.0,
+            "date": "2026-09-14",
+            "url": "https://www.ebay.com/itm/336781999863?hash=item4e69c57ef7%3Ag%3AGpUAAeSwGflqnbde&mkevt=1&mkcid=1&mkrid=711-53200-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true",
+            "title": "2014-15 Panini Prizm - Blue Mojo Prizm Jerseys Joel Embiid #68 (MEM, RC) PSA 10",
+            "label": "PSA 10"
+          }
+        ]
       }
     ]
   },
@@ -63161,6 +63269,10 @@
       {
         "date": "2026-09-14",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-09-14",
+        "pooled_sales": []
       }
     ]
   },
@@ -63608,6 +63720,10 @@
       {
         "date": "2026-09-14",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-09-14",
+        "pooled_sales": []
       }
     ]
   },
@@ -64042,6 +64158,10 @@
             ]
           }
         ],
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-09-14",
         "pooled_sales": []
       },
       {
@@ -67774,6 +67894,10 @@
       {
         "date": "2026-09-14",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-09-14",
+        "pooled_sales": []
       }
     ]
   },
@@ -68208,6 +68332,10 @@
             ]
           }
         ],
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-09-14",
         "pooled_sales": []
       },
       {
@@ -68944,6 +69072,10 @@
             "label": "Raw"
           }
         ]
+      },
+      {
+        "date": "2026-09-14",
+        "pooled_sales": []
       },
       {
         "date": "2026-09-14",
@@ -70508,6 +70640,39 @@
       {
         "date": "2026-09-14",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-09-14",
+        "pooled_sales": [
+          {
+            "price": 2475.0,
+            "date": "2026-09-14",
+            "url": "https://www.ebay.com/itm/287062417590?hash=item42d640e0b6%3Ag%3AvtoAAeSwOYdpYJrS&mkevt=1&mkcid=1&mkrid=711-53200-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true",
+            "title": "2007-08 Topps Chrome - LeBron James #23 Refractor /999 PSA 8 \ud83d\udcc8 ",
+            "label": "PSA 8"
+          },
+          {
+            "price": 41.0,
+            "date": "2026-09-14",
+            "url": "https://www.ebay.com/itm/128069343118?hash=item1dd187178e%3Ag%3AfP0AAeSw5fpqoHgz&mkevt=1&mkcid=1&mkrid=711-53200-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true",
+            "title": "2007-08 Topps Chrome LeBron James 1957 58 Variations #23 Cavaliers",
+            "label": "Raw"
+          },
+          {
+            "price": 52.0,
+            "date": "2026-09-12",
+            "url": "https://www.ebay.com/itm/147567450022?hash=item225bb497a6%3Ag%3A-wYAAeSwkUhqpBjg&mkevt=1&mkcid=1&mkrid=711-53200-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true",
+            "title": "2007-08 Topps Chrome - LeBron James #23",
+            "label": "Raw"
+          },
+          {
+            "price": 95.0,
+            "date": "2026-09-11",
+            "url": "https://www.ebay.com/itm/257719158035?hash=item3c01424513%3Ag%3ABuEAAeSwZuRqmIo%7E&mkevt=1&mkcid=1&mkrid=711-53200-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true",
+            "title": "2007-08 Topps Chrome - LeBron James #23",
+            "label": "Raw"
+          }
+        ]
       }
     ]
   },
@@ -70955,6 +71120,10 @@
       {
         "date": "2026-09-14",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-09-14",
+        "pooled_sales": []
       }
     ]
   },
@@ -71389,6 +71558,10 @@
             ]
           }
         ],
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-09-14",
         "pooled_sales": []
       },
       {
@@ -76716,6 +76889,18 @@
       {
         "date": "2026-09-14",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-09-14",
+        "pooled_sales": [
+          {
+            "price": 5.99,
+            "date": "2026-09-14",
+            "url": "https://www.ebay.com/itm/327279475667?hash=item4c33607bd3%3Ag%3AuD8AAeSwD-BqZfEn&mkevt=1&mkcid=1&mkrid=711-53200-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true",
+            "title": "Topps 1992-93 Shaquille O'Neal #362 Orlando Magic Base Set Card",
+            "label": "Raw"
+          }
+        ]
       }
     ]
   },
@@ -77163,6 +77348,10 @@
       {
         "date": "2026-09-14",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-09-14",
+        "pooled_sales": []
       }
     ]
   },
@@ -77597,6 +77786,10 @@
             ]
           }
         ],
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-09-14",
         "pooled_sales": []
       },
       {
@@ -78164,6 +78357,10 @@
             ]
           }
         ],
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-09-14",
         "pooled_sales": []
       },
       {
@@ -79693,6 +79890,10 @@
       {
         "date": "2026-09-14",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-09-14",
+        "pooled_sales": []
       }
     ]
   },
@@ -80140,6 +80341,10 @@
       {
         "date": "2026-09-14",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-09-14",
+        "pooled_sales": []
       }
     ]
   },
@@ -80566,6 +80771,25 @@
       {
         "date": "2026-09-14",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-09-14",
+        "pooled_sales": [
+          {
+            "price": 85.0,
+            "date": "2026-09-14",
+            "url": "https://www.ebay.com.au/itm/256308033291?hash=item3bad26370b%3Ag%3AwscAAOSwj%7ENlXDP1&mkevt=1&mkcid=1&mkrid=705-53470-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true",
+            "title": "2019 Panini Hoops High Voltage LeBron James #2 - GradedPSA MINT 9",
+            "label": "Raw"
+          },
+          {
+            "price": 75.0,
+            "date": "2026-09-14",
+            "url": "https://www.ebay.com/itm/127005813973?hash=item1d9222ecd5%3Ag%3AEgQAAeSwycln3Mb6&mkevt=1&mkcid=1&mkrid=711-53200-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true",
+            "title": "LeBron James 2019-20 Panini Hoops Premium Stock High Voltage Flash #2 PSA 9 Mint",
+            "label": "PSA 9"
+          }
+        ]
       }
     ]
   },
@@ -82167,6 +82391,10 @@
       {
         "date": "2026-09-14",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-09-14",
+        "pooled_sales": []
       }
     ],
     "manual_comps": [
@@ -82612,6 +82840,10 @@
             ]
           }
         ],
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-09-14",
         "pooled_sales": []
       },
       {
@@ -83716,6 +83948,10 @@
       {
         "date": "2026-09-14",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-09-14",
+        "pooled_sales": []
       }
     ]
   },
@@ -83743,6 +83979,10 @@
       {
         "date": "2026-09-14",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-09-14",
+        "pooled_sales": []
       }
     ],
     "manual_comps": [
@@ -83754,6 +83994,54 @@
         "url": "https://www.ebay.com/itm/377465931757?hash=item57e2b907ed%3Ag%3AppoAAeSwvW9qmIEf&mkevt=1&mkcid=1&mkrid=711-53200-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true",
         "source": "manual",
         "added_at": "2026-09-14T12:41:40.071Z"
+      }
+    ]
+  },
+  "Shaquille O'Neal | 1995-96 | Skybox Premium | 293 | Electrified | Raw": {
+    "meta": {
+      "player": "Shaquille O'Neal",
+      "year": "1995-96",
+      "set": "Skybox Premium",
+      "card_number": "293",
+      "variant": "Electrified",
+      "grade": "Raw",
+      "photo_filename": "shaquille_o_neal_1995_96_skybox_premium_1789419709240.jpg",
+      "back_photo_filename": "",
+      "added_at": "2026-09-14T21:01:53.036Z"
+    },
+    "snapshots": [
+      {
+        "date": "2026-09-14",
+        "pooled_sales": [
+          {
+            "price": 45.0,
+            "date": "2026-09-12",
+            "url": "https://www.ebay.com/itm/158275528594?hash=item24d9f4e792%3Ag%3ARmEAAeSwNjZqoaDE&mkevt=1&mkcid=1&mkrid=711-53200-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true",
+            "title": "1995-96 SkyBox Premium #293 Shaquille O'Neal Electrified",
+            "label": "Raw"
+          },
+          {
+            "price": 20.5,
+            "date": "2026-09-12",
+            "url": "https://www.ebay.com/itm/318827795419?hash=item4a3b9e13db%3Ag%3A-IMAAeSw8NRqkOBz&mkevt=1&mkcid=1&mkrid=711-53200-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true",
+            "title": "1995-96 Skybox Premium - Electrified Shaquille O'Neal #293",
+            "label": "Raw"
+          },
+          {
+            "price": 12.5,
+            "date": "2026-09-12",
+            "url": "https://www.ebay.com/itm/377489695594?hash=item57e423a36a%3Ag%3Ao-QAAeSw1qtqpDRj&mkevt=1&mkcid=1&mkrid=711-53200-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true",
+            "title": "1995-96 Skybox Premium - Electrified Shaquille O'Neal #293 @QJ51",
+            "label": "Raw"
+          },
+          {
+            "price": 150.0,
+            "date": "2026-09-11",
+            "url": "https://www.ebay.com/itm/158236867959?hash=item24d7a6fd77%3Ag%3AzDUAAeSwcZxqkx2b&mkevt=1&mkcid=1&mkrid=711-53200-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true",
+            "title": "4 Card Lot 1995-96 Skybox Premium  Electrified Shaquille O'Neal #293 Shaq Nice",
+            "label": "Raw"
+          }
+        ]
       }
     ]
   }
