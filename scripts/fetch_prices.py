@@ -4,9 +4,17 @@ fetch_prices.py
 
 Reads cards.csv (player/year/set/card_number/variant/grade, filled in
 manually or by identifying photos), makes ONE broad TheCardAPI search per
-card (raw + every grade mixed together, no grade filter), and appends a
-dated snapshot (a computed value + a dynamic grade-breakdown tree + recent
-comps) to data/price_history.json.
+card (raw + every grade mixed together, no grade filter), and appends any
+NEWLY-seen confirmed sales to that card's history in data/price_history.json.
+
+Retention: nothing is ever pruned - every unique sale ever captured stays
+in the file indefinitely, supporting well over 12 months of history per
+card. Only the date and that day's genuinely new sales get stored per
+snapshot (not a recomputed tree/value/comps, which the dashboard now
+rebuilds live from the full sales history on every page load) - this
+keeps file growth sustainable across a full year of daily runs instead
+of repeatedly re-storing the same sales during the 3-day lookback
+window's deliberate day-to-day overlap.
 
 Why one broad query instead of several targeted ones: earlier versions of
 this script queried a fixed set of cells (Raw, PSA 10, PSA 9, BGS 10,
@@ -298,15 +306,6 @@ def main():
 
         tree, value, sample_size, own_records = build_dynamic_tree(records, grader, grade)
 
-        comps = [
-            {
-                "price": c.get("price"), "date": c.get("sale_date"), "title": c.get("title"),
-                "listing_type": c.get("listing_type"), "price_confirmed": c.get("price_confirmed"),
-                "url": c.get("listing_url"),
-            }
-            for c in own_records[:5]
-        ]
-
         # Pool every confirmed sale (any grade, deduped by URL happens
         # client-side in the dashboard) for the 30-day rolling average and
         # the "Recent comps" list - this is now just every confirmed
@@ -334,17 +333,45 @@ def main():
             "back_photo_filename": card.get("back_photo_filename", ""),
             "added_at": card.get("added_at", ""),
         }
+
+        # Only store sales NOT already captured in a prior day's snapshot.
+        # Running daily with a 3-day lookback deliberately overlaps for
+        # safety (a missed run still gets caught by the next one), but
+        # that means the same real sale would otherwise get written to
+        # the file 2-3 times before it ages out of the window. Since the
+        # dashboard already dedupes by URL when it reads everything back,
+        # storing each unique sale once - on the day it's first seen - is
+        # lossless and keeps file growth sustainable over a full year of
+        # daily runs instead of multiplying it needlessly.
+        already_seen = {
+            s.get("url") or f"{s.get('date')}-{s.get('price')}-{s.get('label')}"
+            for snap in entry["snapshots"] for s in snap.get("pooled_sales", [])
+        }
+        new_pool = []
+        for sale in pool:
+            dedupe_key = sale.get("url") or f"{sale.get('date')}-{sale.get('price')}-{sale.get('label')}"
+            if dedupe_key in already_seen:
+                continue
+            already_seen.add(dedupe_key)
+            new_pool.append(sale)
+
+        # `tree`, `value`, `sample_size`, and `comps` are NOT stored here -
+        # the dashboard rebuilds all of that live, every page load, from
+        # the full accumulated pooled_sales across every snapshot (see
+        # index.html's buildLiveTree/poolDedupedSales). Storing them here
+        # too would just be redundant, recomputed-daily dead weight that
+        # inflates the file for no benefit - they're printed below purely
+        # for this run's log output, never persisted.
         entry["snapshots"].append({
             "date": snapshot_date,
-            "value": value,
-            "sample_size": sample_size,
-            "comps": comps,
-            "tree": tree,
-            "pooled_sales": pool,
+            "pooled_sales": new_pool,
         })
 
         value_str = f"${value}" if value is not None else "no confirmed sales this window"
+        new_count = len(new_pool)
+        seen_note = f", {len(pool) - new_count} already captured on a prior day" if len(pool) != new_count else ""
         print(f"  ✓ {value_str} ({sample_size} matching records for your exact config, {len(records)} total returned)")
+        print(f"    stored {new_count} new sale(s) to history{seen_note}")
         tree_summary = " | ".join(
             f"{group['group']}: " + ", ".join(
                 f"{item['label']}={'$' + str(item['value']) if item['value'] is not None else 'no sale'}"
