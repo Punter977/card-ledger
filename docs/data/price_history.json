@@ -82000,6 +82000,17 @@
         "date": "2026-09-14",
         "pooled_sales": []
       }
+    ],
+    "manual_comps": [
+      {
+        "price": 4000,
+        "date": "2026-08-07",
+        "label": "BGS 9",
+        "title": "1998 Fleer Tradition Kobe Bryant Electrifying #1 BGS 9",
+        "url": "https://ebay.com/itm/800471388199?nordt=true",
+        "source": "manual",
+        "added_at": "2026-09-14T12:47:03.503Z"
+      }
     ]
   },
   "Michael Jordan | 2006-07 | Fleer EX | 4 |  | ": {
