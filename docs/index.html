@@ -78,7 +78,8 @@
     display: flex;
     gap: 10px;
     margin-bottom: 20px;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
+    align-items: center;
   }
   .toolbar input {
     background: var(--surface);
@@ -89,17 +90,38 @@
     font-family: 'Inter', sans-serif;
     font-size: 14px;
     flex: 1;
-    min-width: 200px;
+    min-width: 0;
   }
   .toolbar input:focus { outline: 1px solid var(--accent); border-color: var(--accent); }
-  .toolbar select {
-    background: var(--surface);
-    border: 1px solid var(--line);
-    color: var(--text);
-    padding: 9px 14px;
+
+  /* Sort control: shows only an icon when closed, but is still a real
+     native <select> underneath (invisible, stretched over the icon) -
+     tapping it opens the normal OS dropdown/wheel with full option text,
+     just like any other select. This is purely a compact "closed" state. */
+  .sort-icon-btn {
+    position: relative;
+    width: 42px;
+    height: 39px;
+    flex-shrink: 0;
     border-radius: 6px;
-    font-family: 'Inter', sans-serif;
-    font-size: 14px;
+    border: 1px solid var(--line);
+    background: var(--surface);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-muted);
+    font-size: 17px;
+  }
+  .sort-icon-btn:has(select:focus) { border-color: var(--accent); }
+  .sort-icon-btn select {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    border: none;
+    background: transparent;
+    cursor: pointer;
   }
 
   /* ---------- compact list ---------- */
@@ -174,6 +196,13 @@
     color: var(--accent);
     font-family: 'JetBrains Mono', monospace;
     font-size: 10.5px;
+  }
+
+  .row-lastsale {
+    font-size: 10.5px;
+    color: var(--text-muted);
+    opacity: 0.75;
+    margin-top: 3px;
   }
 
   .row-price-line {
@@ -558,15 +587,18 @@
 <main>
   <div class="toolbar">
     <input type="text" id="search" placeholder="Search player, set, year…">
-    <select id="sort">
-      <option value="value-desc">Value: High to Low</option>
-      <option value="value-asc">Value: Low to High</option>
-      <option value="change-desc">Change: Biggest Gain</option>
-      <option value="change-asc">Change: Biggest Drop</option>
-      <option value="last-sale-desc">Recent Sale</option>
-      <option value="added-desc">Recently Added</option>
-      <option value="name">Name A–Z</option>
-    </select>
+    <div class="sort-icon-btn" title="Sort">
+      <span aria-hidden="true">⇅</span>
+      <select id="sort">
+        <option value="value-desc">Value: High to Low</option>
+        <option value="value-asc">Value: Low to High</option>
+        <option value="change-desc">Change: Biggest Gain</option>
+        <option value="change-asc">Change: Biggest Drop</option>
+        <option value="last-sale-desc">Recent Sale</option>
+        <option value="added-desc">Recently Added</option>
+        <option value="name">Name A–Z</option>
+      </select>
+    </div>
   </div>
 
   <div class="list" id="grid"></div>
@@ -598,6 +630,15 @@ function fmtMoney(n) {
 function fmtMoneyShort(n) {
   if (n === null || n === undefined || isNaN(n)) return '—';
   return '$' + Math.round(Number(n)).toLocaleString();
+}
+
+// Our own data always stores dates as YYYY-MM-DD - display as dd/mm/yy.
+function fmtDateDMY(iso) {
+  if (!iso) return '';
+  const parts = iso.split('-');
+  if (parts.length !== 3) return iso;
+  const [y, m, d] = parts;
+  return `${d}/${m}/${y.slice(2)}`;
 }
 
 function showToast(kind, msg) {
@@ -952,7 +993,6 @@ function cardRow(card, rank) {
   const subParts = [];
   if (m.grade) subParts.push(`<span class="row-grade">${m.grade}</span>`);
   subParts.push(metaLine || '—');
-  if (card.lastSaleDate) subParts.push(`last sale ${card.lastSaleDate}`);
 
   return `
     <div class="card-row" data-card-id="${card.id}" data-search="${(title + ' ' + metaLine).toLowerCase()}">
@@ -961,6 +1001,7 @@ function cardRow(card, rank) {
       <div class="row-body">
         <div class="row-title">${title}</div>
         <div class="row-sub">${subParts.join(' · ')}</div>
+        ${card.lastSaleDate ? `<div class="row-lastsale">last sale ${fmtDateDMY(card.lastSaleDate)}</div>` : ''}
         <div class="row-price-line">
           <span class="row-price-icon">››</span>
           <span class="row-value">${fmtMoney(card.latestValue)}</span>
@@ -1008,7 +1049,7 @@ function modalContent(card) {
         <div class="comp-row">
           <div class="comp-main">
             <span class="comp-title" title="${c.title || ''}">${c.url ? `<a href="${c.url}" target="_blank" rel="noopener">${c.title || 'Sale'}</a>` : (c.title || 'Sale')}${c.source === 'manual' ? '<span class="manual-tag">manual</span>' : ''}</span>
-            <span class="comp-date">${c.date || ''}</span>
+            <span class="comp-date">${c.date ? fmtDateDMY(c.date) : ''}</span>
           </div>
           <span class="comp-price">${fmtMoney(c.price)}</span>
         </div>`).join('')
