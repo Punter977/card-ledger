@@ -1050,6 +1050,12 @@ function modalContent(card) {
   const editUrl = `add.html?${editParams.toString()}`;
   const deleteLabel = `${title} — ${m.set || ''}`.trim();
 
+  // Same query shape fetch_prices.py builds server-side, so a manual
+  // 130point check searches for the same thing the automated pull does.
+  const searchQuery = [
+    m.player, m.year, m.set, m.card_number ? `#${m.card_number}` : '', m.variant,
+  ].filter(Boolean).join(' ');
+
   return `
     <div class="modal-drag-handle"></div>
     <button class="modal-close" data-action="close-modal" title="Close">✕</button>
@@ -1080,6 +1086,7 @@ function modalContent(card) {
       <summary>Recent comps</summary>
       ${compsHtml}
       <div class="add-comp-row">
+        <button class="secondary small" data-action="search-130point" data-query="${searchQuery.replace(/"/g, '&quot;')}">Search 130point ↗</button>
         <button class="secondary small" data-action="show-add-comp">+ Add comp</button>
       </div>
       <div class="add-comp-form">
@@ -1197,7 +1204,11 @@ function applyFiltersAndSort() {
 
 async function init() {
   try {
-    const res = await fetch(DATA_PATH);
+    // Cache-bust every load: GitHub Pages sits behind a CDN, and browsers
+    // cache fetch() responses too, so without a unique query string a
+    // reload can keep serving a stale copy of price_history.json for
+    // minutes after a real change (delete, edit, price pull) has landed.
+    const res = await fetch(`${DATA_PATH}?t=${Date.now()}`);
     if (!res.ok) throw new Error('history file not found');
     rawHistory = await res.json();
     cardsData = buildCardObjects(rawHistory);
@@ -1228,6 +1239,8 @@ document.getElementById('modal-panel').addEventListener('click', async (e) => {
 
   if (action === 'close-modal') {
     closeModal();
+  } else if (action === 'search-130point') {
+    await handleSearch130point(btn);
   } else if (action === 'show-add-comp') {
     document.querySelector('#modal-panel .add-comp-form').classList.add('visible');
     btn.style.display = 'none';
@@ -1240,6 +1253,23 @@ document.getElementById('modal-panel').addEventListener('click', async (e) => {
     await handleDeleteCard(btn, btn.dataset.cardId);
   }
 });
+
+// 130point's search box is entirely JavaScript-driven with no shareable
+// URL, so there's no query parameter to pre-fill via a link. The next
+// best thing: copy the search text to the clipboard and open the site,
+// so it's a one-paste action instead of retyping the card's details.
+async function handleSearch130point(btn) {
+  const query = btn.dataset.query || '';
+  try {
+    await navigator.clipboard.writeText(query);
+    showToast('success', `Copied "${query}" — paste it into 130point's search box.`);
+  } catch (err) {
+    // Clipboard access can be blocked (e.g. non-HTTPS context, permission
+    // denied) - fall back to just telling them what to type themselves.
+    showToast('error', `Couldn't copy automatically — search for "${query}" on 130point.`);
+  }
+  window.open('https://130point.com/sales/', '_blank', 'noopener');
+}
 
 async function handleSaveComp(btn, cardId) {
   if (!hasGithubConnection()) {
