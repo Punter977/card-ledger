@@ -83362,6 +83362,17 @@
         "date": "2026-09-14",
         "pooled_sales": []
       }
+    ],
+    "manual_comps": [
+      {
+        "price": 8301,
+        "date": "2026-09-10",
+        "label": "PSA 8",
+        "title": "2013 SP Authentic By The Letter Michael Jordan HOF Letter A Patch AUTO /23 PSA 8",
+        "url": "https://www.ebay.com/itm/377465931757?hash=item57e2b907ed%3Ag%3AppoAAeSwvW9qmIEf&mkevt=1&mkcid=1&mkrid=711-53200-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true",
+        "source": "manual",
+        "added_at": "2026-09-14T12:41:40.071Z"
+      }
     ]
   }
 }
