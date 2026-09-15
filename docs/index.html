@@ -483,6 +483,17 @@
     border-radius: 3px;
     margin-left: 5px;
   }
+  .comp-delete-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    font-size: 15px;
+    line-height: 1;
+    padding: 0 0 0 6px;
+    cursor: pointer;
+  }
+  .comp-delete-btn:hover { color: var(--down); }
+  .comp-delete-btn:disabled { opacity: 0.4; cursor: not-allowed; }
 
   .add-comp-row { margin-top: 10px; }
   button.secondary {
@@ -876,6 +887,7 @@ function poolDedupedSales(snapshots, manualComps) {
     all.push({
       price: sale.price, date: sale.date, url: sale.url || '',
       title: sale.title || '', label: sale.label || 'Raw', source,
+      added_at: sale.added_at || '',
     });
   };
   for (const snap of snapshots) {
@@ -950,7 +962,7 @@ function buildLiveTree(allSales, grader, grade) {
       const label = gk === '__raw__' ? 'Raw' : gk;
       const isOwn = (company === ownCompany && gk === ownGradeKey);
       const comps = sales.slice(-2).reverse().map(s => ({ price: s.price, date: s.date, title: s.title, url: s.url }));
-      const fullSales = sales.slice().reverse().map(s => ({ price: s.price, date: s.date, title: s.title, url: s.url, source: s.source }));
+      const fullSales = sales.slice().reverse().map(s => ({ price: s.price, date: s.date, title: s.title, url: s.url, source: s.source, added_at: s.added_at }));
       items.push({ label, value, sample_size: sales.length, comps, allSales: fullSales, is_own: isOwn });
       if (isOwn) { ownValue = value; ownSampleSize = sales.length; }
     }
@@ -1214,7 +1226,7 @@ function renderCompRows(sales) {
   return sales.map(c => `
     <div class="comp-row">
       <div class="comp-main">
-        <span class="comp-title" title="${c.title || ''}">${c.url ? `<a href="${c.url}" target="_blank" rel="noopener">${c.title || 'Sale'}</a>` : (c.title || 'Sale')}${c.source === 'manual' ? '<span class="manual-tag">manual</span>' : ''}</span>
+        <span class="comp-title" title="${c.title || ''}">${c.url ? `<a href="${c.url}" target="_blank" rel="noopener">${c.title || 'Sale'}</a>` : (c.title || 'Sale')}${c.source === 'manual' ? `<span class="manual-tag">manual</span><button class="comp-delete-btn" data-action="delete-comp" data-added-at="${c.added_at || ''}" title="Delete this comp">×</button>` : ''}</span>
         <span class="comp-date">${c.date ? fmtDateDMY(c.date) : ''}</span>
       </div>
       <span class="comp-price">${fmtMoney(c.price)}</span>
@@ -1315,6 +1327,8 @@ document.getElementById('modal-panel').addEventListener('click', async (e) => {
     handleFilterComps(btn);
   } else if (action === 'clear-comps-filter') {
     handleClearCompsFilter();
+  } else if (action === 'delete-comp') {
+    await handleDeleteComp(btn);
   } else if (action === 'show-add-comp') {
     document.querySelector('#modal-panel .add-comp-form').classList.add('visible');
     btn.style.display = 'none';
@@ -1354,6 +1368,47 @@ function handleClearCompsFilter() {
   document.querySelectorAll('#modal-panel .tree-item.active-filter').forEach(el => el.classList.remove('active-filter'));
   document.getElementById('modal-comps-list').innerHTML = renderCompRows(card.comps);
   document.getElementById('modal-comps-filter').innerHTML = '';
+}
+
+async function handleDeleteComp(btn) {
+  const addedAt = btn.dataset.addedAt;
+  if (!addedAt) {
+    showToast('error', "Can't identify this comp to delete it - it may predate this feature.");
+    return;
+  }
+  if (!confirm('Delete this manual comp? This only removes the comp, not the card itself.')) return;
+  if (!hasGithubConnection()) {
+    showToast('error', 'Connect GitHub first — open the Add Card page and fill in the connection settings.');
+    return;
+  }
+
+  btn.disabled = true;
+  try {
+    const existing = await getExistingFile(DATA_PATH_REPO);
+    if (!existing) throw new Error('price_history.json not found.');
+    const freshHistory = JSON.parse(base64ToUtf8(existing.content));
+    const entry = freshHistory[openCardId];
+    if (!entry || !entry.manual_comps) throw new Error("Couldn't find this card's manual comps.");
+
+    const before = entry.manual_comps.length;
+    entry.manual_comps = entry.manual_comps.filter(c => c.added_at !== addedAt);
+    if (entry.manual_comps.length === before) throw new Error('Comp not found — it may have already been removed.');
+
+    await putFile(DATA_PATH_REPO, utf8ToBase64(JSON.stringify(freshHistory, null, 2)),
+      `Delete manual comp from ${openCardId}`, existing.sha);
+
+    rawHistory = freshHistory;
+    cardsData = buildCardObjects(rawHistory);
+    renderSummary(cardsData);
+    applyFiltersAndSort();
+    refreshModalIfOpen();
+    showToast('success', 'Comp deleted.');
+  } catch (err) {
+    showToast('error', err.message || 'Failed to delete comp.');
+    console.error(err);
+  } finally {
+    btn.disabled = false;
+  }
 }
 
 // 130point's search box is entirely JavaScript-driven with no shareable
