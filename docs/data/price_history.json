@@ -29210,6 +29210,17 @@
         "date": "2026-09-15",
         "pooled_sales": []
       }
+    ],
+    "manual_comps": [
+      {
+        "price": 505,
+        "date": "2026-08-31",
+        "label": "PSA 10",
+        "title": "1998-99 Topps Chrome - Vince Carter #199 (RC) PSA 10",
+        "url": "https://www.ebay.com/itm/800581232843?hash=itemba665c28cb%3Ag%3AsNoAAeSwfPFqkt2H&mkevt=1&mkcid=1&mkrid=711-53200-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true",
+        "source": "manual",
+        "added_at": "2026-09-15T10:02:23.571Z"
+      }
     ]
   },
   "Vince Carter | 1998-99 | Flair Showcase Row 3 | 25 |  | PSA 9": {
