@@ -73530,6 +73530,17 @@
         "date": "2026-09-15",
         "pooled_sales": []
       }
+    ],
+    "manual_comps": [
+      {
+        "price": 2050,
+        "date": "2026-04-14",
+        "label": "PSA 9",
+        "title": "2009-10 Upper Deck - Dual Game Materials LeBron James, Michael Jordan /150 PSA 9",
+        "url": "https://ebay.com/itm/147226640095?nordt=true",
+        "source": "manual",
+        "added_at": "2026-09-15T11:20:31.859Z"
+      }
     ]
   },
   "Kobe Bryant | 2007-08 | Topps | 24 | 50th Anniversary Gold | ": {
