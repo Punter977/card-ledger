@@ -5355,6 +5355,60 @@
       {
         "date": "2026-09-19",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-09-20",
+        "pooled_sales": [
+          {
+            "price": 3623.0,
+            "date": "2026-09-18",
+            "url": "https://www.ebay.com/itm/377487128542?hash=item57e3fc77de%3Ag%3AS0YAAeSwjT1qoxNn&mkevt=1&mkcid=1&mkrid=711-53200-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true",
+            "title": "1992-93 Stadium Club Beam Team #1 Michael Jordan Chicago Bulls HOF PSA 9 MINT",
+            "label": "PSA 9"
+          },
+          {
+            "price": 2150.0,
+            "date": "2026-09-18",
+            "url": "https://www.ebay.com/itm/407205579840?hash=item5ecf580c40%3Ag%3AxYcAAeSwPyVqogGA&mkevt=1&mkcid=1&mkrid=711-53200-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true",
+            "title": "Topps 1992-93 Stadium Club Beam Team #1 Michael Jordan Bulls PSA 8 Fresh Grade",
+            "label": "PSA 8"
+          },
+          {
+            "price": 975.0,
+            "date": "2026-09-17",
+            "url": "https://www.ebay.com/itm/137744439787?hash=item20123559eb%3Ag%3Am5YAAeSwiyFqqtEV&mkevt=1&mkcid=1&mkrid=711-53200-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true",
+            "title": "1992-93 Topps Stadium Club - Beam Team Michael Jordan #1",
+            "label": "Raw"
+          },
+          {
+            "price": 1400.0,
+            "date": "2026-09-17",
+            "url": "https://www.ebay.com/itm/287588995915?hash=item42f5a3d34b%3Ag%3AEr8AAeSwnnJqqc9X&mkevt=1&mkcid=1&mkrid=711-53200-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true",
+            "title": "1992-93 Topps Stadium Club - Beam Team Michael Jordan #1",
+            "label": "Raw"
+          },
+          {
+            "price": 1650.0,
+            "date": "2026-09-17",
+            "url": "https://www.ebay.com/itm/128069460265?hash=item1dd188e129%3Ag%3Axn4AAeSw0EJqoJFa&mkevt=1&mkcid=1&mkrid=711-53200-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true",
+            "title": "Topps 1992-93 Stadium Club Beam Team Michael Jordan Chicago Bulls Insert #1",
+            "label": "Raw"
+          },
+          {
+            "price": 1748.25,
+            "date": "2026-09-17",
+            "url": "https://www.ebay.com/itm/298656452608?hash=item45894fd000%3Ag%3AIdIAAeSw4I9qoCNE&mkevt=1&mkcid=1&mkrid=711-53200-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true",
+            "title": "1992-93 TOPPS STADIUM CLUB BEAM TEAM #1 MICHAEL JORDAN SGC 8.5",
+            "label": "SGC 8.5"
+          },
+          {
+            "price": 2076.0,
+            "date": "2026-09-17",
+            "url": "https://www.ebay.com.au/itm/147563119562?hash=item225b7283ca%3Ag%3AMl4AAeSwMKBqogLP&mkevt=1&mkcid=1&mkrid=705-53470-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true",
+            "title": "Topps 1992-93 Stadium Club Beam Team Michael Jordan #1 Insert Bulls BGS 7.5",
+            "label": "BGS 7.5"
+          }
+        ]
       }
     ],
     "manual_comps": [
@@ -7553,6 +7607,10 @@
       },
       {
         "date": "2026-09-19",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-09-20",
         "pooled_sales": []
       }
     ]
@@ -17089,6 +17147,32 @@
       {
         "date": "2026-09-19",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-09-20",
+        "pooled_sales": [
+          {
+            "price": 85.0,
+            "date": "2026-09-18",
+            "url": "https://www.ebay.com/itm/188940428912?hash=item2bfdba2670%3Ag%3Aq38AAeSwt3xqqzcx&mkevt=1&mkcid=1&mkrid=711-53200-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true",
+            "title": "1995-96 Skybox Premium Electrified Michael Jordan #278 Card Bulls Crease",
+            "label": "Raw"
+          },
+          {
+            "price": 1100.0,
+            "date": "2026-09-17",
+            "url": "https://www.ebay.com/itm/820062623630?hash=itembeef8a978e%3Ag%3ALy0AAeSwEQFqkxls&mkevt=1&mkcid=1&mkrid=711-53200-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true",
+            "title": "1995-96 Skybox Premium - Electrified Michael Jordan #278",
+            "label": "Raw"
+          },
+          {
+            "price": 9995.95,
+            "date": "2026-09-17",
+            "url": "https://www.ebay.com/itm/198644158331?hash=item2e401d4f7b%3Ag%3AHJsAAeSwgQFqqbc5&mkevt=1&mkcid=1&mkrid=711-53200-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true",
+            "title": "SkyBox 1995-96 SkyBox Premium Electrified Michael Jordan #278 Bulls PSA 10",
+            "label": "PSA 10"
+          }
+        ]
       }
     ]
   },
@@ -24140,6 +24224,10 @@
       {
         "date": "2026-09-19",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-09-20",
+        "pooled_sales": []
       }
     ]
   },
@@ -26567,6 +26655,10 @@
       },
       {
         "date": "2026-09-19",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-09-20",
         "pooled_sales": []
       }
     ]
@@ -29518,6 +29610,10 @@
       {
         "date": "2026-09-19",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-09-20",
+        "pooled_sales": []
       }
     ],
     "manual_comps": [
@@ -31426,6 +31522,10 @@
       },
       {
         "date": "2026-09-19",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-09-20",
         "pooled_sales": []
       }
     ]
@@ -34808,6 +34908,10 @@
       },
       {
         "date": "2026-09-19",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-09-20",
         "pooled_sales": []
       }
     ]
@@ -39920,6 +40024,18 @@
       {
         "date": "2026-09-19",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-09-20",
+        "pooled_sales": [
+          {
+            "price": 65.0,
+            "date": "2026-09-18",
+            "url": "https://www.ebay.com/itm/147545514469?hash=item225a65e1e5%3Ag%3AfEwAAeSwtwVqmJTq&mkevt=1&mkcid=1&mkrid=711-53200-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true",
+            "title": "1992-93 Upper Deck Trade Card Shaquille O'Neal Rookie Card 1B BGS 8.5",
+            "label": "BGS 8.5"
+          }
+        ]
       }
     ]
   },
@@ -43245,6 +43361,10 @@
       {
         "date": "2026-09-19",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-09-20",
+        "pooled_sales": []
       }
     ]
   },
@@ -44829,6 +44949,10 @@
       {
         "date": "2026-09-19",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-09-20",
+        "pooled_sales": []
       }
     ]
   },
@@ -46412,6 +46536,10 @@
       },
       {
         "date": "2026-09-19",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-09-20",
         "pooled_sales": []
       }
     ]
@@ -49607,6 +49735,10 @@
       {
         "date": "2026-09-19",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-09-20",
+        "pooled_sales": []
       }
     ]
   },
@@ -52350,6 +52482,10 @@
       {
         "date": "2026-09-19",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-09-20",
+        "pooled_sales": []
       }
     ]
   },
@@ -54050,6 +54186,18 @@
       {
         "date": "2026-09-19",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-09-20",
+        "pooled_sales": [
+          {
+            "price": 118.0,
+            "date": "2026-09-18",
+            "url": "https://www.ebay.com/itm/257676180770?hash=item3bfeb27d22%3Ag%3ATjIAAeSwfoNqfHix&mkevt=1&mkcid=1&mkrid=711-53200-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true",
+            "title": "2016-17 Panini Blue Wave Prizm Ben Simmons #1 PSA 9 Gem MT Rookie RC 22/99",
+            "label": "PSA 9"
+          }
+        ]
       }
     ]
   },
@@ -55089,6 +55237,10 @@
       {
         "date": "2026-09-19",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-09-20",
+        "pooled_sales": []
       }
     ]
   },
@@ -55603,6 +55755,10 @@
       },
       {
         "date": "2026-09-19",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-09-20",
         "pooled_sales": []
       }
     ],
@@ -56130,6 +56286,10 @@
       {
         "date": "2026-09-19",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-09-20",
+        "pooled_sales": []
       }
     ]
   },
@@ -56644,6 +56804,10 @@
       },
       {
         "date": "2026-09-19",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-09-20",
         "pooled_sales": []
       }
     ]
@@ -57160,6 +57324,10 @@
       {
         "date": "2026-09-19",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-09-20",
+        "pooled_sales": []
       }
     ]
   },
@@ -57674,6 +57842,10 @@
       },
       {
         "date": "2026-09-19",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-09-20",
         "pooled_sales": []
       }
     ]
@@ -58197,6 +58369,10 @@
       },
       {
         "date": "2026-09-19",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-09-20",
         "pooled_sales": []
       }
     ]
@@ -58901,6 +59077,10 @@
       {
         "date": "2026-09-19",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-09-20",
+        "pooled_sales": []
       }
     ]
   },
@@ -59416,6 +59596,10 @@
       {
         "date": "2026-09-19",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-09-20",
+        "pooled_sales": []
       }
     ]
   },
@@ -59930,6 +60114,10 @@
       },
       {
         "date": "2026-09-19",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-09-20",
         "pooled_sales": []
       }
     ]
@@ -63726,6 +63914,10 @@
       {
         "date": "2026-09-19",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-09-20",
+        "pooled_sales": []
       }
     ]
   },
@@ -64240,6 +64432,10 @@
       },
       {
         "date": "2026-09-19",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-09-20",
         "pooled_sales": []
       }
     ]
@@ -65043,6 +65239,10 @@
       },
       {
         "date": "2026-09-19",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-09-20",
         "pooled_sales": []
       }
     ]
@@ -66693,6 +66893,18 @@
       {
         "date": "2026-09-19",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-09-20",
+        "pooled_sales": [
+          {
+            "price": 73.0,
+            "date": "2026-09-18",
+            "url": "https://www.ebay.com/itm/198634688138?hash=item2e3f8cce8a%3Ag%3AFzwAAeSwDaRqpDVT&mkevt=1&mkcid=1&mkrid=711-53200-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true",
+            "title": "Topps 2007-08 Bowman Chrome LeBron James #23 PSA 9 Cavaliers Basketball Card",
+            "label": "PSA 9"
+          }
+        ]
       }
     ]
   },
@@ -67207,6 +67419,10 @@
       },
       {
         "date": "2026-09-19",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-09-20",
         "pooled_sales": []
       }
     ]
@@ -72678,6 +72894,39 @@
       {
         "date": "2026-09-19",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-09-20",
+        "pooled_sales": [
+          {
+            "price": 82.5,
+            "date": "2026-09-18",
+            "url": "https://www.ebay.com/itm/366675882120?hash=item555f95f088%3Ag%3AgcMAAeSwn35qrLx%7E&mkevt=1&mkcid=1&mkrid=711-53200-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true",
+            "title": "Topps 1992-93 Topps Gold Shaquille O'Neal Orlando Magic #362 Rookie Card",
+            "label": "Raw"
+          },
+          {
+            "price": 329.99,
+            "date": "2026-09-18",
+            "url": "https://www.ebay.com/itm/278385389741?hash=item40d10ff0ad%3Ag%3Asy8AAeSwKexqrKsY&mkevt=1&mkcid=1&mkrid=711-53200-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true",
+            "title": "1992-93 Topps Gold Shaquille O'Neal #362 PSA 9 RC Rookie ",
+            "label": "PSA 9"
+          },
+          {
+            "price": 315.0,
+            "date": "2026-09-18",
+            "url": "https://www.ebay.com/itm/267778737145?hash=item3e58db43f9%3Ag%3A7fcAAeSwMa1qntgK&mkevt=1&mkcid=1&mkrid=711-53200-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true",
+            "title": "1992-93 Topps Gold Shaquille O'Neal  #362 Rookie PSA 8, Auto 9 \ud83d\udd25\ud83d\udc10",
+            "label": "PSA 8"
+          },
+          {
+            "price": 382.0,
+            "date": "2026-09-18",
+            "url": "https://www.ebay.com/itm/168679782950?hash=item2746193a26%3Ag%3AwmAAAeSwODBqo1A%7E&mkevt=1&mkcid=1&mkrid=711-53200-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true",
+            "title": "1992-93 Topps Shaquille O'Neal Rookie RC #362 Magic PSA 10 GEM MINT",
+            "label": "PSA 10"
+          }
+        ]
       }
     ]
   },
@@ -73193,6 +73442,10 @@
       {
         "date": "2026-09-19",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-09-20",
+        "pooled_sales": []
       }
     ]
   },
@@ -73707,6 +73960,10 @@
       },
       {
         "date": "2026-09-19",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-09-20",
         "pooled_sales": []
       }
     ],
@@ -74354,6 +74611,10 @@
       {
         "date": "2026-09-19",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-09-20",
+        "pooled_sales": []
       }
     ]
   },
@@ -74870,6 +75131,10 @@
       },
       {
         "date": "2026-09-19",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-09-20",
         "pooled_sales": []
       }
     ]
@@ -76540,6 +76805,10 @@
       {
         "date": "2026-09-19",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-09-20",
+        "pooled_sales": []
       }
     ],
     "manual_comps": [
@@ -77699,6 +77968,10 @@
       {
         "date": "2026-09-19",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-09-20",
+        "pooled_sales": []
       }
     ]
   },
@@ -77832,6 +78105,10 @@
       },
       {
         "date": "2026-09-19",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-09-20",
         "pooled_sales": []
       }
     ]
@@ -81593,6 +81870,25 @@
       {
         "date": "2026-09-19",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-09-20",
+        "pooled_sales": [
+          {
+            "price": 1900.0,
+            "date": "2026-09-18",
+            "url": "https://www.ebay.com/itm/407167220383?hash=item5ecd0eba9f%3Ag%3Aq30AAeSwiOxqjHsF&mkevt=1&mkcid=1&mkrid=711-53200-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true",
+            "title": "Fleer Ultra 1993-94 Scoring Kings Michael Jordan #5 Bulls BGS 6 Graded",
+            "label": "BGS 6"
+          },
+          {
+            "price": 3650.0,
+            "date": "2026-09-18",
+            "url": "https://www.ebay.com/itm/366661104747?hash=item555eb4746b%3Ag%3AZW0AAeSwFw5qoxOd&mkevt=1&mkcid=1&mkrid=711-53200-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true",
+            "title": "1993-94 Fleer Ultra Scoring Kings #5 Michael Jordan Bulls HOF BGS 8 w/ (2) 9.5's",
+            "label": "BGS 8"
+          }
+        ]
       }
     ],
     "manual_comps": [
@@ -83206,6 +83502,10 @@
       {
         "date": "2026-09-19",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-09-20",
+        "pooled_sales": []
       }
     ],
     "manual_comps": [
@@ -83320,6 +83620,10 @@
       },
       {
         "date": "2026-09-19",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-09-20",
         "pooled_sales": []
       }
     ],
@@ -83494,6 +83798,32 @@
       {
         "date": "2026-09-19",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-09-20",
+        "pooled_sales": [
+          {
+            "price": 241.5,
+            "date": "2026-09-18",
+            "url": "https://www.ebay.com/itm/377487533289?hash=item57e402a4e9%3Ag%3AqXIAAeSwls1qfgmc&mkevt=1&mkcid=1&mkrid=711-53200-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true",
+            "title": "1993-94 Fleer Ultra Power In The Key #2 Michael Jordan Chicago Bulls HOF",
+            "label": "Raw"
+          },
+          {
+            "price": 350.0,
+            "date": "2026-09-18",
+            "url": "https://www.ebay.com/itm/398334585897?hash=item5cbe976c29%3Ag%3Al6IAAeSwskFqkdUO&mkevt=1&mkcid=1&mkrid=711-53200-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true",
+            "title": "1993-94 Fleer Ultra - Power in the Key Michael Jordan #2",
+            "label": "Raw"
+          },
+          {
+            "price": 421.9,
+            "date": "2026-09-17",
+            "url": "https://www.ebay.com/itm/377484799587?hash=item57e3d8ee63%3Ag%3AKBUAAeSwpPFqodVf&mkevt=1&mkcid=1&mkrid=711-53200-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true",
+            "title": "1993-94 Fleer Ultra Power In The Key #2 Michael Jordan Chicago Bulls HOF",
+            "label": "Raw"
+          }
+        ]
       }
     ]
   },
@@ -84008,6 +84338,10 @@
       },
       {
         "date": "2026-09-19",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-09-20",
         "pooled_sales": []
       }
     ],
@@ -84534,6 +84868,10 @@
       },
       {
         "date": "2026-09-19",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-09-20",
         "pooled_sales": []
       }
     ]
@@ -85095,6 +85433,18 @@
       {
         "date": "2026-09-19",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-09-20",
+        "pooled_sales": [
+          {
+            "price": 65.0,
+            "date": "2026-09-18",
+            "url": "https://www.ebay.com/itm/407223205227?hash=item5ed064fd6b%3Ag%3A7CQAAeSwYdBqq2cL&mkevt=1&mkcid=1&mkrid=711-53200-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true",
+            "title": "Panini 2020-21 NBA Hoops Slam Kobe Bryant Los Angeles Lakers Insert #19",
+            "label": "Raw"
+          }
+        ]
       }
     ]
   },
@@ -85609,6 +85959,10 @@
       },
       {
         "date": "2026-09-19",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-09-20",
         "pooled_sales": []
       }
     ],
@@ -86141,6 +86495,10 @@
       },
       {
         "date": "2026-09-19",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-09-20",
         "pooled_sales": []
       }
     ],
