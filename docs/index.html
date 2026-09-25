@@ -124,6 +124,31 @@
     cursor: pointer;
   }
 
+  /* ---------- portfolio value chart ---------- */
+  .portfolio-chart-box {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 14px 16px;
+    margin-bottom: 20px;
+  }
+  .portfolio-chart-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+  }
+  .portfolio-chart-wrap { height: 130px; position: relative; }
+  .portfolio-chart-empty {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--text-muted);
+    text-align: center;
+    padding-top: 48px;
+  }
+
   /* ---------- compact list ---------- */
   .list {
     display: flex;
@@ -627,6 +652,14 @@
 </header>
 
 <main>
+  <div class="portfolio-chart-box" id="portfolio-chart-box">
+    <div class="portfolio-chart-label">PORTFOLIO VALUE OVER TIME</div>
+    <div class="portfolio-chart-wrap">
+      <canvas id="portfolio-chart" style="display:none;"></canvas>
+      <div class="portfolio-chart-empty" id="portfolio-chart-empty">Not enough history yet to chart</div>
+    </div>
+  </div>
+
   <div class="toolbar">
     <input type="text" id="search" placeholder="Search player, set, year…">
     <div class="sort-icon-btn" title="Sort">
@@ -1003,11 +1036,37 @@ function buildCardObjects(history) {
     const lastSaleDate = allSales.length ? allSales[allSales.length - 1].date : null;
 
     return {
-      id, meta, snapshots: snaps, manualComps,
+      id, meta, snapshots: snaps, manualComps, allSales,
       latestValue: ownValue,
       change, comps: recentComps, tree, rollingAvg, salesLast30, lastSaleDate,
     };
   });
+}
+
+// Total portfolio value at each date any card was priced, computed by
+// reusing buildLiveTree with each card's sales filtered to "on or before
+// that date" - this is the exact same logic that produces today's
+// headline TOTAL, just re-run at each historical cutoff, so the chart's
+// most recent point always matches the TOTAL stat exactly.
+function computePortfolioSeries(cards) {
+  const allDates = new Set();
+  cards.forEach(c => c.snapshots.forEach(s => allDates.add(s.date)));
+  const dates = Array.from(allDates).sort();
+
+  const totals = dates.map(d => {
+    let sum = 0;
+    for (const card of cards) {
+      const hasStartedByD = card.snapshots.some(s => s.date <= d);
+      if (!hasStartedByD) continue; // not yet tracked as of this date - excluded, not zero
+      const salesUpToD = (card.allSales || []).filter(s => s.date <= d);
+      const [grader, grade] = parseGradeString(card.meta.grade);
+      const { ownValue } = buildLiveTree(salesUpToD, grader, grade);
+      sum += ownValue || 0;
+    }
+    return Math.round(sum * 100) / 100;
+  });
+
+  return { dates, totals };
 }
 
 function renderSummary(cards) {
@@ -1218,7 +1277,55 @@ function drawModalChart(card) {
   });
 }
 
-let openCardId = null;
+let portfolioChart = null;
+
+function drawPortfolioChart(cards) {
+  const canvas = document.getElementById('portfolio-chart');
+  const emptyMsg = document.getElementById('portfolio-chart-empty');
+  if (portfolioChart) { portfolioChart.destroy(); portfolioChart = null; }
+
+  const { dates, totals } = computePortfolioSeries(cards);
+
+  // Need at least 2 distinct-value points for a trend to mean anything -
+  // a single data point (day one) is just today's total, not a "trend".
+  const hasRealTrend = totals.length >= 2 && new Set(totals).size > 1;
+  if (!hasRealTrend) {
+    canvas.style.display = 'none';
+    emptyMsg.style.display = 'block';
+    return;
+  }
+  canvas.style.display = '';
+  emptyMsg.style.display = 'none';
+
+  const isUp = totals[totals.length - 1] >= totals[0];
+
+  portfolioChart = new Chart(canvas, {
+    type: 'line',
+    data: {
+      labels: dates,
+      datasets: [{
+        data: totals,
+        borderColor: isUp ? '#34D399' : '#FB7185',
+        backgroundColor: isUp ? 'rgba(52,211,153,0.08)' : 'rgba(251,113,133,0.08)',
+        borderWidth: 2,
+        pointRadius: 0,
+        tension: 0.25,
+        fill: true,
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      layout: { padding: { top: 14, bottom: 4 } },
+      plugins: {
+        legend: { display: false },
+        tooltip: { callbacks: { label: (ctx) => fmtMoney(ctx.parsed.y) } },
+      },
+      scales: { x: { display: false }, y: { display: false } },
+    }
+  });
+}
+
 let modalTreeSalesIndex = {}; // reset each time the modal opens - tree-item key -> {label, sales}
 
 function renderCompRows(sales) {
@@ -1295,6 +1402,7 @@ async function init() {
     rawHistory = await res.json();
     cardsData = buildCardObjects(rawHistory);
     renderSummary(cardsData);
+    drawPortfolioChart(cardsData);
     applyFiltersAndSort();
   } catch (err) {
     document.getElementById('grid').innerHTML = '';
@@ -1400,6 +1508,7 @@ async function handleDeleteComp(btn) {
     rawHistory = freshHistory;
     cardsData = buildCardObjects(rawHistory);
     renderSummary(cardsData);
+    drawPortfolioChart(cardsData);
     applyFiltersAndSort();
     refreshModalIfOpen();
     showToast('success', 'Comp deleted.');
@@ -1465,6 +1574,7 @@ async function handleSaveComp(btn, cardId) {
     rawHistory = freshHistory;
     cardsData = buildCardObjects(rawHistory);
     renderSummary(cardsData);
+    drawPortfolioChart(cardsData);
     applyFiltersAndSort();
     refreshModalIfOpen();
     showToast('success', 'Comp added.');
@@ -1519,6 +1629,7 @@ async function handleDeleteCard(btn, cardId) {
 
     cardsData = buildCardObjects(rawHistory);
     renderSummary(cardsData);
+    drawPortfolioChart(cardsData);
     applyFiltersAndSort();
     closeModal();
     showToast('success', `${label} deleted.`);
