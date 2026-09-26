@@ -605,6 +605,53 @@
     border-radius: 3px;
     text-transform: uppercase;
   }
+  .tree-item.is-override { color: var(--accent); }
+  .tree-item.is-override .tree-price { color: var(--accent); font-weight: 600; }
+  .tree-override-tag {
+    font-size: 9px;
+    border: 1px solid var(--accent-dim);
+    color: var(--accent);
+    padding: 0 4px;
+    border-radius: 3px;
+    text-transform: uppercase;
+  }
+  .override-banner {
+    margin: 6px 20px 0;
+    padding: 8px 10px;
+    background: rgba(167, 139, 250, 0.08);
+    border: 1px solid var(--accent-dim);
+    border-radius: 6px;
+    font-size: 11.5px;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .override-banner strong { color: var(--accent); }
+  .clear-override-btn {
+    margin-left: auto;
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    cursor: pointer;
+  }
+  .clear-override-btn:hover { color: var(--down); }
+  .use-as-price-btn {
+    display: block;
+    width: 100%;
+    margin-top: 6px;
+    padding: 7px 10px;
+    background: transparent;
+    border: 1px dashed var(--accent-dim);
+    color: var(--accent);
+    border-radius: 6px;
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    cursor: pointer;
+  }
+  .use-as-price-btn:hover { background: rgba(167, 139, 250, 0.08); }
   .tree-item.clickable { cursor: pointer; }
   .tree-item.clickable:hover { color: var(--accent); }
   .tree-item.active-filter {
@@ -1016,6 +1063,23 @@ function buildCardObjects(history) {
     const [grader, grade] = parseGradeString(meta.grade);
     const { tree, ownValue, ownSampleSize } = buildLiveTree(allSales, grader, grade);
 
+    // A price override (set via the tree's "Use as my price" action) lets
+    // you pin the displayed value to a DIFFERENT grade's comp when your
+    // exact grade hasn't sold in a while - e.g. pricing a quiet BGS 9 off
+    // a recent PSA 9 sale. The tree itself still shows the truthful
+    // per-grade breakdown; this only changes which number is the headline.
+    const override = entry.value_override || null;
+    if (override) {
+      for (const group of tree) {
+        for (const item of group.items) {
+          if (`${group.group} ${item.label}`.replace('Raw Raw', 'Raw') === override.label) {
+            item.is_override = true;
+          }
+        }
+      }
+    }
+    const latestValue = override ? override.value : ownValue;
+
     const asOfLatest = snaps.length ? new Date(snaps[snaps.length - 1].date)
       : (allSales.length ? new Date(allSales[allSales.length - 1].date) : null);
     let salesLast30 = 0;
@@ -1037,7 +1101,7 @@ function buildCardObjects(history) {
 
     return {
       id, meta, snapshots: snaps, manualComps, allSales,
-      latestValue: ownValue,
+      latestValue, priceOverride: override,
       change, comps: recentComps, tree, rollingAvg, salesLast30, lastSaleDate,
     };
   });
@@ -1156,13 +1220,14 @@ function modalContent(card) {
           <div class="tree-group-label">${group.group}</div>
           ${group.items.map((item, ii) => {
             const clickable = item.value !== null && item.allSales && item.allSales.length > 0;
-            if (clickable) modalTreeSalesIndex[`${gi}-${ii}`] = { label: `${group.group} ${item.label}`.replace('Raw Raw', 'Raw'), sales: item.allSales };
+            if (clickable) modalTreeSalesIndex[`${gi}-${ii}`] = { label: `${group.group} ${item.label}`.replace('Raw Raw', 'Raw'), sales: item.allSales, value: item.value, isOwn: item.is_own };
             return `
-            <div class="tree-item ${item.value !== null ? 'has-sale' : ''} ${item.is_own ? 'is-own' : ''} ${clickable ? 'clickable' : ''}"
+            <div class="tree-item ${item.value !== null ? 'has-sale' : ''} ${item.is_own ? 'is-own' : ''} ${item.is_override ? 'is-override' : ''} ${clickable ? 'clickable' : ''}"
                  ${clickable ? `data-action="filter-comps" data-tree-key="${gi}-${ii}"` : ''}
                  title="${item.is_own ? 'This is your card' : ''}${item.value !== null ? (clickable ? ' — tap to filter comps below' : '') : ': no sale recorded'}">
               <span class="tree-label">${item.label}</span>
               ${item.is_own ? '<span class="tree-own-tag">yours</span>' : ''}
+              ${item.is_override ? '<span class="tree-override-tag">using this</span>' : ''}
               <span class="tree-price">${item.value !== null ? fmtMoney(item.value) : 'no sale'}</span>
             </div>
           `; }).join('')}
@@ -1203,6 +1268,11 @@ function modalContent(card) {
       <div class="delta ${changeClass}" title="Change in the 30-day pooled average (raw + graded) between its earliest and most recent point">${changeText}</div>
       ${card.change !== null ? '<div class="delta-label">30d</div>' : ''}
     </div>
+    ${card.priceOverride ? `
+      <div class="override-banner">
+        Priced from <strong>${card.priceOverride.label}</strong> (not your exact grade)
+        <button class="clear-override-btn" data-action="clear-price-override">clear</button>
+      </div>` : ''}
     ${treeHtml}
     <div class="chart-label">30-day avg trend · ${card.salesLast30} sale${card.salesLast30 === 1 ? '' : 's'} · raw + graded</div>
     <div class="chart-wrap">
@@ -1435,6 +1505,10 @@ document.getElementById('modal-panel').addEventListener('click', async (e) => {
     handleFilterComps(btn);
   } else if (action === 'clear-comps-filter') {
     handleClearCompsFilter();
+  } else if (action === 'set-price-override') {
+    await handleSetPriceOverride(btn);
+  } else if (action === 'clear-price-override') {
+    await handleClearPriceOverride(btn);
   } else if (action === 'delete-comp') {
     await handleDeleteComp(btn);
   } else if (action === 'show-add-comp') {
@@ -1463,11 +1537,15 @@ function handleFilterComps(btn) {
   btn.classList.add('active-filter');
 
   document.getElementById('modal-comps-list').innerHTML = renderCompRows(entry.sales);
+  const useAsPriceBtn = (!entry.isOwn && entry.value !== null)
+    ? `<button class="use-as-price-btn" data-action="set-price-override" data-tree-key="${key}">Use as my price</button>`
+    : '';
   document.getElementById('modal-comps-filter').innerHTML = `
     <div class="comps-filter-bar">
       Showing <strong>${entry.label}</strong> (${entry.sales.length})
       <button class="clear-filter-btn" data-action="clear-comps-filter">× clear</button>
-    </div>`;
+    </div>
+    ${useAsPriceBtn}`;
 }
 
 function handleClearCompsFilter() {
@@ -1476,6 +1554,76 @@ function handleClearCompsFilter() {
   document.querySelectorAll('#modal-panel .tree-item.active-filter').forEach(el => el.classList.remove('active-filter'));
   document.getElementById('modal-comps-list').innerHTML = renderCompRows(card.comps);
   document.getElementById('modal-comps-filter').innerHTML = '';
+}
+
+async function handleSetPriceOverride(btn) {
+  const key = btn.dataset.treeKey;
+  const entry = modalTreeSalesIndex[key];
+  if (!entry) return;
+
+  if (!confirm(`Use ${entry.label} (${fmtMoney(entry.value)}) as this card's displayed price? The real breakdown still shows what your exact grade actually sold for - this just sets which number shows as the headline value, until you clear it.`)) return;
+  if (!hasGithubConnection()) {
+    showToast('error', 'Connect GitHub first — open the Add Card page and fill in the connection settings.');
+    return;
+  }
+
+  btn.disabled = true;
+  try {
+    const existing = await getExistingFile(DATA_PATH_REPO);
+    if (!existing) throw new Error('price_history.json not found.');
+    const freshHistory = JSON.parse(base64ToUtf8(existing.content));
+    const cardEntry = freshHistory[openCardId];
+    if (!cardEntry) throw new Error("Couldn't find this card in the history file.");
+
+    cardEntry.value_override = { label: entry.label, value: entry.value, set_at: new Date().toISOString() };
+
+    await putFile(DATA_PATH_REPO, utf8ToBase64(JSON.stringify(freshHistory, null, 2)),
+      `Set price override for ${openCardId}: ${entry.label}`, existing.sha);
+
+    rawHistory = freshHistory;
+    cardsData = buildCardObjects(rawHistory);
+    renderSummary(cardsData);
+    drawPortfolioChart(cardsData);
+    applyFiltersAndSort();
+    refreshModalIfOpen();
+    showToast('success', `Now pricing from ${entry.label}.`);
+  } catch (err) {
+    showToast('error', err.message || 'Failed to set price override.');
+    console.error(err);
+  } finally {
+    btn.disabled = false;
+  }
+}
+
+async function handleClearPriceOverride(btn) {
+  if (!hasGithubConnection()) {
+    showToast('error', 'Connect GitHub first — open the Add Card page and fill in the connection settings.');
+    return;
+  }
+  btn.disabled = true;
+  try {
+    const existing = await getExistingFile(DATA_PATH_REPO);
+    if (!existing) throw new Error('price_history.json not found.');
+    const freshHistory = JSON.parse(base64ToUtf8(existing.content));
+    const cardEntry = freshHistory[openCardId];
+    if (cardEntry) delete cardEntry.value_override;
+
+    await putFile(DATA_PATH_REPO, utf8ToBase64(JSON.stringify(freshHistory, null, 2)),
+      `Clear price override for ${openCardId}`, existing.sha);
+
+    rawHistory = freshHistory;
+    cardsData = buildCardObjects(rawHistory);
+    renderSummary(cardsData);
+    drawPortfolioChart(cardsData);
+    applyFiltersAndSort();
+    refreshModalIfOpen();
+    showToast('success', 'Back to your card\'s exact-grade price.');
+  } catch (err) {
+    showToast('error', err.message || 'Failed to clear price override.');
+    console.error(err);
+  } finally {
+    btn.disabled = false;
+  }
 }
 
 async function handleDeleteComp(btn) {
