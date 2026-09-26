@@ -176,8 +176,25 @@ def title_matches_card_number(title: str, card_number: str) -> bool:
     return re.search(pattern, title, re.IGNORECASE) is not None
 
 
+def is_usable_sale(r: dict) -> bool:
+    """
+    A record only counts as a real, poolable sale if it's confirmed, has a
+    price, AND is priced in USD. TheCardAPI mixes currencies across its
+    platforms (eBay Australia, international sellers, etc.) with no FX
+    conversion - an AUD or other non-USD price is a real number, but
+    treating it as a raw USD figure would silently corrupt every median
+    it's pooled into. Records with no currency field at all are assumed
+    USD (the vast majority of the data), since TheCardAPI doesn't always
+    populate that field even for genuine USD sales.
+    """
+    if not (r.get("price_confirmed") and r.get("price") is not None):
+        return False
+    currency = r.get("currency")
+    return currency is None or currency == "USD"
+
+
 def median_confirmed_price(records: list):
-    prices = [r["price"] for r in records if r.get("price_confirmed") and r.get("price") is not None]
+    prices = [r["price"] for r in records if is_usable_sale(r)]
     if not prices:
         return None
     return round(statistics.median(prices), 2)
@@ -196,7 +213,7 @@ def build_dynamic_tree(records: list, card_grader: str, card_grade: str):
     are for the card's own row specifically, used as the headline figures.
     """
     groups = {}  # "Raw" or company -> { grade_value_or_None: [records] }
-    confirmed = [r for r in records if r.get("price_confirmed") and r.get("price") is not None]
+    confirmed = [r for r in records if is_usable_sale(r)]
 
     for r in confirmed:
         company, grade_val = parse_grade_from_title(r.get("title", ""))
@@ -302,6 +319,10 @@ def main():
             if filtered_out:
                 print(f"  (filtered out {filtered_out} result(s) whose title didn't mention #{card_number} - likely a different card in the same product line)")
 
+        non_usd_count = sum(1 for r in records if r.get("currency") not in (None, "USD"))
+        if non_usd_count:
+            print(f"  (ignoring {non_usd_count} non-USD-priced result(s) to avoid mixing currencies into the median)")
+
         total_records_used += raw_count
 
         tree, value, sample_size, own_records = build_dynamic_tree(records, grader, grade)
@@ -317,7 +338,7 @@ def main():
                 "title": r.get("title", ""),
                 "label": (lambda c, g: f"{c} {g}" if c else "Raw")(*parse_grade_from_title(r.get("title", ""))),
             }
-            for r in records if r.get("price_confirmed") and r.get("price") is not None
+            for r in records if is_usable_sale(r)
         ]
 
         key = card_key(card)
