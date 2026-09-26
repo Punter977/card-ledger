@@ -7674,7 +7674,12 @@
           }
         ]
       }
-    ]
+    ],
+    "value_override": {
+      "label": "PSA 9",
+      "value": 2726,
+      "set_at": "2026-09-26T10:13:18.298Z"
+    }
   },
   "Michael Jordan | 1995-96 | Skybox Premium Electrified | 278 |  | ": {
     "meta": {
