@@ -5480,6 +5480,10 @@
             "label": "PSA 8"
           }
         ]
+      },
+      {
+        "date": "2026-10-01",
+        "pooled_sales": []
       }
     ],
     "manual_comps": [
@@ -7735,6 +7739,10 @@
       },
       {
         "date": "2026-09-30",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-10-01",
         "pooled_sales": []
       }
     ],
@@ -17380,6 +17388,18 @@
       {
         "date": "2026-09-30",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-10-01",
+        "pooled_sales": [
+          {
+            "price": 134.95,
+            "date": "2026-09-30",
+            "url": "https://www.ebay.com/itm/117436814709?hash=item1b57c79575%3Ag%3ATcUAAeSwDJpquwp6&mkevt=1&mkcid=1&mkrid=711-53200-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true",
+            "title": "Michael Jordan 1995-96 Skybox Premium Electrified #278",
+            "label": "Raw"
+          }
+        ]
       }
     ]
   },
@@ -24513,6 +24533,53 @@
       {
         "date": "2026-09-30",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-10-01",
+        "pooled_sales": [
+          {
+            "price": 5.25,
+            "date": "2026-09-30",
+            "url": "https://www.ebay.com/itm/227544372091?hash=item34fab3937b%3Ag%3AaroAAeSwxn9qu5Jn&mkevt=1&mkcid=1&mkrid=711-53200-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true",
+            "title": "1993-94 Fleer Ultra - #30 Michael Jordan ",
+            "label": "Raw"
+          },
+          {
+            "price": 90.0,
+            "date": "2026-09-30",
+            "url": "https://www.ebay.com/itm/117428946902?hash=item1b574f87d6%3Ag%3A51IAAeSwM05qtRxp&mkevt=1&mkcid=1&mkrid=711-53200-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true",
+            "title": "1993-94 Fleer Ultra Michael Jordan #30 Chicago Bulls PSA 9 Graded Card",
+            "label": "PSA 9"
+          },
+          {
+            "price": 87.0,
+            "date": "2026-09-30",
+            "url": "https://www.ebay.com/itm/377519309538?hash=item57e5e782e2%3Ag%3AhBoAAeSwCJlqtN0b&mkevt=1&mkcid=1&mkrid=711-53200-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true",
+            "title": "1993-94 Fleer Ultra Michael Jordan #30 Bulls PSA 9",
+            "label": "PSA 9"
+          },
+          {
+            "price": 5.0,
+            "date": "2026-09-29",
+            "url": "https://www.ebay.com/itm/257762880481?hash=item3c03dd6be1%3Ag%3ALjMAAeSwKYVqtS6q&mkevt=1&mkcid=1&mkrid=711-53200-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true",
+            "title": "1993-94 Fleer Ultra - Michael Jordan #30",
+            "label": "Raw"
+          },
+          {
+            "price": 5.0,
+            "date": "2026-09-29",
+            "url": "https://www.ebay.com/itm/336807489821?hash=item4e6b4a711d%3Ag%3AeGkAAeSw-hVqsqjE&mkevt=1&mkcid=1&mkrid=711-53200-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true",
+            "title": "1993-94 Fleer Ultra - Michael Jordan #30",
+            "label": "Raw"
+          },
+          {
+            "price": 8.95,
+            "date": "2026-09-29",
+            "url": "https://www.ebay.com/itm/147595174742?hash=item225d5ba356%3Ag%3A5bcAAeSw%7EUZqtJDC&mkevt=1&mkcid=1&mkrid=711-53200-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true",
+            "title": "1993-94 Fleer Ultra Michael Jordan #30",
+            "label": "Raw"
+          }
+        ]
       }
     ]
   },
@@ -26999,6 +27066,10 @@
       },
       {
         "date": "2026-09-30",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-10-01",
         "pooled_sales": []
       }
     ]
@@ -30045,6 +30116,18 @@
             "label": "Raw"
           }
         ]
+      },
+      {
+        "date": "2026-10-01",
+        "pooled_sales": [
+          {
+            "price": 22.5,
+            "date": "2026-09-30",
+            "url": "https://www.ebay.com/itm/336806176433?hash=item4e6b3666b1%3Ag%3AoiUAAeSwN55qscC1&mkevt=1&mkcid=1&mkrid=711-53200-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true",
+            "title": "1998-99 Topps Chrome Vince Carter #199 Rookie RC HOF",
+            "label": "Raw"
+          }
+        ]
       }
     ],
     "manual_comps": [
@@ -32013,6 +32096,10 @@
             "label": "PSA 9"
           }
         ]
+      },
+      {
+        "date": "2026-10-01",
+        "pooled_sales": []
       }
     ]
   },
@@ -35446,6 +35533,10 @@
       },
       {
         "date": "2026-09-30",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-10-01",
         "pooled_sales": []
       }
     ]
@@ -40662,6 +40753,10 @@
             "label": "Raw"
           }
         ]
+      },
+      {
+        "date": "2026-10-01",
+        "pooled_sales": []
       }
     ]
   },
@@ -44031,6 +44126,10 @@
       {
         "date": "2026-09-30",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-10-01",
+        "pooled_sales": []
       }
     ]
   },
@@ -45659,6 +45758,10 @@
       {
         "date": "2026-09-30",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-10-01",
+        "pooled_sales": []
       }
     ]
   },
@@ -47286,6 +47389,10 @@
       },
       {
         "date": "2026-09-30",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-10-01",
         "pooled_sales": []
       }
     ]
@@ -50525,6 +50632,10 @@
       {
         "date": "2026-09-30",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-10-01",
+        "pooled_sales": []
       }
     ]
   },
@@ -53312,6 +53423,10 @@
       {
         "date": "2026-09-30",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-10-01",
+        "pooled_sales": []
       }
     ]
   },
@@ -55064,6 +55179,10 @@
       {
         "date": "2026-09-30",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-10-01",
+        "pooled_sales": []
       }
     ]
   },
@@ -56155,6 +56274,10 @@
       {
         "date": "2026-09-30",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-10-01",
+        "pooled_sales": []
       }
     ]
   },
@@ -56713,6 +56836,10 @@
       },
       {
         "date": "2026-09-30",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-10-01",
         "pooled_sales": []
       }
     ],
@@ -57284,6 +57411,10 @@
       {
         "date": "2026-09-30",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-10-01",
+        "pooled_sales": []
       }
     ]
   },
@@ -57842,6 +57973,10 @@
       },
       {
         "date": "2026-09-30",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-10-01",
         "pooled_sales": []
       }
     ]
@@ -58402,6 +58537,10 @@
       {
         "date": "2026-09-30",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-10-01",
+        "pooled_sales": []
       }
     ]
   },
@@ -58960,6 +59099,10 @@
       },
       {
         "date": "2026-09-30",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-10-01",
         "pooled_sales": []
       }
     ]
@@ -59527,6 +59670,10 @@
       },
       {
         "date": "2026-09-30",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-10-01",
         "pooled_sales": []
       }
     ]
@@ -60291,6 +60438,10 @@
       {
         "date": "2026-09-30",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-10-01",
+        "pooled_sales": []
       }
     ]
   },
@@ -60850,6 +61001,10 @@
       {
         "date": "2026-09-30",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-10-01",
+        "pooled_sales": []
       }
     ]
   },
@@ -61408,6 +61563,10 @@
       },
       {
         "date": "2026-09-30",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-10-01",
         "pooled_sales": []
       }
     ]
@@ -65264,6 +65423,10 @@
       {
         "date": "2026-09-30",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-10-01",
+        "pooled_sales": []
       }
     ]
   },
@@ -65822,6 +65985,10 @@
       },
       {
         "date": "2026-09-30",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-10-01",
         "pooled_sales": []
       }
     ]
@@ -66684,6 +66851,10 @@
       },
       {
         "date": "2026-09-30",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-10-01",
         "pooled_sales": []
       }
     ]
@@ -68394,6 +68565,25 @@
       {
         "date": "2026-09-30",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-10-01",
+        "pooled_sales": [
+          {
+            "price": 60.0,
+            "date": "2026-09-30",
+            "url": "https://www.ebay.com/itm/377520253881?hash=item57e5f5ebb9%3Ag%3A0QAAAeSw%7EVFqtV4U&mkevt=1&mkcid=1&mkrid=711-53200-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true",
+            "title": "2007-08 Topps Chrome Lebron James #23 Cavaliers",
+            "label": "Raw"
+          },
+          {
+            "price": 51.0,
+            "date": "2026-09-30",
+            "url": "https://www.ebay.com/itm/377519317083?hash=item57e5e7a05b%3Ag%3AkVUAAeSwnulqtN5O&mkevt=1&mkcid=1&mkrid=711-53200-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true",
+            "title": "2007-08 Topps Chrome Lebron James #23 Cavaliers",
+            "label": "Raw"
+          }
+        ]
       }
     ]
   },
@@ -68952,6 +69142,10 @@
       },
       {
         "date": "2026-09-30",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-10-01",
         "pooled_sales": []
       }
     ]
@@ -74717,6 +74911,10 @@
             "label": "SGC 8.5"
           }
         ]
+      },
+      {
+        "date": "2026-10-01",
+        "pooled_sales": []
       }
     ]
   },
@@ -75275,6 +75473,10 @@
       },
       {
         "date": "2026-09-30",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-10-01",
         "pooled_sales": []
       }
     ]
@@ -75842,6 +76044,10 @@
       },
       {
         "date": "2026-09-30",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-10-01",
         "pooled_sales": []
       }
     ],
@@ -76533,6 +76739,10 @@
       {
         "date": "2026-09-30",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-10-01",
+        "pooled_sales": []
       }
     ]
   },
@@ -77101,6 +77311,10 @@
       },
       {
         "date": "2026-09-30",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-10-01",
         "pooled_sales": []
       }
     ]
@@ -78815,6 +79029,10 @@
       {
         "date": "2026-09-30",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-10-01",
+        "pooled_sales": []
       }
     ],
     "manual_comps": [
@@ -80018,6 +80236,10 @@
       {
         "date": "2026-09-30",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-10-01",
+        "pooled_sales": []
       }
     ]
   },
@@ -80218,6 +80440,10 @@
       },
       {
         "date": "2026-09-30",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-10-01",
         "pooled_sales": []
       }
     ]
@@ -84069,6 +84295,46 @@
       {
         "date": "2026-09-30",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-10-01",
+        "pooled_sales": [
+          {
+            "price": 4703.36,
+            "date": "2026-09-30",
+            "url": "https://www.ebay.com/itm/800700252220?hash=itemba6d74403c%3Ag%3A0UUAAeSwEtlqsqPH&mkevt=1&mkcid=1&mkrid=711-53200-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true",
+            "title": "1993-94 Fleer Ultra Scoring Kings #5 Michael Jordan Chicago Bulls HOF PSA 8",
+            "label": "PSA 8"
+          },
+          {
+            "price": 1275.0,
+            "date": "2026-09-29",
+            "url": "https://www.ebay.com/itm/800681633789?hash=itemba6c5827fd%3Ag%3AhRQAAeSw2DJqrXeC&mkevt=1&mkcid=1&mkrid=711-53200-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true",
+            "title": "1993-94 Fleer Ultra Scoring Kings #5 Michael Jordan Chicago Bulls HOF",
+            "label": "Raw"
+          },
+          {
+            "price": 1900.0,
+            "date": "2026-09-29",
+            "url": "https://www.ebay.com/itm/800723642942?hash=itemba6ed92a3e%3Ag%3AofIAAeSwHRtquSjn&mkevt=1&mkcid=1&mkrid=711-53200-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true",
+            "title": "Fleer Ultra 1993-94 Scoring Kings Michael Jordan Chicago Bulls Insert #5/10",
+            "label": "Raw"
+          },
+          {
+            "price": 2900.0,
+            "date": "2026-09-29",
+            "url": "https://www.ebay.com/itm/198660489561?hash=item2e41168159%3Ag%3AQncAAeSwXFlqrxOr&mkevt=1&mkcid=1&mkrid=711-53200-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true",
+            "title": "1993-94 Fleer Ultra Michael Jordan Scoring Kings #5 PSA 7 \ud83d\udd25 JUST GRADED",
+            "label": "PSA 7"
+          },
+          {
+            "price": 6120.0,
+            "date": "2026-09-29",
+            "url": "https://www.ebay.com/itm/168711651174?hash=item2747ff7f66%3Ag%3ATbcAAeSweg5qsxSm&mkevt=1&mkcid=1&mkrid=711-53200-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true",
+            "title": "1993-94 Fleer Ultra - Scoring Kings Michael Jordan #5 PSA 8.5",
+            "label": "PSA 8.5"
+          }
+        ]
       }
     ],
     "manual_comps": [
@@ -85731,6 +85997,10 @@
       {
         "date": "2026-09-30",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-10-01",
+        "pooled_sales": []
       }
     ],
     "manual_comps": [
@@ -85889,6 +86159,10 @@
       },
       {
         "date": "2026-09-30",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-10-01",
         "pooled_sales": []
       }
     ],
@@ -86137,6 +86411,46 @@
       {
         "date": "2026-09-30",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-10-01",
+        "pooled_sales": [
+          {
+            "price": 400.0,
+            "date": "2026-09-30",
+            "url": "https://www.ebay.com/itm/147605948840?hash=item225e0009a8%3Ag%3Ab%7EoAAeSwimhqutE1&mkevt=1&mkcid=1&mkrid=711-53200-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true",
+            "title": "1993-94 Fleer Ultra - Power in the Key Michael Jordan #2 Bulls GOAT DT",
+            "label": "Raw"
+          },
+          {
+            "price": 1225.0,
+            "date": "2026-09-30",
+            "url": "https://www.ebay.com/itm/128096759777?hash=item1dd3296fe1%3Ag%3AgNcAAeSwyZ5qtV6R&mkevt=1&mkcid=1&mkrid=711-53200-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true",
+            "title": "1993-94 Fleer Ultra Michael Jordan Power in the Key #2 Bulls CGC 9.5 MINT+",
+            "label": "CGC 9.5"
+          },
+          {
+            "price": 536.0,
+            "date": "2026-09-29",
+            "url": "https://www.ebay.com/itm/227527995518?hash=item34f9b9b07e%3Ag%3AnakAAeSwy3Fqrbn5&mkevt=1&mkcid=1&mkrid=711-53200-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true",
+            "title": "1993-94 Fleer Ultra Power In The Key #2 Michael Jordan Chicago Bulls HOF",
+            "label": "Raw"
+          },
+          {
+            "price": 385.0,
+            "date": "2026-09-29",
+            "url": "https://www.ebay.com/itm/800727595588?hash=itemba6f157a44%3Ag%3Av5gAAeSwAapqsyzk&mkevt=1&mkcid=1&mkrid=711-53200-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true",
+            "title": "1993-94 Fleer Ultra Power In The Key #2 Michael Jordan Chicago Bulls HOF",
+            "label": "Raw"
+          },
+          {
+            "price": 425.0,
+            "date": "2026-09-29",
+            "url": "https://www.ebay.com/itm/168731807325?hash=item2749330e5d%3Ag%3A7jAAAeSwVqpqud7r&mkevt=1&mkcid=1&mkrid=711-53200-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true",
+            "title": "1993-94 Fleer Ultra Power in the Key Insert Michael Jordan #2/9 Bulls",
+            "label": "Raw"
+          }
+        ]
       }
     ]
   },
@@ -86695,6 +87009,10 @@
       },
       {
         "date": "2026-09-30",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-10-01",
         "pooled_sales": []
       }
     ],
@@ -87265,6 +87583,10 @@
       },
       {
         "date": "2026-09-30",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-10-01",
         "pooled_sales": []
       }
     ]
@@ -87923,6 +88245,10 @@
       {
         "date": "2026-09-30",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-10-01",
+        "pooled_sales": []
       }
     ]
   },
@@ -88481,6 +88807,10 @@
       },
       {
         "date": "2026-09-30",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-10-01",
         "pooled_sales": []
       }
     ],
@@ -89057,6 +89387,10 @@
       },
       {
         "date": "2026-09-30",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-10-01",
         "pooled_sales": []
       }
     ],
