@@ -5484,6 +5484,10 @@
       {
         "date": "2026-10-01",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-10-02",
+        "pooled_sales": []
       }
     ],
     "manual_comps": [
@@ -7743,6 +7747,10 @@
       },
       {
         "date": "2026-10-01",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-10-02",
         "pooled_sales": []
       }
     ],
@@ -17400,6 +17408,18 @@
             "label": "Raw"
           }
         ]
+      },
+      {
+        "date": "2026-10-02",
+        "pooled_sales": [
+          {
+            "price": 150.0,
+            "date": "2026-10-02",
+            "url": "https://www.ebay.com/itm/336751906373?hash=item4e67fa4e45%3Ag%3AKg0AAeSwmKhqhnmx&mkevt=1&mkcid=1&mkrid=711-53200-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true",
+            "title": "1995-96 Skybox Premium - Electrified Michael Jordan #278",
+            "label": "Raw"
+          }
+        ]
       }
     ]
   },
@@ -24580,6 +24600,10 @@
             "label": "Raw"
           }
         ]
+      },
+      {
+        "date": "2026-10-02",
+        "pooled_sales": []
       }
     ]
   },
@@ -27070,6 +27094,10 @@
       },
       {
         "date": "2026-10-01",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-10-02",
         "pooled_sales": []
       }
     ]
@@ -30128,6 +30156,10 @@
             "label": "Raw"
           }
         ]
+      },
+      {
+        "date": "2026-10-02",
+        "pooled_sales": []
       }
     ],
     "manual_comps": [
@@ -32099,6 +32131,10 @@
       },
       {
         "date": "2026-10-01",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-10-02",
         "pooled_sales": []
       }
     ]
@@ -35537,6 +35573,10 @@
       },
       {
         "date": "2026-10-01",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-10-02",
         "pooled_sales": []
       }
     ]
@@ -40757,6 +40797,25 @@
       {
         "date": "2026-10-01",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-10-02",
+        "pooled_sales": [
+          {
+            "price": 10.0,
+            "date": "2026-10-01",
+            "url": "https://www.ebay.com/itm/336821171295?hash=item4e6c1b345f%3Ag%3A1pkAAeSwtIlqvVXJ&mkevt=1&mkcid=1&mkrid=711-53200-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true",
+            "title": "1992-93 Upper Deck Shaquille O'Neal Rookie (RC) #1B TRADE CARD \u2014\u2014\u00a0SHAQ",
+            "label": "Raw"
+          },
+          {
+            "price": 15.99,
+            "date": "2026-09-30",
+            "url": "https://www.ebay.com/itm/800724105452?hash=itemba6ee038ec%3Ag%3AZj4AAeSwpPxquUi4&mkevt=1&mkcid=1&mkrid=711-53200-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true",
+            "title": "1992-93 Shaq Upper Deck Shaquille O'Neal #1B Rookie Card (RC) Trade Card HOF",
+            "label": "Raw"
+          }
+        ]
       }
     ]
   },
@@ -44130,6 +44189,10 @@
       {
         "date": "2026-10-01",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-10-02",
+        "pooled_sales": []
       }
     ]
   },
@@ -45762,6 +45825,10 @@
       {
         "date": "2026-10-01",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-10-02",
+        "pooled_sales": []
       }
     ]
   },
@@ -47393,6 +47460,10 @@
       },
       {
         "date": "2026-10-01",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-10-02",
         "pooled_sales": []
       }
     ]
@@ -50636,6 +50707,10 @@
       {
         "date": "2026-10-01",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-10-02",
+        "pooled_sales": []
       }
     ]
   },
@@ -53427,6 +53502,10 @@
       {
         "date": "2026-10-01",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-10-02",
+        "pooled_sales": []
       }
     ]
   },
@@ -55183,6 +55262,10 @@
       {
         "date": "2026-10-01",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-10-02",
+        "pooled_sales": []
       }
     ]
   },
@@ -56278,6 +56361,10 @@
       {
         "date": "2026-10-01",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-10-02",
+        "pooled_sales": []
       }
     ]
   },
@@ -56840,6 +56927,10 @@
       },
       {
         "date": "2026-10-01",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-10-02",
         "pooled_sales": []
       }
     ],
@@ -57415,6 +57506,10 @@
       {
         "date": "2026-10-01",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-10-02",
+        "pooled_sales": []
       }
     ]
   },
@@ -57977,6 +58072,10 @@
       },
       {
         "date": "2026-10-01",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-10-02",
         "pooled_sales": []
       }
     ]
@@ -58541,6 +58640,10 @@
       {
         "date": "2026-10-01",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-10-02",
+        "pooled_sales": []
       }
     ]
   },
@@ -59103,6 +59206,10 @@
       },
       {
         "date": "2026-10-01",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-10-02",
         "pooled_sales": []
       }
     ]
@@ -59674,6 +59781,10 @@
       },
       {
         "date": "2026-10-01",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-10-02",
         "pooled_sales": []
       }
     ]
@@ -60442,6 +60553,10 @@
       {
         "date": "2026-10-01",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-10-02",
+        "pooled_sales": []
       }
     ]
   },
@@ -61005,6 +61120,10 @@
       {
         "date": "2026-10-01",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-10-02",
+        "pooled_sales": []
       }
     ]
   },
@@ -61567,6 +61686,10 @@
       },
       {
         "date": "2026-10-01",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-10-02",
         "pooled_sales": []
       }
     ]
@@ -65427,6 +65550,10 @@
       {
         "date": "2026-10-01",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-10-02",
+        "pooled_sales": []
       }
     ]
   },
@@ -65989,6 +66116,10 @@
       },
       {
         "date": "2026-10-01",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-10-02",
         "pooled_sales": []
       }
     ]
@@ -66855,6 +66986,10 @@
       },
       {
         "date": "2026-10-01",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-10-02",
         "pooled_sales": []
       }
     ]
@@ -68584,6 +68719,10 @@
             "label": "Raw"
           }
         ]
+      },
+      {
+        "date": "2026-10-02",
+        "pooled_sales": []
       }
     ]
   },
@@ -69146,6 +69285,10 @@
       },
       {
         "date": "2026-10-01",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-10-02",
         "pooled_sales": []
       }
     ]
@@ -74915,6 +75058,10 @@
       {
         "date": "2026-10-01",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-10-02",
+        "pooled_sales": []
       }
     ]
   },
@@ -75477,6 +75624,10 @@
       },
       {
         "date": "2026-10-01",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-10-02",
         "pooled_sales": []
       }
     ]
@@ -76048,6 +76199,10 @@
       },
       {
         "date": "2026-10-01",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-10-02",
         "pooled_sales": []
       }
     ],
@@ -76743,6 +76898,10 @@
       {
         "date": "2026-10-01",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-10-02",
+        "pooled_sales": []
       }
     ]
   },
@@ -77315,6 +77474,10 @@
       },
       {
         "date": "2026-10-01",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-10-02",
         "pooled_sales": []
       }
     ]
@@ -79033,6 +79196,10 @@
       {
         "date": "2026-10-01",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-10-02",
+        "pooled_sales": []
       }
     ],
     "manual_comps": [
@@ -80240,6 +80407,18 @@
       {
         "date": "2026-10-01",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-10-02",
+        "pooled_sales": [
+          {
+            "price": 860.0,
+            "date": "2026-10-01",
+            "url": "https://www.ebay.com/itm/800740339395?hash=itemba6fd7eec3%3Ag%3AODEAAeSwinFqvZMt&mkevt=1&mkcid=1&mkrid=711-53200-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true",
+            "title": "KOBE BRYANT 1996-97 BOWMAN'S BEST PICKS ROOKIE DIE CUT #BP10 LAKERS",
+            "label": "Raw"
+          }
+        ]
       }
     ]
   },
@@ -80445,6 +80624,18 @@
       {
         "date": "2026-10-01",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-10-02",
+        "pooled_sales": [
+          {
+            "price": 20.0,
+            "date": "2026-09-30",
+            "url": "https://www.ebay.com/itm/128081936002?hash=item1dd2473e82%3Ag%3AQdQAAeSwamhqvRE8&mkevt=1&mkcid=1&mkrid=711-53200-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true",
+            "title": "Shaquille O'Neal 1995-96 SkyBox Premium Electrified Shaq #293 Orlando Magic",
+            "label": "Raw"
+          }
+        ]
       }
     ]
   },
@@ -84335,6 +84526,10 @@
             "label": "PSA 8.5"
           }
         ]
+      },
+      {
+        "date": "2026-10-02",
+        "pooled_sales": []
       }
     ],
     "manual_comps": [
@@ -86001,6 +86196,10 @@
       {
         "date": "2026-10-01",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-10-02",
+        "pooled_sales": []
       }
     ],
     "manual_comps": [
@@ -86163,6 +86362,10 @@
       },
       {
         "date": "2026-10-01",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-10-02",
         "pooled_sales": []
       }
     ],
@@ -86451,6 +86654,10 @@
             "label": "Raw"
           }
         ]
+      },
+      {
+        "date": "2026-10-02",
+        "pooled_sales": []
       }
     ]
   },
@@ -87013,6 +87220,10 @@
       },
       {
         "date": "2026-10-01",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-10-02",
         "pooled_sales": []
       }
     ],
@@ -87587,6 +87798,10 @@
       },
       {
         "date": "2026-10-01",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-10-02",
         "pooled_sales": []
       }
     ]
@@ -88249,6 +88464,10 @@
       {
         "date": "2026-10-01",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-10-02",
+        "pooled_sales": []
       }
     ]
   },
@@ -88811,6 +89030,10 @@
       },
       {
         "date": "2026-10-01",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-10-02",
         "pooled_sales": []
       }
     ],
@@ -89391,6 +89614,10 @@
       },
       {
         "date": "2026-10-01",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-10-02",
         "pooled_sales": []
       }
     ],
