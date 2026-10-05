@@ -5496,6 +5496,10 @@
       {
         "date": "2026-10-04",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-10-05",
+        "pooled_sales": []
       }
     ],
     "manual_comps": [
@@ -7767,6 +7771,10 @@
       },
       {
         "date": "2026-10-04",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-10-05",
         "pooled_sales": []
       }
     ],
@@ -17452,6 +17460,18 @@
       {
         "date": "2026-10-04",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-10-05",
+        "pooled_sales": [
+          {
+            "price": 123.0,
+            "date": "2026-10-04",
+            "url": "https://www.ebay.com/itm/398451805037?hash=item5cc5940b6d%3Ag%3AjmIAAeSwz-dqvsig&mkevt=1&mkcid=1&mkrid=711-53200-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true",
+            "title": "SkyBox Michael Jordan 1995-96 Skybox Premium Electrified Insert #278 Bulls",
+            "label": "Raw"
+          }
+        ]
       }
     ]
   },
@@ -24652,6 +24672,10 @@
             "label": "PSA 9"
           }
         ]
+      },
+      {
+        "date": "2026-10-05",
+        "pooled_sales": []
       }
     ]
   },
@@ -27154,6 +27178,10 @@
       },
       {
         "date": "2026-10-04",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-10-05",
         "pooled_sales": []
       }
     ]
@@ -30224,6 +30252,10 @@
       {
         "date": "2026-10-04",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-10-05",
+        "pooled_sales": []
       }
     ],
     "manual_comps": [
@@ -32207,6 +32239,10 @@
       },
       {
         "date": "2026-10-04",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-10-05",
         "pooled_sales": []
       }
     ]
@@ -35672,6 +35708,10 @@
       },
       {
         "date": "2026-10-04",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-10-05",
         "pooled_sales": []
       }
     ]
@@ -40919,6 +40959,10 @@
       {
         "date": "2026-10-04",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-10-05",
+        "pooled_sales": []
       }
     ]
   },
@@ -44304,6 +44348,10 @@
       {
         "date": "2026-10-04",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-10-05",
+        "pooled_sales": []
       }
     ]
   },
@@ -45948,6 +45996,10 @@
       {
         "date": "2026-10-04",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-10-05",
+        "pooled_sales": []
       }
     ]
   },
@@ -47591,6 +47643,10 @@
       },
       {
         "date": "2026-10-04",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-10-05",
         "pooled_sales": []
       }
     ]
@@ -50846,6 +50902,10 @@
       {
         "date": "2026-10-04",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-10-05",
+        "pooled_sales": []
       }
     ]
   },
@@ -53657,6 +53717,10 @@
             "label": "Raw"
           }
         ]
+      },
+      {
+        "date": "2026-10-05",
+        "pooled_sales": []
       }
     ]
   },
@@ -55425,6 +55489,10 @@
       {
         "date": "2026-10-04",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-10-05",
+        "pooled_sales": []
       }
     ]
   },
@@ -56532,6 +56600,10 @@
       {
         "date": "2026-10-04",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-10-05",
+        "pooled_sales": []
       }
     ]
   },
@@ -57106,6 +57178,10 @@
       },
       {
         "date": "2026-10-04",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-10-05",
         "pooled_sales": []
       }
     ],
@@ -57693,6 +57769,10 @@
       {
         "date": "2026-10-04",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-10-05",
+        "pooled_sales": []
       }
     ]
   },
@@ -58267,6 +58347,10 @@
       },
       {
         "date": "2026-10-04",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-10-05",
         "pooled_sales": []
       }
     ]
@@ -58843,6 +58927,10 @@
       {
         "date": "2026-10-04",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-10-05",
+        "pooled_sales": []
       }
     ]
   },
@@ -59417,6 +59505,10 @@
       },
       {
         "date": "2026-10-04",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-10-05",
         "pooled_sales": []
       }
     ]
@@ -60000,6 +60092,10 @@
       },
       {
         "date": "2026-10-04",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-10-05",
         "pooled_sales": []
       }
     ]
@@ -60780,6 +60876,10 @@
       {
         "date": "2026-10-04",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-10-05",
+        "pooled_sales": []
       }
     ]
   },
@@ -61355,6 +61455,10 @@
       {
         "date": "2026-10-04",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-10-05",
+        "pooled_sales": []
       }
     ]
   },
@@ -61929,6 +62033,10 @@
       },
       {
         "date": "2026-10-04",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-10-05",
         "pooled_sales": []
       }
     ]
@@ -65809,6 +65917,10 @@
       {
         "date": "2026-10-04",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-10-05",
+        "pooled_sales": []
       }
     ]
   },
@@ -66383,6 +66495,10 @@
       },
       {
         "date": "2026-10-04",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-10-05",
         "pooled_sales": []
       }
     ]
@@ -67261,6 +67377,10 @@
       },
       {
         "date": "2026-10-04",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-10-05",
         "pooled_sales": []
       }
     ]
@@ -69002,6 +69122,25 @@
       {
         "date": "2026-10-04",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-10-05",
+        "pooled_sales": [
+          {
+            "price": 56.58,
+            "date": "2026-10-04",
+            "url": "https://www.ebay.com/itm/800751732426?hash=itemba7085c6ca%3Ag%3AIzMAAeSwGTNqwJ2U&mkevt=1&mkcid=1&mkrid=711-53200-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true",
+            "title": "LEBRON JAMES 2007-08 TOPPS CHROME # 23",
+            "label": "Raw"
+          },
+          {
+            "price": 112.51,
+            "date": "2026-10-03",
+            "url": "https://www.ebay.com/itm/800715661275?hash=itemba6e5f5fdb%3Ag%3AaTkAAeSwDtpqtusP&mkevt=1&mkcid=1&mkrid=711-53200-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true",
+            "title": "2007-08 Topps Chrome LeBron James #23 Cleveland Cavaliers Future HOF'er",
+            "label": "Raw"
+          }
+        ]
       }
     ]
   },
@@ -69576,6 +69715,10 @@
       },
       {
         "date": "2026-10-04",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-10-05",
         "pooled_sales": []
       }
     ]
@@ -75357,6 +75500,10 @@
       {
         "date": "2026-10-04",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-10-05",
+        "pooled_sales": []
       }
     ]
   },
@@ -75931,6 +76078,10 @@
       },
       {
         "date": "2026-10-04",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-10-05",
         "pooled_sales": []
       }
     ]
@@ -76514,6 +76665,10 @@
       },
       {
         "date": "2026-10-04",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-10-05",
         "pooled_sales": []
       }
     ],
@@ -77221,6 +77376,10 @@
       {
         "date": "2026-10-04",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-10-05",
+        "pooled_sales": []
       }
     ]
   },
@@ -77805,6 +77964,10 @@
       },
       {
         "date": "2026-10-04",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-10-05",
         "pooled_sales": []
       }
     ]
@@ -79535,6 +79698,10 @@
       {
         "date": "2026-10-04",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-10-05",
+        "pooled_sales": []
       }
     ],
     "manual_comps": [
@@ -80770,6 +80937,18 @@
       {
         "date": "2026-10-04",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-10-05",
+        "pooled_sales": [
+          {
+            "price": 618.0,
+            "date": "2026-10-04",
+            "url": "https://www.ebay.com/itm/377529529689?hash=item57e6837559%3Ag%3Aql4AAeSwUbVqur4s&mkevt=1&mkcid=1&mkrid=711-53200-19255-0&campid=5338055853&customid=&toolid=11008&nordt=true",
+            "title": "1996-97 Bowman's Best Kobe Bryant Picks Rookie RC #BP10 Lakers BGS 9",
+            "label": "BGS 9"
+          }
+        ]
       }
     ]
   },
@@ -80994,6 +81173,10 @@
       },
       {
         "date": "2026-10-04",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-10-05",
         "pooled_sales": []
       }
     ]
@@ -84897,6 +85080,10 @@
       {
         "date": "2026-10-04",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-10-05",
+        "pooled_sales": []
       }
     ],
     "manual_comps": [
@@ -86575,6 +86762,10 @@
       {
         "date": "2026-10-04",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-10-05",
+        "pooled_sales": []
       }
     ],
     "manual_comps": [
@@ -86749,6 +86940,10 @@
       },
       {
         "date": "2026-10-04",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-10-05",
         "pooled_sales": []
       }
     ],
@@ -87048,6 +87243,10 @@
       },
       {
         "date": "2026-10-04",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-10-05",
         "pooled_sales": []
       }
     ]
@@ -87623,6 +87822,10 @@
       },
       {
         "date": "2026-10-04",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-10-05",
         "pooled_sales": []
       }
     ],
@@ -88209,6 +88412,10 @@
       },
       {
         "date": "2026-10-04",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-10-05",
         "pooled_sales": []
       }
     ]
@@ -88898,6 +89105,10 @@
       {
         "date": "2026-10-04",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-10-05",
+        "pooled_sales": []
       }
     ]
   },
@@ -89472,6 +89683,10 @@
       },
       {
         "date": "2026-10-04",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-10-05",
         "pooled_sales": []
       }
     ],
@@ -90073,6 +90288,10 @@
             "label": "Raw"
           }
         ]
+      },
+      {
+        "date": "2026-10-05",
+        "pooled_sales": []
       }
     ],
     "manual_comps": [
