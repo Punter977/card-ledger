@@ -80798,7 +80798,12 @@
         "source": "manual",
         "added_at": "2026-10-13T09:11:58.670Z"
       }
-    ]
+    ],
+    "value_override": {
+      "label": "PSA 9",
+      "value": 6500,
+      "set_at": "2026-10-13T09:12:57.550Z"
+    }
   },
   "Kobe Bryant | 1996-97 | Bowman's Best Picks | BP10 |  | BGS 9": {
     "meta": {
