@@ -80788,7 +80788,17 @@
         "pooled_sales": []
       }
     ],
-    "manual_comps": []
+    "manual_comps": [
+      {
+        "price": 6500,
+        "date": "2026-09-19",
+        "label": "PSA 9",
+        "title": "1998 Fleer Tradition Electrifying Kobe Bryant #1 PSA 9 MINT Rare Insert! Lakers",
+        "url": "https://ebay.com/itm/287511857176?nordt=true",
+        "source": "manual",
+        "added_at": "2026-10-13T09:11:58.670Z"
+      }
+    ]
   },
   "Kobe Bryant | 1996-97 | Bowman's Best Picks | BP10 |  | BGS 9": {
     "meta": {
