@@ -5665,6 +5665,18 @@
             "label": "BGS 9"
           }
         ]
+      },
+      {
+        "date": "2026-10-28",
+        "pooled_sales": [
+          {
+            "price": 1525.0,
+            "date": "2026-10-26",
+            "url": "https://www.ebay.com/itm/128147397160",
+            "title": "1992-93 Topps Stadium Club Michael Jordan Beam Team #1 Bulls PSA 8",
+            "label": "PSA 8"
+          }
+        ]
       }
     ],
     "manual_comps": [
@@ -8028,6 +8040,10 @@
       },
       {
         "date": "2026-10-27",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-10-28",
         "pooled_sales": []
       }
     ],
@@ -18056,6 +18072,53 @@
             "label": "Raw"
           }
         ]
+      },
+      {
+        "date": "2026-10-28",
+        "pooled_sales": [
+          {
+            "price": 100.0,
+            "date": "2026-10-27",
+            "url": "https://www.ebay.com/itm/377588316264",
+            "title": "1995-96 Skybox Premium Michael Jordan Electrified #278 Bulls",
+            "label": "Raw"
+          },
+          {
+            "price": 103.5,
+            "date": "2026-10-27",
+            "url": "https://www.ebay.com/itm/377587816567",
+            "title": "1995-96 Skybox Premium Michael Jordan Electrified #278 Bulls",
+            "label": "Raw"
+          },
+          {
+            "price": 150.01,
+            "date": "2026-10-26",
+            "url": "https://www.ebay.com/itm/198710981992",
+            "title": "SkyBox 1995-96 Skybox Premium Electrified Michael Jordan Bulls #278 Card",
+            "label": "Raw"
+          },
+          {
+            "price": 127.5,
+            "date": "2026-10-26",
+            "url": "https://www.ebay.com/itm/128146771023",
+            "title": "1995-96 Skybox Premium Michael Jordan Electrified #278 Bulls",
+            "label": "Raw"
+          },
+          {
+            "price": 399.99,
+            "date": "2026-10-26",
+            "url": "https://www.ebay.com/itm/960099399693",
+            "title": "1995-96 Skybox Premium Michael Jordan Electrified #278 PSA 8 NM-MT CLEAN Bulls",
+            "label": "PSA 8"
+          },
+          {
+            "price": 160.5,
+            "date": "2026-10-25",
+            "url": "https://www.ebay.com/itm/227571749396",
+            "title": "1995-96 SKYBOX PREMIUM MICHAEL JORDAN #278 ELECTRIFIED CHICAGO BULLS ! Blazer!",
+            "label": "Raw"
+          }
+        ]
       }
     ]
   },
@@ -25442,6 +25505,10 @@
             "label": "Raw"
           }
         ]
+      },
+      {
+        "date": "2026-10-28",
+        "pooled_sales": []
       }
     ]
   },
@@ -28036,6 +28103,10 @@
       },
       {
         "date": "2026-10-27",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-10-28",
         "pooled_sales": []
       }
     ]
@@ -31245,6 +31316,10 @@
       {
         "date": "2026-10-27",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-10-28",
+        "pooled_sales": []
       }
     ],
     "manual_comps": [
@@ -33352,6 +33427,10 @@
       },
       {
         "date": "2026-10-27",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-10-28",
         "pooled_sales": []
       }
     ]
@@ -36909,6 +36988,10 @@
       },
       {
         "date": "2026-10-27",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-10-28",
         "pooled_sales": []
       }
     ]
@@ -42334,6 +42417,25 @@
             "label": "Raw"
           }
         ]
+      },
+      {
+        "date": "2026-10-28",
+        "pooled_sales": [
+          {
+            "price": 8.5,
+            "date": "2026-10-26",
+            "url": "https://www.ebay.com/itm/137846358801",
+            "title": "1992-93 Upper Deck #1b Shaquille O'Neal TRADE CARD ROOKIE RC MAGIC HOF",
+            "label": "Raw"
+          },
+          {
+            "price": 14.99,
+            "date": "2026-10-25",
+            "url": "https://www.ebay.com/itm/168702585400",
+            "title": "1992-93 Upper Deck SHAQUILLE O'NEAL Rookie RC Trade Card #1b Orlando Magic",
+            "label": "Raw"
+          }
+        ]
       }
     ]
   },
@@ -45819,6 +45921,10 @@
       {
         "date": "2026-10-27",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-10-28",
+        "pooled_sales": []
       }
     ]
   },
@@ -47555,6 +47661,10 @@
       {
         "date": "2026-10-27",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-10-28",
+        "pooled_sales": []
       }
     ]
   },
@@ -49290,6 +49400,10 @@
       },
       {
         "date": "2026-10-27",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-10-28",
         "pooled_sales": []
       }
     ]
@@ -52637,6 +52751,10 @@
       {
         "date": "2026-10-27",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-10-28",
+        "pooled_sales": []
       }
     ]
   },
@@ -55563,6 +55681,10 @@
       {
         "date": "2026-10-27",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-10-28",
+        "pooled_sales": []
       }
     ]
   },
@@ -57439,6 +57561,10 @@
       {
         "date": "2026-10-27",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-10-28",
+        "pooled_sales": []
       }
     ]
   },
@@ -58646,6 +58772,10 @@
       {
         "date": "2026-10-27",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-10-28",
+        "pooled_sales": []
       }
     ]
   },
@@ -59312,6 +59442,10 @@
       },
       {
         "date": "2026-10-27",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-10-28",
         "pooled_sales": []
       }
     ],
@@ -59991,6 +60125,10 @@
       {
         "date": "2026-10-27",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-10-28",
+        "pooled_sales": []
       }
     ]
   },
@@ -60657,6 +60795,10 @@
       },
       {
         "date": "2026-10-27",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-10-28",
         "pooled_sales": []
       }
     ]
@@ -61325,6 +61467,10 @@
       {
         "date": "2026-10-27",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-10-28",
+        "pooled_sales": []
       }
     ]
   },
@@ -61991,6 +62137,10 @@
       },
       {
         "date": "2026-10-27",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-10-28",
         "pooled_sales": []
       }
     ]
@@ -62674,6 +62824,10 @@
       },
       {
         "date": "2026-10-27",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-10-28",
         "pooled_sales": []
       }
     ]
@@ -63608,6 +63762,18 @@
       {
         "date": "2026-10-27",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-10-28",
+        "pooled_sales": [
+          {
+            "price": 9.99,
+            "date": "2026-10-26",
+            "url": "https://www.ebay.com/itm/880032755808",
+            "title": "1998-99 Skybox x Premium Kobe Bryant Ninety Fine #205 Lakers",
+            "label": "Raw"
+          }
+        ]
       }
     ]
   },
@@ -64275,6 +64441,10 @@
       {
         "date": "2026-10-27",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-10-28",
+        "pooled_sales": []
       }
     ]
   },
@@ -64941,6 +65111,10 @@
       },
       {
         "date": "2026-10-27",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-10-28",
         "pooled_sales": []
       }
     ]
@@ -69039,6 +69213,18 @@
             "label": "Raw"
           }
         ]
+      },
+      {
+        "date": "2026-10-28",
+        "pooled_sales": [
+          {
+            "price": 15.5,
+            "date": "2026-10-26",
+            "url": "https://www.ebay.com/itm/168795066168",
+            "title": "MICHAEL JORDAN 1991-92 Fleer Basketball #29 PSA 7 NM *tc",
+            "label": "PSA 7"
+          }
+        ]
       }
     ]
   },
@@ -69705,6 +69891,10 @@
       },
       {
         "date": "2026-10-27",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-10-28",
         "pooled_sales": []
       }
     ]
@@ -70675,6 +70865,10 @@
       },
       {
         "date": "2026-10-27",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-10-28",
         "pooled_sales": []
       }
     ]
@@ -72539,6 +72733,10 @@
       {
         "date": "2026-10-27",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-10-28",
+        "pooled_sales": []
       }
     ]
   },
@@ -73205,6 +73403,10 @@
       },
       {
         "date": "2026-10-27",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-10-28",
         "pooled_sales": []
       }
     ]
@@ -79328,6 +79530,46 @@
             "label": "Raw"
           }
         ]
+      },
+      {
+        "date": "2026-10-28",
+        "pooled_sales": [
+          {
+            "price": 7.5,
+            "date": "2026-10-26",
+            "url": "https://www.ebay.com/itm/880020364060",
+            "title": "1992-93 Topps Shaquille O'Neal Rookie #362 IM1",
+            "label": "Raw"
+          },
+          {
+            "price": 66.05,
+            "date": "2026-10-26",
+            "url": "https://www.ebay.com/itm/128146750940",
+            "title": "1992-93 Topps Shaquille O'Neal Rookie RC #362 Magic",
+            "label": "Raw"
+          },
+          {
+            "price": 60.0,
+            "date": "2026-10-26",
+            "url": "https://www.ebay.com/itm/327411851945",
+            "title": "Topps 1992-93 Shaquille O'Neal #362 Orlando Magic Draft Pick RC Card",
+            "label": "Raw"
+          },
+          {
+            "price": 228.5,
+            "date": "2026-10-25",
+            "url": "https://www.ebay.com/itm/840024126943",
+            "title": "1992-93 Topps - Shaquille O'Neal #362 Gold (RC) PSA 9 Mint Rookie",
+            "label": "PSA 9"
+          },
+          {
+            "price": 56.55,
+            "date": "2026-10-25",
+            "url": "https://www.ebay.com/itm/128144886643",
+            "title": "1992-93 Topps Shaquille O'Neal Rookie RC #362 Magic PSA 9",
+            "label": "PSA 9"
+          }
+        ]
       }
     ]
   },
@@ -79994,6 +80236,10 @@
       },
       {
         "date": "2026-10-27",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-10-28",
         "pooled_sales": []
       }
     ]
@@ -80669,6 +80915,10 @@
       },
       {
         "date": "2026-10-27",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-10-28",
         "pooled_sales": []
       }
     ],
@@ -81468,6 +81718,10 @@
       {
         "date": "2026-10-27",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-10-28",
+        "pooled_sales": []
       }
     ]
   },
@@ -82144,6 +82398,10 @@
       },
       {
         "date": "2026-10-27",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-10-28",
         "pooled_sales": []
       }
     ]
@@ -83982,6 +84240,10 @@
       {
         "date": "2026-10-27",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-10-28",
+        "pooled_sales": []
       }
     ],
     "manual_comps": [
@@ -85330,6 +85592,10 @@
       {
         "date": "2026-10-27",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-10-28",
+        "pooled_sales": []
       }
     ]
   },
@@ -85740,6 +86006,10 @@
             "label": "CGC 8.5"
           }
         ]
+      },
+      {
+        "date": "2026-10-28",
+        "pooled_sales": []
       }
     ]
   },
@@ -89788,6 +90058,10 @@
       {
         "date": "2026-10-27",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-10-28",
+        "pooled_sales": []
       }
     ],
     "manual_comps": [
@@ -91558,6 +91832,10 @@
       {
         "date": "2026-10-27",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-10-28",
+        "pooled_sales": []
       }
     ],
     "manual_comps": [
@@ -91824,6 +92102,10 @@
       },
       {
         "date": "2026-10-27",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-10-28",
         "pooled_sales": []
       }
     ],
@@ -92277,6 +92559,18 @@
             "url": "https://www.ebay.com/itm/137825860855",
             "title": "Michael Jordan 1993-94 Fleer Ultra Power in the Key #2",
             "label": "Raw"
+          }
+        ]
+      },
+      {
+        "date": "2026-10-28",
+        "pooled_sales": [
+          {
+            "price": 1025.0,
+            "date": "2026-10-25",
+            "url": "https://www.ebay.com/itm/147641524757",
+            "title": "Fleer Ultra 1993-94 Power in the Key Michael Jordan Bulls #2 PSA 8",
+            "label": "PSA 8"
           }
         ]
       }
@@ -92969,6 +93263,10 @@
       {
         "date": "2026-10-27",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-10-28",
+        "pooled_sales": []
       }
     ],
     "manual_comps": [
@@ -93646,6 +93944,10 @@
       },
       {
         "date": "2026-10-27",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-10-28",
         "pooled_sales": []
       }
     ]
@@ -94473,6 +94775,10 @@
             "label": "Raw"
           }
         ]
+      },
+      {
+        "date": "2026-10-28",
+        "pooled_sales": []
       }
     ]
   },
@@ -95139,6 +95445,10 @@
       },
       {
         "date": "2026-10-27",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-10-28",
         "pooled_sales": []
       }
     ],
@@ -95831,6 +96141,10 @@
       },
       {
         "date": "2026-10-27",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-10-28",
         "pooled_sales": []
       }
     ],
