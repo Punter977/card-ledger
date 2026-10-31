@@ -5693,6 +5693,10 @@
       {
         "date": "2026-10-30",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-10-31",
+        "pooled_sales": []
       }
     ],
     "manual_comps": [
@@ -8068,6 +8072,10 @@
       },
       {
         "date": "2026-10-30",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-10-31",
         "pooled_sales": []
       }
     ],
@@ -18209,6 +18217,18 @@
             "label": "Raw"
           }
         ]
+      },
+      {
+        "date": "2026-10-31",
+        "pooled_sales": [
+          {
+            "price": 399.99,
+            "date": "2026-10-28",
+            "url": "https://www.ebay.com/itm/960121054550",
+            "title": "1995-96 Skybox Premium Michael Jordan Electrified #278 PSA 8 NM-MT CLEAN Bulls",
+            "label": "PSA 8"
+          }
+        ]
       }
     ]
   },
@@ -25615,6 +25635,18 @@
             "label": "Raw"
           }
         ]
+      },
+      {
+        "date": "2026-10-31",
+        "pooled_sales": [
+          {
+            "price": 8.0,
+            "date": "2026-10-28",
+            "url": "https://www.ebay.com/itm/237147493804",
+            "title": "1993-94 Fleer Ultra Michael Jordan #30 - Chicago Bulls Card MJ",
+            "label": "Raw"
+          }
+        ]
       }
     ]
   },
@@ -28221,6 +28253,10 @@
       },
       {
         "date": "2026-10-30",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-10-31",
         "pooled_sales": []
       }
     ]
@@ -31442,6 +31478,10 @@
       {
         "date": "2026-10-30",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-10-31",
+        "pooled_sales": []
       }
     ],
     "manual_comps": [
@@ -33561,6 +33601,10 @@
       },
       {
         "date": "2026-10-30",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-10-31",
         "pooled_sales": []
       }
     ]
@@ -37130,6 +37174,10 @@
       },
       {
         "date": "2026-10-30",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-10-31",
         "pooled_sales": []
       }
     ]
@@ -42605,6 +42653,10 @@
             "label": "PSA 8"
           }
         ]
+      },
+      {
+        "date": "2026-10-31",
+        "pooled_sales": []
       }
     ]
   },
@@ -46102,6 +46154,10 @@
       {
         "date": "2026-10-30",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-10-31",
+        "pooled_sales": []
       }
     ]
   },
@@ -47850,6 +47906,10 @@
       {
         "date": "2026-10-30",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-10-31",
+        "pooled_sales": []
       }
     ]
   },
@@ -49597,6 +49657,10 @@
       },
       {
         "date": "2026-10-30",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-10-31",
         "pooled_sales": []
       }
     ]
@@ -52956,6 +53020,10 @@
       {
         "date": "2026-10-30",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-10-31",
+        "pooled_sales": []
       }
     ]
   },
@@ -55902,6 +55970,18 @@
       {
         "date": "2026-10-30",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-10-31",
+        "pooled_sales": [
+          {
+            "price": 30.0,
+            "date": "2026-10-28",
+            "url": "https://www.ebay.com/itm/960096957384",
+            "title": "1998-99 NBA Hoops - Pump Up the Jam Kobe Bryant #4 PJ",
+            "label": "Raw"
+          }
+        ]
       }
     ]
   },
@@ -57790,6 +57870,10 @@
       {
         "date": "2026-10-30",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-10-31",
+        "pooled_sales": []
       }
     ]
   },
@@ -59009,6 +59093,10 @@
       {
         "date": "2026-10-30",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-10-31",
+        "pooled_sales": []
       }
     ]
   },
@@ -59687,6 +59775,10 @@
       },
       {
         "date": "2026-10-30",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-10-31",
         "pooled_sales": []
       }
     ],
@@ -60378,6 +60470,10 @@
       {
         "date": "2026-10-30",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-10-31",
+        "pooled_sales": []
       }
     ]
   },
@@ -61056,6 +61152,10 @@
       },
       {
         "date": "2026-10-30",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-10-31",
         "pooled_sales": []
       }
     ]
@@ -61736,6 +61836,10 @@
       {
         "date": "2026-10-30",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-10-31",
+        "pooled_sales": []
       }
     ]
   },
@@ -62414,6 +62518,10 @@
       },
       {
         "date": "2026-10-30",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-10-31",
         "pooled_sales": []
       }
     ]
@@ -63109,6 +63217,10 @@
       },
       {
         "date": "2026-10-30",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-10-31",
         "pooled_sales": []
       }
     ]
@@ -64079,6 +64191,10 @@
             "label": "Raw"
           }
         ]
+      },
+      {
+        "date": "2026-10-31",
+        "pooled_sales": []
       }
     ]
   },
@@ -64758,6 +64874,10 @@
       {
         "date": "2026-10-30",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-10-31",
+        "pooled_sales": []
       }
     ]
   },
@@ -65436,6 +65556,10 @@
       },
       {
         "date": "2026-10-30",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-10-31",
         "pooled_sales": []
       }
     ]
@@ -69570,6 +69694,32 @@
             "label": "Raw"
           }
         ]
+      },
+      {
+        "date": "2026-10-31",
+        "pooled_sales": [
+          {
+            "price": 9.5,
+            "date": "2026-10-29",
+            "url": "https://www.ebay.com/itm/407297182297",
+            "title": "1991-92 Fleer #29 Michael Jordan HOF",
+            "label": "Raw"
+          },
+          {
+            "price": 5.5,
+            "date": "2026-10-28",
+            "url": "https://www.ebay.com/itm/940028211400",
+            "title": "MICHAEL JORDAN 1991-92 FLEER BASKETBALL #29 CHICAGO BULLS Q8390",
+            "label": "Raw"
+          },
+          {
+            "price": 9.0,
+            "date": "2026-10-28",
+            "url": "https://www.ebay.com/itm/267825467536",
+            "title": "1991-92 Fleer Michael Jordan #29 Chicago Bulls HOF Basketball Card",
+            "label": "Raw"
+          }
+        ]
       }
     ]
   },
@@ -70248,6 +70398,10 @@
       },
       {
         "date": "2026-10-30",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-10-31",
         "pooled_sales": []
       }
     ]
@@ -71230,6 +71384,10 @@
       },
       {
         "date": "2026-10-30",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-10-31",
         "pooled_sales": []
       }
     ]
@@ -73106,6 +73264,18 @@
       {
         "date": "2026-10-30",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-10-31",
+        "pooled_sales": [
+          {
+            "price": 57.0,
+            "date": "2026-10-28",
+            "url": "https://www.ebay.com/itm/880032346474",
+            "title": "LEBRON JAMES 2007-08 TOPPS CHROME #23 CAVALIERS",
+            "label": "Raw"
+          }
+        ]
       }
     ]
   },
@@ -73784,6 +73954,10 @@
       },
       {
         "date": "2026-10-30",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-10-31",
         "pooled_sales": []
       }
     ]
@@ -79978,6 +80152,25 @@
             "label": "Raw"
           }
         ]
+      },
+      {
+        "date": "2026-10-31",
+        "pooled_sales": [
+          {
+            "price": 55.0,
+            "date": "2026-10-28",
+            "url": "https://www.ebay.com/itm/128150903917",
+            "title": "1992-93 Topps Shaquille O'neal Rookie RC #362 Magic Gold",
+            "label": "Raw"
+          },
+          {
+            "price": 48.0,
+            "date": "2026-10-28",
+            "url": "https://www.ebay.com/itm/940028329080",
+            "title": "SHAQUILLE O'NEAL 1992-93 TOPPS 1992 DRAFT PICK ROOKIE RC #362 MAGIC Q7128",
+            "label": "Raw"
+          }
+        ]
       }
     ]
   },
@@ -80656,6 +80849,10 @@
       },
       {
         "date": "2026-10-30",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-10-31",
         "pooled_sales": []
       }
     ]
@@ -81343,6 +81540,10 @@
       },
       {
         "date": "2026-10-30",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-10-31",
         "pooled_sales": []
       }
     ],
@@ -82154,6 +82355,10 @@
       {
         "date": "2026-10-30",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-10-31",
+        "pooled_sales": []
       }
     ]
   },
@@ -82842,6 +83047,10 @@
       },
       {
         "date": "2026-10-30",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-10-31",
         "pooled_sales": []
       }
     ]
@@ -84692,6 +84901,10 @@
       {
         "date": "2026-10-30",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-10-31",
+        "pooled_sales": []
       }
     ],
     "manual_comps": [
@@ -86052,6 +86265,10 @@
       {
         "date": "2026-10-30",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-10-31",
+        "pooled_sales": []
       }
     ]
   },
@@ -86479,6 +86696,25 @@
             "date": "2026-10-27",
             "url": "https://www.ebay.com/itm/128151337076",
             "title": "Shaquille O'Neal 1995-96 SkyBox Premium Electrified Shaq #293 Orlando Magic",
+            "label": "Raw"
+          }
+        ]
+      },
+      {
+        "date": "2026-10-31",
+        "pooled_sales": [
+          {
+            "price": 14.5,
+            "date": "2026-10-29",
+            "url": "https://www.ebay.com/itm/377593158709",
+            "title": "1995-96 Skybox Premium Shaquille O'neal Electrified #293 Orlando Magic Insert",
+            "label": "Raw"
+          },
+          {
+            "price": 15.5,
+            "date": "2026-10-28",
+            "url": "https://www.ebay.com/itm/377590602824",
+            "title": "1995-96 Skybox Premium Shaquille O'Neal Electrified #293 Magic (A)",
             "label": "Raw"
           }
         ]
@@ -90550,6 +90786,10 @@
             "label": "PSA 6"
           }
         ]
+      },
+      {
+        "date": "2026-10-31",
+        "pooled_sales": []
       }
     ],
     "manual_comps": [
@@ -92332,6 +92572,10 @@
       {
         "date": "2026-10-30",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-10-31",
+        "pooled_sales": []
       }
     ],
     "manual_comps": [
@@ -92610,6 +92854,10 @@
       },
       {
         "date": "2026-10-30",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-10-31",
         "pooled_sales": []
       }
     ],
@@ -93085,6 +93333,18 @@
       {
         "date": "2026-10-30",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-10-31",
+        "pooled_sales": [
+          {
+            "price": 475.0,
+            "date": "2026-10-29",
+            "url": "https://www.ebay.com/itm/137872054896",
+            "title": "Michael Jordan 1993-94 Fleer Ultra Power in the Key Insert Collection #2",
+            "label": "Raw"
+          }
+        ]
       }
     ]
   },
@@ -93787,6 +94047,10 @@
       {
         "date": "2026-10-30",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-10-31",
+        "pooled_sales": []
       }
     ],
     "manual_comps": [
@@ -94476,6 +94740,10 @@
       },
       {
         "date": "2026-10-30",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-10-31",
         "pooled_sales": []
       }
     ]
@@ -95323,6 +95591,10 @@
       {
         "date": "2026-10-30",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-10-31",
+        "pooled_sales": []
       }
     ]
   },
@@ -96001,6 +96273,10 @@
       },
       {
         "date": "2026-10-30",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-10-31",
         "pooled_sales": []
       }
     ],
@@ -96706,6 +96982,18 @@
       {
         "date": "2026-10-30",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-10-31",
+        "pooled_sales": [
+          {
+            "price": 530.0,
+            "date": "2026-10-28",
+            "url": "https://www.ebay.com/itm/840038015401",
+            "title": "MICHAEL JORDAN PSA 9 2006-07 FLEER E-X EX BASKETBALL #4 BULLS 5264",
+            "label": "PSA 9"
+          }
+        ]
       }
     ],
     "manual_comps": [
