@@ -5697,6 +5697,10 @@
       {
         "date": "2026-10-31",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-11-01",
+        "pooled_sales": []
       }
     ],
     "manual_comps": [
@@ -8076,6 +8080,10 @@
       },
       {
         "date": "2026-10-31",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-11-01",
         "pooled_sales": []
       }
     ],
@@ -18229,6 +18237,10 @@
             "label": "PSA 8"
           }
         ]
+      },
+      {
+        "date": "2026-11-01",
+        "pooled_sales": []
       }
     ]
   },
@@ -25647,6 +25659,10 @@
             "label": "Raw"
           }
         ]
+      },
+      {
+        "date": "2026-11-01",
+        "pooled_sales": []
       }
     ]
   },
@@ -28257,6 +28273,10 @@
       },
       {
         "date": "2026-10-31",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-11-01",
         "pooled_sales": []
       }
     ]
@@ -31482,6 +31502,18 @@
       {
         "date": "2026-10-31",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-11-01",
+        "pooled_sales": [
+          {
+            "price": 28.99,
+            "date": "2026-10-29",
+            "url": "https://www.ebay.com/itm/960071542175",
+            "title": "Vince Carter 1998-99 Topps Chrome #199 Raptors RC",
+            "label": "Raw"
+          }
+        ]
       }
     ],
     "manual_comps": [
@@ -33605,6 +33637,10 @@
       },
       {
         "date": "2026-10-31",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-11-01",
         "pooled_sales": []
       }
     ]
@@ -37178,6 +37214,10 @@
       },
       {
         "date": "2026-10-31",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-11-01",
         "pooled_sales": []
       }
     ]
@@ -42657,6 +42697,10 @@
       {
         "date": "2026-10-31",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-11-01",
+        "pooled_sales": []
       }
     ]
   },
@@ -46158,6 +46202,10 @@
       {
         "date": "2026-10-31",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-11-01",
+        "pooled_sales": []
       }
     ]
   },
@@ -47910,6 +47958,10 @@
       {
         "date": "2026-10-31",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-11-01",
+        "pooled_sales": []
       }
     ]
   },
@@ -49661,6 +49713,10 @@
       },
       {
         "date": "2026-10-31",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-11-01",
         "pooled_sales": []
       }
     ]
@@ -53024,6 +53080,10 @@
       {
         "date": "2026-10-31",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-11-01",
+        "pooled_sales": []
       }
     ]
   },
@@ -55982,6 +56042,10 @@
             "label": "Raw"
           }
         ]
+      },
+      {
+        "date": "2026-11-01",
+        "pooled_sales": []
       }
     ]
   },
@@ -57874,6 +57938,10 @@
       {
         "date": "2026-10-31",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-11-01",
+        "pooled_sales": []
       }
     ]
   },
@@ -59097,6 +59165,10 @@
       {
         "date": "2026-10-31",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-11-01",
+        "pooled_sales": []
       }
     ]
   },
@@ -59779,6 +59851,10 @@
       },
       {
         "date": "2026-10-31",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-11-01",
         "pooled_sales": []
       }
     ],
@@ -60474,6 +60550,10 @@
       {
         "date": "2026-10-31",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-11-01",
+        "pooled_sales": []
       }
     ]
   },
@@ -61156,6 +61236,10 @@
       },
       {
         "date": "2026-10-31",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-11-01",
         "pooled_sales": []
       }
     ]
@@ -61840,6 +61924,10 @@
       {
         "date": "2026-10-31",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-11-01",
+        "pooled_sales": []
       }
     ]
   },
@@ -62522,6 +62610,10 @@
       },
       {
         "date": "2026-10-31",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-11-01",
         "pooled_sales": []
       }
     ]
@@ -63221,6 +63313,10 @@
       },
       {
         "date": "2026-10-31",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-11-01",
         "pooled_sales": []
       }
     ]
@@ -64195,6 +64291,10 @@
       {
         "date": "2026-10-31",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-11-01",
+        "pooled_sales": []
       }
     ]
   },
@@ -64878,6 +64978,10 @@
       {
         "date": "2026-10-31",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-11-01",
+        "pooled_sales": []
       }
     ]
   },
@@ -65560,6 +65664,10 @@
       },
       {
         "date": "2026-10-31",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-11-01",
         "pooled_sales": []
       }
     ]
@@ -69720,6 +69828,10 @@
             "label": "Raw"
           }
         ]
+      },
+      {
+        "date": "2026-11-01",
+        "pooled_sales": []
       }
     ]
   },
@@ -70402,6 +70514,10 @@
       },
       {
         "date": "2026-10-31",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-11-01",
         "pooled_sales": []
       }
     ]
@@ -71389,6 +71505,18 @@
       {
         "date": "2026-10-31",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-11-01",
+        "pooled_sales": [
+          {
+            "price": 6.5,
+            "date": "2026-10-31",
+            "url": "https://www.ebay.com/itm/237140371972",
+            "title": "1998-99 Skybox Premium Vince Carter #234 Rookie RC - Toronto Raptors",
+            "label": "Raw"
+          }
+        ]
       }
     ]
   },
@@ -73276,6 +73404,10 @@
             "label": "Raw"
           }
         ]
+      },
+      {
+        "date": "2026-11-01",
+        "pooled_sales": []
       }
     ]
   },
@@ -73958,6 +74090,10 @@
       },
       {
         "date": "2026-10-31",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-11-01",
         "pooled_sales": []
       }
     ]
@@ -80171,6 +80307,10 @@
             "label": "Raw"
           }
         ]
+      },
+      {
+        "date": "2026-11-01",
+        "pooled_sales": []
       }
     ]
   },
@@ -80853,6 +80993,10 @@
       },
       {
         "date": "2026-10-31",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-11-01",
         "pooled_sales": []
       }
     ]
@@ -81544,6 +81688,10 @@
       },
       {
         "date": "2026-10-31",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-11-01",
         "pooled_sales": []
       }
     ],
@@ -82359,6 +82507,10 @@
       {
         "date": "2026-10-31",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-11-01",
+        "pooled_sales": []
       }
     ]
   },
@@ -83051,6 +83203,10 @@
       },
       {
         "date": "2026-10-31",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-11-01",
         "pooled_sales": []
       }
     ]
@@ -84905,6 +85061,10 @@
       {
         "date": "2026-10-31",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-11-01",
+        "pooled_sales": []
       }
     ],
     "manual_comps": [
@@ -86269,6 +86429,10 @@
       {
         "date": "2026-10-31",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-11-01",
+        "pooled_sales": []
       }
     ]
   },
@@ -86718,6 +86882,10 @@
             "label": "Raw"
           }
         ]
+      },
+      {
+        "date": "2026-11-01",
+        "pooled_sales": []
       }
     ]
   },
@@ -90790,6 +90958,10 @@
       {
         "date": "2026-10-31",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-11-01",
+        "pooled_sales": []
       }
     ],
     "manual_comps": [
@@ -92576,6 +92748,10 @@
       {
         "date": "2026-10-31",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-11-01",
+        "pooled_sales": []
       }
     ],
     "manual_comps": [
@@ -92858,6 +93034,10 @@
       },
       {
         "date": "2026-10-31",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-11-01",
         "pooled_sales": []
       }
     ],
@@ -93345,6 +93525,10 @@
             "label": "Raw"
           }
         ]
+      },
+      {
+        "date": "2026-11-01",
+        "pooled_sales": []
       }
     ]
   },
@@ -94051,6 +94235,10 @@
       {
         "date": "2026-10-31",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-11-01",
+        "pooled_sales": []
       }
     ],
     "manual_comps": [
@@ -94744,6 +94932,10 @@
       },
       {
         "date": "2026-10-31",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-11-01",
         "pooled_sales": []
       }
     ]
@@ -95595,6 +95787,10 @@
       {
         "date": "2026-10-31",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-11-01",
+        "pooled_sales": []
       }
     ]
   },
@@ -96277,6 +96473,10 @@
       },
       {
         "date": "2026-10-31",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-11-01",
         "pooled_sales": []
       }
     ],
@@ -96994,6 +97194,10 @@
             "label": "PSA 9"
           }
         ]
+      },
+      {
+        "date": "2026-11-01",
+        "pooled_sales": []
       }
     ],
     "manual_comps": [
