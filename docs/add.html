@@ -5,23 +5,56 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Add / Edit Card — Card Ledger</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<script>
+(function(){try{var t=localStorage.getItem('card_ledger_theme');if(t!=='light'&&t!=='dark'){t=window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();
+</script>
 <style>
-  :root {
-    --bg: #0D1321;
-    --surface: #161D30;
-    --surface-raised: #1F2A46;
-    --line: #2C3A5C;
-    --text: #EBEEF8;
-    --text-muted: #8B96BB;
-    --accent: #A78BFA;
-    --accent-dim: #4A3B78;
-    --teal: #2DD4BF;
-    --up: #34D399;
-    --down: #FB7185;
+  :root, :root[data-theme="light"] {
+    /* Lusmu light */
+    --bg: #fbfcf8;
+    --surface: #ffffff;
+    --surface-raised: #f1f5f9;
+    --line: #e2e8f0;
+    --text: #0f172a;
+    --text-muted: #64748b;
+    --accent: #aff33e;
+    --accent-fg: #000000;
+    --accent-text: #166534;
+    --accent-dim: #c6e98f;
+    --accent-soft: rgba(175, 243, 62, 0.16);
+    --teal: #166534;
+    --teal-dim: #bbf7d0;
+    --up: #16a34a;
+    --down: #ef4444;
+    --overlay: rgba(15, 23, 42, 0.45);
+    --shadow: 0 8px 20px rgba(15, 23, 42, 0.05);
+    --radius: 1rem;
+    color-scheme: light;
+  }
+  :root[data-theme="dark"] {
+    /* Lusmu dark */
+    --bg: #020617;
+    --surface: #0f172a;
+    --surface-raised: #1e293b;
+    --line: #1e293b;
+    --text: #f8fafc;
+    --text-muted: #94a3b8;
+    --accent: #aff33e;
+    --accent-fg: #000000;
+    --accent-text: #aff33e;
+    --accent-dim: #3f6212;
+    --accent-soft: rgba(175, 243, 62, 0.10);
+    --teal: #aff33e;
+    --teal-dim: #14532d;
+    --up: #22c55e;
+    --down: #f87171;
+    --overlay: rgba(2, 6, 23, 0.75);
+    --shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+    color-scheme: dark;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; min-height: 100vh; }
+  body { background: var(--bg); color: var(--text); font-family: var(--font); min-height: 100vh; }
 
   header {
     padding: 32px 24px 20px;
@@ -32,18 +65,18 @@
     flex-wrap: wrap;
     gap: 12px;
   }
-  .brand { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 28px; letter-spacing: 0.5px; text-transform: uppercase; }
-  .brand span { color: var(--accent); }
+  .brand { font-family: var(--font); font-weight: 700; font-size: 28px; letter-spacing: 0.5px; text-transform: uppercase; }
+  .brand span { color: var(--accent-text); }
   header a {
     color: var(--text-muted);
     text-decoration: none;
-    font-family: 'JetBrains Mono', monospace;
+    font-family: var(--font);
     font-size: 12px;
     border: 1px solid var(--line);
     padding: 6px 12px;
-    border-radius: 6px;
+    border-radius: 10px;
   }
-  header a:hover { border-color: var(--accent); color: var(--accent); }
+  header a:hover { border-color: var(--accent-text); color: var(--accent-text); }
 
   main { max-width: 640px; margin: 0 auto; padding: 28px 24px 80px; }
 
@@ -52,20 +85,20 @@
     flex: 1;
     text-align: center;
     padding: 10px;
-    border-radius: 6px;
+    border-radius: 10px;
     border: 1px solid var(--line);
     background: var(--surface);
     color: var(--text-muted);
-    font-family: 'JetBrains Mono', monospace;
+    font-family: var(--font);
     font-size: 12px;
     text-transform: uppercase;
     letter-spacing: 0.4px;
     cursor: pointer;
   }
-  .tab.active { border-color: var(--accent); color: var(--accent); background: var(--surface-raised); }
+  .tab.active { border-color: var(--accent-text); color: var(--accent-text); background: var(--surface-raised); }
 
   h2 {
-    font-family: 'Barlow Condensed', sans-serif;
+    font-family: var(--font);
     font-size: 20px;
     font-weight: 600;
     margin: 28px 0 12px;
@@ -83,7 +116,7 @@
 
   label {
     display: block;
-    font-family: 'JetBrains Mono', monospace;
+    font-family: var(--font);
     font-size: 11px;
     text-transform: uppercase;
     letter-spacing: 0.4px;
@@ -100,11 +133,11 @@
     border: 1px solid var(--line);
     color: var(--text);
     padding: 10px 12px;
-    border-radius: 6px;
-    font-family: 'Inter', sans-serif;
+    border-radius: 10px;
+    font-family: var(--font);
     font-size: 14px;
   }
-  input:focus, select:focus { outline: 1px solid var(--accent); border-color: var(--accent); }
+  input:focus, select:focus { outline: 1px solid var(--accent); border-color: var(--accent-text); }
   input[type="file"] {
     width: 100%;
     color: var(--text-muted);
@@ -116,11 +149,11 @@
 
   button {
     background: var(--accent);
-    color: #0D1321;
+    color: var(--accent-fg);
     border: none;
     padding: 12px 20px;
-    border-radius: 6px;
-    font-family: 'Inter', sans-serif;
+    border-radius: 10px;
+    font-family: var(--font);
     font-weight: 600;
     font-size: 14px;
     cursor: pointer;
@@ -136,11 +169,11 @@
     padding: 8px 14px;
     font-size: 12.5px;
   }
-  button.secondary:hover { border-color: var(--accent); color: var(--accent); }
+  button.secondary:hover { border-color: var(--accent-text); color: var(--accent-text); }
 
   details.settings summary {
     cursor: pointer;
-    font-family: 'JetBrains Mono', monospace;
+    font-family: var(--font);
     font-size: 12px;
     color: var(--text-muted);
     text-transform: uppercase;
@@ -155,16 +188,16 @@
   .status {
     margin-top: 16px;
     padding: 12px 14px;
-    border-radius: 6px;
-    font-family: 'JetBrains Mono', monospace;
+    border-radius: 10px;
+    font-family: var(--font);
     font-size: 12.5px;
     display: none;
     line-height: 1.6;
   }
   .status.visible { display: block; }
   .status.info { background: var(--surface-raised); border: 1px solid var(--line); color: var(--text-muted); }
-  .status.success { background: rgba(45,212,191,0.08); border: 1px solid var(--teal); color: var(--teal); }
-  .status.error { background: rgba(251,113,133,0.08); border: 1px solid var(--down); color: var(--down); }
+  .status.success { background: var(--accent-soft); border: 1px solid var(--teal); color: var(--teal); }
+  .status.error { background: rgba(239,68,68,0.08); border: 1px solid var(--down); color: var(--down); }
   .status a { color: inherit; text-decoration: underline; }
 
   .note {
@@ -173,7 +206,7 @@
     line-height: 1.6;
     margin-bottom: 16px;
   }
-  .note a { color: var(--accent); }
+  .note a { color: var(--accent-text); }
 
   .photo-field { margin-bottom: 14px; }
   .photo-preview-wrap {
@@ -187,26 +220,106 @@
     width: 90px;
     height: 126px;
     object-fit: cover;
-    border-radius: 4px;
+    border-radius: 8px;
     border: 1px solid var(--line);
     background: var(--surface-raised);
   }
   .photo-current {
     font-size: 11.5px;
     color: var(--text-muted);
-    font-family: 'JetBrains Mono', monospace;
+    font-family: var(--font);
     margin-top: 4px;
   }
 
   #edit-section { display: none; }
   #add-section { display: block; }
+
+
+  /* ---------- Apple HIG pass ---------- */
+  :root { --font: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Display', 'Inter', system-ui, sans-serif; --tap: 44px; --r: 14px; }
+  html { -webkit-text-size-adjust: 100%; }
+  body { font-family: var(--font) !important; font-size: 17px; line-height: 1.35; letter-spacing: -0.022em; font-variant-numeric: tabular-nums; }
+  * { font-family: var(--font) !important; }
+  /* no eyebrows: sentence case, normal tracking everywhere */
+  *, *::before { text-transform: none !important; }
+  .brand, .summary, label, .chart-label, .tree-group-label, .comps summary, details.settings summary,
+  .tree-own-tag, .tree-override-tag, .delta-label { letter-spacing: 0 !important; }
+  /* translucent bar header with a large title */
+  header {
+    position: sticky; top: 0; z-index: 10;
+    padding: max(12px, env(safe-area-inset-top)) 20px 10px; border-bottom: 0.5px solid var(--line);
+    background: color-mix(in srgb, var(--bg) 78%, transparent);
+    -webkit-backdrop-filter: saturate(180%) blur(20px); backdrop-filter: saturate(180%) blur(20px);
+    align-items: center;
+  }
+  .brand { font-size: 22px; font-weight: 700; letter-spacing: -0.03em !important; }
+  .brand span { color: inherit !important; font-weight: 700; }
+  header .actions { display: flex; align-items: center; gap: 10px; }
+  header a.pill, header a {
+    display: inline-flex; align-items: center; justify-content: center; min-height: 34px; padding: 0 14px;
+    border-radius: 999px; background: var(--accent); color: var(--accent-fg) !important; border: 0 !important;
+    font-size: 15px; font-weight: 600; text-decoration: none;
+  }
+  header a:hover { filter: brightness(0.96); }
+  main { padding: 8px 20px 60px; }
+  /* hero total (Stocks / Wallet style) */
+  .hero { padding: 18px 4px 14px; }
+  .hero-total { font-size: 44px; font-weight: 700; letter-spacing: -0.035em; line-height: 1.05; }
+  .hero-sub { margin-top: 6px; font-size: 15px; color: var(--text-muted); }
+  /* grouped surfaces: hairline, no heavy shadow */
+  .portfolio-chart-box, .card-row, .modal-panel { border: 0.5px solid var(--line); border-radius: var(--r); box-shadow: none; }
+  .portfolio-chart-box { padding: 12px 8px 4px; background: transparent; border: 0; margin-bottom: 14px; }
+  .portfolio-chart-label { display: none; }
+  .portfolio-chart-empty { font-size: 15px; }
+  .list { gap: 10px; }
+  .card-row { padding: 14px; transition: transform .12s ease, background .12s ease; }
+  .card-row:active { transform: scale(0.985); background: var(--surface-raised); }
+  .row-title { font-size: 17px; font-weight: 600; letter-spacing: -0.022em; }
+  .row-sub { font-size: 13px; line-height: 1.38; }
+  .row-sub .row-grade { font-size: 13px; }
+  .row-rank { font-size: 15px; font-weight: 600; }
+  .row-thumb { border-radius: 8px; border: 0.5px solid var(--line); }
+  /* search + sort: 44pt, filled, borderless */
+  .toolbar input, input, select, textarea {
+    min-height: var(--tap); font-size: 17px !important; border-radius: 12px; border: 0 !important;
+    background: var(--surface-raised); padding: 0 14px;
+  }
+  textarea { padding: 10px 14px; }
+  .toolbar input:focus, input:focus, select:focus, textarea:focus { outline: 2px solid var(--accent); outline-offset: 0; }
+  .sort-icon-btn { width: var(--tap); height: var(--tap); border: 0; border-radius: 12px; background: var(--surface-raised); }
+  /* buttons: filled capsule, 50pt */
+  button { font-size: 17px; font-weight: 600; min-height: var(--tap); border-radius: 12px; }
+  button:not(.secondary):not(.theme-toggle):not(.modal-close) { color: var(--accent-fg); }
+  button.secondary { background: var(--surface-raised); color: var(--text); border: 0; }
+  button.secondary:hover { color: var(--text); filter: brightness(0.97); }
+  button.theme-toggle {
+    width: 34px; height: 34px; min-height: 34px; border-radius: 999px; padding: 0; font-size: 16px;
+    background: var(--surface-raised); color: var(--text); border: 0; display: inline-flex; align-items: center; justify-content: center;
+  }
+  .modal-close { min-width: 32px; min-height: 32px; border: 0; background: var(--surface-raised); }
+  .modal-panel { border-radius: 22px 22px 0 0; }
+  @media (min-width: 700px) { .modal-panel { border-radius: 22px; } }
+  .modal-overlay { -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
+  /* secondary text */
+  .chart-label, .comps summary, .tree-group-label, details.settings summary { font-size: 13px; font-weight: 600; color: var(--text-muted); }
+  .tree-item, .comp-row, .comp-title, .comp-price { font-size: 15px; }
+  .delta { font-size: 15px; font-weight: 600; }
+  .tree-own-tag, .tree-override-tag, .comps-filter-bar, .hint, .note { font-size: 13px; }
+  /* forms (add / edit): inset grouped, sentence-case 13pt labels, segmented tabs */
+  label { font-size: 13px; font-weight: 500; color: var(--text-muted); margin-bottom: 6px; display: block; }
+  .tabs { background: var(--surface-raised); padding: 3px; border-radius: 10px; gap: 0; border: 0 !important; display: flex; }
+  .tab { flex: 1; text-align: center; padding: 8px 0 !important; border: 0 !important; border-radius: 8px !important; font-size: 15px; font-weight: 500; color: var(--text); background: transparent; }
+  .tab.active { background: var(--surface) !important; color: var(--text) !important; font-weight: 600; box-shadow: 0 1px 3px rgba(0,0,0,.12); }
+  h2, h3 { font-size: 22px; font-weight: 700; letter-spacing: -0.026em; }
+  .form-card, .card, .panel, section > div { border-radius: var(--r); }
+  header a.back { background: transparent; color: var(--accent-text) !important; padding: 0; font-weight: 500; }
 </style>
 </head>
 <body>
 
 <header>
-  <div class="brand">CARD <span>LEDGER</span></div>
-  <a href="index.html">← Back to dashboard</a>
+  <div class="brand">Card Ledger</div>
+  <span style="display:inline-flex;gap:12px;align-items:center"><a href="index.html" class="back">‹ Cards</a><button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle theme"></button></span>
 </header>
 
 <main>
@@ -803,7 +916,7 @@ function successMessage(player, set, dispatched, s) {
     ${dispatched
       ? `A price pull has been triggered — check the <a href="${actionsUrl}" target="_blank" rel="noopener">Actions tab</a> in a minute, then refresh the dashboard.`
       : `Couldn't auto-trigger a price pull (check your token has Actions permission) — you can run it manually from the <a href="${actionsUrl}" target="_blank" rel="noopener">Actions tab</a>.`}
-    <br><a href="index.html">← Back to dashboard</a>
+    <br><span style="display:inline-flex;gap:12px;align-items:center"><a href="index.html" class="back">‹ Cards</a><button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle theme"></button></span>
   `;
 }
 
@@ -976,6 +1089,21 @@ async function tryAutoSelectFromURL() {
 }
 tryAutoSelectFromURL();
 
+</script>
+<script>
+(function(){
+  var btn=document.getElementById('theme-toggle'); if(!btn) return;
+  function cur(){return document.documentElement.getAttribute('data-theme')||'light';}
+  function paint(){btn.textContent=cur()==='dark'?'☀':'☾';btn.title=cur()==='dark'?'Switch to light':'Switch to dark';}
+  btn.addEventListener('click',function(){
+    var n=cur()==='dark'?'light':'dark';
+    document.documentElement.setAttribute('data-theme',n);
+    try{localStorage.setItem('card_ledger_theme',n);}catch(e){}
+    paint();
+    if(typeof window.onThemeChange==='function') window.onThemeChange();
+  });
+  paint();
+})();
 </script>
 </body>
 </html>
