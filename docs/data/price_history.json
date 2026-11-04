@@ -62835,7 +62835,12 @@
         "source": "manual",
         "added_at": "2026-11-04T09:17:22.540Z"
       }
-    ]
+    ],
+    "value_override": {
+      "label": "BGS 10",
+      "value": 1015,
+      "set_at": "2026-11-04T09:21:55.004Z"
+    }
   },
   "Joel Embiid | 2014-15 | Panini Prizm |  | Blue | ": {
     "meta": {
