@@ -2,330 +2,399 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Add / Edit Card — Card Ledger</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Add or edit card · Card Ledger</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <script>
 (function(){try{var t=localStorage.getItem('card_ledger_theme');if(t!=='light'&&t!=='dark'){t=window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();
 </script>
 <style>
+  /* ---------- tokens (shared with index.html) ---------- */
+  :root {
+    --font: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, system-ui, sans-serif;
+    --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+    --ease: cubic-bezier(0.22, 1, 0.36, 1);
+    --tap: 44px;
+  }
   :root, :root[data-theme="light"] {
-    /* Lusmu light */
-    --bg: #fbfcf8;
+    --bg: #fafafa;
     --surface: #ffffff;
-    --surface-raised: #f1f5f9;
-    --line: #e2e8f0;
-    --text: #0f172a;
-    --text-muted: #64748b;
+    --raised: #f4f4f5;
+    --line: rgba(23, 23, 23, 0.08);
+    --line-strong: rgba(23, 23, 23, 0.14);
+    --text: #171717;
+    --text-2: #525252;
+    --text-muted: #737373;
     --accent: #aff33e;
-    --accent-fg: #000000;
-    --accent-text: #166534;
-    --accent-dim: #c6e98f;
-    --accent-soft: rgba(175, 243, 62, 0.16);
-    --teal: #166534;
-    --teal-dim: #bbf7d0;
+    --accent-fg: #111111;
+    --accent-text: #3f6212;
     --up: #16a34a;
-    --down: #ef4444;
-    --overlay: rgba(15, 23, 42, 0.45);
-    --shadow: 0 8px 20px rgba(15, 23, 42, 0.05);
-    --radius: 1rem;
+    --down: #dc2626;
     color-scheme: light;
   }
   :root[data-theme="dark"] {
-    /* Lusmu dark */
-    --bg: #020617;
-    --surface: #0f172a;
-    --surface-raised: #1e293b;
-    --line: #1e293b;
-    --text: #f8fafc;
-    --text-muted: #94a3b8;
+    --bg: #141415;
+    --surface: #19191b;
+    --raised: #232325;
+    --line: rgba(237, 237, 237, 0.08);
+    --line-strong: rgba(237, 237, 237, 0.14);
+    --text: #ededed;
+    --text-2: #a1a1a6;
+    --text-muted: #85858b;
     --accent: #aff33e;
-    --accent-fg: #000000;
+    --accent-fg: #111111;
     --accent-text: #aff33e;
-    --accent-dim: #3f6212;
-    --accent-soft: rgba(175, 243, 62, 0.10);
-    --teal: #aff33e;
-    --teal-dim: #14532d;
-    --up: #22c55e;
-    --down: #f87171;
-    --overlay: rgba(2, 6, 23, 0.75);
-    --shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+    --up: #4cc38a;
+    --down: #e5484d;
     color-scheme: dark;
   }
+
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { background: var(--bg); color: var(--text); font-family: var(--font); min-height: 100vh; }
-
-  header {
-    padding: 32px 24px 20px;
-    border-bottom: 1px solid var(--line);
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    flex-wrap: wrap;
-    gap: 12px;
-  }
-  .brand { font-family: var(--font); font-weight: 700; font-size: 28px; letter-spacing: 0.5px; text-transform: uppercase; }
-  .brand span { color: var(--accent-text); }
-  header a {
-    color: var(--text-muted);
-    text-decoration: none;
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    background: var(--bg);
+    color: var(--text);
     font-family: var(--font);
-    font-size: 12px;
-    border: 1px solid var(--line);
-    padding: 6px 12px;
-    border-radius: 10px;
+    font-size: 15px;
+    line-height: 1.4;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
   }
-  header a:hover { border-color: var(--accent-text); color: var(--accent-text); }
+  button, input, select { font: inherit; color: inherit; }
+  a { color: inherit; }
+  .mono { font-family: var(--mono); font-variant-numeric: tabular-nums; }
 
-  main { max-width: 640px; margin: 0 auto; padding: 28px 24px 80px; }
+  svg.i { width: 16px; height: 16px; flex-shrink: 0; stroke: currentColor; fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; display: block; }
+  :focus-visible { outline: 2px solid var(--accent-text); outline-offset: 2px; }
 
-  .tabs { display: flex; gap: 8px; margin-bottom: 24px; }
-  .tab {
-    flex: 1;
-    text-align: center;
-    padding: 10px;
+  /* ---------- header ---------- */
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    height: calc(56px + env(safe-area-inset-top));
+    padding: env(safe-area-inset-top) 20px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--bg);
+    border-bottom: 1px solid var(--line);
+  }
+  .header-left { display: flex; align-items: center; gap: 8px; min-width: 0; }
+  .brand { font-size: 17px; font-weight: 600; }
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    height: 36px;
+    padding: 0 10px 0 6px;
+    margin-left: -6px;
+    border-radius: 10px;
+    color: var(--text-2);
+    font-size: 15px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background-color 150ms var(--ease), color 150ms var(--ease);
+  }
+  .back-link:hover { background: var(--raised); color: var(--text); }
+  .header-sep { width: 1px; height: 16px; background: var(--line-strong); }
+
+  .icon-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    height: 36px;
+    min-width: 36px;
+    padding: 0 12px;
     border-radius: 10px;
     border: 1px solid var(--line);
     background: var(--surface);
-    color: var(--text-muted);
-    font-family: var(--font);
-    font-size: 12px;
-    text-transform: uppercase;
-    letter-spacing: 0.4px;
+    color: var(--text-2);
+    font-size: 14px;
+    font-weight: 500;
     cursor: pointer;
+    transition: background-color 150ms var(--ease), color 150ms var(--ease), border-color 150ms var(--ease);
   }
-  .tab.active { border-color: var(--accent-text); color: var(--accent-text); background: var(--surface-raised); }
+  .icon-btn:hover { background: var(--raised); color: var(--text); }
+  .icon-btn.square { padding: 0; width: 36px; }
+
+  /* ---------- page ---------- */
+  main { max-width: 640px; margin: 0 auto; padding: 24px 20px 64px; }
+
+  /* segmented control */
+  .tabs {
+    display: flex;
+    padding: 4px;
+    gap: 4px;
+    border-radius: 12px;
+    background: var(--raised);
+    border: 1px solid var(--line);
+    margin-bottom: 32px;
+  }
+  .tab {
+    flex: 1;
+    height: 36px;
+    border: none;
+    border-radius: 8px;
+    background: transparent;
+    color: var(--text-2);
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 150ms var(--ease), color 150ms var(--ease);
+  }
+  .tab:hover { color: var(--text); }
+  .tab.active {
+    background: var(--surface);
+    color: var(--text);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06), inset 0 0 0 1px var(--line);
+  }
 
   h2 {
-    font-family: var(--font);
-    font-size: 20px;
-    font-weight: 600;
-    margin: 28px 0 12px;
-    color: var(--text);
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-muted);
+    margin: 32px 0 8px;
   }
-  h2:first-child { margin-top: 0; }
+  .section > h2:first-child, #add-section > h2:first-child, #edit-section > h2:first-child { margin-top: 0; }
 
   .card-box {
     background: var(--surface);
     border: 1px solid var(--line);
-    border-radius: 10px;
+    border-radius: 14px;
     padding: 20px;
-    margin-bottom: 16px;
   }
 
   label {
     display: block;
-    font-family: var(--font);
-    font-size: 11px;
-    text-transform: uppercase;
-    letter-spacing: 0.4px;
-    color: var(--text-muted);
-    margin-bottom: 5px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-2);
+    margin-bottom: 8px;
   }
-  .field { margin-bottom: 14px; }
+  label .req { color: var(--text-muted); font-weight: 400; }
+  label .opt { color: var(--text-muted); font-weight: 400; }
+  .field + .field, .field-row + .field, .field + .field-row, .field-row + .field-row { margin-top: 16px; }
   .field-row { display: flex; gap: 12px; }
-  .field-row .field { flex: 1; }
+  .field-row .field { flex: 1; min-width: 0; }
+  .field-row .field + .field { margin-top: 0; }
 
   input[type="text"], input[type="password"], select {
     width: 100%;
-    background: var(--surface-raised);
+    height: var(--tap);
+    padding: 0 12px;
+    background: var(--raised);
     border: 1px solid var(--line);
-    color: var(--text);
-    padding: 10px 12px;
     border-radius: 10px;
-    font-family: var(--font);
-    font-size: 14px;
+    font-size: 16px;
+    transition: border-color 150ms var(--ease), background-color 150ms var(--ease);
   }
-  input:focus, select:focus { outline: 1px solid var(--accent); border-color: var(--accent-text); }
-  input[type="file"] {
+  input::placeholder { color: var(--text-muted); }
+  input:focus, select:focus { outline: none; border-color: var(--accent-text); background: var(--surface); }
+  select {
+    appearance: none;
+    -webkit-appearance: none;
+    padding-right: 36px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23858589' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    cursor: pointer;
+  }
+  .grade-input { font-family: var(--mono); }
+
+  .hint { font-size: 13px; color: var(--text-muted); margin-top: 8px; line-height: 1.4; }
+  .hint + .field { margin-top: 16px; }
+
+  /* ---------- buttons ---------- */
+  .btn-primary {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 100%;
-    color: var(--text-muted);
-    font-size: 13px;
-    padding: 8px 0;
-  }
-
-  .hint { font-size: 12px; color: var(--text-muted); margin-top: 4px; }
-
-  button {
+    height: 48px;
+    margin-top: 24px;
+    border: none;
+    border-radius: 12px;
     background: var(--accent);
     color: var(--accent-fg);
-    border: none;
-    padding: 12px 20px;
-    border-radius: 10px;
-    font-family: var(--font);
-    font-weight: 600;
-    font-size: 14px;
+    font-size: 16px;
+    font-weight: 500;
     cursor: pointer;
-    width: 100%;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25);
+    transition: filter 150ms var(--ease), transform 150ms var(--ease);
   }
-  button:hover { opacity: 0.9; }
-  button:disabled { opacity: 0.5; cursor: not-allowed; }
+  .btn-primary:hover { filter: brightness(0.96); }
+  .btn-primary:active { transform: scale(0.98); }
+  .btn-primary:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+
   button.secondary {
-    background: transparent;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    height: 36px;
+    padding: 0 12px;
+    border-radius: 10px;
+    background: var(--raised);
     border: 1px solid var(--line);
     color: var(--text);
-    width: auto;
-    padding: 8px 14px;
-    font-size: 12.5px;
-  }
-  button.secondary:hover { border-color: var(--accent-text); color: var(--accent-text); }
-
-  details.settings summary {
+    font-size: 14px;
+    font-weight: 500;
     cursor: pointer;
-    font-family: var(--font);
-    font-size: 12px;
-    color: var(--text-muted);
-    text-transform: uppercase;
-    letter-spacing: 0.4px;
-    list-style: none;
-    margin-bottom: 12px;
+    transition: border-color 150ms var(--ease), transform 150ms var(--ease);
   }
-  details.settings summary::-webkit-details-marker { display: none; }
-  details.settings summary:before { content: "▸ "; }
-  details.settings[open] summary:before { content: "▾ "; }
+  button.secondary:hover { border-color: var(--line-strong); }
+  button.secondary:active { transform: scale(0.98); }
+  button.secondary:disabled { opacity: 0.5; cursor: not-allowed; }
+  button.secondary svg.i { color: var(--text-2); }
+  .card-box > button.secondary { margin-top: 16px; }
 
-  .status {
-    margin-top: 16px;
-    padding: 12px 14px;
+  /* ---------- photos ---------- */
+  .photo-field + .photo-field { margin-top: 20px; padding-top: 20px; border-top: 1px solid var(--line); }
+
+  /* native file input, styled as a quiet drop target */
+  input[type="file"] {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    border: 1px dashed var(--line-strong);
     border-radius: 10px;
-    font-family: var(--font);
-    font-size: 12.5px;
-    display: none;
-    line-height: 1.6;
-  }
-  .status.visible { display: block; }
-  .status.info { background: var(--surface-raised); border: 1px solid var(--line); color: var(--text-muted); }
-  .status.success { background: var(--accent-soft); border: 1px solid var(--teal); color: var(--teal); }
-  .status.error { background: rgba(239,68,68,0.08); border: 1px solid var(--down); color: var(--down); }
-  .status a { color: inherit; text-decoration: underline; }
-
-  .note {
-    font-size: 12.5px;
+    background: var(--raised);
     color: var(--text-muted);
-    line-height: 1.6;
-    margin-bottom: 16px;
+    font-size: 14px;
+    cursor: pointer;
   }
-  .note a { color: var(--accent-text); }
+  input[type="file"]::file-selector-button {
+    height: 32px;
+    margin-right: 12px;
+    padding: 0 12px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: var(--surface);
+    color: var(--text);
+    font: inherit;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+  }
+  input[type="file"]:focus-visible { outline: 2px solid var(--accent-text); outline-offset: 2px; }
 
-  .photo-field { margin-bottom: 14px; }
   .photo-preview-wrap {
     display: none;
-    margin-top: 8px;
-    align-items: flex-start;
-    gap: 10px;
+    margin-top: 12px;
+    align-items: flex-end;
+    gap: 12px;
   }
   .photo-preview-wrap.visible { display: flex; }
+  /* toploader frame, same as the dashboard */
+  .photo-frame {
+    width: 96px;
+    height: 134px;
+    flex-shrink: 0;
+    padding: 2px;
+    border-radius: 6px;
+    background: var(--raised);
+    border: 1px solid var(--line-strong);
+    overflow: hidden;
+  }
   .photo-preview {
-    width: 90px;
-    height: 126px;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
-    border-radius: 8px;
-    border: 1px solid var(--line);
-    background: var(--surface-raised);
+    display: block;
+    border-radius: 4px;
   }
   .photo-current {
-    font-size: 11.5px;
+    font-family: var(--mono);
+    font-size: 12px;
     color: var(--text-muted);
-    font-family: var(--font);
-    margin-top: 4px;
+    margin: -4px 0 8px;
+    overflow-wrap: anywhere;
   }
+  .photo-current:empty { display: none; }
 
   #edit-section { display: none; }
   #add-section { display: block; }
 
-
-  /* ---------- Apple HIG pass ---------- */
-  :root { --font: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Display', 'Inter', system-ui, sans-serif; --tap: 44px; --r: 14px; }
-  html { -webkit-text-size-adjust: 100%; }
-  body { font-family: var(--font) !important; font-size: 17px; line-height: 1.35; letter-spacing: -0.022em; font-variant-numeric: tabular-nums; }
-  * { font-family: var(--font) !important; }
-  /* no eyebrows: sentence case, normal tracking everywhere */
-  *, *::before { text-transform: none !important; }
-  .brand, .summary, label, .chart-label, .tree-group-label, .comps summary, details.settings summary,
-  .tree-own-tag, .tree-override-tag, .delta-label { letter-spacing: 0 !important; }
-  /* translucent bar header with a large title */
-  header {
-    position: sticky; top: 0; z-index: 10;
-    padding: max(12px, env(safe-area-inset-top)) 20px 10px; border-bottom: 0.5px solid var(--line);
-    background: color-mix(in srgb, var(--bg) 78%, transparent);
-    -webkit-backdrop-filter: saturate(180%) blur(20px); backdrop-filter: saturate(180%) blur(20px);
+  /* ---------- settings ---------- */
+  details.settings { margin-top: 40px; }
+  details.settings summary {
+    display: flex;
     align-items: center;
+    gap: 6px;
+    height: 36px;
+    cursor: pointer;
+    list-style: none;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-muted);
+    transition: color 150ms var(--ease);
   }
-  .brand { font-size: 22px; font-weight: 700; letter-spacing: -0.03em !important; }
-  .brand span { color: inherit !important; font-weight: 700; }
-  header .actions { display: flex; align-items: center; gap: 10px; }
-  header a.pill, header a {
-    display: inline-flex; align-items: center; justify-content: center; min-height: 34px; padding: 0 14px;
-    border-radius: 999px; background: var(--accent); color: var(--accent-fg) !important; border: 0 !important;
-    font-size: 15px; font-weight: 600; text-decoration: none;
+  details.settings summary:hover { color: var(--text-2); }
+  details.settings summary::-webkit-details-marker { display: none; }
+  details.settings summary svg.i { width: 14px; height: 14px; transition: transform 160ms var(--ease); }
+  details.settings[open] summary svg.i { transform: rotate(90deg); }
+  .conn-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--line-strong); margin-left: 2px; }
+  .conn-dot.on { background: var(--up); }
+  details.settings .card-box { margin-top: 8px; }
+
+  .note {
+    font-size: 14px;
+    color: var(--text-2);
+    line-height: 1.5;
+    margin-bottom: 20px;
   }
-  header a:hover { filter: brightness(0.96); }
-  main { padding: 8px 20px 60px; }
-  /* hero total (Stocks / Wallet style) */
-  .hero { padding: 18px 4px 14px; }
-  .hero-total { font-size: 44px; font-weight: 700; letter-spacing: -0.035em; line-height: 1.05; }
-  .hero-sub { margin-top: 6px; font-size: 15px; color: var(--text-muted); }
-  /* grouped surfaces: hairline, no heavy shadow */
-  .portfolio-chart-box, .card-row, .modal-panel { border: 0.5px solid var(--line); border-radius: var(--r); box-shadow: none; }
-  .portfolio-chart-box { padding: 12px 8px 4px; background: transparent; border: 0; margin-bottom: 14px; }
-  .portfolio-chart-label { display: none; }
-  .portfolio-chart-empty { font-size: 15px; }
-  .list { gap: 10px; }
-  .card-row { padding: 14px; transition: transform .12s ease, background .12s ease; }
-  .card-row:active { transform: scale(0.985); background: var(--surface-raised); }
-  .row-title { font-size: 17px; font-weight: 600; letter-spacing: -0.022em; }
-  .row-sub { font-size: 13px; line-height: 1.38; }
-  .row-sub .row-grade { font-size: 13px; }
-  .row-rank { font-size: 15px; font-weight: 600; }
-  .row-thumb { border-radius: 8px; border: 0.5px solid var(--line); }
-  /* search + sort: 44pt, filled, borderless */
-  .toolbar input, input, select, textarea {
-    min-height: var(--tap); font-size: 17px !important; border-radius: 12px; border: 0 !important;
-    background: var(--surface-raised); padding: 0 14px;
+  .note strong { color: var(--text); font-weight: 500; }
+  .note a { color: var(--text); text-decoration: underline; text-underline-offset: 2px; }
+
+  /* ---------- status ---------- */
+  .status {
+    margin-top: 16px;
+    padding: 12px 16px;
+    border-radius: 10px;
+    font-size: 14px;
+    line-height: 1.5;
+    display: none;
+    background: var(--surface);
+    border: 1px solid var(--line-strong);
+    color: var(--text-2);
   }
-  textarea { padding: 10px 14px; }
-  .toolbar input:focus, input:focus, select:focus, textarea:focus { outline: 2px solid var(--accent); outline-offset: 0; }
-  .sort-icon-btn { width: var(--tap); height: var(--tap); border: 0; border-radius: 12px; background: var(--surface-raised); }
-  /* buttons: filled capsule, 50pt */
-  button { font-size: 17px; font-weight: 600; min-height: var(--tap); border-radius: 12px; }
-  button:not(.secondary):not(.theme-toggle):not(.modal-close) { color: var(--accent-fg); }
-  button.secondary { background: var(--surface-raised); color: var(--text); border: 0; }
-  button.secondary:hover { color: var(--text); filter: brightness(0.97); }
-  button.theme-toggle {
-    width: 34px; height: 34px; min-height: 34px; border-radius: 999px; padding: 0; font-size: 16px;
-    background: var(--surface-raised); color: var(--text); border: 0; display: inline-flex; align-items: center; justify-content: center;
+  .status.visible { display: block; }
+  .status.success { border-left: 3px solid var(--up); color: var(--text); }
+  .status.error { border-left: 3px solid var(--down); color: var(--down); }
+  .status strong { font-weight: 500; color: var(--text); }
+  .status a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
+
+  @media (max-width: 420px) {
+    main { padding: 20px 16px 64px; }
+    header { padding-left: 16px; padding-right: 16px; }
+    .field-row { flex-direction: column; gap: 0; }
+    .field-row .field + .field { margin-top: 16px; }
   }
-  .modal-close { min-width: 32px; min-height: 32px; border: 0; background: var(--surface-raised); }
-  .modal-panel { border-radius: 22px 22px 0 0; }
-  @media (min-width: 700px) { .modal-panel { border-radius: 22px; } }
-  .modal-overlay { -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
-  /* secondary text */
-  .chart-label, .comps summary, .tree-group-label, details.settings summary { font-size: 13px; font-weight: 600; color: var(--text-muted); }
-  .tree-item, .comp-row, .comp-title, .comp-price { font-size: 15px; }
-  .delta { font-size: 15px; font-weight: 600; }
-  .tree-own-tag, .tree-override-tag, .comps-filter-bar, .hint, .note { font-size: 13px; }
-  /* forms (add / edit): inset grouped, sentence-case 13pt labels, segmented tabs */
-  label { font-size: 13px; font-weight: 500; color: var(--text-muted); margin-bottom: 6px; display: block; }
-  .tabs { background: var(--surface-raised); padding: 3px; border-radius: 10px; gap: 0; border: 0 !important; display: flex; }
-  .tab { flex: 1; text-align: center; padding: 8px 0 !important; border: 0 !important; border-radius: 8px !important; font-size: 15px; font-weight: 500; color: var(--text); background: transparent; }
-  .tab.active { background: var(--surface) !important; color: var(--text) !important; font-weight: 600; box-shadow: 0 1px 3px rgba(0,0,0,.12); }
-  h2, h3 { font-size: 22px; font-weight: 700; letter-spacing: -0.026em; }
-  .form-card, .card, .panel, section > div { border-radius: var(--r); }
-  header a.back { background: transparent; color: var(--accent-text) !important; padding: 0; font-weight: 500; }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { transition: none !important; }
+  }
 </style>
 </head>
 <body>
 
 <header>
-  <div class="brand">Card Ledger</div>
-  <span style="display:inline-flex;gap:12px;align-items:center"><a href="index.html" class="back">‹ Cards</a><button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle theme"></button></span>
+  <div class="header-left">
+    <a href="index.html" class="back-link"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>Cards</a>
+    <span class="header-sep" aria-hidden="true"></span>
+    <span class="brand">Card Ledger</span>
+  </div>
+  <button class="icon-btn square" id="theme-toggle" type="button" aria-label="Toggle theme"></button>
 </header>
 
 <main>
-  <div class="tabs">
-    <div class="tab active" id="tab-add">Add New</div>
-    <div class="tab" id="tab-edit">Edit Existing</div>
+  <div class="tabs" role="tablist">
+    <button class="tab active" id="tab-add" type="button" role="tab" aria-selected="true">Add new</button>
+    <button class="tab" id="tab-edit" type="button" role="tab" aria-selected="false">Edit existing</button>
   </div>
 
   <!-- ADD NEW -->
@@ -333,60 +402,61 @@
     <h2>Card details</h2>
     <div class="card-box">
       <div class="field">
-        <label>Player *</label>
-        <input type="text" id="a-player" placeholder="Michael Jordan">
+        <label for="a-player">Player <span class="req">required</span></label>
+        <input type="text" id="a-player" placeholder="Michael Jordan" autocomplete="off">
       </div>
       <div class="field-row">
         <div class="field">
-          <label>Year *</label>
-          <input type="text" id="a-year" placeholder="1993-94">
+          <label for="a-year">Year <span class="req">required</span></label>
+          <input type="text" id="a-year" placeholder="1993-94" autocomplete="off">
         </div>
         <div class="field">
-          <label>Card number</label>
-          <input type="text" id="a-number" placeholder="5">
+          <label for="a-number">Card number</label>
+          <input type="text" id="a-number" placeholder="5" autocomplete="off">
         </div>
       </div>
       <div class="field">
-        <label>Set *</label>
-        <input type="text" id="a-set" placeholder="Fleer Ultra Scoring Kings">
+        <label for="a-set">Set <span class="req">required</span></label>
+        <input type="text" id="a-set" placeholder="Fleer Ultra Scoring Kings" autocomplete="off">
       </div>
       <div class="field-row">
         <div class="field">
-          <label>Variant</label>
-          <input type="text" id="a-variant" placeholder="Refractor, /99, etc (optional)">
+          <label for="a-variant">Variant</label>
+          <input type="text" id="a-variant" placeholder="Refractor, /99" autocomplete="off">
         </div>
         <div class="field">
-          <label>Grade</label>
-          <input type="text" id="a-grade" placeholder="BGS 8.5 (leave blank if raw)">
+          <label for="a-grade">Grade</label>
+          <input type="text" id="a-grade" class="grade-input" placeholder="BGS 8.5" autocomplete="off">
         </div>
       </div>
+      <div class="hint">Leave grade blank for a raw card</div>
       <div class="field">
-        <label>Notes</label>
-        <input type="text" id="a-notes" placeholder="Optional">
+        <label for="a-notes">Notes</label>
+        <input type="text" id="a-notes" placeholder="Optional" autocomplete="off">
       </div>
     </div>
 
     <h2>Photos</h2>
     <div class="card-box">
       <div class="photo-field" id="a-front-field">
-        <label>Front photo *</label>
+        <label for="a-front">Front <span class="req">required</span></label>
         <input type="file" id="a-front" accept="image/*">
         <div class="photo-preview-wrap" id="a-front-preview-wrap">
-          <img class="photo-preview" id="a-front-preview">
-          <button class="secondary" type="button" data-rotate-target="a-front">⟳ Rotate</button>
+          <div class="photo-frame"><img class="photo-preview" id="a-front-preview" alt="Front photo preview"></div>
+          <button class="secondary" type="button" data-rotate-target="a-front"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12a9 9 0 1 1-9-9c2.52 0 4.93 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/></svg>Rotate</button>
         </div>
       </div>
       <div class="photo-field" id="a-back-field">
-        <label>Back photo (recommended for numbered/parallel cards)</label>
+        <label for="a-back">Back <span class="opt">recommended for numbered and parallel cards</span></label>
         <input type="file" id="a-back" accept="image/*">
         <div class="photo-preview-wrap" id="a-back-preview-wrap">
-          <img class="photo-preview" id="a-back-preview">
-          <button class="secondary" type="button" data-rotate-target="a-back">⟳ Rotate</button>
+          <div class="photo-frame"><img class="photo-preview" id="a-back-preview" alt="Back photo preview"></div>
+          <button class="secondary" type="button" data-rotate-target="a-back"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12a9 9 0 1 1-9-9c2.52 0 4.93 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/></svg>Rotate</button>
         </div>
       </div>
     </div>
 
-    <button id="btn-add-submit" type="button">Add card to collection</button>
+    <button class="btn-primary" id="btn-add-submit" type="button">Add card</button>
   </div>
 
   <!-- EDIT EXISTING -->
@@ -394,114 +464,111 @@
     <h2>Choose a card</h2>
     <div class="card-box">
       <div class="field">
-        <label>Card</label>
+        <label for="e-select">Card</label>
         <select id="e-select">
           <option value="">Loading…</option>
         </select>
       </div>
-      <button class="secondary" id="btn-reload-cards" type="button">↻ Reload list</button>
+      <button class="secondary" id="btn-reload-cards" type="button"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/></svg>Reload list</button>
     </div>
 
     <div id="e-form-area" style="display:none;">
       <h2>Card details</h2>
       <div class="card-box">
         <div class="field">
-          <label>Player *</label>
-          <input type="text" id="e-player">
+          <label for="e-player">Player <span class="req">required</span></label>
+          <input type="text" id="e-player" autocomplete="off">
         </div>
         <div class="field-row">
           <div class="field">
-            <label>Year *</label>
-            <input type="text" id="e-year">
+            <label for="e-year">Year <span class="req">required</span></label>
+            <input type="text" id="e-year" autocomplete="off">
           </div>
           <div class="field">
-            <label>Card number</label>
-            <input type="text" id="e-number">
+            <label for="e-number">Card number</label>
+            <input type="text" id="e-number" autocomplete="off">
           </div>
         </div>
         <div class="field">
-          <label>Set *</label>
-          <input type="text" id="e-set">
+          <label for="e-set">Set <span class="req">required</span></label>
+          <input type="text" id="e-set" autocomplete="off">
         </div>
         <div class="field-row">
           <div class="field">
-            <label>Variant</label>
-            <input type="text" id="e-variant">
+            <label for="e-variant">Variant</label>
+            <input type="text" id="e-variant" autocomplete="off">
           </div>
           <div class="field">
-            <label>Grade</label>
-            <input type="text" id="e-grade">
+            <label for="e-grade">Grade</label>
+            <input type="text" id="e-grade" class="grade-input" autocomplete="off">
           </div>
         </div>
+        <div class="hint">Leave grade blank for a raw card</div>
         <div class="field">
-          <label>Notes</label>
-          <input type="text" id="e-notes">
+          <label for="e-notes">Notes</label>
+          <input type="text" id="e-notes" autocomplete="off">
         </div>
       </div>
 
       <h2>Photos</h2>
       <div class="card-box">
         <div class="photo-field" id="e-front-field">
-          <label>Front photo</label>
+          <label for="e-front">Front</label>
           <div class="photo-current" id="e-front-current"></div>
           <input type="file" id="e-front" accept="image/*">
-          <div class="hint">Leave blank to keep the current photo</div>
+          <div class="hint">Leave empty to keep the current photo</div>
           <div class="photo-preview-wrap" id="e-front-preview-wrap">
-            <img class="photo-preview" id="e-front-preview">
-            <button class="secondary" type="button" data-rotate-target="e-front">⟳ Rotate</button>
+            <div class="photo-frame"><img class="photo-preview" id="e-front-preview" alt="New front photo preview"></div>
+            <button class="secondary" type="button" data-rotate-target="e-front"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12a9 9 0 1 1-9-9c2.52 0 4.93 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/></svg>Rotate</button>
           </div>
         </div>
         <div class="photo-field" id="e-back-field">
-          <label>Back photo</label>
+          <label for="e-back">Back</label>
           <div class="photo-current" id="e-back-current"></div>
           <input type="file" id="e-back" accept="image/*">
-          <div class="hint">Leave blank to keep the current photo</div>
+          <div class="hint">Leave empty to keep the current photo</div>
           <div class="photo-preview-wrap" id="e-back-preview-wrap">
-            <img class="photo-preview" id="e-back-preview">
-            <button class="secondary" type="button" data-rotate-target="e-back">⟳ Rotate</button>
+            <div class="photo-frame"><img class="photo-preview" id="e-back-preview" alt="New back photo preview"></div>
+            <button class="secondary" type="button" data-rotate-target="e-back"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12a9 9 0 1 1-9-9c2.52 0 4.93 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/></svg>Rotate</button>
           </div>
         </div>
       </div>
 
-      <button id="btn-edit-submit" type="button">Save changes</button>
+      <button class="btn-primary" id="btn-edit-submit" type="button">Save changes</button>
     </div>
   </div>
 
+  <div class="status" id="status" role="status" aria-live="polite"></div>
+
   <details class="settings" id="settings-panel">
-    <summary>GitHub connection settings</summary>
+    <summary><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg><span>GitHub connection</span><span class="conn-dot" id="conn-dot" aria-hidden="true"></span></summary>
     <div class="card-box">
       <p class="note">
-        This page writes directly to your GitHub repo using a personal
-        access token — no server involved, it all happens in your browser.
-        Create a <strong>fine-grained token</strong> scoped to just this
-        one repo at
+        This page writes straight to your GitHub repo from your browser, with no server in between.
+        Create a <strong>fine-grained token</strong> scoped to this one repo at
         <a href="https://github.com/settings/tokens?type=beta" target="_blank" rel="noopener">github.com/settings/tokens</a>,
-        with <strong>Contents: Read and write</strong> and
-        <strong>Actions: Read and write</strong> permissions. The token is
-        stored only in this browser's local storage — it's never sent
-        anywhere except directly to GitHub's API.
+        with <strong>Contents</strong> and <strong>Actions</strong> both set to read and write.
+        The token is kept only in this browser's local storage and is only ever sent to GitHub's API.
       </p>
       <div class="field">
-        <label>GitHub username</label>
-        <input type="text" id="s-owner" placeholder="e.g. Punter977">
+        <label for="s-owner">GitHub username</label>
+        <input type="text" id="s-owner" placeholder="Punter977" autocomplete="off" autocapitalize="off" spellcheck="false">
       </div>
       <div class="field">
-        <label>Repository name</label>
-        <input type="text" id="s-repo" placeholder="e.g. card-ledger">
+        <label for="s-repo">Repository</label>
+        <input type="text" id="s-repo" placeholder="card-ledger" autocomplete="off" autocapitalize="off" spellcheck="false">
       </div>
       <div class="field">
-        <label>Branch</label>
-        <input type="text" id="s-branch" placeholder="main" value="main">
+        <label for="s-branch">Branch</label>
+        <input type="text" id="s-branch" placeholder="main" value="main" autocomplete="off" autocapitalize="off" spellcheck="false">
       </div>
       <div class="field">
-        <label>Personal access token</label>
-        <input type="password" id="s-token" placeholder="github_pat_...">
+        <label for="s-token">Personal access token</label>
+        <input type="password" id="s-token" class="mono" placeholder="github_pat_…" autocomplete="off">
       </div>
-      <button class="secondary" id="btn-save-settings" type="button">Save connection settings</button>
+      <button class="secondary" id="btn-save-settings" type="button">Save connection</button>
     </div>
   </details>
-
-  <div class="status" id="status"></div>
 </main>
 
 <script>
@@ -517,6 +584,13 @@ function getSettings() {
   try { return JSON.parse(localStorage.getItem(SETTINGS_KEY) || '{}'); } catch { return {}; }
 }
 function saveSettings(s) { localStorage.setItem(SETTINGS_KEY, JSON.stringify(s)); }
+function paintConnectionDot() {
+  const s = getSettings();
+  const on = !!(s.owner && s.repo && s.token);
+  const dot = document.getElementById('conn-dot');
+  dot.classList.toggle('on', on);
+  dot.title = on ? 'Connected' : 'Not connected';
+}
 function loadSettingsIntoForm() {
   const s = getSettings();
   document.getElementById('s-owner').value = s.owner || '';
@@ -524,6 +598,7 @@ function loadSettingsIntoForm() {
   document.getElementById('s-branch').value = s.branch || 'main';
   document.getElementById('s-token').value = s.token || '';
   if (!s.owner || !s.repo || !s.token) document.getElementById('settings-panel').open = true;
+  paintConnectionDot();
 }
 loadSettingsIntoForm();
 document.getElementById('btn-save-settings').addEventListener('click', () => {
@@ -533,7 +608,8 @@ document.getElementById('btn-save-settings').addEventListener('click', () => {
     branch: document.getElementById('s-branch').value.trim() || 'main',
     token: document.getElementById('s-token').value.trim(),
   });
-  setStatus('info', 'Connection settings saved in this browser.');
+  paintConnectionDot();
+  setStatus('info', 'Connection saved in this browser');
 });
 
 function setStatus(kind, html) {
@@ -546,8 +622,12 @@ function setStatus(kind, html) {
 document.getElementById('tab-add').addEventListener('click', () => switchTab('add'));
 document.getElementById('tab-edit').addEventListener('click', () => switchTab('edit'));
 function switchTab(which, autoLoad = true) {
-  document.getElementById('tab-add').classList.toggle('active', which === 'add');
-  document.getElementById('tab-edit').classList.toggle('active', which === 'edit');
+  const addTab = document.getElementById('tab-add');
+  const editTab = document.getElementById('tab-edit');
+  addTab.classList.toggle('active', which === 'add');
+  editTab.classList.toggle('active', which === 'edit');
+  addTab.setAttribute('aria-selected', which === 'add');
+  editTab.setAttribute('aria-selected', which === 'edit');
   document.getElementById('add-section').style.display = which === 'add' ? 'block' : 'none';
   document.getElementById('edit-section').style.display = which === 'edit' ? 'block' : 'none';
   if (which === 'edit' && autoLoad && !editState.rows) loadCardsForEdit();
@@ -859,7 +939,7 @@ async function uploadPhotoIfPresent(field, base, suffix, fallbackFilename, label
 document.getElementById('btn-add-submit').addEventListener('click', async () => {
   const s = getSettings();
   if (!s.owner || !s.repo || !s.token) {
-    setStatus('error', 'Fill in your GitHub connection settings first (below).');
+    setStatus('error', 'Fill in your GitHub connection below first');
     document.getElementById('settings-panel').open = true;
     return;
   }
@@ -872,8 +952,8 @@ document.getElementById('btn-add-submit').addEventListener('click', async () => 
   const grade = document.getElementById('a-grade').value.trim();
   const notes = document.getElementById('a-notes').value.trim();
 
-  if (!player || !year || !set) { setStatus('error', 'Player, year, and set are required.'); return; }
-  if (!photoFields['a-front'].hasFile) { setStatus('error', 'A front photo is required.'); return; }
+  if (!player || !year || !set) { setStatus('error', 'Player, year and set are required'); return; }
+  if (!photoFields['a-front'].hasFile) { setStatus('error', 'A front photo is required'); return; }
 
   const btn = document.getElementById('btn-add-submit');
   btn.disabled = true;
@@ -891,7 +971,7 @@ document.getElementById('btn-add-submit').addEventListener('click', async () => 
     });
     await putFile(CSV_PATH, utf8ToBase64(serializeCSV(header, rows)), `Add card: ${player} - ${set}`, sha);
 
-    setStatus('info', 'Card added. Triggering a price pull…');
+    setStatus('info', 'Card added. Starting a price pull…');
     const dispatched = await triggerPricePull().catch(() => false);
     setStatus('success', successMessage(player, set, dispatched, s));
 
@@ -902,7 +982,7 @@ document.getElementById('btn-add-submit').addEventListener('click', async () => 
       document.getElementById(`${id}-preview-wrap`).classList.remove('visible');
     });
   } catch (err) {
-    setStatus('error', err.message || 'Something went wrong.');
+    setStatus('error', err.message || 'Something went wrong');
     console.error(err);
   } finally {
     btn.disabled = false;
@@ -912,11 +992,11 @@ document.getElementById('btn-add-submit').addEventListener('click', async () => 
 function successMessage(player, set, dispatched, s) {
   const actionsUrl = `https://github.com/${s.owner}/${s.repo}/actions`;
   return `
-    <strong>${player} — ${set}</strong> saved.<br>
+    <strong>${player} · ${set}</strong> saved.
     ${dispatched
-      ? `A price pull has been triggered — check the <a href="${actionsUrl}" target="_blank" rel="noopener">Actions tab</a> in a minute, then refresh the dashboard.`
-      : `Couldn't auto-trigger a price pull (check your token has Actions permission) — you can run it manually from the <a href="${actionsUrl}" target="_blank" rel="noopener">Actions tab</a>.`}
-    <br><span style="display:inline-flex;gap:12px;align-items:center"><a href="index.html" class="back">‹ Cards</a><button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle theme"></button></span>
+      ? `A price pull is running. Check the <a href="${actionsUrl}" target="_blank" rel="noopener">Actions tab</a> in a minute, then refresh the dashboard.`
+      : `The price pull couldn't start automatically (check your token has Actions permission). You can run it from the <a href="${actionsUrl}" target="_blank" rel="noopener">Actions tab</a>.`}
+    <br><a href="index.html">Back to cards</a>
   `;
 }
 
@@ -929,9 +1009,9 @@ async function loadCardsForEdit() {
   document.getElementById('e-form-area').style.display = 'none';
   const s = getSettings();
   if (!s.owner || !s.repo || !s.token) {
-    setStatus('error', 'Fill in your GitHub connection settings first (below).');
+    setStatus('error', 'Fill in your GitHub connection below first');
     document.getElementById('settings-panel').open = true;
-    select.innerHTML = '<option value="">— connect GitHub first —</option>';
+    select.innerHTML = '<option value="">Connect GitHub first</option>';
     return;
   }
   try {
@@ -942,13 +1022,13 @@ async function loadCardsForEdit() {
       select.innerHTML = '<option value="">No cards yet</option>';
       return;
     }
-    select.innerHTML = '<option value="">— choose a card —</option>' + rows.map((r, i) => {
+    select.innerHTML = '<option value="">Choose a card</option>' + rows.map((r, i) => {
       const label = [r.player, r.year, r.set, r.card_number ? `#${r.card_number}` : '', r.grade].filter(Boolean).join(' · ');
       return `<option value="${i}">${label}</option>`;
     }).join('');
   } catch (err) {
-    setStatus('error', err.message || 'Could not load cards.csv.');
-    select.innerHTML = '<option value="">— failed to load —</option>';
+    setStatus('error', err.message || 'Could not load cards.csv');
+    select.innerHTML = '<option value="">Failed to load</option>';
   }
 }
 document.getElementById('btn-reload-cards').addEventListener('click', loadCardsForEdit);
@@ -968,8 +1048,8 @@ document.getElementById('e-select').addEventListener('change', (e) => {
   document.getElementById('e-grade').value = row.grade || '';
   document.getElementById('e-notes').value = row.notes || '';
 
-  document.getElementById('e-front-current').textContent = row.photo_filename ? `Current: ${row.photo_filename}` : 'No photo set';
-  document.getElementById('e-back-current').textContent = row.back_photo_filename ? `Current: ${row.back_photo_filename}` : 'No back photo set';
+  document.getElementById('e-front-current').textContent = row.photo_filename ? `Current: ${row.photo_filename}` : 'No photo yet';
+  document.getElementById('e-back-current').textContent = row.back_photo_filename ? `Current: ${row.back_photo_filename}` : 'No back photo yet';
 
   ['e-front', 'e-back'].forEach(id => {
     document.getElementById(id).value = '';
@@ -981,10 +1061,10 @@ document.getElementById('e-select').addEventListener('change', (e) => {
 });
 
 document.getElementById('btn-edit-submit').addEventListener('click', async () => {
-  if (editState.selectedIndex === null) { setStatus('error', 'Choose a card to edit first.'); return; }
+  if (editState.selectedIndex === null) { setStatus('error', 'Choose a card to edit first'); return; }
   const s = getSettings();
   if (!s.owner || !s.repo || !s.token) {
-    setStatus('error', 'Fill in your GitHub connection settings first (below).');
+    setStatus('error', 'Fill in your GitHub connection below first');
     document.getElementById('settings-panel').open = true;
     return;
   }
@@ -992,7 +1072,7 @@ document.getElementById('btn-edit-submit').addEventListener('click', async () =>
   const player = document.getElementById('e-player').value.trim();
   const year = document.getElementById('e-year').value.trim();
   const set = document.getElementById('e-set').value.trim();
-  if (!player || !year || !set) { setStatus('error', 'Player, year, and set are required.'); return; }
+  if (!player || !year || !set) { setStatus('error', 'Player, year and set are required'); return; }
 
   const btn = document.getElementById('btn-edit-submit');
   btn.disabled = true;
@@ -1034,14 +1114,14 @@ document.getElementById('btn-edit-submit').addEventListener('click', async () =>
     setStatus('info', 'Syncing dashboard data…');
     await syncHistoryMetaAfterEdit(oldKey, row);
 
-    setStatus('info', 'Saved. Triggering a price pull…');
+    setStatus('info', 'Saved. Starting a price pull…');
     const dispatched = await triggerPricePull().catch(() => false);
     setStatus('success', successMessage(player, set, dispatched, s));
 
     await loadCardsForEdit();
     document.getElementById('e-form-area').style.display = 'none';
   } catch (err) {
-    setStatus('error', err.message || 'Something went wrong.');
+    setStatus('error', err.message || 'Something went wrong');
     console.error(err);
   } finally {
     btn.disabled = false;
@@ -1079,7 +1159,7 @@ async function tryAutoSelectFromURL() {
   );
 
   if (idx === -1) {
-    setStatus('error', 'Couldn\'t automatically match that card — please select it manually from the dropdown below.');
+    setStatus('error', 'Couldn\'t match that card automatically. Choose it from the list above.');
     return;
   }
 
@@ -1093,8 +1173,15 @@ tryAutoSelectFromURL();
 <script>
 (function(){
   var btn=document.getElementById('theme-toggle'); if(!btn) return;
+  var SUN='<svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>';
+  var MOON='<svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>';
   function cur(){return document.documentElement.getAttribute('data-theme')||'light';}
-  function paint(){btn.textContent=cur()==='dark'?'☀':'☾';btn.title=cur()==='dark'?'Switch to light':'Switch to dark';}
+  function paint(){
+    var dark=cur()==='dark';
+    btn.innerHTML=dark?SUN:MOON;
+    btn.title=dark?'Switch to light':'Switch to dark';
+    btn.setAttribute('aria-label',btn.title);
+  }
   btn.addEventListener('click',function(){
     var n=cur()==='dark'?'light':'dark';
     document.documentElement.setAttribute('data-theme',n);
