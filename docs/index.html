@@ -2,10 +2,11 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Card Ledger</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <script>
 function themeColor(name){return getComputedStyle(document.documentElement).getPropertyValue(name).trim();}
 </script>
@@ -14,120 +15,191 @@ function themeColor(name){return getComputedStyle(document.documentElement).getP
 (function(){try{var t=localStorage.getItem('card_ledger_theme');if(t!=='light'&&t!=='dark'){t=window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();
 </script>
 <style>
+  /* ---------- tokens ---------- */
+  :root {
+    --font: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, system-ui, sans-serif;
+    --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+    --ease: cubic-bezier(0.22, 1, 0.36, 1);
+    --tap: 44px;
+  }
   :root, :root[data-theme="light"] {
-    /* Lusmu light */
-    --bg: #fbfcf8;
+    --bg: #fafafa;
     --surface: #ffffff;
-    --surface-raised: #f1f5f9;
-    --line: #e2e8f0;
-    --text: #0f172a;
-    --text-muted: #64748b;
+    --raised: #f4f4f5;
+    --line: rgba(23, 23, 23, 0.08);
+    --line-strong: rgba(23, 23, 23, 0.14);
+    --text: #171717;
+    --text-2: #525252;
+    --text-muted: #737373;
     --accent: #aff33e;
-    --accent-fg: #000000;
-    --accent-text: #166534;
-    --accent-dim: #c6e98f;
-    --accent-soft: rgba(175, 243, 62, 0.16);
-    --teal: #166534;
-    --teal-dim: #bbf7d0;
+    --accent-fg: #111111;
+    --accent-text: #3f6212;
+    --accent-soft: rgba(175, 243, 62, 0.22);
+    --chart-line: #3f6212;
     --up: #16a34a;
-    --down: #ef4444;
-    --overlay: rgba(15, 23, 42, 0.45);
-    --shadow: 0 8px 20px rgba(15, 23, 42, 0.05);
-    --radius: 1rem;
+    --down: #dc2626;
+    --overlay: rgba(23, 23, 23, 0.40);
+    --float-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
     color-scheme: light;
   }
   :root[data-theme="dark"] {
-    /* Lusmu dark */
-    --bg: #020617;
-    --surface: #0f172a;
-    --surface-raised: #1e293b;
-    --line: #1e293b;
-    --text: #f8fafc;
-    --text-muted: #94a3b8;
+    --bg: #141415;
+    --surface: #19191b;
+    --raised: #232325;
+    --line: rgba(237, 237, 237, 0.08);
+    --line-strong: rgba(237, 237, 237, 0.14);
+    --text: #ededed;
+    --text-2: #a1a1a6;
+    --text-muted: #85858b;
     --accent: #aff33e;
-    --accent-fg: #000000;
+    --accent-fg: #111111;
     --accent-text: #aff33e;
-    --accent-dim: #3f6212;
     --accent-soft: rgba(175, 243, 62, 0.10);
-    --teal: #aff33e;
-    --teal-dim: #14532d;
-    --up: #22c55e;
-    --down: #f87171;
-    --overlay: rgba(2, 6, 23, 0.75);
-    --shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+    --chart-line: #aff33e;
+    --up: #4cc38a;
+    --down: #e5484d;
+    --overlay: rgba(0, 0, 0, 0.60);
+    --float-shadow: none;
     color-scheme: dark;
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
-
+  html { -webkit-text-size-adjust: 100%; }
   body {
     background: var(--bg);
     color: var(--text);
     font-family: var(--font);
+    font-size: 15px;
+    line-height: 1.4;
     min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
   }
+  button, input, select { font: inherit; color: inherit; }
+  a { color: inherit; }
+  .num, .mono { font-family: var(--mono); font-variant-numeric: tabular-nums; }
 
+  svg.i { width: 16px; height: 16px; flex-shrink: 0; stroke: currentColor; fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; display: block; }
+
+  :focus-visible { outline: 2px solid var(--accent-text); outline-offset: 2px; }
+
+  /* ---------- header ---------- */
   header {
-    padding: 32px 24px 20px;
-    border-bottom: 1px solid var(--line);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    height: calc(56px + env(safe-area-inset-top));
+    padding: env(safe-area-inset-top) 20px 0;
     display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    flex-wrap: wrap;
-    gap: 12px;
-  }
-
-  .brand {
-    font-family: var(--font);
-    font-weight: 700;
-    font-size: 28px;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-  }
-  .brand span { color: var(--accent-text); }
-
-  .summary {
-    display: flex;
-    gap: 28px;
     align-items: center;
-    font-family: var(--font);
-    font-size: 13px;
-    color: var(--text-muted);
+    justify-content: space-between;
+    background: var(--bg);
+    border-bottom: 1px solid var(--line);
   }
-  .summary strong { color: var(--text); font-weight: 500; }
-  .summary a {
-    color: var(--accent-text);
-    text-decoration: none;
-    border: 1px solid var(--accent-dim);
-    padding: 4px 10px;
+  .brand { font-size: 17px; font-weight: 600; letter-spacing: 0; }
+  header .actions { display: flex; align-items: center; gap: 8px; }
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    height: 36px;
+    padding: 0 16px;
     border-radius: 10px;
+    background: var(--accent);
+    color: var(--accent-fg);
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25);
+    transition: filter 150ms var(--ease), transform 150ms var(--ease);
   }
+  .btn-primary:hover { filter: brightness(0.96); }
+  .btn-primary:active { transform: scale(0.98); }
 
+  .icon-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    height: 36px;
+    min-width: 36px;
+    padding: 0 10px;
+    border-radius: 10px;
+    border: 1px solid var(--line);
+    background: var(--surface);
+    color: var(--text-2);
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 150ms var(--ease), color 150ms var(--ease), border-color 150ms var(--ease);
+  }
+  .icon-btn:hover { background: var(--raised); color: var(--text); }
+  .icon-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+  .icon-btn.danger:hover { color: var(--down); }
+  .icon-btn.square { padding: 0; width: 36px; }
+
+  /* ---------- page ---------- */
   main {
     max-width: 820px;
     margin: 0 auto;
-    padding: 28px 24px 60px;
+    padding: 0 20px 64px;
   }
 
-  .toolbar {
+  .hero { padding: 32px 0 8px; }
+  .hero-label { font-size: 13px; color: var(--text-muted); margin-bottom: 8px; }
+  .hero-total {
+    font-family: var(--mono);
+    font-variant-numeric: tabular-nums;
+    font-size: 40px;
+    font-weight: 500;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+  }
+  .hero-sub {
+    margin-top: 12px;
     display: flex;
-    gap: 10px;
-    margin-bottom: 20px;
-    flex-wrap: nowrap;
-    align-items: center;
-  }
-  .toolbar input {
-    background: var(--surface);
-    border: 1px solid var(--line);
-    color: var(--text);
-    padding: 9px 14px;
-    border-radius: 10px;
-    font-family: var(--font);
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 4px 12px;
     font-size: 14px;
-    flex: 1;
-    min-width: 0;
+    color: var(--text-2);
   }
-  .toolbar input:focus { outline: 1px solid var(--accent); border-color: var(--accent-text); }
+  .hero-change { font-family: var(--mono); font-variant-numeric: tabular-nums; font-size: 14px; }
+  .hero-change:empty { display: none; }
+  .hero-change.up { color: var(--up); }
+  .hero-change.down { color: var(--down); }
+  .hero-change.flat { color: var(--text-muted); }
+
+  /* ---------- portfolio chart ---------- */
+  .portfolio-chart-box { margin: 16px 0 24px; }
+  .portfolio-chart-wrap { height: 168px; position: relative; }
+  .portfolio-chart-empty {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    color: var(--text-muted);
+    border: 1px dashed var(--line-strong);
+    border-radius: 12px;
+  }
+
+  /* ---------- toolbar ---------- */
+  .toolbar { display: flex; gap: 8px; margin-bottom: 12px; align-items: center; }
+  .search-wrap { position: relative; flex: 1; min-width: 0; }
+  .search-wrap svg.i { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: var(--text-muted); pointer-events: none; }
+  .toolbar input {
+    width: 100%;
+    height: var(--tap);
+    padding: 0 12px 0 36px;
+    border-radius: 10px;
+    border: 1px solid var(--line);
+    background: var(--surface);
+    font-size: 16px;
+    transition: border-color 150ms var(--ease);
+  }
+  .toolbar input::placeholder { color: var(--text-muted); }
+  .toolbar input:focus { outline: none; border-color: var(--accent-text); }
 
   /* Sort control: shows only an icon when closed, but is still a real
      native <select> underneath (invisible, stretched over the icon) -
@@ -135,8 +207,8 @@ function themeColor(name){return getComputedStyle(document.documentElement).getP
      just like any other select. This is purely a compact "closed" state. */
   .sort-icon-btn {
     position: relative;
-    width: 42px;
-    height: 39px;
+    width: var(--tap);
+    height: var(--tap);
     flex-shrink: 0;
     border-radius: 10px;
     border: 1px solid var(--line);
@@ -144,10 +216,9 @@ function themeColor(name){return getComputedStyle(document.documentElement).getP
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--text-muted);
-    font-size: 17px;
+    color: var(--text-2);
   }
-  .sort-icon-btn:has(select:focus) { border-color: var(--accent-text); }
+  .sort-icon-btn:has(select:focus-visible) { outline: 2px solid var(--accent-text); outline-offset: 2px; }
   .sort-icon-btn select {
     position: absolute;
     inset: 0;
@@ -159,160 +230,157 @@ function themeColor(name){return getComputedStyle(document.documentElement).getP
     cursor: pointer;
   }
 
-  /* ---------- portfolio value chart ---------- */
-  .portfolio-chart-box {
-    background: var(--surface);
-    border: 1px solid var(--line);
-    border-radius: 16px;
-    padding: 14px 16px;
-    margin-bottom: 20px;
-  }
-  .portfolio-chart-label {
-    font-family: var(--font);
-    font-size: 10.5px;
-    color: var(--text-muted);
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    margin-bottom: 4px;
-  }
-  .portfolio-chart-wrap { height: 130px; position: relative; }
-  .portfolio-chart-empty {
-    font-family: var(--font);
-    font-size: 12px;
-    color: var(--text-muted);
-    text-align: center;
-    padding-top: 48px;
-  }
-
-  /* ---------- compact list ---------- */
+  /* ---------- card list ---------- */
   .list {
     display: flex;
     flex-direction: column;
-    gap: 10px;
-  }
-
-  .card-row {
-    display: flex;
-    align-items: flex-start;
-    gap: 12px;
-    padding: 14px;
     background: var(--surface);
     border: 1px solid var(--line);
-    border-radius: 16px;
-    cursor: pointer;
+    border-radius: 14px;
+    overflow: hidden;
   }
-  .card-row:hover, .card-row:active { background: var(--surface-raised); }
+  .list:empty { display: none; }
+
+  .card-row {
+    display: grid;
+    grid-template-columns: 24px 52px minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px 12px 12px;
+    cursor: pointer;
+    transition: background-color 150ms var(--ease);
+  }
+  .card-row + .card-row { border-top: 1px solid var(--line); }
+  .card-row:hover { background: var(--raised); }
+  .card-row:active { background: var(--raised); }
+  .card-row:focus-visible { outline-offset: -2px; }
 
   .row-rank {
-    flex-shrink: 0;
-    width: 24px;
-    padding-top: 3px;
-    text-align: center;
-    font-family: var(--font);
-    font-weight: 700;
-    font-size: 13px;
+    font-family: var(--mono);
+    font-variant-numeric: tabular-nums;
+    font-size: 12px;
     color: var(--text-muted);
+    text-align: right;
   }
 
-  .row-thumb {
-    width: 48px;
-    height: 66px;
+  /* toploader frame: a thin sleeve around the photo */
+  .row-thumb, .photo-wrap {
     flex-shrink: 0;
-    border-radius: 12px;
+    padding: 2px;
+    border-radius: 6px;
+    background: var(--raised);
+    border: 1px solid var(--line-strong);
     overflow: hidden;
-    background: var(--surface-raised);
-    border: 1px solid var(--line);
     display: flex;
     align-items: center;
     justify-content: center;
-  }
-  .row-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
-  .row-thumb .placeholder {
-    font-family: var(--font);
-    font-size: 8px;
     color: var(--text-muted);
-    text-align: center;
-    line-height: 1.2;
+  }
+  .row-thumb { width: 52px; height: 72px; }
+  .row-thumb img, .photo-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 4px;
   }
 
-  .row-body { flex: 1; min-width: 0; }
+  .row-body { min-width: 0; }
   .row-title {
-    font-family: var(--font);
-    font-weight: 600;
-    font-size: 16px;
-    line-height: 1.25;
-    white-space: normal;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 20px;
     overflow-wrap: break-word;
   }
   .row-sub {
-    font-size: 11.5px;
-    color: var(--text-muted);
-    white-space: normal;
+    font-size: 13px;
+    line-height: 18px;
+    color: var(--text-2);
+    margin-top: 2px;
     overflow-wrap: break-word;
-    margin-top: 3px;
-    line-height: 1.4;
   }
-  .row-sub .row-grade {
-    color: var(--accent-text);
-    font-family: var(--font);
-    font-size: 10.5px;
-  }
-
-  .row-lastsale {
-    font-size: 10.5px;
-    color: var(--text-muted);
-    opacity: 0.75;
-    margin-top: 3px;
-  }
-
-  .row-price-line {
+  .row-foot {
     display: flex;
-    align-items: baseline;
-    gap: 8px;
-    margin-top: 7px;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 4px 8px;
+    margin-top: 8px;
   }
-  .row-price-icon { color: var(--accent-text); font-size: 12px; }
+  .row-lastsale {
+    font-family: var(--mono);
+    font-variant-numeric: tabular-nums;
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+
+  .row-figures { text-align: right; align-self: center; }
   .row-value {
-    font-family: var(--font);
-    font-weight: 600;
-    font-size: 16px;
+    font-family: var(--mono);
+    font-variant-numeric: tabular-nums;
+    font-size: 15px;
+    font-weight: 500;
+    white-space: nowrap;
   }
   .row-change {
-    font-family: var(--font);
-    font-size: 11.5px;
+    font-family: var(--mono);
+    font-variant-numeric: tabular-nums;
+    font-size: 12px;
+    margin-top: 4px;
+    white-space: nowrap;
   }
-  .row-change.up { color: var(--up); }
-  .row-change.down { color: var(--down); }
-  .row-change.flat { color: var(--text-muted); }
+  .row-change.up, .delta.up { color: var(--up); }
+  .row-change.down, .delta.down { color: var(--down); }
+  .row-change.flat, .delta.flat { color: var(--text-muted); }
+
+  /* ---------- signature: grading-slab label ---------- */
+  .slab {
+    display: inline-flex;
+    align-items: center;
+    height: 20px;
+    padding: 0 6px 0 8px;
+    border-radius: 4px;
+    border: 1px solid var(--line-strong);
+    border-left: 3px solid var(--accent-text);
+    background: var(--raised);
+    font-family: var(--mono);
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text);
+    white-space: nowrap;
+  }
+  .slab.raw { border-left-color: var(--line-strong); color: var(--text-2); font-weight: 400; }
 
   .empty-state {
     text-align: center;
-    padding: 80px 20px;
+    padding: 64px 20px;
     color: var(--text-muted);
-    font-family: var(--font);
-    font-size: 20px;
+    font-size: 15px;
   }
 
+  /* ---------- toast ---------- */
   .toast {
     position: fixed;
-    bottom: 20px;
     left: 50%;
+    bottom: calc(20px + env(safe-area-inset-bottom));
     transform: translateX(-50%);
-    background: var(--surface-raised);
-    border: 1px solid var(--line);
+    max-width: calc(100% - 32px);
+    background: var(--surface);
+    border: 1px solid var(--line-strong);
+    box-shadow: var(--float-shadow);
     color: var(--text);
-    padding: 10px 18px;
-    border-radius: 12px;
-    font-family: var(--font);
-    font-size: 12.5px;
+    padding: 12px 16px;
+    border-radius: 10px;
+    font-size: 14px;
     z-index: 30;
     display: none;
   }
-  .toast.visible { display: block; }
-  .toast.error { border-color: var(--down); color: var(--down); }
-  .toast.success { border-color: var(--teal); color: var(--teal); }
+  .toast.visible { display: block; animation: rise 220ms var(--ease); }
+  .toast.error { color: var(--down); }
 
-  /* ---------- detail modal ---------- */
+  @keyframes rise { from { opacity: 0; transform: translate(-50%, 8px); } to { opacity: 1; transform: translate(-50%, 0); } }
+  @keyframes sheet { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+
+  /* ---------- detail sheet ---------- */
   .modal-overlay {
     display: none;
     position: fixed;
@@ -323,483 +391,293 @@ function themeColor(name){return getComputedStyle(document.documentElement).getP
     justify-content: center;
   }
   .modal-overlay.visible { display: flex; }
-  @media (min-width: 640px) {
-    .modal-overlay { align-items: center; }
-  }
-
   .modal-panel {
     background: var(--surface);
     border: 1px solid var(--line);
     border-radius: 20px 20px 0 0;
     width: 100%;
     max-width: 480px;
-    max-height: 90vh;
+    max-height: 92vh;
     overflow-y: auto;
     position: relative;
-    padding-bottom: 20px;
+    padding-bottom: calc(20px + env(safe-area-inset-bottom));
+    animation: sheet 300ms var(--ease);
   }
   @media (min-width: 640px) {
-    .modal-panel { border-radius: 20px; }
+    .modal-overlay { align-items: center; }
+    .modal-panel { border-radius: 20px; padding-bottom: 20px; }
   }
 
   .modal-drag-handle {
     width: 36px;
     height: 4px;
-    background: var(--line);
+    background: var(--line-strong);
     border-radius: 2px;
-    margin: 10px auto 0;
+    margin: 8px auto 0;
   }
   @media (min-width: 640px) { .modal-drag-handle { display: none; } }
 
-  .modal-close {
-    position: absolute;
-    top: 14px;
-    right: 14px;
-    background: var(--surface-raised);
-    border: 1px solid var(--line);
-    color: var(--text-muted);
-    width: 28px;
-    height: 28px;
-    border-radius: 50%;
-    cursor: pointer;
-    font-size: 15px;
-    line-height: 1;
-    z-index: 1;
-  }
-  .modal-close:hover { color: var(--text); border-color: var(--accent-dim); }
-
-  .modal-actions {
-    position: absolute;
-    top: 14px;
-    left: 14px;
-    display: flex;
-    gap: 6px;
-    z-index: 1;
-  }
-  .edit-link, .delete-btn {
-    font-family: var(--font);
-    font-size: 10.5px;
-    color: var(--text-muted);
-    text-decoration: none;
-    border: 1px solid var(--line);
-    padding: 3px 8px;
-    border-radius: 16px;
-    background: var(--surface-raised);
-    cursor: pointer;
-  }
-  .edit-link:hover { color: var(--accent-text); border-color: var(--accent-dim); }
-  .delete-btn:hover { color: var(--down); border-color: var(--down); }
-  .delete-btn:disabled { opacity: 0.5; cursor: not-allowed; }
-
-  .tile-top {
-    display: flex;
-    gap: 14px;
-    padding: 40px 20px 0;
-  }
-
-  .photo-wrap {
-    width: 72px;
-    height: 100px;
-    flex-shrink: 0;
-    border-radius: 8px;
-    overflow: hidden;
-    background: var(--surface-raised);
-    border: 1px solid var(--line);
+  .modal-bar {
     display: flex;
     align-items: center;
-    justify-content: center;
-    position: relative;
+    justify-content: space-between;
+    padding: 12px 16px 0;
   }
+  .modal-actions { display: flex; gap: 8px; }
+
+  .tile-top { display: flex; gap: 16px; padding: 16px 20px 0; }
+  .photo-wrap { width: 88px; height: 122px; }
   .photo-wrap a { display: block; width: 100%; height: 100%; }
-  .photo-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; }
-  .photo-wrap .placeholder {
-    font-family: var(--font);
-    font-size: 11px;
-    color: var(--text-muted);
-    text-align: center;
-  }
-  .photo-wrap.clickable { cursor: pointer; }
-  .photo-wrap.clickable:hover { outline: 1px solid var(--accent); }
+  .photo-wrap.clickable { cursor: zoom-in; }
 
-  .id-block { flex: 1; min-width: 0; }
-
-  .player {
-    font-family: var(--font);
-    font-weight: 600;
-    font-size: 20px;
-    line-height: 1.15;
-    overflow-wrap: break-word;
-  }
-  .card-meta {
-    font-size: 12.5px;
-    color: var(--text-muted);
-    margin-top: 3px;
-    line-height: 1.4;
-  }
-  .grade-tag {
-    display: inline-block;
-    margin-top: 6px;
-    padding: 2px 7px;
-    border: 1px solid var(--accent-dim);
-    color: var(--accent-text);
-    font-family: var(--font);
-    font-size: 10.5px;
-    border-radius: 6px;
-    letter-spacing: 0.3px;
-  }
+  .id-block { flex: 1; min-width: 0; padding-top: 4px; }
+  .player { font-size: 20px; font-weight: 500; line-height: 1.2; overflow-wrap: break-word; }
+  .card-meta { font-size: 14px; color: var(--text-2); margin-top: 4px; line-height: 1.4; }
+  .id-block .slab { margin-top: 12px; }
 
   .value-row {
     display: flex;
     align-items: baseline;
-    gap: 8px;
-    padding: 16px 20px 4px;
+    flex-wrap: wrap;
+    gap: 4px 12px;
+    padding: 20px 20px 4px;
   }
   .value {
-    font-family: var(--font);
-    font-size: 26px;
-    font-weight: 600;
+    font-family: var(--mono);
+    font-variant-numeric: tabular-nums;
+    font-size: 28px;
+    font-weight: 500;
+    letter-spacing: -0.01em;
   }
-  .delta { font-family: var(--font); font-size: 12.5px; }
-  .delta.up { color: var(--up); }
-  .delta.down { color: var(--down); }
-  .delta.flat { color: var(--text-muted); }
-  .delta-label {
-    font-family: var(--font);
-    font-size: 10px;
-    color: var(--text-muted);
-    align-self: flex-end;
-    margin-bottom: 1px;
-  }
+  .delta { font-family: var(--mono); font-variant-numeric: tabular-nums; font-size: 14px; }
+  .delta-label { font-size: 13px; color: var(--text-muted); }
 
-  .chart-wrap { padding: 4px 16px 8px; height: 96px; position: relative; }
-  .chart-label {
-    font-family: var(--font);
-    font-size: 9.5px;
-    color: var(--text-muted);
-    text-transform: uppercase;
-    letter-spacing: 0.4px;
-    padding: 0 20px 2px;
+  .override-banner {
+    margin: 12px 20px 0;
+    padding: 8px 12px;
+    background: var(--raised);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    font-size: 13px;
+    color: var(--text-2);
+    display: flex;
+    align-items: center;
+    gap: 8px;
   }
-  .chart-empty {
-    font-family: var(--font);
-    font-size: 11px;
-    color: var(--text-muted);
-    text-align: center;
-    padding: 20px 4px;
-  }
+  .override-banner strong { color: var(--text); font-weight: 500; }
 
-  .comps {
-    border-top: 1px solid var(--line);
-    padding: 10px 20px 4px;
-    font-size: 12.5px;
-  }
-  .comps summary {
-    cursor: pointer;
-    color: var(--text-muted);
-    font-family: var(--font);
-    font-size: 11.5px;
-    text-transform: uppercase;
-    letter-spacing: 0.4px;
-    list-style: none;
-  }
-  .comps summary::-webkit-details-marker { display: none; }
-  .comps summary:before { content: "▸ "; }
-  .comps[open] summary:before { content: "▾ "; }
-  .comp-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 10px;
-    padding: 7px 0;
-    border-top: 1px solid var(--line);
-  }
-  .comp-row:first-of-type { margin-top: 8px; }
-  .comp-main {
-    flex: 1;
-    min-width: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 1px;
-  }
-  .comp-title {
-    color: var(--text-muted);
-    overflow-wrap: break-word;
-    white-space: normal;
-  }
-  .comp-date {
-    font-family: var(--font);
-    font-size: 10.5px;
-    color: var(--text-muted);
-    opacity: 0.7;
-  }
-  .comp-price { font-family: var(--font); color: var(--text); flex-shrink: 0; padding-top: 1px; }
-  .comp-title a, .comp-price a { color: inherit; text-decoration: none; }
-  .comp-title a:hover, .comp-price a:hover { text-decoration: underline; }
-  .manual-tag {
-    color: var(--teal);
-    font-size: 9.5px;
-    border: 1px solid var(--teal-dim);
-    padding: 0 4px;
-    border-radius: 6px;
-    margin-left: 5px;
-  }
-  .comp-delete-btn {
+  .text-btn {
+    margin-left: auto;
     background: transparent;
     border: none;
-    color: var(--text-muted);
-    font-size: 15px;
-    line-height: 1;
-    padding: 0 0 0 6px;
+    color: var(--text-2);
+    font-size: 13px;
+    font-weight: 500;
+    padding: 4px 0;
     cursor: pointer;
+    transition: color 150ms var(--ease);
   }
-  .comp-delete-btn:hover { color: var(--down); }
-  .comp-delete-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+  .text-btn:hover { color: var(--text); }
+  .text-btn:disabled { opacity: 0.5; cursor: not-allowed; }
 
-  .add-comp-row { margin-top: 10px; }
-  button.secondary {
-    background: transparent;
-    border: 1px solid var(--line);
+  .section-label {
+    font-size: 13px;
+    font-weight: 500;
     color: var(--text-muted);
-    border-radius: 10px;
-    font-family: var(--font);
-    cursor: pointer;
+    padding: 24px 20px 8px;
   }
-  button.secondary:hover { border-color: var(--accent-text); color: var(--accent-text); }
-  button.secondary.small { width: auto; padding: 6px 10px; font-size: 11.5px; }
-  button.secondary:disabled { opacity: 0.5; cursor: not-allowed; }
 
-  .add-comp-form {
-    margin-top: 10px;
-    display: none;
-    flex-direction: column;
-    gap: 6px;
-  }
-  .add-comp-form.visible { display: flex; }
-  .add-comp-form input {
-    background: var(--surface-raised);
-    border: 1px solid var(--line);
-    color: var(--text);
-    padding: 7px 9px;
-    border-radius: 8px;
-    font-family: var(--font);
-    font-size: 12.5px;
-    width: 100%;
-  }
-  .add-comp-form input:focus { outline: 1px solid var(--accent); border-color: var(--accent-text); }
-  .field-row-inline { display: flex; gap: 6px; }
-  .field-row-inline input { flex: 1; }
-  .add-comp-hint { font-size: 11px; color: var(--text-muted); }
-
-  .tree {
-    padding: 2px 20px 14px;
-    font-family: var(--font);
-    font-size: 11.5px;
-  }
-  .tree-group {
-    margin-top: 8px;
-  }
-  .tree-group-label {
-    color: var(--text-muted);
-    font-size: 10.5px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    margin-bottom: 3px;
-  }
+  /* ---------- grade breakdown ---------- */
+  .tree { padding: 0 20px; }
+  .tree-group + .tree-group { margin-top: 12px; }
+  .tree-group-label { font-size: 13px; color: var(--text-muted); margin-bottom: 4px; }
   .tree-item {
     display: flex;
     align-items: center;
-    gap: 6px;
-    padding: 2px 0 2px 14px;
+    gap: 8px;
+    height: 32px;
+    padding: 0 8px 0 20px;
     position: relative;
+    border-radius: 8px;
     color: var(--text-muted);
+    font-family: var(--mono);
+    font-variant-numeric: tabular-nums;
+    font-size: 13px;
+    transition: background-color 150ms var(--ease), color 150ms var(--ease);
   }
   .tree-item::before {
     content: "";
     position: absolute;
-    left: 2px;
+    left: 6px;
     top: 0;
     bottom: 50%;
     width: 8px;
-    border-left: 1px solid var(--line);
-    border-bottom: 1px solid var(--line);
+    border-left: 1px solid var(--line-strong);
+    border-bottom: 1px solid var(--line-strong);
   }
   .tree-item.has-sale { color: var(--text); }
-  .tree-item.has-sale .tree-price { color: var(--accent-text); font-weight: 600; }
-  .tree-item.is-own {
-    color: var(--teal);
-    font-weight: 600;
-  }
-  .tree-item.is-own::before { border-color: var(--teal-dim); }
-  .tree-label { min-width: 26px; }
+  .tree-item.is-own { color: var(--accent-text); font-weight: 500; }
+  .tree-item.is-override .tree-price { color: var(--accent-text); }
+  .tree-label { min-width: 28px; }
   .tree-price { margin-left: auto; }
-  .tree-own-tag {
-    font-size: 9px;
-    border: 1px solid var(--teal-dim);
-    color: var(--teal);
-    padding: 0 4px;
-    border-radius: 6px;
-    text-transform: uppercase;
-  }
-  .tree-item.is-override { color: var(--accent-text); }
-  .tree-item.is-override .tree-price { color: var(--accent-text); font-weight: 600; }
-  .tree-override-tag {
-    font-size: 9px;
-    border: 1px solid var(--accent-dim);
-    color: var(--accent-text);
-    padding: 0 4px;
-    border-radius: 6px;
-    text-transform: uppercase;
-  }
-  .override-banner {
-    margin: 6px 20px 0;
-    padding: 8px 10px;
-    background: var(--accent-soft);
-    border: 1px solid var(--accent-dim);
-    border-radius: 10px;
-    font-size: 11.5px;
+  .tree-own-tag, .tree-override-tag {
+    font-family: var(--font);
+    font-size: 12px;
+    font-weight: 400;
     color: var(--text-muted);
+  }
+  .tree-item.clickable { cursor: pointer; }
+  .tree-item.clickable:hover { background: var(--raised); }
+  .tree-item.active-filter { background: var(--accent-soft); color: var(--text); }
+
+  /* ---------- trend ---------- */
+  .chart-label { font-size: 13px; color: var(--text-muted); padding: 24px 20px 4px; }
+  .chart-wrap { padding: 0 12px; height: 112px; position: relative; }
+  .chart-empty {
+    height: 100%;
+    margin: 0 8px;
     display: flex;
     align-items: center;
-    gap: 8px;
+    justify-content: center;
+    font-size: 13px;
+    color: var(--text-muted);
+    border: 1px dashed var(--line-strong);
+    border-radius: 10px;
   }
-  .override-banner strong { color: var(--accent-text); }
-  .clear-override-btn {
-    margin-left: auto;
+
+  /* ---------- comps ---------- */
+  .comps { margin-top: 20px; border-top: 1px solid var(--line); padding: 12px 20px 0; }
+  .comps summary {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    height: 32px;
+    cursor: pointer;
+    list-style: none;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-muted);
+  }
+  .comps summary::-webkit-details-marker { display: none; }
+  .comps summary svg.i { width: 14px; height: 14px; transition: transform 160ms var(--ease); }
+  .comps[open] summary svg.i { transform: rotate(90deg); }
+
+  .comp-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 12px 0;
+    border-top: 1px solid var(--line);
+  }
+  .comp-main { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 4px; }
+  .comp-title {
+    font-size: 14px;
+    line-height: 1.4;
+    color: var(--text-2);
+    overflow-wrap: break-word;
+  }
+  .comp-meta { display: flex; align-items: center; gap: 8px; }
+  .comp-date, .manual-tag {
+    font-family: var(--mono);
+    font-variant-numeric: tabular-nums;
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+  .comp-price {
+    font-family: var(--mono);
+    font-variant-numeric: tabular-nums;
+    font-size: 14px;
+    font-weight: 500;
+    flex-shrink: 0;
+    color: var(--text);
+  }
+  .comp-title a { text-decoration: none; }
+  .comp-title a:hover { color: var(--text); text-decoration: underline; text-underline-offset: 2px; }
+  .comp-delete-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    border-radius: 6px;
     background: transparent;
     border: none;
     color: var(--text-muted);
-    font-family: var(--font);
-    font-size: 11px;
     cursor: pointer;
+    transition: color 150ms var(--ease), background-color 150ms var(--ease);
   }
-  .clear-override-btn:hover { color: var(--down); }
-  .use-as-price-btn {
-    display: block;
-    width: 100%;
-    margin-top: 6px;
-    padding: 7px 10px;
-    background: transparent;
-    border: 1px dashed var(--accent-dim);
-    color: var(--accent-text);
+  .comp-delete-btn svg.i { width: 14px; height: 14px; }
+  .comp-delete-btn:hover { color: var(--down); background: var(--raised); }
+  .comp-delete-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+
+  .add-comp-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+
+  button.secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    height: 36px;
+    padding: 0 12px;
     border-radius: 10px;
-    font-family: var(--font);
-    font-size: 12px;
+    background: var(--raised);
+    border: 1px solid var(--line);
+    color: var(--text);
+    font-size: 14px;
+    font-weight: 500;
     cursor: pointer;
+    transition: background-color 150ms var(--ease), border-color 150ms var(--ease), transform 150ms var(--ease);
   }
-  .use-as-price-btn:hover { background: var(--accent-soft); }
-  .tree-item.clickable { cursor: pointer; }
-  .tree-item.clickable:hover { color: var(--accent-text); }
-  .tree-item.active-filter {
-    background: var(--accent-soft);
+  button.secondary:hover { border-color: var(--line-strong); }
+  button.secondary:active { transform: scale(0.98); }
+  button.secondary:disabled { opacity: 0.5; cursor: not-allowed; }
+  button.secondary svg.i { color: var(--text-2); }
+  button.secondary.block { display: flex; width: 100%; margin-top: 8px; }
+
+  .add-comp-form { margin-top: 12px; display: none; flex-direction: column; gap: 8px; }
+  .add-comp-form.visible { display: flex; }
+  .add-comp-form input {
+    width: 100%;
+    height: 40px;
+    padding: 0 12px;
+    background: var(--raised);
+    border: 1px solid var(--line);
     border-radius: 8px;
-    color: var(--accent-text);
+    font-size: 16px;
+    transition: border-color 150ms var(--ease);
   }
-  .tree-item.active-filter .tree-price { color: var(--accent-text); }
+  .add-comp-form input::placeholder { color: var(--text-muted); }
+  .add-comp-form input:focus { outline: none; border-color: var(--accent-text); }
+  .field-row-inline { display: flex; gap: 8px; }
+  .field-row-inline input { flex: 1; min-width: 0; }
+  .add-comp-hint { font-size: 13px; color: var(--text-muted); line-height: 1.4; }
 
   .comps-filter-bar {
     display: flex;
     align-items: center;
     gap: 8px;
-    font-size: 11.5px;
-    color: var(--text-muted);
-    background: var(--surface-raised);
+    font-size: 13px;
+    color: var(--text-2);
+    background: var(--raised);
     border: 1px solid var(--line);
     border-radius: 10px;
-    padding: 6px 10px;
+    padding: 8px 12px;
     margin: 8px 0;
   }
-  .comps-filter-bar strong { color: var(--accent-text); }
-  .clear-filter-btn {
-    margin-left: auto;
-    background: transparent;
-    border: none;
-    color: var(--text-muted);
-    font-family: var(--font);
-    font-size: 11px;
-    cursor: pointer;
-  }
-  .clear-filter-btn:hover { color: var(--down); }
+  .comps-filter-bar strong { color: var(--text); font-weight: 500; }
 
+  @media (max-width: 420px) {
+    main { padding: 0 16px 64px; }
+    header { padding-left: 16px; padding-right: 16px; }
+    .hero-total { font-size: 36px; }
+    .card-row { grid-template-columns: 20px 44px minmax(0, 1fr) auto; gap: 10px; padding: 12px 12px 12px 8px; }
+    .row-thumb { width: 44px; height: 62px; }
+  }
 
-  /* ---------- Apple HIG pass ---------- */
-  :root { --font: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Display', 'Inter', system-ui, sans-serif; --tap: 44px; --r: 14px; }
-  html { -webkit-text-size-adjust: 100%; }
-  body { font-family: var(--font) !important; font-size: 17px; line-height: 1.35; letter-spacing: -0.022em; font-variant-numeric: tabular-nums; }
-  * { font-family: var(--font) !important; }
-  /* no eyebrows: sentence case, normal tracking everywhere */
-  *, *::before { text-transform: none !important; }
-  .brand, .summary, label, .chart-label, .tree-group-label, .comps summary, details.settings summary,
-  .tree-own-tag, .tree-override-tag, .delta-label { letter-spacing: 0 !important; }
-  /* translucent bar header with a large title */
-  header {
-    position: sticky; top: 0; z-index: 10;
-    padding: max(12px, env(safe-area-inset-top)) 20px 10px; border-bottom: 0.5px solid var(--line);
-    background: color-mix(in srgb, var(--bg) 78%, transparent);
-    -webkit-backdrop-filter: saturate(180%) blur(20px); backdrop-filter: saturate(180%) blur(20px);
-    align-items: center;
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition: none !important; }
   }
-  .brand { font-size: 22px; font-weight: 700; letter-spacing: -0.03em !important; }
-  .brand span { color: inherit !important; font-weight: 700; }
-  header .actions { display: flex; align-items: center; gap: 10px; }
-  header a.pill, header a {
-    display: inline-flex; align-items: center; justify-content: center; min-height: 34px; padding: 0 14px;
-    border-radius: 999px; background: var(--accent); color: var(--accent-fg) !important; border: 0 !important;
-    font-size: 15px; font-weight: 600; text-decoration: none;
-  }
-  header a:hover { filter: brightness(0.96); }
-  main { padding: 8px 20px 60px; }
-  /* hero total (Stocks / Wallet style) */
-  .hero { padding: 18px 4px 14px; }
-  .hero-total { font-size: 44px; font-weight: 700; letter-spacing: -0.035em; line-height: 1.05; }
-  .hero-sub { margin-top: 6px; font-size: 15px; color: var(--text-muted); }
-  /* grouped surfaces: hairline, no heavy shadow */
-  .portfolio-chart-box, .card-row, .modal-panel { border: 0.5px solid var(--line); border-radius: var(--r); box-shadow: none; }
-  .portfolio-chart-box { padding: 12px 8px 4px; background: transparent; border: 0; margin-bottom: 14px; }
-  .portfolio-chart-label { display: none; }
-  .portfolio-chart-empty { font-size: 15px; }
-  .list { gap: 10px; }
-  .card-row { padding: 14px; transition: transform .12s ease, background .12s ease; }
-  .card-row:active { transform: scale(0.985); background: var(--surface-raised); }
-  .row-title { font-size: 17px; font-weight: 600; letter-spacing: -0.022em; }
-  .row-sub { font-size: 13px; line-height: 1.38; }
-  .row-sub .row-grade { font-size: 13px; }
-  .row-rank { font-size: 15px; font-weight: 600; }
-  .row-thumb { border-radius: 8px; border: 0.5px solid var(--line); }
-  /* search + sort: 44pt, filled, borderless */
-  .toolbar input, input, select, textarea {
-    min-height: var(--tap); font-size: 17px !important; border-radius: 12px; border: 0 !important;
-    background: var(--surface-raised); padding: 0 14px;
-  }
-  textarea { padding: 10px 14px; }
-  .toolbar input:focus, input:focus, select:focus, textarea:focus { outline: 2px solid var(--accent); outline-offset: 0; }
-  .sort-icon-btn { width: var(--tap); height: var(--tap); border: 0; border-radius: 12px; background: var(--surface-raised); }
-  /* buttons: filled capsule, 50pt */
-  button { font-size: 17px; font-weight: 600; min-height: var(--tap); border-radius: 12px; }
-  button:not(.secondary):not(.theme-toggle):not(.modal-close) { color: var(--accent-fg); }
-  button.secondary { background: var(--surface-raised); color: var(--text); border: 0; }
-  button.secondary:hover { color: var(--text); filter: brightness(0.97); }
-  button.theme-toggle {
-    width: 34px; height: 34px; min-height: 34px; border-radius: 999px; padding: 0; font-size: 16px;
-    background: var(--surface-raised); color: var(--text); border: 0; display: inline-flex; align-items: center; justify-content: center;
-  }
-  .modal-close { min-width: 32px; min-height: 32px; border: 0; background: var(--surface-raised); }
-  .modal-panel { border-radius: 22px 22px 0 0; }
-  @media (min-width: 700px) { .modal-panel { border-radius: 22px; } }
-  .modal-overlay { -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
-  /* secondary text */
-  .chart-label, .comps summary, .tree-group-label, details.settings summary { font-size: 13px; font-weight: 600; color: var(--text-muted); }
-  .tree-item, .comp-row, .comp-title, .comp-price { font-size: 15px; }
-  .delta { font-size: 15px; font-weight: 600; }
-  .tree-own-tag, .tree-override-tag, .comps-filter-bar, .hint, .note { font-size: 13px; }
-  /* forms (add / edit): inset grouped, sentence-case 13pt labels, segmented tabs */
-  label { font-size: 13px; font-weight: 500; color: var(--text-muted); margin-bottom: 6px; display: block; }
-  .tabs { background: var(--surface-raised); padding: 3px; border-radius: 10px; gap: 0; border: 0 !important; display: flex; }
-  .tab { flex: 1; text-align: center; padding: 8px 0 !important; border: 0 !important; border-radius: 8px !important; font-size: 15px; font-weight: 500; color: var(--text); background: transparent; }
-  .tab.active { background: var(--surface) !important; color: var(--text) !important; font-weight: 600; box-shadow: 0 1px 3px rgba(0,0,0,.12); }
-  h2, h3 { font-size: 22px; font-weight: 700; letter-spacing: -0.026em; }
-  .form-card, .card, .panel, section > div { border-radius: var(--r); }
-  .edit-link, .delete-btn { min-height: 32px; height: 32px; padding: 0 12px; display: inline-flex; align-items: center; justify-content: center; border: 0; border-radius: 999px; background: var(--surface-raised); color: var(--text); font-size: 14px; font-weight: 500; text-decoration: none; }
-  .edit-link:hover { color: var(--text); }
 </style>
 </head>
 <body>
@@ -807,48 +685,55 @@ function themeColor(name){return getComputedStyle(document.documentElement).getP
 <header>
   <div class="brand">Card Ledger</div>
   <div class="actions">
-    <a href="add.html" class="pill">Add card</a>
-    <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle theme"></button>
+    <a href="add.html" class="btn-primary">Add card</a>
+    <button class="icon-btn square" id="theme-toggle" type="button" aria-label="Toggle theme"></button>
   </div>
 </header>
 
 <main>
   <div class="hero">
+    <div class="hero-label">Collection value</div>
     <div class="hero-total" id="stat-total">—</div>
-    <div class="hero-sub"><span id="stat-count">—</span> cards · Updated <span id="stat-updated">—</span></div>
+    <div class="hero-sub">
+      <span class="hero-change" id="stat-change"></span>
+      <span><span id="stat-count">—</span> cards · Updated <span class="mono" id="stat-updated">—</span></span>
+    </div>
   </div>
   <div class="portfolio-chart-box" id="portfolio-chart-box">
-        <div class="portfolio-chart-wrap">
-      <canvas id="portfolio-chart" style="display:none;"></canvas>
+    <div class="portfolio-chart-wrap">
+      <canvas id="portfolio-chart" style="display:none;" aria-label="Collection value over time" role="img"></canvas>
       <div class="portfolio-chart-empty" id="portfolio-chart-empty">Not enough history yet to chart</div>
     </div>
   </div>
 
   <div class="toolbar">
-    <input type="text" id="search" placeholder="Search">
+    <div class="search-wrap">
+      <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+      <input type="text" id="search" placeholder="Search" aria-label="Search cards">
+    </div>
     <div class="sort-icon-btn" title="Sort">
-      <span aria-hidden="true">⇅</span>
-      <select id="sort">
-        <option value="value-desc">Value: High to Low</option>
-        <option value="value-asc">Value: Low to High</option>
-        <option value="change-desc">Change: Biggest Gain</option>
-        <option value="change-asc">Change: Biggest Drop</option>
-        <option value="last-sale-desc">Recent Sale</option>
-        <option value="added-desc">Recently Added</option>
+      <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="m21 16-4 4-4-4"/><path d="M17 20V4"/><path d="m3 8 4-4 4 4"/><path d="M7 4v16"/></svg>
+      <select id="sort" aria-label="Sort cards">
+        <option value="value-desc">Value: high to low</option>
+        <option value="value-asc">Value: low to high</option>
+        <option value="change-desc">Change: biggest gain</option>
+        <option value="change-asc">Change: biggest drop</option>
+        <option value="last-sale-desc">Most recent sale</option>
+        <option value="added-desc">Recently added</option>
         <option value="name">Name A–Z</option>
       </select>
     </div>
   </div>
 
   <div class="list" id="grid"></div>
-  <div class="empty-state" id="empty" style="display:none;">No cards match your search.</div>
+  <div class="empty-state" id="empty" style="display:none;">No cards match your search</div>
 </main>
 
 <div class="modal-overlay" id="modal-overlay">
-  <div class="modal-panel" id="modal-panel"></div>
+  <div class="modal-panel" id="modal-panel" role="dialog" aria-modal="true" aria-label="Card details"></div>
 </div>
 
-<div class="toast" id="toast"></div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
 
 <script>
 const PHOTOS_PATH = 'photos/';
@@ -861,14 +746,46 @@ const SETTINGS_KEY = 'card_ledger_settings_v1'; // shared with add.html
 let cardsData = [];
 let rawHistory = {};
 let activeChart = null; // the one Chart.js instance backing whichever modal is open
+let openCardId = null;
 
+// ---------- icons (lucide, 1.5 stroke) ----------
+const ICON_PATHS = {
+  x: '<path d="M18 6 6 18"/><path d="m6 6 12 12"/>',
+  pencil: '<path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"/><path d="m15 5 4 4"/>',
+  trash: '<path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/>',
+  plus: '<path d="M5 12h14"/><path d="M12 5v14"/>',
+  external: '<path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>',
+  chevron: '<path d="m9 18 6-6-6-6"/>',
+  sun: '<circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/>',
+  moon: '<path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>',
+  image: '<rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/>',
+};
+function icon(name) {
+  return `<svg class="i" viewBox="0 0 24 24" aria-hidden="true">${ICON_PATHS[name] || ''}</svg>`;
+}
+const PHOTO_PLACEHOLDER = icon('image');
+// Swaps a broken card photo for the placeholder icon.
+function photoFailed(img) {
+  const holder = img.closest('.row-thumb, .photo-wrap');
+  if (holder) { holder.classList.remove('clickable'); holder.innerHTML = PHOTO_PLACEHOLDER; }
+}
+
+// One money format everywhere: $1,234.56
 function fmtMoney(n) {
   if (n === null || n === undefined || isNaN(n)) return '—';
-  return '$' + Number(n).toFixed(2);
+  return '$' + Number(n).toLocaleString('en-AU', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 }
+// Whole-dollar version for small chart labels: $1,235
 function fmtMoneyShort(n) {
   if (n === null || n === undefined || isNaN(n)) return '—';
-  return '$' + Math.round(Number(n)).toLocaleString();
+  return '$' + Math.round(Number(n)).toLocaleString('en-AU');
+}
+function fmtPct(p) {
+  if (p === null || p === undefined || isNaN(p)) return '—';
+  return `${p > 0 ? '+' : ''}${p.toFixed(1)}%`;
+}
+function changeClassOf(p) {
+  return p === null || p === undefined ? 'flat' : p > 0 ? 'up' : p < 0 ? 'down' : 'flat';
 }
 
 // Our own data always stores dates as YYYY-MM-DD - display as dd/mm/yy.
@@ -878,6 +795,10 @@ function fmtDateDMY(iso) {
   if (parts.length !== 3) return iso;
   const [y, m, d] = parts;
   return `${d}/${m}/${y.slice(2)}`;
+}
+
+function slabHtml(grade) {
+  return grade ? `<span class="slab">${grade}</span>` : `<span class="slab raw">Raw</span>`;
 }
 
 function showToast(kind, msg) {
@@ -996,9 +917,46 @@ function serializeCSV(header, rows) {
   return lines.join('\n') + '\n';
 }
 
-// Labels the highest and lowest points directly on the modal's sparkline,
-// since the axes themselves are hidden (too small a chart to spare the
-// space) and a legend would be overkill for a single line.
+// ---------- chart styling ----------
+const CHART_FONT = '"JetBrains Mono", ui-monospace, Menlo, monospace';
+
+function hexToRgba(hex, alpha) {
+  const h = (hex || '').replace('#', '');
+  if (h.length !== 6) return `rgba(128,128,128,${alpha})`;
+  const r = parseInt(h.slice(0, 2), 16), g = parseInt(h.slice(2, 4), 16), b = parseInt(h.slice(4, 6), 16);
+  return `rgba(${r},${g},${b},${alpha})`;
+}
+// Soft fill under the line: one hue fading to transparent, never a hue-to-hue gradient.
+function lineFill(lineColor) {
+  return (context) => {
+    const { chart } = context;
+    const { ctx, chartArea } = chart;
+    if (!chartArea) return 'transparent';
+    const g = ctx.createLinearGradient(0, chartArea.top, 0, chartArea.bottom);
+    g.addColorStop(0, hexToRgba(lineColor, 0.16));
+    g.addColorStop(1, hexToRgba(lineColor, 0));
+    return g;
+  };
+}
+function tooltipStyle() {
+  return {
+    backgroundColor: themeColor('--surface'),
+    borderColor: themeColor('--line-strong'),
+    borderWidth: 1,
+    titleColor: themeColor('--text-muted'),
+    bodyColor: themeColor('--text'),
+    titleFont: { family: CHART_FONT, size: 11, weight: '400' },
+    bodyFont: { family: CHART_FONT, size: 13, weight: '500' },
+    padding: 8,
+    cornerRadius: 8,
+    displayColors: false,
+    callbacks: { title: (items) => items.length ? fmtDateDMY(items[0].label) : '' },
+  };
+}
+
+// Labels the highest and lowest points directly on the line, since the
+// y-axis is hidden (too small a chart to spare the space) and a legend
+// would be overkill for a single line.
 const highLowLabelPlugin = {
   id: 'highLowLabel',
   afterDatasetsDraw(chart) {
@@ -1016,19 +974,22 @@ const highLowLabelPlugin = {
 
     const { ctx } = chart;
     ctx.save();
-    ctx.font = "9px var(--font)";
-    ctx.textAlign = 'center';
+    ctx.font = `400 11px ${CHART_FONT}`;
+    ctx.fillStyle = themeColor('--text-muted');
 
-    const drawLabel = (idx, val, color, above) => {
+    const drawLabel = (idx, val, above) => {
       const point = meta.data[idx];
       if (!point) return;
-      ctx.fillStyle = color;
+      // keep labels inside the canvas near the edges
+      const w = ctx.measureText(fmtMoneyShort(val)).width;
+      const x = Math.min(Math.max(point.x, chart.chartArea.left + w / 2), chart.chartArea.right - w / 2);
+      ctx.textAlign = 'center';
       ctx.textBaseline = above ? 'bottom' : 'top';
-      ctx.fillText(fmtMoneyShort(val), point.x, point.y + (above ? -5 : 6));
+      ctx.fillText(fmtMoneyShort(val), x, point.y + (above ? -6 : 6));
     };
 
-    drawLabel(maxIdx, maxVal, themeColor('--up'), true);
-    if (minIdx !== maxIdx) drawLabel(minIdx, minVal, themeColor('--down'), false);
+    drawLabel(maxIdx, maxVal, true);
+    if (minIdx !== maxIdx) drawLabel(minIdx, minVal, false);
 
     ctx.restore();
   }
@@ -1255,42 +1216,36 @@ function renderSummary(cards) {
   document.getElementById('stat-total').textContent = fmtMoney(total);
   document.getElementById('stat-count').textContent = cards.length;
   const dates = cards.flatMap(c => c.snapshots.map(s => s.date));
-  document.getElementById('stat-updated').textContent = dates.length ? dates.sort().pop() : '—';
+  document.getElementById('stat-updated').textContent = dates.length ? fmtDateDMY(dates.sort().pop()) : '—';
 }
 
-// ---------- compact list row ----------
+// ---------- list row ----------
 function cardRow(card, rank) {
   const m = card.meta;
-  const title = m.player || 'Unknown Player';
+  const title = m.player || 'Unknown player';
   const metaLine = [m.year, m.set, m.variant].filter(Boolean).join(' · ') +
     (m.card_number ? ` #${m.card_number}` : '');
 
-  const changeClass = card.change === null ? 'flat' : card.change > 0 ? 'up' : card.change < 0 ? 'down' : 'flat';
-  const changeSign = card.change > 0 ? '+' : '';
-  const changeText = card.change === null ? '—' : `${changeSign}${card.change.toFixed(1)}%`;
-
   const hasPhoto = !!m.photo_filename;
   const thumbInner = hasPhoto
-    ? `<img src="${PHOTOS_PATH}${m.photo_filename}" alt="${title}" loading="lazy" onerror="this.closest('.row-thumb').innerHTML='<div class=placeholder>No<br>photo</div>'">`
-    : `<div class="placeholder">No<br>photo</div>`;
-
-  const subParts = [];
-  if (m.grade) subParts.push(`<span class="row-grade">${m.grade}</span>`);
-  subParts.push(metaLine || '—');
+    ? `<img src="${PHOTOS_PATH}${m.photo_filename}" alt="${title}" loading="lazy" onerror="photoFailed(this)">`
+    : PHOTO_PLACEHOLDER;
 
   return `
-    <div class="card-row" data-card-id="${card.id}" data-search="${(title + ' ' + metaLine).toLowerCase()}">
-      <div class="row-rank">#${rank}</div>
+    <div class="card-row" role="button" tabindex="0" data-card-id="${card.id}" data-search="${(title + ' ' + metaLine).toLowerCase()}">
+      <div class="row-rank">${rank}</div>
       <div class="row-thumb">${thumbInner}</div>
       <div class="row-body">
         <div class="row-title">${title}</div>
-        <div class="row-sub">${subParts.join(' · ')}</div>
-        ${card.lastSaleDate ? `<div class="row-lastsale">last sale ${fmtDateDMY(card.lastSaleDate)}</div>` : ''}
-        <div class="row-price-line">
-          <span class="row-price-icon">››</span>
-          <span class="row-value">${fmtMoney(card.latestValue)}</span>
-          <span class="row-change ${changeClass}">${changeText}</span>
+        <div class="row-sub">${metaLine || '—'}</div>
+        <div class="row-foot">
+          ${slabHtml(m.grade)}
+          ${card.lastSaleDate ? `<span class="row-lastsale">Last sale ${fmtDateDMY(card.lastSaleDate)}</span>` : ''}
         </div>
+      </div>
+      <div class="row-figures">
+        <div class="row-value">${fmtMoney(card.latestValue)}</div>
+        <div class="row-change ${changeClassOf(card.change)}" title="Change in the 30-day average since tracking began">${fmtPct(card.change)}</div>
       </div>
     </div>
   `;
@@ -1309,30 +1264,27 @@ function renderList(cards) {
   grid.innerHTML = cards.map((c, i) => cardRow(c, i + 1)).join('');
 }
 
-// ---------- detail modal ----------
+// ---------- detail sheet ----------
 function modalContent(card) {
   modalTreeSalesIndex = {}; // rebuilt fresh on every render (tree-item clicks reference this by key)
   const m = card.meta;
-  const title = m.player || 'Unknown Player';
+  const title = m.player || 'Unknown player';
   const metaLine = [m.year, m.set, m.variant].filter(Boolean).join(' · ') +
     (m.card_number ? ` #${m.card_number}` : '');
 
-  const changeClass = card.change === null ? 'flat' : card.change > 0 ? 'up' : card.change < 0 ? 'down' : 'flat';
-  const changeSign = card.change > 0 ? '+' : '';
-  const changeText = card.change === null ? '—' : `${changeSign}${card.change.toFixed(1)}%`;
-
   const hasPhoto = !!m.photo_filename;
   const photoInner = hasPhoto
-    ? `<img src="${PHOTOS_PATH}${m.photo_filename}" alt="${title}" loading="lazy" onerror="this.closest('.photo-wrap').innerHTML='<div class=placeholder>No<br>photo</div>'">`
-    : `<div class="placeholder">No<br>photo</div>`;
+    ? `<img src="${PHOTOS_PATH}${m.photo_filename}" alt="${title}" loading="lazy" onerror="photoFailed(this)">`
+    : PHOTO_PLACEHOLDER;
   const photoHtml = hasPhoto
-    ? `<a href="${PHOTOS_PATH}${m.photo_filename}" target="_blank" rel="noopener">${photoInner}</a>`
+    ? `<a href="${PHOTOS_PATH}${m.photo_filename}" target="_blank" rel="noopener" aria-label="Open full photo">${photoInner}</a>`
     : photoInner;
 
   const compsHtml = renderCompRows(card.comps);
 
   const treeHtml = card.tree.length
-    ? `<div class="tree">${card.tree.map((group, gi) => `
+    ? `<div class="section-label">Grade breakdown</div>
+      <div class="tree">${card.tree.map((group, gi) => `
         <div class="tree-group">
           <div class="tree-group-label">${group.group}</div>
           ${group.items.map((item, ii) => {
@@ -1340,11 +1292,11 @@ function modalContent(card) {
             if (clickable) modalTreeSalesIndex[`${gi}-${ii}`] = { label: `${group.group} ${item.label}`.replace('Raw Raw', 'Raw'), sales: item.allSales, value: item.value, isOwn: item.is_own };
             return `
             <div class="tree-item ${item.value !== null ? 'has-sale' : ''} ${item.is_own ? 'is-own' : ''} ${item.is_override ? 'is-override' : ''} ${clickable ? 'clickable' : ''}"
-                 ${clickable ? `data-action="filter-comps" data-tree-key="${gi}-${ii}"` : ''}
-                 title="${item.is_own ? 'This is your card' : ''}${item.value !== null ? (clickable ? ' — tap to filter comps below' : '') : ': no sale recorded'}">
+                 ${clickable ? `data-action="filter-comps" data-tree-key="${gi}-${ii}" role="button" tabindex="0"` : ''}
+                 title="${item.is_own ? 'Your card' : ''}${item.value !== null ? (clickable ? ' · tap to filter comps below' : '') : 'No sale recorded'}">
               <span class="tree-label">${item.label}</span>
               ${item.is_own ? '<span class="tree-own-tag">yours</span>' : ''}
-              ${item.is_override ? '<span class="tree-override-tag">using this</span>' : ''}
+              ${item.is_override ? '<span class="tree-override-tag">pricing from this</span>' : ''}
               <span class="tree-price">${item.value !== null ? fmtMoney(item.value) : 'no sale'}</span>
             </div>
           `; }).join('')}
@@ -1365,58 +1317,62 @@ function modalContent(card) {
     m.player, m.year, m.set, m.card_number ? `#${m.card_number}` : '', m.variant,
   ].filter(Boolean).join(' ');
 
+  const hasTrend = card.rollingAvg.some(v => v !== null);
+
   return `
     <div class="modal-drag-handle"></div>
-    <button class="modal-close" data-action="close-modal" title="Close">✕</button>
-    <div class="modal-actions">
-      <a href="${editUrl}" class="edit-link" title="Edit this card">✎ Edit</a>
-      <button class="delete-btn" data-action="delete-card" data-card-id="${card.id}" data-label="${deleteLabel}" title="Delete this card">🗑</button>
+    <div class="modal-bar">
+      <div class="modal-actions">
+        <a href="${editUrl}" class="icon-btn">${icon('pencil')}<span>Edit</span></a>
+        <button class="icon-btn square danger delete-btn" data-action="delete-card" data-card-id="${card.id}" data-label="${deleteLabel}" aria-label="Delete card" title="Delete card">${icon('trash')}</button>
+      </div>
+      <button class="icon-btn square modal-close" data-action="close-modal" aria-label="Close" title="Close">${icon('x')}</button>
     </div>
     <div class="tile-top">
       <div class="photo-wrap ${hasPhoto ? 'clickable' : ''}">${photoHtml}</div>
       <div class="id-block">
         <div class="player">${title}</div>
         <div class="card-meta">${metaLine || '—'}</div>
-        ${m.grade ? `<div class="grade-tag">${m.grade}</div>` : ''}
+        ${slabHtml(m.grade)}
       </div>
     </div>
     <div class="value-row">
       <div class="value">${fmtMoney(card.latestValue)}</div>
-      <div class="delta ${changeClass}" title="Change in the 30-day pooled average (raw + graded) between its earliest and most recent point">${changeText}</div>
-      ${card.change !== null ? '<div class="delta-label">30d</div>' : ''}
+      <div class="delta ${changeClassOf(card.change)}" title="Change in the 30-day pooled average (raw + graded) between its earliest and most recent point">${fmtPct(card.change)}</div>
+      ${card.change !== null ? '<div class="delta-label">30-day average since tracking began</div>' : ''}
     </div>
     ${card.priceOverride ? `
       <div class="override-banner">
-        Priced from <strong>${card.priceOverride.label}</strong> (not your exact grade)
-        <button class="clear-override-btn" data-action="clear-price-override">clear</button>
+        <span>Priced from <strong>${card.priceOverride.label}</strong>, not your exact grade</span>
+        <button class="text-btn" data-action="clear-price-override">Clear</button>
       </div>` : ''}
     ${treeHtml}
-    <div class="chart-label">30-day avg trend · ${card.salesLast30} sale${card.salesLast30 === 1 ? '' : 's'} · raw + graded</div>
+    <div class="chart-label">30-day average · ${card.salesLast30} sale${card.salesLast30 === 1 ? '' : 's'} · raw and graded</div>
     <div class="chart-wrap">
-      <canvas id="modal-chart" style="${card.rollingAvg.some(v => v !== null) ? '' : 'display:none;'}"></canvas>
-      ${card.rollingAvg.some(v => v !== null) ? '' : '<div class="chart-empty">No pooled sales yet to trend</div>'}
+      <canvas id="modal-chart" style="${hasTrend ? '' : 'display:none;'}" role="img" aria-label="30-day average price trend"></canvas>
+      ${hasTrend ? '' : '<div class="chart-empty">No sales yet to show a trend</div>'}
     </div>
     <details class="comps" open>
-      <summary>Recent comps</summary>
+      <summary>${icon('chevron')}<span>Recent comps</span></summary>
       <div id="modal-comps-filter"></div>
       <div id="modal-comps-list">${compsHtml}</div>
       <div class="add-comp-row">
-        <button class="secondary small" data-action="search-130point" data-query="${searchQuery.replace(/"/g, '&quot;')}">Search 130point ↗</button>
-        <button class="secondary small" data-action="show-add-comp">+ Add comp</button>
+        <button class="secondary" data-action="search-130point" data-query="${searchQuery.replace(/"/g, '&quot;')}">${icon('external')}<span>Search 130point</span></button>
+        <button class="secondary" data-action="show-add-comp">${icon('plus')}<span>Add comp</span></button>
       </div>
       <div class="add-comp-form">
-        <div class="add-comp-hint">From eBay's sold listings — goes further back than the automated 3-day pull.</div>
+        <div class="add-comp-hint">From eBay's sold listings. Goes further back than the automated 3-day pull.</div>
         <div class="field-row-inline">
-          <input type="text" class="mc-price" placeholder="Price, e.g. 45.00">
-          <input type="text" class="mc-date" placeholder="YYYY-MM-DD">
+          <input type="text" class="mc-price" inputmode="decimal" placeholder="Price, e.g. 45.00" aria-label="Price">
+          <input type="text" class="mc-date" placeholder="YYYY-MM-DD" aria-label="Sale date">
         </div>
-        <input type="text" class="mc-label" placeholder="Grade, e.g. Raw or PSA 9">
-        <div class="add-comp-hint" style="margin-top:-4px;">Include the grading company — "PSA 9", not just "9" — or it won't group correctly.</div>
-        <input type="text" class="mc-title" placeholder="Listing title (optional)">
-        <input type="text" class="mc-url" placeholder="eBay link (optional)">
+        <input type="text" class="mc-label" placeholder="Grade, e.g. Raw or PSA 9" aria-label="Grade">
+        <div class="add-comp-hint">Include the grading company, "PSA 9" rather than "9", so it groups correctly</div>
+        <input type="text" class="mc-title" placeholder="Listing title (optional)" aria-label="Listing title">
+        <input type="text" class="mc-url" inputmode="url" placeholder="eBay link (optional)" aria-label="eBay link">
         <div class="field-row-inline">
-          <button class="secondary small" data-action="save-comp">Save</button>
-          <button class="secondary small" data-action="cancel-comp">Cancel</button>
+          <button class="secondary" data-action="save-comp">Save comp</button>
+          <button class="secondary" data-action="cancel-comp">Cancel</button>
         </div>
       </div>
     </details>
@@ -1432,9 +1388,7 @@ function drawModalChart(card) {
   const values = card.rollingAvg;
   if (!values.some(v => v !== null)) return;
 
-  const firstVal = values.find(v => v !== null);
-  const lastVal = [...values].reverse().find(v => v !== null);
-  const isUp = lastVal === undefined || firstVal === undefined || lastVal >= firstVal;
+  const line = themeColor('--chart-line');
 
   activeChart = new Chart(canvas, {
     type: 'line',
@@ -1442,10 +1396,12 @@ function drawModalChart(card) {
       labels,
       datasets: [{
         data: values,
-        borderColor: themeColor(isUp ? '--up' : '--down'),
-        backgroundColor: isUp ? 'rgba(52,211,153,0.08)' : 'rgba(239,68,68,0.08)',
+        borderColor: line,
+        backgroundColor: lineFill(line),
         borderWidth: 1.75,
         pointRadius: 0,
+        pointHoverRadius: 3,
+        pointHoverBackgroundColor: line,
         tension: 0.3,
         fill: true,
         spanGaps: true,
@@ -1454,10 +1410,19 @@ function drawModalChart(card) {
     options: {
       responsive: true,
       maintainAspectRatio: false,
-      layout: { padding: { top: 12, bottom: 12, right: 26, left: 10 } },
-      plugins: { legend: { display: false }, tooltip: {
-        callbacks: { label: (ctx) => ctx.parsed.y === null ? 'no sales in window' : fmtMoney(ctx.parsed.y) }
-      }},
+      animation: false,
+      interaction: { mode: 'index', intersect: false },
+      layout: { padding: { top: 20, bottom: 20, right: 8, left: 8 } },
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          ...tooltipStyle(),
+          callbacks: {
+            title: (items) => items.length ? fmtDateDMY(items[0].label) : '',
+            label: (ctx) => ctx.parsed.y === null ? 'No sales in window' : fmtMoney(ctx.parsed.y),
+          },
+        },
+      },
       scales: { x: { display: false }, y: { display: false } },
       elements: { line: { capBezierPoints: true } },
     }
@@ -1469,22 +1434,33 @@ let portfolioChart = null;
 function drawPortfolioChart(cards) {
   const canvas = document.getElementById('portfolio-chart');
   const emptyMsg = document.getElementById('portfolio-chart-empty');
+  const changeEl = document.getElementById('stat-change');
   if (portfolioChart) { portfolioChart.destroy(); portfolioChart = null; }
 
   const { dates, totals } = computePortfolioSeries(cards);
+
+  // Headline change: latest total compared with the first tracked total.
+  if (totals.length >= 2 && totals[0]) {
+    const p = pctChange(totals[0], totals[totals.length - 1]);
+    changeEl.className = `hero-change ${changeClassOf(p)}`;
+    changeEl.textContent = p === null ? '' : `${fmtPct(p)} since ${fmtDateDMY(dates[0])}`;
+  } else {
+    changeEl.textContent = '';
+  }
 
   // Need at least 2 distinct-value points for a trend to mean anything -
   // a single data point (day one) is just today's total, not a "trend".
   const hasRealTrend = totals.length >= 2 && new Set(totals).size > 1;
   if (!hasRealTrend) {
     canvas.style.display = 'none';
-    emptyMsg.style.display = 'block';
+    emptyMsg.style.display = 'flex';
     return;
   }
   canvas.style.display = '';
   emptyMsg.style.display = 'none';
 
-  const isUp = totals[totals.length - 1] >= totals[0];
+  const line = themeColor('--chart-line');
+  const muted = themeColor('--text-muted');
 
   portfolioChart = new Chart(canvas, {
     type: 'line',
@@ -1492,10 +1468,12 @@ function drawPortfolioChart(cards) {
       labels: dates,
       datasets: [{
         data: totals,
-        borderColor: themeColor(isUp ? '--up' : '--down'),
-        backgroundColor: isUp ? 'rgba(52,211,153,0.08)' : 'rgba(239,68,68,0.08)',
+        borderColor: line,
+        backgroundColor: lineFill(line),
         borderWidth: 2,
         pointRadius: 0,
+        pointHoverRadius: 4,
+        pointHoverBackgroundColor: line,
         tension: 0.25,
         fill: true,
       }]
@@ -1503,12 +1481,35 @@ function drawPortfolioChart(cards) {
     options: {
       responsive: true,
       maintainAspectRatio: false,
-      layout: { padding: { top: 14, bottom: 4, right: 30, left: 12 } },
+      animation: false,
+      interaction: { mode: 'index', intersect: false },
+      layout: { padding: { top: 20, bottom: 0, right: 4, left: 4 } },
       plugins: {
         legend: { display: false },
-        tooltip: { callbacks: { label: (ctx) => fmtMoney(ctx.parsed.y) } },
+        tooltip: {
+          ...tooltipStyle(),
+          callbacks: {
+            title: (items) => items.length ? fmtDateDMY(items[0].label) : '',
+            label: (ctx) => fmtMoney(ctx.parsed.y),
+          },
+        },
       },
-      scales: { x: { display: false }, y: { display: false } },
+      scales: {
+        x: {
+          display: true,
+          grid: { display: false },
+          border: { display: false },
+          ticks: {
+            color: muted,
+            font: { family: CHART_FONT, size: 11 },
+            maxTicksLimit: 4,
+            maxRotation: 0,
+            autoSkip: true,
+            callback: function (value) { return fmtDateDMY(this.getLabelForValue(value)); },
+          },
+        },
+        y: { display: false },
+      },
     }
   });
 }
@@ -1520,8 +1521,11 @@ function renderCompRows(sales) {
   return sales.map(c => `
     <div class="comp-row">
       <div class="comp-main">
-        <span class="comp-title" title="${c.title || ''}">${c.url ? `<a href="${c.url}" target="_blank" rel="noopener">${c.title || 'Sale'}</a>` : (c.title || 'Sale')}${c.source === 'manual' ? `<span class="manual-tag">manual</span><button class="comp-delete-btn" data-action="delete-comp" data-added-at="${c.added_at || ''}" title="Delete this comp">×</button>` : ''}</span>
-        <span class="comp-date">${c.date ? fmtDateDMY(c.date) : ''}</span>
+        <span class="comp-title" title="${(c.title || '').replace(/"/g, '&quot;')}">${c.url ? `<a href="${c.url}" target="_blank" rel="noopener">${c.title || 'Sale'}</a>` : (c.title || 'Sale')}</span>
+        <span class="comp-meta">
+          <span class="comp-date">${c.date ? fmtDateDMY(c.date) : ''}</span>
+          ${c.source === 'manual' ? `<span class="manual-tag">manual</span><button class="comp-delete-btn" data-action="delete-comp" data-added-at="${c.added_at || ''}" aria-label="Delete this comp" title="Delete this comp">${icon('x')}</button>` : ''}
+        </span>
       </div>
       <span class="comp-price">${fmtMoney(c.price)}</span>
     </div>`).join('');
@@ -1537,10 +1541,16 @@ function openModal(cardId) {
 }
 
 function closeModal() {
+  const wasOpen = openCardId;
   document.getElementById('modal-overlay').classList.remove('visible');
   document.getElementById('modal-panel').innerHTML = '';
   if (activeChart) { activeChart.destroy(); activeChart = null; }
   openCardId = null;
+  // return keyboard focus to the row that opened the sheet
+  if (wasOpen) {
+    const row = document.querySelector(`.card-row[data-card-id="${CSS.escape(wasOpen)}"]`);
+    if (row) row.focus({ preventScroll: true });
+  }
 }
 
 // Refreshes the open modal in place after a data change (comp added,
@@ -1551,6 +1561,9 @@ function refreshModalIfOpen() {
 
 document.getElementById('modal-overlay').addEventListener('click', (e) => {
   if (e.target.id === 'modal-overlay') closeModal();
+});
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && openCardId) closeModal();
 });
 
 function applyFiltersAndSort() {
@@ -1600,18 +1613,23 @@ async function init() {
   }
 }
 
-// ---------- list click: open a card's detail modal ----------
+// ---------- list: open a card's detail sheet (tap or keyboard) ----------
 document.getElementById('grid').addEventListener('click', (e) => {
   const row = e.target.closest('.card-row');
   if (!row) return;
   openModal(row.dataset.cardId);
 });
+document.getElementById('grid').addEventListener('keydown', (e) => {
+  if (e.key !== 'Enter' && e.key !== ' ') return;
+  const row = e.target.closest('.card-row');
+  if (!row) return;
+  e.preventDefault();
+  openModal(row.dataset.cardId);
+});
 
 // ---------- modal click: close / add-comp / delete (event delegation,
 // since the modal's innerHTML gets replaced wholesale on every open) ----------
-document.getElementById('modal-panel').addEventListener('click', async (e) => {
-  const btn = e.target.closest('[data-action]');
-  if (!btn) return;
+async function handleModalAction(btn) {
   const action = btn.dataset.action;
 
   if (action === 'close-modal') {
@@ -1631,6 +1649,8 @@ document.getElementById('modal-panel').addEventListener('click', async (e) => {
   } else if (action === 'show-add-comp') {
     document.querySelector('#modal-panel .add-comp-form').classList.add('visible');
     btn.style.display = 'none';
+    const first = document.querySelector('#modal-panel .mc-price');
+    if (first) first.focus();
   } else if (action === 'cancel-comp') {
     document.querySelector('#modal-panel .add-comp-form').classList.remove('visible');
     document.querySelector('#modal-panel [data-action="show-add-comp"]').style.display = '';
@@ -1639,6 +1659,19 @@ document.getElementById('modal-panel').addEventListener('click', async (e) => {
   } else if (action === 'delete-card') {
     await handleDeleteCard(btn, btn.dataset.cardId);
   }
+}
+document.getElementById('modal-panel').addEventListener('click', async (e) => {
+  const btn = e.target.closest('[data-action]');
+  if (!btn) return;
+  await handleModalAction(btn);
+});
+// Tree rows are divs with role="button" - let Enter/Space activate them too.
+document.getElementById('modal-panel').addEventListener('keydown', async (e) => {
+  if (e.key !== 'Enter' && e.key !== ' ') return;
+  const item = e.target.closest('.tree-item[data-action]');
+  if (!item) return;
+  e.preventDefault();
+  await handleModalAction(item);
 });
 
 // Tapping a tree item (e.g. "PSA 9") filters the comps list below to only
@@ -1655,14 +1688,16 @@ function handleFilterComps(btn) {
 
   document.getElementById('modal-comps-list').innerHTML = renderCompRows(entry.sales);
   const useAsPriceBtn = (!entry.isOwn && entry.value !== null)
-    ? `<button class="use-as-price-btn" data-action="set-price-override" data-tree-key="${key}">Use as my price</button>`
+    ? `<button class="secondary block" data-action="set-price-override" data-tree-key="${key}">Use ${entry.label} as my price</button>`
     : '';
   document.getElementById('modal-comps-filter').innerHTML = `
     <div class="comps-filter-bar">
-      Showing <strong>${entry.label}</strong> (${entry.sales.length})
-      <button class="clear-filter-btn" data-action="clear-comps-filter">× clear</button>
+      <span>Showing <strong>${entry.label}</strong> · <span class="mono">${entry.sales.length}</span></span>
+      <button class="text-btn" data-action="clear-comps-filter">Clear</button>
     </div>
     ${useAsPriceBtn}`;
+  const comps = document.querySelector('#modal-panel .comps');
+  if (comps) comps.open = true;
 }
 
 function handleClearCompsFilter() {
@@ -1680,7 +1715,7 @@ async function handleSetPriceOverride(btn) {
 
   if (!confirm(`Use ${entry.label} (${fmtMoney(entry.value)}) as this card's displayed price? The real breakdown still shows what your exact grade actually sold for - this just sets which number shows as the headline value, until you clear it.`)) return;
   if (!hasGithubConnection()) {
-    showToast('error', 'Connect GitHub first — open the Add Card page and fill in the connection settings.');
+    showToast('error', 'Connect GitHub first: open the Add card page and fill in the connection settings');
     return;
   }
 
@@ -1703,9 +1738,9 @@ async function handleSetPriceOverride(btn) {
     drawPortfolioChart(cardsData);
     applyFiltersAndSort();
     refreshModalIfOpen();
-    showToast('success', `Now pricing from ${entry.label}.`);
+    showToast('success', `Now pricing from ${entry.label}`);
   } catch (err) {
-    showToast('error', err.message || 'Failed to set price override.');
+    showToast('error', err.message || 'Failed to set price override');
     console.error(err);
   } finally {
     btn.disabled = false;
@@ -1714,7 +1749,7 @@ async function handleSetPriceOverride(btn) {
 
 async function handleClearPriceOverride(btn) {
   if (!hasGithubConnection()) {
-    showToast('error', 'Connect GitHub first — open the Add Card page and fill in the connection settings.');
+    showToast('error', 'Connect GitHub first: open the Add card page and fill in the connection settings');
     return;
   }
   btn.disabled = true;
@@ -1734,9 +1769,9 @@ async function handleClearPriceOverride(btn) {
     drawPortfolioChart(cardsData);
     applyFiltersAndSort();
     refreshModalIfOpen();
-    showToast('success', 'Back to your card\'s exact-grade price.');
+    showToast('success', 'Back to your exact-grade price');
   } catch (err) {
-    showToast('error', err.message || 'Failed to clear price override.');
+    showToast('error', err.message || 'Failed to clear price override');
     console.error(err);
   } finally {
     btn.disabled = false;
@@ -1746,12 +1781,12 @@ async function handleClearPriceOverride(btn) {
 async function handleDeleteComp(btn) {
   const addedAt = btn.dataset.addedAt;
   if (!addedAt) {
-    showToast('error', "Can't identify this comp to delete it - it may predate this feature.");
+    showToast('error', "Can't identify this comp to delete it. It may predate this feature.");
     return;
   }
   if (!confirm('Delete this manual comp? This only removes the comp, not the card itself.')) return;
   if (!hasGithubConnection()) {
-    showToast('error', 'Connect GitHub first — open the Add Card page and fill in the connection settings.');
+    showToast('error', 'Connect GitHub first: open the Add card page and fill in the connection settings');
     return;
   }
 
@@ -1765,7 +1800,7 @@ async function handleDeleteComp(btn) {
 
     const before = entry.manual_comps.length;
     entry.manual_comps = entry.manual_comps.filter(c => c.added_at !== addedAt);
-    if (entry.manual_comps.length === before) throw new Error('Comp not found — it may have already been removed.');
+    if (entry.manual_comps.length === before) throw new Error('Comp not found. It may have already been removed.');
 
     await putFile(DATA_PATH_REPO, utf8ToBase64(JSON.stringify(freshHistory, null, 2)),
       `Delete manual comp from ${openCardId}`, existing.sha);
@@ -1776,9 +1811,9 @@ async function handleDeleteComp(btn) {
     drawPortfolioChart(cardsData);
     applyFiltersAndSort();
     refreshModalIfOpen();
-    showToast('success', 'Comp deleted.');
+    showToast('success', 'Comp deleted');
   } catch (err) {
-    showToast('error', err.message || 'Failed to delete comp.');
+    showToast('error', err.message || 'Failed to delete comp');
     console.error(err);
   } finally {
     btn.disabled = false;
@@ -1793,18 +1828,18 @@ async function handleSearch130point(btn) {
   const query = btn.dataset.query || '';
   try {
     await navigator.clipboard.writeText(query);
-    showToast('success', `Copied "${query}" — paste it into 130point's search box.`);
+    showToast('success', `Copied "${query}". Paste it into 130point's search box.`);
   } catch (err) {
     // Clipboard access can be blocked (e.g. non-HTTPS context, permission
     // denied) - fall back to just telling them what to type themselves.
-    showToast('error', `Couldn't copy automatically — search for "${query}" on 130point.`);
+    showToast('error', `Couldn't copy automatically. Search for "${query}" on 130point.`);
   }
   window.open('https://130point.com/sales/', '_blank', 'noopener');
 }
 
 async function handleSaveComp(btn, cardId) {
   if (!hasGithubConnection()) {
-    showToast('error', 'Connect GitHub first — open the Add Card page and fill in the connection settings.');
+    showToast('error', 'Connect GitHub first: open the Add card page and fill in the connection settings');
     return;
   }
   const panel = document.getElementById('modal-panel');
@@ -1814,10 +1849,10 @@ async function handleSaveComp(btn, cardId) {
   const compTitle = panel.querySelector('.mc-title').value.trim();
   const url = panel.querySelector('.mc-url').value.trim();
 
-  if (!price || isNaN(price)) { showToast('error', 'Enter a valid price.'); return; }
-  if (!/^\d{4}-\d{2}-\d{2}$/.test(date)) { showToast('error', 'Date must be in YYYY-MM-DD format.'); return; }
+  if (!price || isNaN(price)) { showToast('error', 'Enter a valid price'); return; }
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(date)) { showToast('error', 'Date must be in YYYY-MM-DD format'); return; }
   if (!/^raw$/i.test(label) && /^\d+(\.\d)?$/.test(label)) {
-    showToast('error', `"${label}" needs a grading company — try "PSA ${label}" or "BGS ${label}".`);
+    showToast('error', `"${label}" needs a grading company. Try "PSA ${label}" or "BGS ${label}".`);
     return;
   }
 
@@ -1842,9 +1877,9 @@ async function handleSaveComp(btn, cardId) {
     drawPortfolioChart(cardsData);
     applyFiltersAndSort();
     refreshModalIfOpen();
-    showToast('success', 'Comp added.');
+    showToast('success', 'Comp added');
   } catch (err) {
-    showToast('error', err.message || 'Failed to save comp.');
+    showToast('error', err.message || 'Failed to save comp');
     console.error(err);
   } finally {
     btn.disabled = false;
@@ -1856,7 +1891,7 @@ async function handleDeleteCard(btn, cardId) {
   if (!confirm(`Delete ${label}? This removes it from your CSV and price history. Photos are left in place.`)) return;
 
   if (!hasGithubConnection()) {
-    showToast('error', 'Connect GitHub first — open the Add Card page and fill in the connection settings.');
+    showToast('error', 'Connect GitHub first: open the Add card page and fill in the connection settings');
     return;
   }
 
@@ -1897,9 +1932,9 @@ async function handleDeleteCard(btn, cardId) {
     drawPortfolioChart(cardsData);
     applyFiltersAndSort();
     closeModal();
-    showToast('success', `${label} deleted.`);
+    showToast('success', `${label} deleted`);
   } catch (err) {
-    showToast('error', err.message || 'Failed to delete card.');
+    showToast('error', err.message || 'Failed to delete card');
     console.error(err);
   } finally {
     btn.disabled = false;
@@ -1915,7 +1950,12 @@ init();
 (function(){
   var btn=document.getElementById('theme-toggle'); if(!btn) return;
   function cur(){return document.documentElement.getAttribute('data-theme')||'light';}
-  function paint(){btn.textContent=cur()==='dark'?'☀':'☾';btn.title=cur()==='dark'?'Switch to light':'Switch to dark';}
+  function paint(){
+    var dark=cur()==='dark';
+    btn.innerHTML=icon(dark?'sun':'moon');
+    btn.title=dark?'Switch to light':'Switch to dark';
+    btn.setAttribute('aria-label',btn.title);
+  }
   btn.addEventListener('click',function(){
     var n=cur()==='dark'?'light':'dark';
     document.documentElement.setAttribute('data-theme',n);
@@ -1927,14 +1967,13 @@ init();
 })();
 </script>
 <script>
+// Charts read colours at draw time, so redraw them in the new theme.
 window.onThemeChange=function(){
-  [typeof activeChart!=='undefined'?activeChart:null, typeof portfolioChart!=='undefined'?portfolioChart:null].forEach(function(c){
-    if(!c) return;
-    var ds=c.data.datasets[0]; if(!ds) return;
-    var vals=ds.data.filter(function(v){return v!==null&&v!==undefined;});
-    var up=vals.length<2||vals[vals.length-1]>=vals[0];
-    ds.borderColor=themeColor(up?'--up':'--down'); ds.backgroundColor=ds.borderColor+'1f'; c.update('none');
-  });
+  if(cardsData.length) drawPortfolioChart(cardsData);
+  if(openCardId){
+    var card=cardsData.find(function(c){return c.id===openCardId;});
+    if(card) drawModalChart(card);
+  }
 };
 </script>
 </body>
