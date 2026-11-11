@@ -5777,6 +5777,10 @@
             "label": "PSA 8"
           }
         ]
+      },
+      {
+        "date": "2026-11-11",
+        "pooled_sales": []
       }
     ],
     "manual_comps": [
@@ -8205,6 +8209,10 @@
             "label": "Raw"
           }
         ]
+      },
+      {
+        "date": "2026-11-11",
+        "pooled_sales": []
       }
     ],
     "value_override": {
@@ -18479,6 +18487,25 @@
             "label": "PSA 9"
           }
         ]
+      },
+      {
+        "date": "2026-11-11",
+        "pooled_sales": [
+          {
+            "price": 132.5,
+            "date": "2026-11-08",
+            "url": "https://www.ebay.com/itm/840094412528",
+            "title": "1995-96 Skybox Premium - Electrified Michael Jordan #278",
+            "label": "Raw"
+          },
+          {
+            "price": 617.49,
+            "date": "2026-11-08",
+            "url": "https://www.ebay.com/itm/267834646851",
+            "title": "Michael Jordan 1995-96 Skybox Premium #278 Electrified NBA Bulls GEM MINT 10",
+            "label": "Raw"
+          }
+        ]
       }
     ]
   },
@@ -25945,6 +25972,10 @@
       {
         "date": "2026-11-10",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-11-11",
+        "pooled_sales": []
       }
     ]
   },
@@ -28603,6 +28634,10 @@
       },
       {
         "date": "2026-11-10",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-11-11",
         "pooled_sales": []
       }
     ]
@@ -31908,6 +31943,10 @@
             "label": "Raw"
           }
         ]
+      },
+      {
+        "date": "2026-11-11",
+        "pooled_sales": []
       }
     ],
     "manual_comps": [
@@ -34079,6 +34118,10 @@
       },
       {
         "date": "2026-11-10",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-11-11",
         "pooled_sales": []
       }
     ]
@@ -37708,6 +37751,10 @@
       },
       {
         "date": "2026-11-10",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-11-11",
         "pooled_sales": []
       }
     ]
@@ -43265,6 +43312,10 @@
             "label": "Raw"
           }
         ]
+      },
+      {
+        "date": "2026-11-11",
+        "pooled_sales": []
       }
     ]
   },
@@ -46806,6 +46857,18 @@
       {
         "date": "2026-11-10",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-11-11",
+        "pooled_sales": [
+          {
+            "price": 11.5,
+            "date": "2026-11-08",
+            "url": "https://www.ebay.com/itm/137884789179",
+            "title": "MICHAEL JORDAN 1999-00 UPPER DECK MVP MJ EXCLUSIVES SILVER SCRIPT #199 RARE SP",
+            "label": "Raw"
+          }
+        ]
       }
     ]
   },
@@ -48598,6 +48661,10 @@
       {
         "date": "2026-11-10",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-11-11",
+        "pooled_sales": []
       }
     ]
   },
@@ -50389,6 +50456,10 @@
       },
       {
         "date": "2026-11-10",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-11-11",
         "pooled_sales": []
       }
     ]
@@ -53792,6 +53863,10 @@
       {
         "date": "2026-11-10",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-11-11",
+        "pooled_sales": []
       }
     ]
   },
@@ -56806,6 +56881,18 @@
       {
         "date": "2026-11-10",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-11-11",
+        "pooled_sales": [
+          {
+            "price": 28.01,
+            "date": "2026-11-09",
+            "url": "https://www.ebay.com/itm/267832812814",
+            "title": "Kobe Bryant Pump Up the Jam!!! #4 PJ 1998-99 NBA Hoops Black Mamba Lakers",
+            "label": "Raw"
+          }
+        ]
       }
     ]
   },
@@ -58738,6 +58825,10 @@
       {
         "date": "2026-11-10",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-11-11",
+        "pooled_sales": []
       }
     ]
   },
@@ -60001,6 +60092,10 @@
       {
         "date": "2026-11-10",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-11-11",
+        "pooled_sales": []
       }
     ]
   },
@@ -60723,6 +60818,10 @@
       },
       {
         "date": "2026-11-10",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-11-11",
         "pooled_sales": []
       }
     ],
@@ -61458,6 +61557,10 @@
       {
         "date": "2026-11-10",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-11-11",
+        "pooled_sales": []
       }
     ],
     "manual_comps": [
@@ -62192,6 +62295,10 @@
       {
         "date": "2026-11-10",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-11-11",
+        "pooled_sales": []
       }
     ]
   },
@@ -62915,6 +63022,10 @@
       {
         "date": "2026-11-10",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-11-11",
+        "pooled_sales": []
       }
     ]
   },
@@ -63637,6 +63748,10 @@
       },
       {
         "date": "2026-11-10",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-11-11",
         "pooled_sales": []
       }
     ],
@@ -64392,6 +64507,10 @@
       },
       {
         "date": "2026-11-10",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-11-11",
         "pooled_sales": []
       }
     ]
@@ -65430,6 +65549,18 @@
       {
         "date": "2026-11-10",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-11-11",
+        "pooled_sales": [
+          {
+            "price": 26.0,
+            "date": "2026-11-09",
+            "url": "https://www.ebay.com/itm/257833705218",
+            "title": "1998-99 SkyBox Premium Kobe Bryant Ninety Fine Insert #205 Lakers",
+            "label": "Raw"
+          }
+        ]
       }
     ]
   },
@@ -66153,6 +66284,10 @@
       {
         "date": "2026-11-10",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-11-11",
+        "pooled_sales": []
       }
     ]
   },
@@ -66875,6 +67010,10 @@
       },
       {
         "date": "2026-11-10",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-11-11",
         "pooled_sales": []
       }
     ]
@@ -71129,6 +71268,10 @@
       {
         "date": "2026-11-10",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-11-11",
+        "pooled_sales": []
       }
     ]
   },
@@ -71851,6 +71994,10 @@
       },
       {
         "date": "2026-11-10",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-11-11",
         "pooled_sales": []
       }
     ]
@@ -72885,6 +73032,10 @@
       },
       {
         "date": "2026-11-10",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-11-11",
         "pooled_sales": []
       }
     ]
@@ -74821,6 +74972,10 @@
       {
         "date": "2026-11-10",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-11-11",
+        "pooled_sales": []
       }
     ]
   },
@@ -75543,6 +75698,10 @@
       },
       {
         "date": "2026-11-10",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-11-11",
         "pooled_sales": []
       }
     ]
@@ -81923,6 +82082,25 @@
             "label": "PSA 9"
           }
         ]
+      },
+      {
+        "date": "2026-11-11",
+        "pooled_sales": [
+          {
+            "price": 27.0,
+            "date": "2026-11-09",
+            "url": "https://www.ebay.com/itm/377612981521",
+            "title": "1992-93 Topps #362 Shaquille O'Neal Magic RC Rookie HOF PSA 8 NM-MT",
+            "label": "PSA 8"
+          },
+          {
+            "price": 100.0,
+            "date": "2026-11-09",
+            "url": "https://www.ebay.com/itm/147661605533",
+            "title": "1992-93 Topps - Shaquille O'Neal #362 Gold (RC)",
+            "label": "Raw"
+          }
+        ]
       }
     ]
   },
@@ -82645,6 +82823,10 @@
       },
       {
         "date": "2026-11-10",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-11-11",
         "pooled_sales": []
       }
     ]
@@ -83376,6 +83558,10 @@
       },
       {
         "date": "2026-11-10",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-11-11",
         "pooled_sales": []
       }
     ],
@@ -84231,6 +84417,10 @@
       {
         "date": "2026-11-10",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-11-11",
+        "pooled_sales": []
       }
     ]
   },
@@ -84971,6 +85161,10 @@
       },
       {
         "date": "2026-11-10",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-11-11",
         "pooled_sales": []
       }
     ]
@@ -86865,6 +87059,10 @@
       {
         "date": "2026-11-10",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-11-11",
+        "pooled_sales": []
       }
     ],
     "manual_comps": [
@@ -88269,6 +88467,10 @@
       {
         "date": "2026-11-10",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-11-11",
+        "pooled_sales": []
       }
     ]
   },
@@ -88839,6 +89041,18 @@
             "date": "2026-11-08",
             "url": "https://www.ebay.com/itm/128170803883",
             "title": "1995-96 Skybox Premium Shaquille O'Neal Electrified #293 Magic",
+            "label": "Raw"
+          }
+        ]
+      },
+      {
+        "date": "2026-11-11",
+        "pooled_sales": [
+          {
+            "price": 13.5,
+            "date": "2026-11-08",
+            "url": "https://www.ebay.com/itm/800859864893",
+            "title": "1995-96 Skybox Premium - Electrified Shaquille O'Neal #293",
             "label": "Raw"
           }
         ]
@@ -92954,6 +93168,10 @@
       {
         "date": "2026-11-10",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-11-11",
+        "pooled_sales": []
       }
     ],
     "manual_comps": [
@@ -94788,6 +95006,10 @@
             "label": "PSA 8"
           }
         ]
+      },
+      {
+        "date": "2026-11-11",
+        "pooled_sales": []
       }
     ],
     "manual_comps": [
@@ -95110,6 +95332,10 @@
       },
       {
         "date": "2026-11-10",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-11-11",
         "pooled_sales": []
       }
     ],
@@ -95653,6 +95879,10 @@
             "label": "Raw"
           }
         ]
+      },
+      {
+        "date": "2026-11-11",
+        "pooled_sales": []
       }
     ]
   },
@@ -96399,6 +96629,10 @@
       {
         "date": "2026-11-10",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-11-11",
+        "pooled_sales": []
       }
     ],
     "manual_comps": [
@@ -97132,6 +97366,10 @@
       },
       {
         "date": "2026-11-10",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-11-11",
         "pooled_sales": []
       }
     ]
@@ -98047,6 +98285,10 @@
       {
         "date": "2026-11-10",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-11-11",
+        "pooled_sales": []
       }
     ]
   },
@@ -98769,6 +99011,10 @@
       },
       {
         "date": "2026-11-10",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-11-11",
         "pooled_sales": []
       }
     ],
@@ -99541,6 +99787,10 @@
       },
       {
         "date": "2026-11-10",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-11-11",
         "pooled_sales": []
       }
     ],
