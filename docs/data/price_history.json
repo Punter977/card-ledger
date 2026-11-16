@@ -5812,6 +5812,10 @@
       {
         "date": "2026-11-15",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-11-16",
+        "pooled_sales": []
       }
     ],
     "manual_comps": [
@@ -8259,6 +8263,10 @@
       },
       {
         "date": "2026-11-15",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-11-16",
         "pooled_sales": []
       }
     ],
@@ -18599,6 +18607,10 @@
       {
         "date": "2026-11-15",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-11-16",
+        "pooled_sales": []
       }
     ]
   },
@@ -26093,6 +26105,10 @@
       {
         "date": "2026-11-15",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-11-16",
+        "pooled_sales": []
       }
     ]
   },
@@ -28771,6 +28787,10 @@
       },
       {
         "date": "2026-11-15",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-11-16",
         "pooled_sales": []
       }
     ]
@@ -32096,6 +32116,10 @@
       {
         "date": "2026-11-15",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-11-16",
+        "pooled_sales": []
       }
     ],
     "manual_comps": [
@@ -34287,6 +34311,10 @@
       },
       {
         "date": "2026-11-15",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-11-16",
         "pooled_sales": []
       }
     ]
@@ -37936,6 +37964,10 @@
       },
       {
         "date": "2026-11-15",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-11-16",
         "pooled_sales": []
       }
     ]
@@ -43513,6 +43545,10 @@
       {
         "date": "2026-11-15",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-11-16",
+        "pooled_sales": []
       }
     ]
   },
@@ -47082,6 +47118,10 @@
       {
         "date": "2026-11-15",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-11-16",
+        "pooled_sales": []
       }
     ]
   },
@@ -48894,6 +48934,10 @@
       {
         "date": "2026-11-15",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-11-16",
+        "pooled_sales": []
       }
     ]
   },
@@ -50705,6 +50749,10 @@
       },
       {
         "date": "2026-11-15",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-11-16",
         "pooled_sales": []
       }
     ]
@@ -54128,6 +54176,10 @@
       {
         "date": "2026-11-15",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-11-16",
+        "pooled_sales": []
       }
     ]
   },
@@ -57170,6 +57222,10 @@
       {
         "date": "2026-11-15",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-11-16",
+        "pooled_sales": []
       }
     ]
   },
@@ -59122,6 +59178,10 @@
       {
         "date": "2026-11-15",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-11-16",
+        "pooled_sales": []
       }
     ]
   },
@@ -60405,6 +60465,10 @@
       {
         "date": "2026-11-15",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-11-16",
+        "pooled_sales": []
       }
     ]
   },
@@ -61147,6 +61211,10 @@
       },
       {
         "date": "2026-11-15",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-11-16",
         "pooled_sales": []
       }
     ],
@@ -61902,6 +61970,10 @@
       {
         "date": "2026-11-15",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-11-16",
+        "pooled_sales": []
       }
     ],
     "manual_comps": [
@@ -62656,6 +62728,10 @@
       {
         "date": "2026-11-15",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-11-16",
+        "pooled_sales": []
       }
     ]
   },
@@ -63399,6 +63475,10 @@
       {
         "date": "2026-11-15",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-11-16",
+        "pooled_sales": []
       }
     ]
   },
@@ -64141,6 +64221,10 @@
       },
       {
         "date": "2026-11-15",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-11-16",
         "pooled_sales": []
       }
     ],
@@ -64916,6 +65000,10 @@
       },
       {
         "date": "2026-11-15",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-11-16",
         "pooled_sales": []
       }
     ]
@@ -65982,6 +66070,18 @@
       {
         "date": "2026-11-15",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-11-16",
+        "pooled_sales": [
+          {
+            "price": 6.77,
+            "date": "2026-11-14",
+            "url": "https://www.ebay.com/itm/800912804029",
+            "title": "SkyBox 1998-99 SkyBox Premium Ninety Fine Insert #205 Kobe Bryant Lakers",
+            "label": "Raw"
+          }
+        ]
       }
     ]
   },
@@ -66725,6 +66825,10 @@
       {
         "date": "2026-11-15",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-11-16",
+        "pooled_sales": []
       }
     ]
   },
@@ -67467,6 +67571,10 @@
       },
       {
         "date": "2026-11-15",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-11-16",
         "pooled_sales": []
       }
     ]
@@ -71749,6 +71857,18 @@
       {
         "date": "2026-11-15",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-11-16",
+        "pooled_sales": [
+          {
+            "price": 2300.0,
+            "date": "2026-11-15",
+            "url": "https://goldin.co/item/1991-92-fleer-3d-29-michael-jordan-bgs-nm-mt-8-5utixl",
+            "title": "1991-92 Fleer 3D Acrylic Wrapper Redemption #29 Michael Jordan - BGS NM-MT+ 8.5",
+            "label": "Raw"
+          }
+        ]
       }
     ]
   },
@@ -72491,6 +72611,10 @@
       },
       {
         "date": "2026-11-15",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-11-16",
         "pooled_sales": []
       }
     ]
@@ -73545,6 +73669,10 @@
       },
       {
         "date": "2026-11-15",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-11-16",
         "pooled_sales": []
       }
     ]
@@ -75501,6 +75629,10 @@
       {
         "date": "2026-11-15",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-11-16",
+        "pooled_sales": []
       }
     ]
   },
@@ -76243,6 +76375,10 @@
       },
       {
         "date": "2026-11-15",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-11-16",
         "pooled_sales": []
       }
     ]
@@ -82718,6 +82854,32 @@
             "label": "Raw"
           }
         ]
+      },
+      {
+        "date": "2026-11-16",
+        "pooled_sales": [
+          {
+            "price": 24.99,
+            "date": "2026-11-14",
+            "url": "https://www.ebay.com/itm/147644163901",
+            "title": "1992-93 Topps - Shaquille O'Neal #362 (RC) PSA 8",
+            "label": "PSA 8"
+          },
+          {
+            "price": 1655.0,
+            "date": "2026-11-13",
+            "url": "https://goldin.co/item/1992-93-topps-gold-362-shaquille-o-neal-rookie-card-psa-gem-mt-10x6bls",
+            "title": "1992-93 Topps Gold #362 Shaquille O'Neal Rookie Card - PSA GEM MT 10",
+            "label": "Raw"
+          },
+          {
+            "price": 5.5,
+            "date": "2026-11-13",
+            "url": "https://www.ebay.com/itm/940069097578",
+            "title": "SHAQUILLE O'NEAL 1992-93 TOPPS 92 DRAFT PICK ROOKIE RC #362 MAGIC C Q2885",
+            "label": "Raw"
+          }
+        ]
       }
     ]
   },
@@ -83460,6 +83622,10 @@
       },
       {
         "date": "2026-11-15",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-11-16",
         "pooled_sales": []
       }
     ]
@@ -84211,6 +84377,10 @@
       },
       {
         "date": "2026-11-15",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-11-16",
         "pooled_sales": []
       }
     ],
@@ -85086,6 +85256,10 @@
       {
         "date": "2026-11-15",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-11-16",
+        "pooled_sales": []
       }
     ]
   },
@@ -85846,6 +86020,10 @@
       },
       {
         "date": "2026-11-15",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-11-16",
         "pooled_sales": []
       }
     ]
@@ -87760,6 +87938,10 @@
       {
         "date": "2026-11-15",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-11-16",
+        "pooled_sales": []
       }
     ],
     "manual_comps": [
@@ -89192,6 +89374,10 @@
       {
         "date": "2026-11-15",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-11-16",
+        "pooled_sales": []
       }
     ]
   },
@@ -89793,6 +89979,18 @@
       {
         "date": "2026-11-15",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-11-16",
+        "pooled_sales": [
+          {
+            "price": 9.99,
+            "date": "2026-11-13",
+            "url": "https://www.ebay.com/itm/117508152792",
+            "title": "1995-96 Skybox Premium - Electrified Shaquille O'Neal #293",
+            "label": "Raw"
+          }
+        ]
       }
     ]
   },
@@ -93925,6 +94123,10 @@
       {
         "date": "2026-11-15",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-11-16",
+        "pooled_sales": []
       }
     ],
     "manual_comps": [
@@ -95779,6 +95981,10 @@
       {
         "date": "2026-11-15",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-11-16",
+        "pooled_sales": []
       }
     ],
     "manual_comps": [
@@ -96121,6 +96327,10 @@
       },
       {
         "date": "2026-11-15",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-11-16",
         "pooled_sales": []
       }
     ],
@@ -96683,6 +96893,10 @@
       },
       {
         "date": "2026-11-15",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-11-16",
         "pooled_sales": []
       }
     ]
@@ -97450,6 +97664,18 @@
       {
         "date": "2026-11-15",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-11-16",
+        "pooled_sales": [
+          {
+            "price": 905.0,
+            "date": "2026-11-13",
+            "url": "https://goldin.co/item/1996-97-bowmans-best-rookies-r23-kobe-bryant-rookie-card-psa-gem-mt-10hbjkm",
+            "title": "1996-97 Bowmans Best Rookies #R23 Kobe Bryant Rookie Card - PSA GEM MT 10",
+            "label": "Raw"
+          }
+        ]
       }
     ],
     "manual_comps": [
@@ -98203,6 +98429,10 @@
       },
       {
         "date": "2026-11-15",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-11-16",
         "pooled_sales": []
       }
     ]
@@ -99146,6 +99376,18 @@
       {
         "date": "2026-11-15",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-11-16",
+        "pooled_sales": [
+          {
+            "price": 1800.0,
+            "date": "2026-11-13",
+            "url": "https://www.ebay.com/itm/147678437642",
+            "title": "2020-21 Panini NBA Hoops Slam Kobe Bryant Winter Parallel #19 PSA 10",
+            "label": "PSA 10"
+          }
+        ]
       }
     ]
   },
@@ -99888,6 +100130,10 @@
       },
       {
         "date": "2026-11-15",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-11-16",
         "pooled_sales": []
       }
     ],
@@ -100681,6 +100927,18 @@
       {
         "date": "2026-11-15",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-11-16",
+        "pooled_sales": [
+          {
+            "price": 22000.0,
+            "date": "2026-11-15",
+            "url": "https://goldin.co/item/2006-e-x-essential-credentials-future-4-michael-jordan-04-77-bgs-gem-mrvunc",
+            "title": "2006-07 Fleer E-X Essential Credentials Future #4 Michael Jordan (#04/77) - BGS GEM MINT 9.5 ",
+            "label": "Raw"
+          }
+        ]
       }
     ],
     "manual_comps": [
