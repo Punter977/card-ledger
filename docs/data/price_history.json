@@ -5852,6 +5852,10 @@
             "label": "Raw"
           }
         ]
+      },
+      {
+        "date": "2026-11-24",
+        "pooled_sales": []
       }
     ],
     "manual_comps": [
@@ -8331,6 +8335,10 @@
       },
       {
         "date": "2026-11-23",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-11-24",
         "pooled_sales": []
       }
     ],
@@ -18743,6 +18751,25 @@
             "label": "Raw"
           }
         ]
+      },
+      {
+        "date": "2026-11-24",
+        "pooled_sales": [
+          {
+            "price": 92.0,
+            "date": "2026-11-23",
+            "url": "https://www.ebay.com/itm/377653495858",
+            "title": "1995-96 Skybox Premium Michael Jordan Electrified #278 Bulls",
+            "label": "Raw"
+          },
+          {
+            "price": 91.0,
+            "date": "2026-11-23",
+            "url": "https://www.ebay.com/itm/377654292480",
+            "title": "1995-96 Skybox Premium Michael Jordan Electrified #278 Bulls",
+            "label": "Raw"
+          }
+        ]
       }
     ]
   },
@@ -26277,6 +26304,18 @@
       {
         "date": "2026-11-23",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-11-24",
+        "pooled_sales": [
+          {
+            "price": 10.25,
+            "date": "2026-11-22",
+            "url": "https://www.ebay.com/itm/377651744854",
+            "title": "1993-94 Fleer Ultra Michael Jordan #30 Bulls",
+            "label": "Raw"
+          }
+        ]
       }
     ]
   },
@@ -28995,6 +29034,10 @@
       },
       {
         "date": "2026-11-23",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-11-24",
         "pooled_sales": []
       }
     ]
@@ -32352,6 +32395,10 @@
       {
         "date": "2026-11-23",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-11-24",
+        "pooled_sales": []
       }
     ],
     "manual_comps": [
@@ -34575,6 +34622,10 @@
       },
       {
         "date": "2026-11-23",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-11-24",
         "pooled_sales": []
       }
     ]
@@ -38256,6 +38307,10 @@
       },
       {
         "date": "2026-11-23",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-11-24",
         "pooled_sales": []
       }
     ]
@@ -43881,6 +43936,10 @@
             "label": "Raw"
           }
         ]
+      },
+      {
+        "date": "2026-11-24",
+        "pooled_sales": []
       }
     ]
   },
@@ -47482,6 +47541,10 @@
       {
         "date": "2026-11-23",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-11-24",
+        "pooled_sales": []
       }
     ]
   },
@@ -49326,6 +49389,10 @@
       {
         "date": "2026-11-23",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-11-24",
+        "pooled_sales": []
       }
     ]
   },
@@ -51169,6 +51236,10 @@
       },
       {
         "date": "2026-11-23",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-11-24",
         "pooled_sales": []
       }
     ]
@@ -54624,6 +54695,10 @@
       {
         "date": "2026-11-23",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-11-24",
+        "pooled_sales": []
       }
     ]
   },
@@ -57722,6 +57797,10 @@
       {
         "date": "2026-11-23",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-11-24",
+        "pooled_sales": []
       }
     ]
   },
@@ -59706,6 +59785,10 @@
       {
         "date": "2026-11-23",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-11-24",
+        "pooled_sales": []
       }
     ]
   },
@@ -61021,6 +61104,10 @@
       {
         "date": "2026-11-23",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-11-24",
+        "pooled_sales": []
       }
     ]
   },
@@ -61791,6 +61878,10 @@
       },
       {
         "date": "2026-11-23",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-11-24",
         "pooled_sales": []
       }
     ],
@@ -62578,6 +62669,10 @@
       {
         "date": "2026-11-23",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-11-24",
+        "pooled_sales": []
       }
     ],
     "manual_comps": [
@@ -63360,6 +63455,10 @@
       {
         "date": "2026-11-23",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-11-24",
+        "pooled_sales": []
       }
     ]
   },
@@ -64135,6 +64234,10 @@
       {
         "date": "2026-11-23",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-11-24",
+        "pooled_sales": []
       }
     ]
   },
@@ -64905,6 +65008,10 @@
       },
       {
         "date": "2026-11-23",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-11-24",
         "pooled_sales": []
       }
     ],
@@ -65712,6 +65819,10 @@
       },
       {
         "date": "2026-11-23",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-11-24",
         "pooled_sales": []
       }
     ]
@@ -66856,6 +66967,10 @@
             "label": "Raw"
           }
         ]
+      },
+      {
+        "date": "2026-11-24",
+        "pooled_sales": []
       }
     ]
   },
@@ -67631,6 +67746,10 @@
       {
         "date": "2026-11-23",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-11-24",
+        "pooled_sales": []
       }
     ]
   },
@@ -68401,6 +68520,10 @@
       },
       {
         "date": "2026-11-23",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-11-24",
         "pooled_sales": []
       }
     ]
@@ -72747,6 +72870,18 @@
       {
         "date": "2026-11-23",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-11-24",
+        "pooled_sales": [
+          {
+            "price": 19.01,
+            "date": "2026-11-22",
+            "url": "https://www.ebay.com/itm/366802391865",
+            "title": "1991-92 Fleer: # 29 Michael Jordan NM-MT OR BETTER",
+            "label": "Raw"
+          }
+        ]
       }
     ]
   },
@@ -73521,6 +73656,10 @@
       },
       {
         "date": "2026-11-23",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-11-24",
         "pooled_sales": []
       }
     ]
@@ -74611,6 +74750,10 @@
       },
       {
         "date": "2026-11-23",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-11-24",
         "pooled_sales": []
       }
     ]
@@ -76595,6 +76738,10 @@
       {
         "date": "2026-11-23",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-11-24",
+        "pooled_sales": []
       }
     ]
   },
@@ -77369,6 +77516,10 @@
       },
       {
         "date": "2026-11-23",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-11-24",
         "pooled_sales": []
       }
     ]
@@ -83957,6 +84108,18 @@
             "label": "Raw"
           }
         ]
+      },
+      {
+        "date": "2026-11-24",
+        "pooled_sales": [
+          {
+            "price": 7.99,
+            "date": "2026-11-23",
+            "url": "https://www.ebay.com/itm/336909691018",
+            "title": "1992-93 Topps #362 Shaquille O'Neal",
+            "label": "Raw"
+          }
+        ]
       }
     ]
   },
@@ -84727,6 +84890,10 @@
       },
       {
         "date": "2026-11-23",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-11-24",
         "pooled_sales": []
       }
     ]
@@ -85510,6 +85677,10 @@
       },
       {
         "date": "2026-11-23",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-11-24",
         "pooled_sales": []
       }
     ],
@@ -86417,6 +86588,10 @@
       {
         "date": "2026-11-23",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-11-24",
+        "pooled_sales": []
       }
     ]
   },
@@ -87205,6 +87380,10 @@
       },
       {
         "date": "2026-11-23",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-11-24",
         "pooled_sales": []
       }
     ]
@@ -89159,6 +89338,10 @@
       {
         "date": "2026-11-23",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-11-24",
+        "pooled_sales": []
       }
     ],
     "manual_comps": [
@@ -90631,6 +90814,10 @@
       {
         "date": "2026-11-23",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-11-24",
+        "pooled_sales": []
       }
     ]
   },
@@ -91280,6 +91467,25 @@
       {
         "date": "2026-11-23",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-11-24",
+        "pooled_sales": [
+          {
+            "price": 19.5,
+            "date": "2026-11-22",
+            "url": "https://www.ebay.com/itm/168856066093",
+            "title": "SkyBox 1995-96 SkyBox Premium Electrified Shaquille O'Neal #293 Magic",
+            "label": "Raw"
+          },
+          {
+            "price": 20.0,
+            "date": "2026-11-21",
+            "url": "https://www.ebay.com/itm/880117454837",
+            "title": "1995-96 Skybox Premium - Electrified Shaquille O'Neal #293",
+            "label": "Raw"
+          }
+        ]
       }
     ]
   },
@@ -95444,6 +95650,10 @@
       {
         "date": "2026-11-23",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-11-24",
+        "pooled_sales": []
       }
     ],
     "manual_comps": [
@@ -97330,6 +97540,10 @@
       {
         "date": "2026-11-23",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-11-24",
+        "pooled_sales": []
       }
     ],
     "manual_comps": [
@@ -97704,6 +97918,10 @@
       },
       {
         "date": "2026-11-23",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-11-24",
         "pooled_sales": []
       }
     ],
@@ -98314,6 +98532,10 @@
       },
       {
         "date": "2026-11-23",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-11-24",
         "pooled_sales": []
       }
     ]
@@ -99129,6 +99351,10 @@
       {
         "date": "2026-11-23",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-11-24",
+        "pooled_sales": []
       }
     ],
     "manual_comps": [
@@ -99910,6 +100136,10 @@
       },
       {
         "date": "2026-11-23",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-11-24",
         "pooled_sales": []
       }
     ]
@@ -100901,6 +101131,10 @@
       {
         "date": "2026-11-23",
         "pooled_sales": []
+      },
+      {
+        "date": "2026-11-24",
+        "pooled_sales": []
       }
     ]
   },
@@ -101675,6 +101909,10 @@
       },
       {
         "date": "2026-11-23",
+        "pooled_sales": []
+      },
+      {
+        "date": "2026-11-24",
         "pooled_sales": []
       }
     ],
@@ -102516,6 +102754,10 @@
             "label": "BGS 9"
           }
         ]
+      },
+      {
+        "date": "2026-11-24",
+        "pooled_sales": []
       }
     ],
     "manual_comps": [
